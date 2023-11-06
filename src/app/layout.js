@@ -1,7 +1,14 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import MainLayout from "@/components/MainLayout";
+import localFont from 'next/font/local'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const satoshi = localFont({
+    src: '../fonts/Satoshi-Regular.ttf',
+    display: 'swap',
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +18,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={ satoshi.className +" dark:bg-gray-900 dark:text-white"}>
+        <MainLayout>
+          {children}
+        </MainLayout>
+      </body>
     </html>
   )
 }
