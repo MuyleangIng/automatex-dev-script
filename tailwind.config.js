@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // generate from https://coolors.co/27ca7a-effbf9-e3f09b-87b6a7-5b5941
         'cyan': {
           50: '#41DC91',
           100: '#30D987',
