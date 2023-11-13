@@ -1,53 +1,55 @@
 // Import necessary modules
 import React from 'react';
-import { Button, Navbar } from 'flowbite-react';
+import {Button, Navbar} from 'flowbite-react';
 import Link from 'next/link';
 import {usePathname, useRouter} from "next/navigation";
+import {FaUserPlus} from "react-icons/fa";
+import {IoLogInOutline} from "react-icons/io5";
 
 // Define the HandleNavbar component
 function HandleNavbar() {
     const router = useRouter()
     const pathname = usePathname();
 
-  if (
-      pathname ===  "/login" ||
-      pathname === "/signup"
-  ){
-      return null;
-  }
-    return (
-        <Navbar fluid rounded className="sticky top-0 z-50">
-            <Navbar.Brand href="/" as={Link}>
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">AutomateX</span>
+    return (<Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
+            <Navbar.Brand>
+                <img
+                    unoptimized
+                    width={100}
+                    height={100}
+                    alt="Logo"
+                    className=" w-14 h-14 object-contain"
+                    src="/mainlogo.png"
+                />
+                <span className="self-center text-xl font-bold whitespace-nowrap">
+                    <span className="text-orange-100">Automate</span>
+                    <span className="text-cool-blue-100">X</span>
+                </span>
+
             </Navbar.Brand>
-
-            {/* Navbar items */}
-            <div className="flex md:order-2 space-x-3">
-                {/* Sign Up Button */}
-                <button onClick={() => router.push("/signup")}
-                        type="button" className="focus:outline-none text-white bg-orange-200 hover:bg-orange-100 focus:ring-4 focus:ring-orange-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">SignUp</button>
-
-                {/* Login Button */}
-                <button
-                    onClick={() => router.push("/login")}
-                    type="button" className="text-cool-blue-300 hover:text-white border border-cool-blue-150 hover:bg-cool-blue-200 focus:ring-4 focus:outline-none focus:ring-cool-blue-80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Login</button>
-
-                {/* Navbar Toggle for small screens */}
-                <Navbar.Toggle />
+            <div className={"flex items-center gap-2 flex md:order-2"}>
+                <Button className={"bg-orange-100"} onClick={() => router.push("/sign-up")}>
+                   <span className={"lg:px-3 uppercase  flex gap-2"}>
+                      <FaUserPlus className="h-5 w-5"/>
+                       <span className={"hidden lg:inline"}>Sign Up</span>
+                   </span>
+                </Button>
+                <Button className={"bg-orange-100"} outline onClick={() => router.push("/sign-in")}>
+                    <span className={"lg:px-3 uppercase flex gap-2"}>
+                        <IoLogInOutline className="h-5 w-5"/>
+                        <span className={"hidden lg:inline"}>Sign In</span>
+                    </span>
+                </Button>
+                <Navbar.Toggle/>
             </div>
-
-            {/* Navbar.Collapse for smaller screens */}
             <Navbar.Collapse>
-                <Navbar.Link href="#" active>
-                    Home
-                </Navbar.Link>
-                <Navbar.Link href="#">Feature & Service</Navbar.Link>
-                <Navbar.Link href="#">Document</Navbar.Link>
-                <Navbar.Link href="#">Start building</Navbar.Link>
-                <Navbar.Link href="#">About us</Navbar.Link>
+                <Navbar.Link className={`font-normal text-lg `} href="#">Home</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">About</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Services</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Pricing</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Contact</Navbar.Link>
             </Navbar.Collapse>
-        </Navbar>
-    );
+        </Navbar>);
 }
 
 export default HandleNavbar;

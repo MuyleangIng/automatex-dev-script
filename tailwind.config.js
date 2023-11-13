@@ -29,6 +29,17 @@ module.exports = {
 
         }
       },
+      fontWeight: {
+        hairline: '100',
+        extralight: '200',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold : '800',
+        black: '900'
+      },
       fontFamily: {
         'sans': ['Satoshi-Medium','Satoshi-Bold', ...defaultTheme.fontFamily.sans],
         'satoshi': ['satoshi', 'sans-serif'],
@@ -37,7 +48,7 @@ module.exports = {
         sm: ['16px', '22px'],
         base: ['16px', '24px'],
         lg: ['20px', '28px'],
-        xl: ['24px', '32px'],
+        xl: ['28px', '32px'],
       }
     }
   },
