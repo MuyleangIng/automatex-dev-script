@@ -9,21 +9,18 @@ function HeroSection() {
             <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
                     <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
-                        <span className="text-blue-900 block mb-8">Say Goodbye </span>
-                        <span className="text-blue-900">To <span className="text-cyan-200">Manual.</span></span>
+                        <span className="text-orange-50 block mb-8">Say Goodbye </span>
+                        <span className="text-orange-50">To <span className="text-cool-blue-300">Manual.</span></span>
                     </h1>
                     <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 mt-5">
                         At AutomateX we're on a mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual tasks.
                     </p>
-                    <button type="button" className="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Subscribe
-                    </button>
-
+                    <button type="button" className="focus:outline-none text-white bg-orange-150 hover:bg-orange-100 focus:ring-4 focus:ring-orange-80 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Subscribe</button>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <img src="/images/HeroSection.png" alt="mockup" className="w-full h-auto object-cover" />
                 </div>
-                <div className="mt-4 ml-4 absolute -left-48 top-96">
+                <div className="mt-4 ml-4 absolute -left-1 top-96">
                     <svg
                         width="490"
                         height="589"
@@ -35,8 +32,8 @@ function HeroSection() {
                         <path d="M-211.503 587.924C-259.073 561.958 -355.043 496.229 -358.36 441.039C-362.507 372.051 -345.253 348.941 -375.186 306.521C-405.119 264.1 -443.368 223.361 -318.572 175.616C-193.776 127.871 -187.485 113.326 -136.595 102.457C-85.7042 91.5876 50.6413 -50.2482 50.0224 20.8574C49.4035 91.963 -17.8661 218.658 141.5 153.534C168.097 142.384 388.768 -3.31184 489 127.034" stroke="url(#paint0_linear_293_1273)" stroke-width="2"/>
                         <defs>
                             <linearGradient id="paint0_linear_293_1273" x1="-139.634" y1="618.177" x2="-297.475" y2="-142.058" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#36E6D5"/>
-                                <stop offset="1" stop-color="#29E871"/>
+                                <stop stop-color="#FFB621"/>
+                                <stop offset="1" stop-color="#FFB621"/>
                             </linearGradient>
                         </defs>
                     </svg>
@@ -46,7 +43,7 @@ function HeroSection() {
             {/*Feature Section */}
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 className="max-w-lg mb-6 text-3xl font-extrabold text-blue-900 sm:text-4xl md:mx-auto block whitespace-nowrap">
+                    <h2 className="max-w-lg mb-6 text-3xl font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
                         Explore The Benefit of The Features
                     </h2>
                     <p className=" text-base text-gray-700 md:text-lg">
@@ -57,14 +54,14 @@ function HeroSection() {
                     <div className=" flex flex-col justify-between p-5 bg-emerald-50 border-b-cyan-50 rounded-md shadow-0">
                         <div>
                             <div className=" flex items-center justify-center w-16 h-16 mb-4 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-emerald-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
 
                             </div>
-                            <h6 className="mb-2 font-bold text-lg text-blue-900 ">Integrated Platform </h6>
-                            <p className="mb-7 text-sm text-blue-900">
+                            <h6 className="mb-2 font-bold text-lg text-cool-blue-100 ">Integrated Platform </h6>
+                            <p className="mb-7 text-sm text-gray-500">
                                 A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.
                             </p>
                         </div>
@@ -72,13 +69,13 @@ function HeroSection() {
                     <div className="flex flex-col justify-between p-5 bg-slate-50 border-b-cyan-50 rounded-md shadow-0">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-emerald-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                                 </svg>
 
                             </div>
-                            <h6 className="mb-2 font-bold text-lg text-blue-900">Personal Dashboard</h6>
-                            <p className="mb-7 text-sm text-blue-900">
+                            <h6 className="mb-2 font-bold text-lg text-cool-blue-100">Personal Dashboard</h6>
+                            <p className="mb-7 text-sm text-gray-500">
                                 Rough pomfret lemon shark plownose chimaera southern sandfish kokanee northern sea.
                             </p>
                         </div>
@@ -86,12 +83,12 @@ function HeroSection() {
                     <div className="flex flex-col justify-between p-5 bg-emerald-50 border-b-cyan-50 rounded-md shadow-0">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-emerald-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                                 </svg>
                             </div>
-                            <h6 className="mb-2 font-bold text-lg text-blue-900 ">Organically grow</h6>
-                            <p className="mb-7 text-sm text-blue-900">
+                            <h6 className="mb-2 font-bold text-lg text-cool-blue-100 ">Organically grow</h6>
+                            <p className="mb-7 text-sm text-gray-500">
                                 A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.
                             </p>
                         </div>
@@ -101,7 +98,7 @@ function HeroSection() {
 
             {/*Service Section */}
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                <h2 className="max-w-lg mb-6 text-4xl font-extrabold text-blue-900 sm:text-4xl md:mx-auto block whitespace-nowrap">
+                <h2 className="max-w-lg mb-6 text-4xl font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
                     Service
                 </h2>
             </div>

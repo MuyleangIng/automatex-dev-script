@@ -11,7 +11,7 @@ function HeadingBar() {
         return null;
     }
     return(
-        <div id="banner" tabIndex="-1" className="z-50 sticky top-0 flex justify-center w-full px-4 py-3 border border-b border-gray-200 bg-yellow-300 dark:border-gray-600 lg:py-4 dark:bg-gray-700">
+        <div id="banner" tabIndex="-1" className="z-50 sticky top-0 flex justify-center w-full px-4 py-3 border border-b border-gray-200 bg-orange-100 dark:border-gray-600 lg:py-4 dark:bg-gray-700">
             <div className="items-center md:flex">
                 <p className="text-sm font-medium text-gray-900 md:my-0 dark:text-white">
                     <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 hidden md:inline">New</span>

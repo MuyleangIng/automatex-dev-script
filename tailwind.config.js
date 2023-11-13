@@ -30,7 +30,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['Satoshi-Regular', ...defaultTheme.fontFamily.sans],
+        'sans': ['Satoshi-Medium','Satoshi-Bold', ...defaultTheme.fontFamily.sans],
         'satoshi': ['satoshi', 'sans-serif'],
       },
       fontSize: {

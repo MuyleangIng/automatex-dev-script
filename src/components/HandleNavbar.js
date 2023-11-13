@@ -24,24 +24,13 @@ function HandleNavbar() {
             {/* Navbar items */}
             <div className="flex md:order-2 space-x-3">
                 {/* Sign Up Button */}
-                <button
-                    onClick={() => router.push("/signup")}
-                    type="button"
-                    className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800"
-                >
-          <span className="relative text-base px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            Sign Up
-          </span>
-                </button>
+                <button onClick={() => router.push("/signup")}
+                        type="button" className="focus:outline-none text-white bg-orange-200 hover:bg-orange-100 focus:ring-4 focus:ring-orange-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">SignUp</button>
 
                 {/* Login Button */}
                 <button
                     onClick={() => router.push("/login")}
-                    className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
-          <span className="relative text-base px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            Login
-          </span>
-                </button>
+                    type="button" className="text-cool-blue-300 hover:text-white border border-cool-blue-150 hover:bg-cool-blue-200 focus:ring-4 focus:outline-none focus:ring-cool-blue-80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Login</button>
 
                 {/* Navbar Toggle for small screens */}
                 <Navbar.Toggle />
