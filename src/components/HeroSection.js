@@ -403,11 +403,11 @@ function HeroSection() {
                 <section className="mb-32 text-center">
                     <h2 className="text-4xl font-bold text-center pb-28 mt-10">Our Clients</h2>
 
-                    <div className="grid px-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                    <div className="grid px-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                         <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/cstad.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Nasa - logo"
                             />
                         </div>
@@ -415,7 +415,7 @@ function HeroSection() {
                         <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/brachnha.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Amazon - logo"
                             />
                         </div>
@@ -423,7 +423,7 @@ function HeroSection() {
                         <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/surveybox.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Nike - logo"
                             />
                         </div>
@@ -431,28 +431,29 @@ function HeroSection() {
                         <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/photostad.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Ikea - logo"
                             />
                         </div>
                         <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/portistad.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Ikea - logo"
                             />
                         </div>
-                        <div className="mx-auto mb-12 mt-10 lg:mb-0">
+
+                        <div className="mx-auto mb-12 lg:mb-0">
                             <img
                                 src="/images/istaddemy.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Ikea - logo"
                             />
                         </div>
                         <div className="mx-auto mb-12 mt-10 lg:mb-0">
                             <img
                                 src="/images/camgiving.png"
-                                className="px-6 dark:brightness-150 md:px-12 w-24"
+                                className="px-6 dark:brightness-150 md:px-12"
                                 alt="Ikea - logo"
                             />
                         </div>
