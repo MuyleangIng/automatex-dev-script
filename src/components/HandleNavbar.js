@@ -1,63 +1,55 @@
 // Import necessary modules
 import React from 'react';
-import { Button, Navbar } from 'flowbite-react';
+import {Button, Navbar} from 'flowbite-react';
 import Link from 'next/link';
 import {usePathname, useRouter} from "next/navigation";
+import {FaUserPlus} from "react-icons/fa";
+import {IoLogInOutline} from "react-icons/io5";
 
 // Define the HandleNavbar component
 function HandleNavbar() {
     const router = useRouter()
     const pathname = usePathname();
 
-  // if (
-  //     pathname ===  "/login" ||
-  //     pathname === "/"
-  // ){
-  //     return null;
+    return (<Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
+            <Navbar.Brand>
+                <img
+                    unoptimized
+                    width={100}
+                    height={100}
+                    alt="Logo"
+                    className=" w-14 h-14 object-contain"
+                    src="/mainlogo.png"
+                />
+                <span className="self-center text-xl font-bold whitespace-nowrap">
+                    <span className="text-orange-100">Automate</span>
+                    <span className="text-cool-blue-100">X</span>
+                </span>
 
-    return (
-        <Navbar fluid rounded className="sticky top-0 z-50">
-            <Navbar.Brand href="/" as={Link}>
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">AutomateX</span>
             </Navbar.Brand>
-
-            {/* Navbar items */}
-            <div className="flex md:order-2 space-x-3">
-                {/* Sign Up Button */}
-                <button
-                    type="button"
-                    className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800"
-                >
-          <span className="relative text-base px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            Sign Up
-          </span>
-                </button>
-
-                {/* Login Button */}
-                <button
-                    onClick={() => router.push("/login")}
-                    className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
-          <span className="relative text-base px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            Login
-          </span>
-                </button>
-
-                {/* Navbar Toggle for small screens */}
-                <Navbar.Toggle />
+            <div className={"flex items-center gap-2 flex md:order-2"}>
+                <Button className={"bg-orange-100"} onClick={() => router.push("/sign-up")}>
+                   <span className={"lg:px-3 uppercase  flex gap-2"}>
+                      <FaUserPlus className="h-5 w-5"/>
+                       <span className={"hidden lg:inline"}>Sign Up</span>
+                   </span>
+                </Button>
+                <Button className={"bg-orange-100"} outline onClick={() => router.push("/sign-in")}>
+                    <span className={"lg:px-3 uppercase flex gap-2"}>
+                        <IoLogInOutline className="h-5 w-5"/>
+                        <span className={"hidden lg:inline"}>Sign In</span>
+                    </span>
+                </Button>
+                <Navbar.Toggle/>
             </div>
-
-            {/* Navbar.Collapse for smaller screens */}
             <Navbar.Collapse>
-                <Navbar.Link href="#" active>
-                    Home
-                </Navbar.Link>
-                <Navbar.Link href="#">Feature & Service</Navbar.Link>
-                <Navbar.Link href="#">Document</Navbar.Link>
-                <Navbar.Link href="#">Start building</Navbar.Link>
-                <Navbar.Link href="#">About us</Navbar.Link>
+                <Navbar.Link className={`font-normal text-lg `} href="#">Home</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">About</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Services</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Pricing</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Contact</Navbar.Link>
             </Navbar.Collapse>
-        </Navbar>
-    );
+        </Navbar>);
 }
 
 export default HandleNavbar;
