@@ -10,6 +10,12 @@ import {IoLogInOutline} from "react-icons/io5";
 function HandleNavbar() {
     const router = useRouter()
     const pathname = usePathname();
+    if (
+        pathname ===  "/login" ||
+        pathname === "/signup"
+    ){
+        return null;
+    }
 
     return (<Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
             <Navbar.Brand>
@@ -28,13 +34,13 @@ function HandleNavbar() {
 
             </Navbar.Brand>
             <div className={"flex items-center gap-2 flex md:order-2"}>
-                <Button className={"bg-orange-100"} onClick={() => router.push("/sign-up")}>
+                <Button className={"bg-orange-100"} onClick={() => router.push("/signup")}>
                    <span className={"lg:px-3 uppercase  flex gap-2"}>
                       <FaUserPlus className="h-5 w-5"/>
                        <span className={"hidden lg:inline"}>Sign Up</span>
                    </span>
                 </Button>
-                <Button className={"bg-orange-100"} outline onClick={() => router.push("/sign-in")}>
+                <Button className={"bg-orange-100"} outline onClick={() => router.push("/login")}>
                     <span className={"lg:px-3 uppercase flex gap-2"}>
                         <IoLogInOutline className="h-5 w-5"/>
                         <span className={"hidden lg:inline"}>Sign In</span>
@@ -43,11 +49,11 @@ function HandleNavbar() {
                 <Navbar.Toggle/>
             </div>
             <Navbar.Collapse>
-                <Navbar.Link className={`font-normal text-lg `} href="#">Home</Navbar.Link>
-                <Navbar.Link className={"font-normal text-lg"} href="#">About</Navbar.Link>
-                <Navbar.Link className={"font-normal text-lg"} href="#">Services</Navbar.Link>
-                <Navbar.Link className={"font-normal text-lg"} href="#">Pricing</Navbar.Link>
-                <Navbar.Link className={"font-normal text-lg"} href="#">Contact</Navbar.Link>
+                <Navbar.Link className={`font-normal text-lg ${pathname === '/' ? 'text-orange-500' : 'text-gray-600'}`} href="/">Home</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Feature & Service</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">Document</Navbar.Link>
+                <Navbar.Link className={`font-normal text-lg ${pathname === '/startbuilding' ? 'text-orange-500' : 'text-gray-600'}`} href="/startbuilding">Start Building</Navbar.Link>
+                <Navbar.Link className={"font-normal text-lg"} href="#">About Us</Navbar.Link>
             </Navbar.Collapse>
         </Navbar>);
 }
