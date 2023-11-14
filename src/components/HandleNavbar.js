@@ -17,7 +17,8 @@ function HandleNavbar() {
         return null;
     }
 
-    return (<Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
+    return (
+        <Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
             <Navbar.Brand>
                 <img
                     unoptimized
@@ -49,7 +50,6 @@ function HandleNavbar() {
                 <Navbar.Toggle/>
             </div>
             <Navbar.Collapse>
-                <Navbar.Link className={`font-normal text-lg ${pathname === '/' ? 'text-orange-500' : 'text-gray-600'}`} href="/">Home</Navbar.Link>
                 <Navbar.Link className={"font-normal text-lg"} href="#">Feature & Service</Navbar.Link>
                 <Navbar.Link className={"font-normal text-lg"} href="#">Document</Navbar.Link>
                 <Navbar.Link className={`font-normal text-lg ${pathname === '/startbuilding' ? 'text-orange-500' : 'text-gray-600'}`} href="/startbuilding">Start Building</Navbar.Link>

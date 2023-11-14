@@ -330,7 +330,7 @@ export default function StartBuildingSection(){
                             </div>
                         </div>
                         <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-0 h-0 xl:w-96 xl:h-96 absolute -right-32">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-0 h-0 xl:w-96 xl:h-96 absolute right-20">
                                 <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" stroke-width="2" />
                             </svg>
                             <div className="w-8 h-[244px] relative">
