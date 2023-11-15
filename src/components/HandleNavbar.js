@@ -11,7 +11,10 @@ function HandleNavbar() {
 
   if (
       pathname ===  "/login" ||
-      pathname === "/signup"
+      pathname === "/signup" 
+    //   pathname === "/document" 
+
+
   ){
       return null;
   }
@@ -42,7 +45,7 @@ function HandleNavbar() {
                     Home
                 </Navbar.Link>
                 <Navbar.Link href="#">Feature & Service</Navbar.Link>
-                <Navbar.Link href="#">Document</Navbar.Link>
+                <Navbar.Link href="/document">Document</Navbar.Link>
                 <Navbar.Link href="#">Start building</Navbar.Link>
                 <Navbar.Link href="#">About us</Navbar.Link>
             </Navbar.Collapse>
