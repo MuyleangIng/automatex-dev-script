@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
+import {NextAuthProvider} from "@/app/provider";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +20,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={ satoshi.className +" dark:bg-gray-900 dark:text-white"}>
-        <MainLayout>
+      <NextAuthProvider>
+          <MainLayout>
           {children}
-        </MainLayout>
+      </MainLayout>
+      </NextAuthProvider>
+
       </body>
     </html>
   )
