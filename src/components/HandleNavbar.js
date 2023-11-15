@@ -13,9 +13,6 @@ function HandleNavbar() {
     const pathname = usePathname();
     const { data: session, status, error } = useSession();
 
-    if (pathname === '/login' || pathname === '/signup') {
-        return null;
-    }
 
     const handleSignOut = async () => {
         await signOut();
@@ -31,6 +28,89 @@ function HandleNavbar() {
         e.preventDefault();
         router.push('/login');
     };
+
+    if (pathname === '/login' || pathname === '/signup') {
+        return (
+            <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
+                <Link href="/">
+                    <Navbar.Brand>
+                        <img
+                            unoptimized
+                            width={100}
+                            height={100}
+                            alt="Logo"
+                            className=" w-14 h-14 object-contain"
+                            src="/mainlogo.png"
+                        />
+                        <span className="self-center text-xl font-bold whitespace-nowrap">
+                          <span className="text-orange-100">Automate</span>
+                          <span className="text-cool-blue-100">X</span>
+                        </span>
+                    </Navbar.Brand>
+                </Link>
+                <div className={'flex items-center gap-2 flex md:order-2'}>
+                    {pathname === '/login' && (
+                        <Button
+                            onClick={handleSignUpClick}
+                            className={'bg-orange-100'}
+                        >
+                            <span className={'lg:px-3 uppercase  flex gap-2'}>
+                                <FaUserPlus className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign Up</span>
+                            </span>
+                        </Button>
+                    )}
+                    {pathname === '/signup' && (
+                        <Button
+                            onClick={handleSignInClick}
+                            className={'bg-orange-100'}
+                            outline
+                        >
+                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                                <IoLogInOutline className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign In</span>
+                            </span>
+                        </Button>
+                    )}
+                </div>
+            </Navbar>
+        );
+    }
+
+    // if (pathname === '/singup') {
+    //     return (
+    //         <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
+    //             <Link href="/">
+    //                 <Navbar.Brand>
+    //                     <img
+    //                         unoptimized
+    //                         width={100}
+    //                         height={100}
+    //                         alt="Logo"
+    //                         className=" w-14 h-14 object-contain"
+    //                         src="/mainlogo.png"
+    //                     />
+    //                     <span className="self-center text-xl font-bold whitespace-nowrap">
+    //                   <span className="text-orange-100">Automate</span>
+    //                   <span className="text-cool-blue-100">X</span>
+    //                 </span>
+    //                 </Navbar.Brand>
+    //             </Link>
+    //             <div className={'flex items-center gap-2 flex md:order-2'}>
+    //                 <Button
+    //                     className={'bg-orange-100'}
+    //                     outline
+    //                     onClick={handleSignInClick}
+    //                 >
+    //           <span className={'lg:px-3 uppercase flex gap-2'}>
+    //             <IoLogInOutline className="h-5 w-5" />
+    //             <span className={'hidden lg:inline'}>Sign In</span>
+    //           </span>
+    //                 </Button>
+    //             </div>
+    //         </Navbar>
+    //     )
+    // }
 
 
     if (status === 'loading' && !error) {
@@ -48,20 +128,22 @@ function HandleNavbar() {
 
     return (
         <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
-            <Navbar.Brand>
-                <img
-                    unoptimized
-                    width={100}
-                    height={100}
-                    alt="Logo"
-                    className=" w-14 h-14 object-contain"
-                    src="/mainlogo.png"
-                />
-                <span className="self-center text-xl font-bold whitespace-nowrap">
-          <span className="text-orange-100">Automate</span>
-          <span className="text-cool-blue-100">X</span>
-        </span>
-            </Navbar.Brand>
+            <Link href="/">
+                <Navbar.Brand>
+                    <img
+                        unoptimized
+                        width={100}
+                        height={100}
+                        alt="Logo"
+                        className=" w-14 h-14 object-contain"
+                        src="/mainlogo.png"
+                    />
+                    <span className="self-center text-xl font-bold whitespace-nowrap">
+                      <span className="text-orange-100">Automate</span>
+                      <span className="text-cool-blue-100">X</span>
+                    </span>
+                </Navbar.Brand>
+            </Link>
             <div className={'flex items-center gap-2 flex md:order-2'}>
                 {session ? (
                     <div className="relative flex gap-5">
