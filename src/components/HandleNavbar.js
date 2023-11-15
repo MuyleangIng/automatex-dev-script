@@ -139,19 +139,20 @@ function HandleNavbar() {
                         src="/mainlogo.png"
                     />
                     <span className="self-center text-xl font-bold whitespace-nowrap">
-                      <span className="text-orange-100">Automate</span>
-                      <span className="text-cool-blue-100">X</span>
+                        <span className="text-orange-100">Automate</span>
+                        <span className="text-cool-blue-100">X</span>
                     </span>
                 </Navbar.Brand>
             </Link>
-            <div className={'flex items-center gap-2 flex md:order-2'}>
+            <div className={'flex items-center gap-2 md:order-2'}>
                 {session ? (
                     <div className="relative flex gap-5">
                         {session.user?.image && (
                             <img
                                 src={session.user.image}
                                 alt="User Avatar"
-                                className="w-10 h-10 rounded-full"
+                                className="w-10 h-10 rounded-full cursor-pointer"
+                                onClick={() => router.push('/profile')} // Redirect to user profile
                             />
                         )}
                         <span className="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
@@ -165,51 +166,55 @@ function HandleNavbar() {
                             className={'bg-orange-100'}
                             onClick={handleSignUpClick}
                         >
-              <span className={'lg:px-3 uppercase  flex gap-2'}>
-                <FaUserPlus className="h-5 w-5" />
-                <span className={'hidden lg:inline'}>Sign Up</span>
-              </span>
+                            <span className={'lg:px-3 uppercase  flex gap-2'}>
+                                <FaUserPlus className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign Up</span>
+                            </span>
                         </Button>
                         <Button
                             className={'bg-orange-100'}
                             outline
                             onClick={handleSignInClick}
                         >
-              <span className={'lg:px-3 uppercase flex gap-2'}>
-                <IoLogInOutline className="h-5 w-5" />
-                <span className={'hidden lg:inline'}>Sign In</span>
-              </span>
+                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                                <IoLogInOutline className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign In</span>
+                            </span>
                         </Button>
                     </>
                 )}
-                <Navbar.Toggle />
+
             </div>
-            <Navbar.Collapse>
-                <Navbar.Link className={'font-normal text-lg'} href="#">
-                    Feature & Service
-                </Navbar.Link>
-                <Navbar.Link className={`font-normal text-lg ${
-                    pathname === '/document'
-                        ? 'text-orange-500'
-                        : 'text-gray-600'
-                }`}
-                             href="/document">
-                    Document
-                </Navbar.Link>
-                <Navbar.Link
-                    className={`font-normal text-lg ${
-                        pathname === '/startbuilding'
-                            ? 'text-orange-500'
-                            : 'text-gray-600'
-                    }`}
-                    href="/startbuilding"
-                >
-                    Start Building
-                </Navbar.Link>
-                <Navbar.Link className={'font-normal text-lg'} href="#">
-                    About Us
-                </Navbar.Link>
-            </Navbar.Collapse>
+            {!session && (
+                <Navbar.Collapse>
+                    <Navbar.Link className={'font-normal text-lg'} href="#">
+                        Feature & Service
+                    </Navbar.Link>
+                    <Navbar.Link
+                        className={`font-normal text-lg ${
+                            pathname === '/document'
+                                ? 'text-orange-500'
+                                : 'text-gray-600'
+                        }`}
+                        href="/document"
+                    >
+                        Document
+                    </Navbar.Link>
+                    <Navbar.Link
+                        className={`font-normal text-lg ${
+                            pathname === '/startbuilding'
+                                ? 'text-orange-500'
+                                : 'text-gray-600'
+                        }`}
+                        href="/startbuilding"
+                    >
+                        Start Building
+                    </Navbar.Link>
+                    <Navbar.Link className={'font-normal text-lg'} href="#">
+                        About Us
+                    </Navbar.Link>
+                </Navbar.Collapse>
+            )}
         </Navbar>
     );
 }

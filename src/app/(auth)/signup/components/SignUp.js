@@ -10,7 +10,7 @@ const SignUpForm = () => {
     const handleAuthClick = async () => {
         if (!session) {
             // If the user is not authenticated, initiate the sign-in
-            await signIn('github', { callbackUrl: '/' });
+            await signIn('github', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
             await signOut();
@@ -20,7 +20,7 @@ const SignUpForm = () => {
     const handleAuthClickLab = async () => {
         if (!session) {
             // If the user is not authenticated, initiate the sign-in
-            await signIn('gitlab', { callbackUrl: '/' });
+            await signIn('gitlab', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
             await signOut();
@@ -29,7 +29,7 @@ const SignUpForm = () => {
     const handleAuthClickGoogle = async () => {
         if (!session) {
             // If the user is not authenticated, initiate the sign-in
-            await signIn('google', { callbackUrl: '/' });
+            await signIn('google', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
             await signOut();
