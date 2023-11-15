@@ -2,15 +2,6 @@
 export default function TabsComponents(){
     return(
         <>
-            <div className="sm:hidden">
-                <label htmlFor="tabs" className="sr-only">Select your country</label>
-                <select id="tabs" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option>Profile</option>
-                    <option>Canada</option>
-                    <option>France</option>
-                    <option>Germany</option>
-                </select>
-            </div>
             <ul className="hidden text-sm font-medium text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
                 <li className="w-full">
                     <a href="#" className="inline-flex items-center justify-center p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group" aria-current="page">

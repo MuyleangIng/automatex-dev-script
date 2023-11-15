@@ -15,7 +15,7 @@ function HandleNavbar() {
 
 
     const handleSignOut = async () => {
-        await signOut();
+        await signOut({ callbackUrl: '/' });
         router.push('/');
     };
 
@@ -185,6 +185,7 @@ function HandleNavbar() {
                 )}
 
             </div>
+            <Navbar.Toggle />
             {!session && (
                 <Navbar.Collapse>
                     <Navbar.Link className={'font-normal text-lg'} href="#">

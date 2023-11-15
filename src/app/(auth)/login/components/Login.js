@@ -32,7 +32,7 @@ const SignInForm = () => {
             await signIn('gitlab', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
-            await signOut();
+            await signOut({ callbackUrl: '/' });
         }
     };
     const handleAuthClickGoogle = async () => {
@@ -41,7 +41,7 @@ const SignInForm = () => {
             await signIn('google', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
-            await signOut();
+            await signOut({ callbackUrl: '/' });
         }
     };
 

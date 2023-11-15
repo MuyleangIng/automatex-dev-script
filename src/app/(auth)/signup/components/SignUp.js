@@ -13,7 +13,7 @@ const SignUpForm = () => {
             await signIn('github', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
-            await signOut();
+            await signOut({ callbackUrl: '/' });
         }
     };
 
@@ -23,7 +23,7 @@ const SignUpForm = () => {
             await signIn('gitlab', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
-            await signOut();
+            await signOut({ callbackUrl: '/' });
         }
     };
     const handleAuthClickGoogle = async () => {
@@ -32,7 +32,7 @@ const SignUpForm = () => {
             await signIn('google', { callbackUrl: '/user/userproject' });
         } else {
             // If the user is already authenticated, you may want to handle sign-out
-            await signOut();
+            await signOut({ callbackUrl: '/' });
         }
     };
 
