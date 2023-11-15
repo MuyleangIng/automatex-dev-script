@@ -7,9 +7,9 @@ export default function StartBuildingSection(){
             {/*Hero Section with text*/}
             <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center mt-40">
                 <h1 className="mb-8 text-4xl font-extrabold  text-gray-900 md:text-6xl md:tracking-tight">
-                    <span>Start</span> <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Automate X</span> <span>Build the better Runtime Product</span>
+                    <span>Start</span> <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Automate X</span> <span className="dark:text-gray-500">Build the better Runtime Product</span>
                 </h1>
-                <p className="px-0 text-lg text-gray-600 md:text-xl lg:px-24 mb-20">
+                <p className="px-0 text-lg text-gray-500 md:text-xl lg:px-24 mb-20">
                     Start gaining the traction you've always wanted with our next-level templates and designs. Crafted to help you tell your story.
                 </p>
             </div>
@@ -297,7 +297,7 @@ export default function StartBuildingSection(){
                     </div>
                 </div>
             </div>
-            <div className="bg-white">
+            <div className="bg-white dark:bg-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e09600" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,277.3C384,267,480,213,576,176C672,139,768,117,864,128C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
                 {/*Step of 1 to 4*/}
@@ -320,11 +320,11 @@ export default function StartBuildingSection(){
                             </div>
                             <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
                                   <span className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
-                                    <svg className="h-10 w-10 text-cool-blue-300" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg>
+                                    <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg>
                                 </span>
                                 <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">01</div>
                                 <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Discovery</div>
-                                <div className="w-full wra  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                <div className="w-full wra dark:text-gray-500  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     We'll conduct a thorough analysis of your operations, market, and <br/> competition to identify the best solutions for you.
                                 </div>
                             </div>
@@ -340,10 +340,10 @@ export default function StartBuildingSection(){
                             </div>
                             <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
                                   <span className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
-                                    <svg className="h-10 w-10 text-cool-blue-300"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />  <polyline points="14 2 14 8 20 8" />  <line x1="16" y1="13" x2="8" y2="13" />  <line x1="16" y1="17" x2="8" y2="17" />  <polyline points="10 9 9 9 8 9" /></svg>                                </span>
+                                    <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />  <polyline points="14 2 14 8 20 8" />  <line x1="16" y1="13" x2="8" y2="13" />  <line x1="16" y1="17" x2="8" y2="17" />  <polyline points="10 9 9 9 8 9" /></svg>                                </span>
                                 <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">02</div>
                                 <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Planning</div>
-                                <div className="w-full wra  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                <div className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     We'll conduct a thorough analysis of your operations, market, and <br/> competition to identify the best solutions for you.
                                 </div>
                             </div>
@@ -364,10 +364,10 @@ export default function StartBuildingSection(){
                     </div>
                     <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
                                   <span className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
-                            <svg className="h-10 w-10 text-cool-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />  <line x1="8" y1="21" x2="16" y2="21" />  <line x1="12" y1="17" x2="12" y2="21" /></svg>                                </span>
+                            <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />  <line x1="8" y1="21" x2="16" y2="21" />  <line x1="12" y1="17" x2="12" y2="21" /></svg>                                </span>
                         <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">03</div>
                         <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Development</div>
-                        <div className="w-full wra  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                        <div className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                             We'll conduct a thorough analysis of your operations, market, and <br/> competition to identify the best solutions for you.
                         </div>
                     </div>
@@ -380,11 +380,11 @@ export default function StartBuildingSection(){
                     </div>
                     <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
                                   <span className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
-                                <svg className="h-10 w-10 text-cool-blue-300" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 3v4a1 1 0 0 0 1 1h4" />  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />  <path d="M9 15l2 2l4 -4" /></svg>
+                                <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 3v4a1 1 0 0 0 1 1h4" />  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />  <path d="M9 15l2 2l4 -4" /></svg>
                                   </span>
                         <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">04</div>
                         <div className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Implementation</div>
-                        <div className="w-full wra  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                        <div className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                             We'll conduct a thorough analysis of your operations, market, and <br/> competition to identify the best solutions for you.
                         </div>
                     </div>

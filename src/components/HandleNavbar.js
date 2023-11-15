@@ -1,4 +1,7 @@
+"use client"
 // Import necessary modules
+
+
 import React from 'react';
 import { Button, Navbar } from 'flowbite-react';
 import Link from 'next/link';
@@ -6,16 +9,18 @@ import { usePathname, useRouter } from 'next/navigation';
 import { FaUserPlus } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
 import { useSession, signOut } from 'next-auth/react';
+import { useTheme } from 'next-themes';
 
 // Define the HandleNavbar component
 function HandleNavbar() {
     const router = useRouter();
     const pathname = usePathname();
     const { data: session, status, error } = useSession();
+    const { theme } = useTheme();
 
 
     const handleSignOut = async () => {
-        await signOut();
+        await signOut({ callbackUrl: '/' });
         router.push('/');
     };
 
@@ -31,7 +36,7 @@ function HandleNavbar() {
 
     if (pathname === '/login' || pathname === '/signup') {
         return (
-            <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
+            <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
                 <Link href="/">
                     <Navbar.Brand>
                         <img
@@ -77,40 +82,6 @@ function HandleNavbar() {
         );
     }
 
-    // if (pathname === '/singup') {
-    //     return (
-    //         <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
-    //             <Link href="/">
-    //                 <Navbar.Brand>
-    //                     <img
-    //                         unoptimized
-    //                         width={100}
-    //                         height={100}
-    //                         alt="Logo"
-    //                         className=" w-14 h-14 object-contain"
-    //                         src="/mainlogo.png"
-    //                     />
-    //                     <span className="self-center text-xl font-bold whitespace-nowrap">
-    //                   <span className="text-orange-100">Automate</span>
-    //                   <span className="text-cool-blue-100">X</span>
-    //                 </span>
-    //                 </Navbar.Brand>
-    //             </Link>
-    //             <div className={'flex items-center gap-2 flex md:order-2'}>
-    //                 <Button
-    //                     className={'bg-orange-100'}
-    //                     outline
-    //                     onClick={handleSignInClick}
-    //                 >
-    //           <span className={'lg:px-3 uppercase flex gap-2'}>
-    //             <IoLogInOutline className="h-5 w-5" />
-    //             <span className={'hidden lg:inline'}>Sign In</span>
-    //           </span>
-    //                 </Button>
-    //             </div>
-    //         </Navbar>
-    //     )
-    // }
 
 
     if (status === 'loading' && !error) {
@@ -127,7 +98,7 @@ function HandleNavbar() {
 // Rest of your component code
 
     return (
-        <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
+        <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
             <Link href="/">
                 <Navbar.Brand>
                     <img
@@ -185,6 +156,7 @@ function HandleNavbar() {
                 )}
 
             </div>
+            <Navbar.Toggle />
             {!session && (
                 <Navbar.Collapse>
                     <Navbar.Link className={'font-normal text-lg'} href="#">

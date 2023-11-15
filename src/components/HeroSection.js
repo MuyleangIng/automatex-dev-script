@@ -1,47 +1,37 @@
+"use client"
+
 import React from 'react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import HeadingBar from "@/components/HeadingBar";
 
 function HeroSection() {
+    const { theme } = useTheme();
     return(
         // Hero section
-        <section className="bg-white dark:bg-gray-900 relative">
-            <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div className="mr-auto place-self-center lg:col-span-7">
-                    <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
-                        <span className="text-orange-50 block mb-8">Say Goodbye </span>
-                        <span className="text-orange-50">To <span className="text-cool-blue-300">Manual.</span></span>
-                    </h1>
-                    <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 mt-5">
-                        At AutomateX we're on a mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual tasks.
-                    </p>
-                    <button type="button" className="focus:outline-none text-white bg-orange-150 hover:bg-orange-100 focus:ring-4 focus:ring-orange-80 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Subscribe</button>
-                </div>
-                <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src="/images/HeroSection.png" alt="mockup" className="w-full h-auto object-cover" />
-                </div>
-                <div className="mt-4 ml-4 absolute -left-1 top-96">
-                    <svg
-                        width="490"
-                        height="589"
-                        viewBox="0 0 490 589"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        {/* Include the path and gradient definitions */}
-                        <path d="M-211.503 587.924C-259.073 561.958 -355.043 496.229 -358.36 441.039C-362.507 372.051 -345.253 348.941 -375.186 306.521C-405.119 264.1 -443.368 223.361 -318.572 175.616C-193.776 127.871 -187.485 113.326 -136.595 102.457C-85.7042 91.5876 50.6413 -50.2482 50.0224 20.8574C49.4035 91.963 -17.8661 218.658 141.5 153.534C168.097 142.384 388.768 -3.31184 489 127.034" stroke="url(#paint0_linear_293_1273)" stroke-width="2"/>
-                        <defs>
-                            <linearGradient id="paint0_linear_293_1273" x1="-139.634" y1="618.177" x2="-297.475" y2="-142.058" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFB621"/>
-                                <stop offset="1" stop-color="#FFB621"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+        <section className="{`bg-white ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}  relative">
+            <div className="container px-6 py-16 mx-auto">
+                <div className="items-center lg:flex">
+                    <div className="w-full lg:w-1/2">
+                        <div className="lg:max-w-lg">
+                            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
+                                <span className="text-orange-50 block mb-8">Say Goodbye </span>
+                                <span className="text-orange-50">To <span className="text-cool-blue-300">Manual.</span></span>
+                            </h1>
+                            <p className=" mb-5 mt-5 text-gray-600 dark:text-gray-400">At AutomateX we're on a mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual tasks.</p>
+
+                            <button type="button" className="focus:outline-none text-white bg-orange-150 hover:bg-orange-100 focus:ring-4 focus:ring-orange-80 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Subscribe</button>                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                        <img className="w-full h-full lg:max-w-3xl" src="/images/HeroSection.png" alt="Catalogue-pana.svg" />
+                    </div>
+
                 </div>
             </div>
 
             {/*Feature Section */}
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <h2 className="max-w-lg mb-6 text-3xl font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
                         Explore The Benefit of The Features
@@ -51,7 +41,7 @@ function HeroSection() {
                     </p>
                 </div>
                 <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    <div className=" flex flex-col justify-between p-5 bg-emerald-50 border-b-cyan-50 rounded-md shadow-0">
+                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-emerald-50'} border-b-cyan-50 rounded-md shadow-0`}>
                         <div>
                             <div className=" flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -66,7 +56,7 @@ function HeroSection() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between p-5 bg-slate-50 border-b-cyan-50 rounded-md shadow-0">
+                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-slate-50'} border-b-cyan-50 rounded-md shadow-0`}>
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -80,7 +70,7 @@ function HeroSection() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between p-5 bg-emerald-50 border-b-cyan-50 rounded-md shadow-0">
+                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-emerald-50'} border-b-cyan-50 rounded-md shadow-0`}>
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -104,14 +94,14 @@ function HeroSection() {
             </div>
             <main className="relative mb-5">
                 {/* First Card */}
-                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-emerald-50 rounded-r-full mb-8 lg:mb-0">
+                <div className={`px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-r-full mb-8 lg:mb-0`}>
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left">
+                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 text-3xl font-medium text-blue-900 sm:text-4xl sm:leading-none">
+                                <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
                                 </h2>
-                                <p className="text-base text-blue-900 md:text-lg">
+                                <p className="text-base md:text-lg">
                                     Say goodbye to manual and error-prone deployment processes. Our Service automates the deployment of frontend code, backend service, database, and all other components of your application stack.
                                 </p>
                             </div>
@@ -133,19 +123,18 @@ function HeroSection() {
                 </div>
 
                 {/* Second Card */}
-                <div className="px-4 py-16 mt-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-emerald-50 rounded-l-full mb-8 lg:mb-0">
-                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div className={`px-4 mt-5 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-l-full mb-8 lg:mb-0`}>                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-2/5">
                                 <img className="object-cover" src="/images/cloud.png" alt="" />
                             </div>
                         </div>
-                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pl-5 text-center lg:text-left">
+                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 text-3xl font-medium text-blue-900 sm:text-4xl sm:leading-none">
+                                <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
                                 </h2>
-                                <p className="text-base text-blue-900 md:text-lg">
+                                <p className="text-base md:text-lg">
                                     Say goodbye to manual and error-prone deployment processes. Our Service automates the deployment of frontend code, backend service, database, and all other components of your application stack.
                                 </p>
                             </div>
@@ -161,14 +150,13 @@ function HeroSection() {
                     </div>
                 </div>
                 {/* Third Card */}
-                <div className="px-4 py-16 mx-auto mt-5 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-emerald-50 rounded-r-full mb-8 lg:mb-0">
-                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left">
+                <div className={`px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-5 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-r-full mb-8 lg:mb-0`}>                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 text-3xl font-medium text-blue-900 sm:text-4xl sm:leading-none">
+                                <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
                                 </h2>
-                                <p className="text-base text-blue-900 md:text-lg">
+                                <p className="text-base md:text-lg">
                                     Say goodbye to manual and error-prone deployment processes. Our Service automates the deployment of frontend code, backend service, database, and all other components of your application stack.
                                 </p>
                             </div>
@@ -349,7 +337,7 @@ function HeroSection() {
             </section>
 
             {/* Achievement    */}
-            <main className="bg-emerald-50 w-full mt-8">
+            <main className={`bg-${theme === 'dark' ? 'gray-800' : 'emerald-50'} w-full mt-8`}>
                 <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
                     <div className="col-span-2 mb-8">
                         <h1 className="mt-2 md:text-5xl font-bold text-blue-500 text-3xl dark:text-white !important mb-4">Helping a local Business</h1>

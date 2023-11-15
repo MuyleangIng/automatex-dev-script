@@ -6,7 +6,8 @@ function HeadingBar() {
     const pathname = usePathname();
     if (
         pathname ===  "/login" ||
-        pathname === "/signup"
+        pathname === "/signup" ||
+        pathname === "/user/userproject"
     ){
         return null;
     }

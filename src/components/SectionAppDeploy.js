@@ -13,7 +13,7 @@ export default function SectionAppDeploy(){
                 </p>
 
                 <div className="mt-6">
-                    <a href="#" className="inline-flex items-center justify-center w-full px-4 py-2.5 overflow-hidden text-sm text-white transition-colors duration-300 bg-orange-200 rounded-lg shadow sm:w-auto sm:mx-2 hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                    <a href="#" className="dark:bg-gray-500 inline-flex items-center justify-center w-full px-4 py-2.5 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900  rounded-lg shadow sm:w-auto sm:mx-2 hover:bg-gray-700 dark:hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
 
                         <span className="mx-2">
                     Frontend
@@ -21,14 +21,14 @@ export default function SectionAppDeploy(){
                     </a>
 
                     <a href="#"
-                       className="inline-flex items-center justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                       className="inline-flex items-center dark:bg-gray-500  justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 dark:hover:bg-gray-700 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
 
                         <span class="mx-2">
                     Backend
                 </span>
                     </a>
                     <a href="#"
-                       className="inline-flex items-center justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                       className="inline-flex items-center dark:bg-gray-500 justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 dark:hover:bg-gray-700 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
 
                         <span className="mx-2">
                     Database
