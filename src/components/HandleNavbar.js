@@ -106,7 +106,12 @@ function HandleNavbar() {
                 <Navbar.Link className={'font-normal text-lg'} href="#">
                     Feature & Service
                 </Navbar.Link>
-                <Navbar.Link className={'font-normal text-lg'} href="#">
+                <Navbar.Link className={`font-normal text-lg ${
+                    pathname === '/document'
+                        ? 'text-orange-500'
+                        : 'text-gray-600'
+                }`}
+                             href="/document">
                     Document
                 </Navbar.Link>
                 <Navbar.Link
