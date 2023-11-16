@@ -21,7 +21,7 @@ function MainFooter(){
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Link href="/" className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-400">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-full">
                             <img
                                 unoptimized
                                 width={100}
@@ -91,7 +91,6 @@ function MainFooter(){
                     </div>
                     <div className="space-y-3">
                         <ThemeChanger/>
-                        <div className="uppercase dark:text-gray-50">Social media</div>
                         <div className="flex justify-start space-x-3">
                             <a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
