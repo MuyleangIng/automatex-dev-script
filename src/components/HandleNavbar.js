@@ -10,6 +10,7 @@ import { FaUserPlus } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
 import { useSession, signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
+import ThemeChanger from "@/app/themeSwitcher";
 
 // Define the HandleNavbar component
 function HandleNavbar() {
@@ -53,8 +54,10 @@ function HandleNavbar() {
                         </span>
                     </Navbar.Brand>
                 </Link>
-                <div className={'flex items-center gap-2 flex md:order-2'}>
+                <div className={'flex items-center gap-2 md:order-2'}>
                     {pathname === '/login' && (
+                    <div className="flex gap-4 items-center">
+                        <ThemeChanger/>
                         <Button
                             onClick={handleSignUpClick}
                             className={'bg-orange-100'}
@@ -64,18 +67,23 @@ function HandleNavbar() {
                                 <span className={'hidden lg:inline'}>Sign Up</span>
                             </span>
                         </Button>
+                    </div>
                     )}
                     {pathname === '/signup' && (
-                        <Button
-                            onClick={handleSignInClick}
-                            className={'bg-orange-100'}
-                            outline
-                        >
+                       <div className="flex gap-4 items-center">
+                           <ThemeChanger/>
+                           <Button
+                               onClick={handleSignInClick}
+                               className={'bg-orange-100'}
+                               outline
+                           >
                             <span className={'lg:px-3 uppercase flex gap-2'}>
                                 <IoLogInOutline className="h-5 w-5" />
                                 <span className={'hidden lg:inline'}>Sign In</span>
                             </span>
-                        </Button>
+                           </Button>
+                           </div>
+
                     )}
                 </div>
             </Navbar>
@@ -165,7 +173,7 @@ function HandleNavbar() {
                     <Navbar.Link
                         className={`font-normal text-lg ${
                             pathname === '/document'
-                                ? 'text-orange-500'
+                                ? 'text-orange-500 dark:text-orange-100'
                                 : 'text-gray-600'
                         }`}
                         href="/document"
@@ -175,7 +183,7 @@ function HandleNavbar() {
                     <Navbar.Link
                         className={`font-normal text-lg ${
                             pathname === '/startbuilding'
-                                ? 'text-orange-500'
+                                ? 'text-orange-500 dark:text-orange-100'
                                 : 'text-gray-600'
                         }`}
                         href="/startbuilding"
