@@ -28,8 +28,6 @@ export default function RootLayout({ children }) {
           </MainLayout>
       </NextAuthProvider>
       </Providers>
-
-
       </body>
     </html>
   )

@@ -5,7 +5,7 @@ export default function UserProjectPage(){
     return(
         <main className="w-full items-center p-5">
         <TabsComponents/>
-            <div className="mt-10 mb-20">
+            <div className="mt-10 mb-36">
                 <SectionAppDeploy/>
             </div>
 
