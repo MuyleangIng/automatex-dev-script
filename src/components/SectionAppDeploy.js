@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function SectionAppDeploy(){
     return(
@@ -12,28 +13,35 @@ export default function SectionAppDeploy(){
                     <br/> have personally create .
                 </p>
 
-                <div className="mt-6">
-                    <a href="#" className="dark:bg-gray-500 inline-flex items-center justify-center w-full px-4 py-2.5 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900  rounded-lg shadow sm:w-auto sm:mx-2 hover:bg-gray-700 dark:hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="relative inline-flex  group">
+                        <div
+                            className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                        </div>
+                        <Link href="/user/createDeployment" title="Get quote now"
+                           className="relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                           role="button">Frontend
+                        </Link>
+                    </div>
 
-                        <span className="mx-2">
-                    Frontend
-                </span>
-                    </a>
-
-                    <a href="#"
-                       className="inline-flex items-center dark:bg-gray-500  justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 dark:hover:bg-gray-700 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-
-                        <span class="mx-2">
-                    Backend
-                </span>
-                    </a>
-                    <a href="#"
-                       className="inline-flex items-center dark:bg-gray-500 justify-center w-full px-4 py-2.5 mt-4 overflow-hidden text-sm text-white transition-colors duration-300 bg-gray-900 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 dark:hover:bg-gray-700 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-
-                        <span className="mx-2">
-                    Database
-                </span>
-                    </a>
+                    <div className="relative inline-flex  group">
+                        <div
+                            className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                        </div>
+                        <a href="#" title="Get quote now"
+                           className="relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                           role="button">Backend
+                        </a>
+                    </div>
+                    <div className="relative inline-flex  group">
+                        <div
+                            className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                        </div>
+                        <a href="#" title="Get quote now"
+                           className="relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                           role="button">Database
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
