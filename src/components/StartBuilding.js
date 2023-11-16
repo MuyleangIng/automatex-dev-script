@@ -311,7 +311,7 @@ export default function StartBuildingSection(){
                         </svg>
                     </div>
 
-                    <div className="w-full  h-full  flex flex-col justify-center items-center gap-[30px] inline-flex">
+                    <div className="w-full  h-full  flex flex-col justify-center items-center gap-[30px] inline-flex ">
                         <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                             <div className="w-8 h-[244px] relative">
                                 <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
@@ -372,7 +372,7 @@ export default function StartBuildingSection(){
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
+                <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex" >
                     <div className="w-8 h-[244px] relative">
                         <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
                         <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full" />

@@ -3,7 +3,7 @@
 
 
 import React from 'react';
-import { Button, Navbar } from 'flowbite-react';
+import {Button, DarkThemeToggle, Navbar} from 'flowbite-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaUserPlus } from 'react-icons/fa';
@@ -57,7 +57,7 @@ function HandleNavbar() {
                 <div className={'flex items-center gap-2 md:order-2'}>
                     {pathname === '/login' && (
                     <div className="flex gap-4 items-center">
-                        <ThemeChanger/>
+                        <DarkThemeToggle />
                         <Button
                             onClick={handleSignUpClick}
                             className={'bg-orange-100'}
@@ -71,7 +71,7 @@ function HandleNavbar() {
                     )}
                     {pathname === '/signup' && (
                        <div className="flex gap-4 items-center">
-                           <ThemeChanger/>
+                           <DarkThemeToggle />
                            <Button
                                onClick={handleSignInClick}
                                className={'bg-orange-100'}
@@ -141,6 +141,7 @@ function HandleNavbar() {
                     </div>
                 ) : (
                     <>
+                        <DarkThemeToggle />
                         <Button
                             className={'bg-orange-100'}
                             onClick={handleSignUpClick}
