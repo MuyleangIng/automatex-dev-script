@@ -46,11 +46,14 @@ module.exports = {
       },
       fontSize: {
         sm: ['16px', '22px'],
-        base: ['16px', '24px'],
+        base: ['18px', '24px'],
         lg: ['20px', '28px'],
         xl: ['28px', '32px'],
       }
     }
+  },
+  backgroundColor: {
+    'whiteSmoke': '#f5f5f5',
   },
   plugins: [
       require('flowbite/plugin')
