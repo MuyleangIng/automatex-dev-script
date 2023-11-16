@@ -57,7 +57,7 @@ function HandleNavbar() {
                 <div className={'flex items-center gap-2 md:order-2'}>
                     {pathname === '/login' && (
                     <div className="flex gap-4 items-center">
-                        <DarkThemeToggle />
+                        <ThemeChanger/>
                         <Button
                             onClick={handleSignUpClick}
                             className={'bg-orange-100'}
@@ -71,7 +71,7 @@ function HandleNavbar() {
                     )}
                     {pathname === '/signup' && (
                        <div className="flex gap-4 items-center">
-                           <DarkThemeToggle />
+                           <ThemeChanger/>
                            <Button
                                onClick={handleSignInClick}
                                className={'bg-orange-100'}
@@ -141,7 +141,6 @@ function HandleNavbar() {
                     </div>
                 ) : (
                     <>
-                        <DarkThemeToggle />
                         <Button
                             className={'bg-orange-100'}
                             onClick={handleSignUpClick}

@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import {NextAuthProvider} from "@/app/provider";
 import Providers from "@/app/providers";
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 const satoshi = localFont({
@@ -21,13 +22,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={ satoshi.className +" dark:bg-gray-900 dark:text-white"}>
-      <Providers>
-          <NextAuthProvider>
-          <MainLayout>
-              {children}
-          </MainLayout>
-      </NextAuthProvider>
-      </Providers>
+        <Providers>  <NextAuthProvider>
+            <MainLayout>
+                {children}
+            </MainLayout>
+        </NextAuthProvider>
+        </Providers>
+
       </body>
     </html>
   )
