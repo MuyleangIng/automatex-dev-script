@@ -41,7 +41,7 @@ function HeroSection() {
                     </p>
                 </div>
                 <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-emerald-50'} border-b-cyan-50 rounded-md shadow-0`}>
+                    <div className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-emerald-50 dark:bg-gray-800">
                         <div>
                             <div className=" flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -56,7 +56,7 @@ function HeroSection() {
                             </p>
                         </div>
                     </div>
-                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-slate-50'} border-b-cyan-50 rounded-md shadow-0`}>
+                    <div className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-50 dark:bg-gray-800">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -70,7 +70,7 @@ function HeroSection() {
                             </p>
                         </div>
                     </div>
-                    <div className={`flex flex-col justify-between p-5 ${theme === 'dark' ? 'bg-gray-800' : 'bg-emerald-50'} border-b-cyan-50 rounded-md shadow-0`}>
+                    <div className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-emerald-50 dark:bg-gray-800">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14 text-orange-100">
@@ -94,9 +94,9 @@ function HeroSection() {
             </div>
             <main className="relative mb-5">
                 {/* First Card */}
-                <div className={`px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-r-full mb-8 lg:mb-0`}>
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 rounded-r-full mb-8 lg:mb-0 bg-emerald-50 dark:bg-gray-800">
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
+                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-blue-900 dark:text-gray-400">
                             <div className="max-w-xl mb-6">
                                 <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
@@ -123,13 +123,13 @@ function HeroSection() {
                 </div>
 
                 {/* Second Card */}
-                <div className={`px-4 mt-5 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-l-full mb-8 lg:mb-0`}>                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl mt-5 md:px-24 lg:px-8 lg:py-20 rounded-l-full mb-8 lg:mb-0 bg-emerald-50 dark:bg-gray-800">                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-2/5">
                                 <img className="object-cover" src="/images/cloud.png" alt="" />
                             </div>
                         </div>
-                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
+                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-blue-900 dark:text-gray-400">
                             <div className="max-w-xl mb-6">
                                 <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
@@ -150,8 +150,9 @@ function HeroSection() {
                     </div>
                 </div>
                 {/* Third Card */}
-                <div className={`px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-5 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-800' : 'bg-emerald-50'} rounded-r-full mb-8 lg:mb-0`}>                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-                        <div className={`mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-blue-900'}`}>
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full mt-5 lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 rounded-r-full mb-8 lg:mb-0 bg-emerald-50 dark:bg-gray-800">
+                    <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-blue-900 dark:text-gray-400">
                             <div className="max-w-xl mb-6">
                                 <h2 className="max-w-lg mb-6 text-3xl font-medium sm:text-4xl sm:leading-none">
                                     Full Service Deployment
@@ -337,7 +338,7 @@ function HeroSection() {
             </section>
 
             {/* Achievement    */}
-            <main className={`bg-${theme === 'dark' ? 'gray-800' : 'emerald-50'} w-full mt-8`}>
+            <main className="bg-emerald-50 dark:bg-gray-800  w-full mt-8">
                 <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
                     <div className="col-span-2 mb-8">
                         <h1 className="mt-2 md:text-5xl font-bold text-blue-500 text-3xl dark:text-white !important mb-4">Helping a local Business</h1>
