@@ -1,6 +1,5 @@
 "use client"
 
-import { Avatar, Button, Checkbox, Label, TextInput } from "flowbite-react";
 import React from "react";
 
 export default function CreateDeploymentFrontendComponent(){
@@ -9,7 +8,7 @@ export default function CreateDeploymentFrontendComponent(){
             <section className="flex items-center flex-1 w-full mb-24">
                 <div className="flex flex-col w-full ">
                     <h1 className="text-5xl font-extrabold text-center lg:text-5xl 2xl:text-6xl">
-                    <span className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500">
+                    <span className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500 animate-gradient">
                         Create Your
                     </span>
                         <span className="text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
@@ -18,7 +17,7 @@ export default function CreateDeploymentFrontendComponent(){
                     </h1>
                 </div>
             </section>
-            <section className="bg-white dark:bg-gray-900">
+            <section className="bg-white dark:bg-gray-900 pb-20">
                 <div className="grid lg:h-full ">
                     <div className="flex items-center justify-center px-4 py-6 sm:px-0 lg:py-0">
                         <form
