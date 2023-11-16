@@ -3,7 +3,7 @@
 
 
 import React from 'react';
-import { Button, Navbar } from 'flowbite-react';
+import {Button, DarkThemeToggle, Navbar} from 'flowbite-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaUserPlus } from 'react-icons/fa';
