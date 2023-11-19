@@ -1,24 +1,27 @@
+"use client"
 // Import necessary modules
+
+
 import React from 'react';
-import { Button, Navbar } from 'flowbite-react';
+import {Button, DarkThemeToggle, Navbar} from 'flowbite-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaUserPlus } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
 import { useSession, signOut } from 'next-auth/react';
+import { useTheme } from 'next-themes';
+import ThemeChanger from "@/app/themeSwitcher";
 
 // Define the HandleNavbar component
 function HandleNavbar() {
     const router = useRouter();
     const pathname = usePathname();
     const { data: session, status, error } = useSession();
+    const { theme } = useTheme();
 
-    if (pathname === '/login' || pathname === '/signup') {
-        return null;
-    }
 
     const handleSignOut = async () => {
-        await signOut();
+        await signOut({ callbackUrl: '/' });
         router.push('/');
     };
 
@@ -31,6 +34,62 @@ function HandleNavbar() {
         e.preventDefault();
         router.push('/login');
     };
+
+    if (pathname === '/login' || pathname === '/signup') {
+        return (
+            <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+                <Link href="/">
+                    <Navbar.Brand>
+                        <img
+                            unoptimized
+                            width={100}
+                            height={100}
+                            alt="Logo"
+                            className=" w-14 h-14 object-contain"
+                            src="/mainlogo.png"
+                        />
+                        <span className="self-center text-xl font-bold whitespace-nowrap">
+                          <span className="text-orange-100">Automate</span>
+                          <span className="text-cool-blue-100">X</span>
+                        </span>
+                    </Navbar.Brand>
+                </Link>
+                <div className={'flex items-center gap-2 md:order-2'}>
+                    {pathname === '/login' && (
+                    <div className="flex gap-4 items-center">
+                        <ThemeChanger/>
+                        <Button
+                            onClick={handleSignUpClick}
+                            className={'bg-orange-100'}
+                        >
+                            <span className={'lg:px-3 uppercase  flex gap-2'}>
+                                <FaUserPlus className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign Up</span>
+                            </span>
+                        </Button>
+                    </div>
+                    )}
+                    {pathname === '/signup' && (
+                       <div className="flex gap-4 items-center">
+                           <ThemeChanger/>
+                           <Button
+                               onClick={handleSignInClick}
+                               className={'bg-orange-100'}
+                               outline
+                           >
+                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                                <IoLogInOutline className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign In</span>
+                            </span>
+                           </Button>
+                           </div>
+
+                    )}
+                </div>
+            </Navbar>
+        );
+    }
+
 
 
     if (status === 'loading' && !error) {
@@ -47,29 +106,32 @@ function HandleNavbar() {
 // Rest of your component code
 
     return (
-        <Navbar container rounded className={'cus-navbar sticky top-0 left-0 z-50 lg:px-3'}>
-            <Navbar.Brand>
-                <img
-                    unoptimized
-                    width={100}
-                    height={100}
-                    alt="Logo"
-                    className=" w-14 h-14 object-contain"
-                    src="/mainlogo.png"
-                />
-                <span className="self-center text-xl font-bold whitespace-nowrap">
-          <span className="text-orange-100">Automate</span>
-          <span className="text-cool-blue-100">X</span>
-        </span>
-            </Navbar.Brand>
-            <div className={'flex items-center gap-2 flex md:order-2'}>
+        <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+            <Link href="/">
+                <Navbar.Brand>
+                    <img
+                        unoptimized
+                        width={100}
+                        height={100}
+                        alt="Logo"
+                        className=" w-14 h-14 object-contain"
+                        src="/mainlogo.png"
+                    />
+                    <span className="self-center text-xl font-bold whitespace-nowrap">
+                        <span className="text-orange-100">Automate</span>
+                        <span className="text-cool-blue-100">X</span>
+                    </span>
+                </Navbar.Brand>
+            </Link>
+            <div className={'flex items-center gap-2 md:order-2'}>
                 {session ? (
                     <div className="relative flex gap-5">
                         {session.user?.image && (
                             <img
                                 src={session.user.image}
                                 alt="User Avatar"
-                                className="w-10 h-10 rounded-full"
+                                className="w-10 h-10 rounded-full cursor-pointer"
+                                onClick={() => router.push('/profile')} // Redirect to user profile
                             />
                         )}
                         <span className="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
@@ -83,27 +145,27 @@ function HandleNavbar() {
                             className={'bg-orange-100'}
                             onClick={handleSignUpClick}
                         >
-              <span className={'lg:px-3 uppercase  flex gap-2'}>
-                <FaUserPlus className="h-5 w-5" />
-                <span className={'hidden lg:inline'}>Sign Up</span>
-              </span>
+                            <span className={'lg:px-3 uppercase  flex gap-2'}>
+                                <FaUserPlus className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign Up</span>
+                            </span>
                         </Button>
                         <Button
                             className={'bg-orange-100'}
                             outline
                             onClick={handleSignInClick}
                         >
-              <span className={'lg:px-3 uppercase flex gap-2'}>
-                <IoLogInOutline className="h-5 w-5" />
-                <span className={'hidden lg:inline'}>Sign In</span>
-              </span>
+                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                                <IoLogInOutline className="h-5 w-5" />
+                                <span className={'hidden lg:inline'}>Sign In</span>
+                            </span>
                         </Button>
                     </>
                 )}
-                <Navbar.Toggle />
+
             </div>
             <Navbar.Collapse>
-                <Navbar.Link className={'font-normal text-lg'} href="/features-services">
+                <Navbar.Link className={'font-normal text-lg'} href="#">
                     Feature & Service
                 </Navbar.Link>
                 <Navbar.Link className={`font-normal text-lg ${

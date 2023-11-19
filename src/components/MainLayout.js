@@ -7,15 +7,25 @@ import store from "@/store";
 import HandleNavbar from "@/components/HandleNavbar";
 import HeadingBar from "@/components/HeadingBar";
 import MainFooter from "@/components/Footer";
+import {useTheme} from "next-themes";
 
 
 function MainLayout({ children }) {
+    const { theme, setTheme } = useTheme();  // Use the useTheme hook
+
+    // const toggleTheme = () => {
+    //     setTheme(theme === 'dark' ? 'light' : 'dark');  // Toggle between dark and light themes
+    // };
     return (
         <Provider store={store}>
             <SessionProvider>
                 <Flowbite theme={{
-                    dark: false
+                    dark: theme === 'dark',  // Set the theme based on the current theme from useTheme
                 }}>
+
+                    {/*<button onClick={toggleTheme}>*/}
+                    {/*    Toggle Theme*/}
+                    {/*</button>*/}
 
                     <HeadingBar/>
                     <HandleNavbar/>

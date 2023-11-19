@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    color: #000;
+    background-color: #fff;
+}
+
+[data-theme="dark"] body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.animate-gradient {
+    background-size: 300%;
+    -webkit-animation: animatedgradient 4s ease infinite alternate;
+    -moz-animation: animatedgradient 4s ease infinite alternate;
+    animation: animatedgradient 4s ease infinite alternate;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
