@@ -1,11 +1,17 @@
-import Image from 'next/image'
-import HeroSection from "@/components/HeroSection";
-import SilderCard from "@/components/SilderCard";
 
-export default function Home() {
+
+import HeroSection from "@/components/HeroSection";
+import {Suspense} from "react";
+import Loading from "@/app/loading";
+
+export default function Home({ onLoadingComplete }) {
+
+
     return (
-       <>
-           <HeroSection/>
+        <> <Suspense fallback={<Loading />}>
+        <HeroSection/>
+        </Suspense>
+
        </>
     );
 }
