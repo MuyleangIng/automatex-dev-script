@@ -52,6 +52,9 @@ module.exports = {
       }
     }
   },
+  backgroundColor: {
+    'whiteSmoke': '#f5f5f5',
+  },
   plugins: [
       require('flowbite/plugin')
   ],

@@ -12,8 +12,11 @@ import {useTheme} from "next-themes";
 
 
 function MainLayout({ children }) {
-    const { theme, setTheme } = useTheme();  // Use the useTheme hook
+    const { theme, setTheme } = useTheme();
 
+    const containerStyle = {
+        backgroundColor: theme === 'dark' ? '#1a202c' : '#f5f5f5', // Set dark and light background colors
+    };
 
     return (
         <Provider store={store}>
@@ -22,10 +25,14 @@ function MainLayout({ children }) {
                     dark: theme === 'dark',  // Set the theme based on the current theme from useTheme
                 }}>
 
+                    {/*<button onClick={toggleTheme}>*/}
+                    {/*    Toggle Theme*/}
+                    {/*</button>*/}
+
                     <HeadingBar/>
                     <HandleNavbar/>
                     {children}
-                    <MainFooter/>
+                    <MainFooter />
                 </Flowbite>
             </SessionProvider>
         </Provider>
