@@ -171,7 +171,7 @@ export default function CreateWithGithubSection() {
                     <span className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-orange-200 dark:via-indigo-300 dark:to-sky-500 animate-gradient ">
                         Choose to connect with
                     </span>
-                       <span className="text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
+                        <span className="text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
                         Github
                     </span>
                     </h1>

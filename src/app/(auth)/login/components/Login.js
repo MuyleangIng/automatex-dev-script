@@ -45,6 +45,48 @@ const SignInForm = () => {
         }
     };
 
+    // if(status === "authenticated") {
+    //     return (
+    //         <Navbar container rounded className={"cus-navbar  sticky top-0 left-0 z-50 lg:px-3"}>
+    //             <Navbar.Brand>
+    //                 <img
+    //                     unoptimized
+    //                     width={100}
+    //                     height={100}
+    //                     alt="Logo"
+    //                     className=" w-10 h-10 object-contain"
+    //                     src="/mainlogo.png"
+    //                 />
+    //                 <span className="self-center text-xl font-bold whitespace-nowrap">
+    //                 <span className="text-orange-100">Automate</span>
+    //                 <span className="text-cool-blue-100">X</span>
+    //             </span>
+    //
+    //             </Navbar.Brand>
+    //             <div className={"flex items-center gap-2 flex md:order-2"}>
+    //                 <div className="relative">
+    //                     <img className="w-14 h-14 rounded-full" src={session.user.image} alt="" />
+    //                     <span className="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+    //                 </div>
+    //                 <button
+    //                     onClick={() => signOut()}
+    //                     type="button"
+    //                     className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+    //                 >
+    //                     Sign Out
+    //                 </button>
+    //                 <Navbar.Toggle/>
+    //             </div>
+    //             <Navbar.Collapse>
+    //                 <Navbar.Link className={"font-normal text-lg"} href="#">Feature & Service</Navbar.Link>
+    //                 <Navbar.Link className={"font-normal text-lg"} href="#">Document</Navbar.Link>
+    //                 <Navbar.Link className={`font-normal text-lg ${pathname === '/startbuilding' ? 'text-orange-500' : 'text-gray-600'}`} href="/startbuilding">Start Building</Navbar.Link>
+    //                 <Navbar.Link className={"font-normal text-lg"} href="#">About Us</Navbar.Link>
+    //             </Navbar.Collapse>
+    //         </Navbar>
+    //     )
+    // }
+
     const handleModalToggle = () => {
         setIsModalOpen(!isModalOpen);
     };
@@ -52,7 +94,7 @@ const SignInForm = () => {
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow-0 dark:border md:mt-0 sm:max-w-lg xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-full bg-white rounded-lg shadow-0 dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl text-center font-extrabold text-gray-900 md:text-2xl dark:text-white">
                             Sign in

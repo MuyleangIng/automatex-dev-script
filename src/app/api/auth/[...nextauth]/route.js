@@ -13,8 +13,8 @@ console.log('GITHUB_CLIENT_SECRET:', process.env.GITHUB_CLIENT_SECRET);
 const handler = NextAuth({
     providers: [
         GithubProvider({
-            clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
-            clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET
+            clientId: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET
         }),
         GitlabProvider({
             clientId: process.env.GITLAB_CLIENT_ID,
