@@ -3,11 +3,11 @@
 
 
 import React from 'react';
-import {Button, DarkThemeToggle, Navbar} from 'flowbite-react';
+import {Button, DarkThemeToggle, Navbar,Dropdown,Avatar} from 'flowbite-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaUserPlus } from 'react-icons/fa';
-import { IoLogInOutline } from 'react-icons/io5';
+import {IoLogInOutline, IoLogOutOutline} from 'react-icons/io5';
 import { useSession, signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import ThemeChanger from "@/app/themeSwitcher";
@@ -37,7 +37,7 @@ function HandleNavbar() {
 
     if (pathname === '/login' || pathname === '/signup') {
         return (
-            <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+            <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
                 <Link href="/">
                     <Navbar.Brand>
                         <img
@@ -60,7 +60,8 @@ function HandleNavbar() {
                         <ThemeChanger/>
                         <Button
                             onClick={handleSignUpClick}
-                            className={'bg-orange-100'}
+                            style={{ color: 'black', backgroundColor: 'orange' }}
+                            className="transition duration-300 ease-in-out hover:bg-orange-100"
                         >
                             <span className={'lg:px-3 uppercase  flex gap-2'}>
                                 <FaUserPlus className="h-5 w-5" />
@@ -74,10 +75,10 @@ function HandleNavbar() {
                            <ThemeChanger/>
                            <Button
                                onClick={handleSignInClick}
-                               className={'bg-orange-100'}
+                               style={{ color: 'black', backgroundColor: 'orange' }}
                                outline
                            >
-                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                            <span  className={'lg:px-3 uppercase flex gap-2'}>
                                 <IoLogInOutline className="h-5 w-5" />
                                 <span className={'hidden lg:inline'}>Sign In</span>
                             </span>
@@ -106,7 +107,7 @@ function HandleNavbar() {
 // Rest of your component code
 
     return (
-        <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+        <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
             <Link href="/">
                 <Navbar.Brand>
                     <img
@@ -125,37 +126,60 @@ function HandleNavbar() {
             </Link>
             <div className={'flex items-center gap-2 md:order-2'}>
                 {session ? (
-                    <div className="relative flex gap-5">
-                        {session.user?.image && (
-                            <img
-                                src={session.user.image}
-                                alt="User Avatar"
-                                className="w-10 h-10 rounded-full cursor-pointer"
-                                onClick={() => router.push('/profile')} // Redirect to user profile
-                            />
-                        )}
-                        <span className="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
-                        <Button onClick={handleSignOut} className={'bg-red-500'}>
-                            Sign Out
-                        </Button>
-                    </div>
+                    <Dropdown
+                        arrowIcon={false}
+                        inline
+                        label={
+                            <span>
+                             <span className="sr-only">User menu</span>
+                                {session.user?.image && (
+                                    <Avatar
+                                        alt="User Avatar"
+                                        img={session.user.image}
+                                        rounded
+                                        size="sm"
+                                    />
+                                )}
+                                     </span>
+                                    }
+                                >
+                                    <Dropdown.Header>
+                                        <span className="block text-sm">{session.user?.name}</span>
+                                        <span className="block truncate text-sm font-medium">
+                             {session.user?.email}
+                                        </span>
+                        </Dropdown.Header>
+                        <Dropdown.Item>Dashboard</Dropdown.Item>
+                        <Dropdown.Item>Settings</Dropdown.Item>
+                        <Dropdown.Item>Earnings</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item
+                            onClick={handleSignOut}
+                            className="bg-red-500 focus:text-white focus:bg-red-500 dark:focus:bg-red-500"
+                        >
+                            Sign out
+                        </Dropdown.Item>
+
+                    </Dropdown>
                 ) : (
                     <>
                         <Button
-                            className={'bg-orange-100'}
+                            style={{ color: 'black', backgroundColor: 'orange' }}
+                            className="transition duration-300 ease-in-out hover:bg-orange-100"
                             onClick={handleSignUpClick}
                         >
                             <span className={'lg:px-3 uppercase  flex gap-2'}>
-                                <FaUserPlus className="h-5 w-5" />
-                                <span className={'hidden lg:inline'}>Sign Up</span>
+                                <FaUserPlus className="h-5 w-5 text-black" />
+                                <span className={'hidden lg:inline text-black'}>Sign Up</span>
                             </span>
                         </Button>
                         <Button
-                            className={'bg-orange-100'}
+                            style={{ color: 'black', backgroundColor: 'orange' }}
                             outline
                             onClick={handleSignInClick}
                         >
-                            <span className={'lg:px-3 uppercase flex gap-2'}>
+                            <span
+                                className={'lg:px-3 uppercase flex gap-2'}>
                                 <IoLogInOutline className="h-5 w-5" />
                                 <span className={'hidden lg:inline'}>Sign In</span>
                             </span>
@@ -164,32 +188,37 @@ function HandleNavbar() {
                 )}
 
             </div>
-            <Navbar.Collapse>
-                <Navbar.Link className={'font-normal text-lg'} href="#">
-                    Feature & Service
-                </Navbar.Link>
-                <Navbar.Link className={`font-normal text-lg ${
-                    pathname === '/document'
-                        ? 'text-orange-500'
-                        : 'text-gray-600'
-                }`}
-                             href="/document">
-                    Document
-                </Navbar.Link>
-                <Navbar.Link
-                    className={`font-normal text-lg ${
-                        pathname === '/startbuilding'
-                            ? 'text-orange-500'
-                            : 'text-gray-600'
-                    }`}
-                    href="/startbuilding"
-                >
-                    Start Building
-                </Navbar.Link>
-                <Navbar.Link className={'font-normal text-lg'} href="#">
-                    About Us
-                </Navbar.Link>
-            </Navbar.Collapse>
+            <Navbar.Toggle />
+            {!session && (
+                <Navbar.Collapse>
+                    <Navbar.Link className={'font-normal text-lg'} href="/features-services">
+                        Feature & Service
+                    </Navbar.Link>
+                    <Navbar.Link
+                        className={`font-normal text-lg ${
+                            pathname === '/document'
+                                ? 'text-orange-500 dark:text-orange-100'
+                                : 'text-gray-600'
+                        }`}
+                        href="/document"
+                    >
+                        Document
+                    </Navbar.Link>
+                    <Navbar.Link
+                        className={`font-normal text-lg ${
+                            pathname === '/startbuilding'
+                                ? 'text-orange-500 dark:text-orange-100'
+                                : 'text-gray-600'
+                        }`}
+                        href="/startbuilding"
+                    >
+                        Start Building
+                    </Navbar.Link>
+                    <Navbar.Link className={'font-normal text-lg'} href="#">
+                        About Us
+                    </Navbar.Link>
+                </Navbar.Collapse>
+            )}
         </Navbar>
     );
 }
