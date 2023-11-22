@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Button, Checkbox, Label, TextInput} from "flowbite-react";
 import Image from "next/image";
+import HandleImage from "@/components/HandleImage";
 
 function Login(props) {
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
@@ -21,10 +22,11 @@ function Login(props) {
                             href="#"
                             className="mb-4 inline-flex items-center text-xl font-semibold text-gray-900 dark:text-white"
                         >
-                            <Image height={50} width={50}
-                                   alt="logo"
-                                   src="/mainlogo.png"
-                            />
+                            {/*<Image height={50} width={50}*/}
+                            {/*       alt="logo"*/}
+                            {/*       src="/mainlogo.png"*/}
+                            {/*/>*/}
+                            <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                             <span className="self-center text-xl font-bold whitespace-nowrap">
                           <span className="text-orange-100">Automate</span>
                           <span className="text-cool-blue-100">X</span>
@@ -164,8 +166,8 @@ function Login(props) {
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100}
-                        className="mx-auto hidden lg:flex"
+                    <Image width={100} height={100} unoptimized
+                        className="mx-auto hidden lg:flex w-full"
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
                         alt="illustration"
                     />

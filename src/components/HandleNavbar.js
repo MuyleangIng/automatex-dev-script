@@ -11,6 +11,7 @@ import {IoLogInOutline, IoLogOutOutline} from 'react-icons/io5';
 import { useSession, signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import ThemeChanger from "@/app/themeSwitcher";
+import HandleImage from "@/components/HandleImage";
 
 // Define the HandleNavbar component
 function HandleNavbar() {
@@ -40,14 +41,7 @@ function HandleNavbar() {
             <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
                 <Link href="/">
                     <Navbar.Brand>
-                        <img
-                            unoptimized
-                            width={100}
-                            height={100}
-                            alt="Logo"
-                            className=" w-14 h-14 object-contain"
-                            src="/mainlogo.png"
-                        />
+                        <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                         <span className="self-center text-xl font-bold whitespace-nowrap">
                           <span className="text-orange-100">Automate</span>
                           <span className="text-cool-blue-100">X</span>
@@ -110,14 +104,7 @@ function HandleNavbar() {
         <Navbar container rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
             <Link href="/">
                 <Navbar.Brand>
-                    <img
-                        unoptimized
-                        width={100}
-                        height={100}
-                        alt="Logo"
-                        className=" w-14 h-14 object-contain"
-                        src="/mainlogo.png"
-                    />
+                    <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                     <span className="self-center text-xl font-bold whitespace-nowrap">
                         <span className="text-orange-100">Automate</span>
                         <span className="text-cool-blue-100">X</span>
@@ -214,7 +201,7 @@ function HandleNavbar() {
                     >
                         Start Building
                     </Navbar.Link>
-                    <Navbar.Link className={'font-normal text-lg'} href="#">
+                    <Navbar.Link className={'font-normal text-lg'} href="contact-us">
                         About Us
                     </Navbar.Link>
                 </Navbar.Collapse>
