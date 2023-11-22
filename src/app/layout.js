@@ -22,11 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={ satoshi.className +" dark:bg-gray-900 dark:text-white"}>
-        <Providers>  <NextAuthProvider>
-            <MainLayout>
-                {children}
-            </MainLayout>
-        </NextAuthProvider>
+        <Providers>
+            <NextAuthProvider>
+                <MainLayout>
+                    {children}
+                </MainLayout>
+            </NextAuthProvider>
         </Providers>
 
       </body>

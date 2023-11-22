@@ -4,7 +4,7 @@ import GitlabProvider from "next-auth/providers/gitlab";
 import GoogleProvider from "next-auth/providers/google";
 import dotenv from 'dotenv';
 
-// Load environment variables from .env.development file
+// Load environment variables from .env.local file
 dotenv.config();
 console.log('GITHUB_CLIENT_ID:', process.env.GITHUB_CLIENT_ID);
 console.log('GITHUB_CLIENT_SECRET:', process.env.GITHUB_CLIENT_SECRET);

@@ -4,7 +4,7 @@
 import React from 'react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import ThemeChanger from "@/app/themeSwitcher";
+import ThemeChanger from "@/app/ThemeChanger";
 import { useTheme } from 'next-themes';
 function MainFooter(){
     const pathname = usePathname();
