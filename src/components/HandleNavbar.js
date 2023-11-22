@@ -191,7 +191,7 @@ function HandleNavbar() {
             <Navbar.Toggle />
             {!session && (
                 <Navbar.Collapse>
-                    <Navbar.Link className={'font-normal text-lg'} href="#">
+                    <Navbar.Link className={'font-normal text-lg'} href="/features-services">
                         Feature & Service
                     </Navbar.Link>
                     <Navbar.Link

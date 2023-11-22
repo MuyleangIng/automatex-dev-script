@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import {Provider} from "react-redux";
 import {Flowbite} from "flowbite-react";
@@ -20,19 +21,22 @@ function MainLayout({ children }) {
     return (
         <Provider store={store}>
             <SessionProvider>
-                <Flowbite
-                    theme={{
-                        dark: theme === 'dark',
-                    }}
-                    style={containerStyle} // Set the background color using inline styles
-                >
-                    <HeadingBar />
-                    <HandleNavbar />
+                <Flowbite theme={{
+                    dark: theme === 'dark',  // Set the theme based on the current theme from useTheme
+                }}>
+
+                    {/*<button onClick={toggleTheme}>*/}
+                    {/*    Toggle Theme*/}
+                    {/*</button>*/}
+
+                    <HeadingBar/>
+                    <HandleNavbar/>
                     {children}
                     <MainFooter />
                 </Flowbite>
             </SessionProvider>
         </Provider>
+        
     );
 }
 
