@@ -1,4 +1,4 @@
-import SideBar from "./components/SideBar";
+import SideBar from "@/app/document/components/SideBar";
 
 function DocumentPage() {
   return (

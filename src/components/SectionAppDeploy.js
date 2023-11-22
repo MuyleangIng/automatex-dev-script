@@ -5,7 +5,7 @@ export default function SectionAppDeploy(){
         <section className="bg-white dark:bg-gray-900">
             <div className="container flex flex-col items-center px-4 py-12 mx-auto text-center">
                 <h2 className="text-4xl font-bold text-gray-800 xl:text-3xl dark:text-white pb-8">
-                    You Haven't added any apps yet
+                    You Haven&apos;t added any apps yet
                 </h2>
 
                 <p className="block text-lg font-medium max-w-4xl mt-4 text-gray-500 dark:text-gray-300 pb-5">

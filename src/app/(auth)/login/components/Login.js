@@ -125,7 +125,7 @@ function Login(props) {
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100} unoptimized
+                    <Image width={100} height={100} unoptimized="true"  
                         className="mx-auto hidden lg:flex w-full"
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
                         alt="illustration"

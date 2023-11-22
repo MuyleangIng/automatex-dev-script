@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Avatar, Dropdown, Sidebar } from "flowbite-react";
-
+import { Sidebar } from "flowbite-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function SideBar({ children }) {
+function SideBar() {
    const active = "bg-gray-100 dark:bg-gray-700";
    const pathname = usePathname();
    const [drawerClass, setDrawerClass] = useState("left-0");
@@ -219,9 +218,6 @@ function SideBar({ children }) {
                <li>visit your demo project’s URL after AutomateX uploads site assets to a content delivery network (CDN) and makes your demo site available</li>
                <li>make changes to the example code and explore some key AutomateX features</li>
             </ui>
-
-
-
          </section>
          <section className=" p-2 pt-0 w-48 flex flex-col">
             <h1 className="text-xl font-bold pb-5">On this page</h1>

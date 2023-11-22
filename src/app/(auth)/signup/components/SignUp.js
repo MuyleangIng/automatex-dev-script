@@ -132,7 +132,7 @@ function SignUp(props) {
                     </Formik>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100} unoptimized
+                    <Image width={100} height={100} unoptimized="true"  
                         alt=""
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
                         className="mx-auto hidden lg:flex w-full"

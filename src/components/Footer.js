@@ -24,7 +24,7 @@ function MainFooter(){
                         <Link href="/" className="flex justify-center space-x-3 lg:justify-start">
                             <div className="flex items-center justify-center w-12 h-12 rounded-full">
                                 <img
-                                    unoptimized
+                                    unoptimized="true"  
                                     width={100}
                                     height={100}
                                     alt="Logo"

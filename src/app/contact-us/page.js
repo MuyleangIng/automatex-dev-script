@@ -35,7 +35,7 @@ function Page(props) {
                             </Button>
                         </div>
                     </div>
-                    <Image width={100} height={100} unoptimized
+                    <Image width={100} height={100} unoptimized="true"  
                            alt="mobile app"
                            src="/images/about/vision.png"
                            className="mx-auto hidden w-9/12 md:flex"
@@ -48,13 +48,13 @@ function Page(props) {
         {/*vision section*/}
             <section className="bg-white dark:bg-gray-900">
                 <div className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
-                    <img
+                    <Image width={100} height={100} unoptimized="true"  
                         alt=""
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
                         className="w-full dark:hidden"
                     />
-                    <img
-                        alt=""
+                    <Image width={100} height={100} unoptimized="true"  
+                        alt="sasa"
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
                         className="hidden w-full dark:block"
                     />

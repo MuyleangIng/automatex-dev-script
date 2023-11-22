@@ -6,7 +6,8 @@ import Lottie from 'lottie-react';
 import { HiSearch } from 'react-icons/hi'; // Assuming you're using React Icons for search icon
 import GithubAim from '../../../utils/assets/github.json';
 import { ToggleSwitch } from 'flowbite-react';
-import axios from 'axios'; // Import axios library
+import axios from 'axios';
+import Image from "next/image";
 
 
 const SourceCodeDisplay = ({ sourceCode }) => {
@@ -236,7 +237,7 @@ export default function CreateWithGithubSection() {
                                 >
                                     <div className="flex items-center justify-between space-x-6 p-4 lg:mr-0">
                                         <div className="flex items-center space-x-6 whitespace-nowrap">
-                                            <img
+                                            <Image height={100} width={100} unoptimized="true"  
                                                 className="h-10 w-10 rounded-full"
                                                 src={repo.owner.avatar_url}
                                                 alt={`${repo.owner.login} avatar`}
@@ -290,9 +291,9 @@ export default function CreateWithGithubSection() {
                                 <button
                                     className="w-full group xl:h-28 px-2 border-2 border-cool-blue-80 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-orange-50 active:dark:bg-gray-800">
                                     <div className="relative flex items-center space-x-4 justify-center">
-                                        <svg className="w-28  xl:w-10" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 25 25" viewBox="0 0 25 25" id="git"><g fill="#583689"><path d="M4.711 13.689c-2.327 0-4.22-1.894-4.22-4.223s1.893-4.223 4.22-4.223 4.22 1.895 4.22 4.223-1.893 4.223-4.22 4.223zm0-6.446c-1.224 0-2.22.997-2.22 2.223s.996 2.223 2.22 2.223 2.22-.997 2.22-2.223-.996-2.223-2.22-2.223zM5.247 24.432c-2.767 0-4.935-1.54-4.935-3.506s2.168-3.507 4.935-3.507c2.768 0 4.936 1.541 4.936 3.507s-2.168 3.506-4.936 3.506zm0-5.013c-1.68 0-2.935.795-2.935 1.507 0 .711 1.255 1.506 2.935 1.506s2.936-.795 2.936-1.506c0-.712-1.256-1.507-2.936-1.507z"></path><path d="m5.217 19.353c-1.73-.734-2.728-1.775-2.964-3.094-.392-2.189 1.551-4.088 1.773-4.298l1.369 1.457-.685-.729.688.727c-.36.343-1.351 1.539-1.176 2.495.111.61.708 1.149 1.775 1.601z"></path><path d="m7.092 5.896h2.295v2h-2.295z" transform="rotate(-34.699 8.239 6.896)"></path><path d="m12.296 6.959h2v9.311h-2z"></path></g><path fill="#de002a" d="m13.296 4.781c-.945 0-1.715-.77-1.715-1.716s.77-1.716 1.715-1.716c.946 0 1.716.77 1.716 1.716s-.77 1.716-1.716 1.716zm0-2c-.156 0-.284.127-.284.284s.128.284.284.284c.157 0 .285-.127.285-.284 0-.156-.128-.284-.285-.284z"></path><path fill="#583689" d="m23.312 17.27h-1.333c-2.184 0-3.96-1.777-3.96-3.962v-9.168h2v9.168c0 1.082.879 1.962 1.96 1.962h1.333z"></path><path fill="#583689" d="m17.231 6.3h5.007v2h-5.007z"></path></svg>
+                                        <svg className="w-28  xl:w-10" xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 25 25" viewBox="0 0 25 25" id="git"><g fill="#583689"><path d="M4.711 13.689c-2.327 0-4.22-1.894-4.22-4.223s1.893-4.223 4.22-4.223 4.22 1.895 4.22 4.223-1.893 4.223-4.22 4.223zm0-6.446c-1.224 0-2.22.997-2.22 2.223s.996 2.223 2.22 2.223 2.22-.997 2.22-2.223-.996-2.223-2.22-2.223zM5.247 24.432c-2.767 0-4.935-1.54-4.935-3.506s2.168-3.507 4.935-3.507c2.768 0 4.936 1.541 4.936 3.507s-2.168 3.506-4.936 3.506zm0-5.013c-1.68 0-2.935.795-2.935 1.507 0 .711 1.255 1.506 2.935 1.506s2.936-.795 2.936-1.506c0-.712-1.256-1.507-2.936-1.507z"></path><path d="m5.217 19.353c-1.73-.734-2.728-1.775-2.964-3.094-.392-2.189 1.551-4.088 1.773-4.298l1.369 1.457-.685-.729.688.727c-.36.343-1.351 1.539-1.176 2.495.111.61.708 1.149 1.775 1.601z"></path><path d="m7.092 5.896h2.295v2h-2.295z" transform="rotate(-34.699 8.239 6.896)"></path><path d="m12.296 6.959h2v9.311h-2z"></path></g><path fill="#de002a" d="m13.296 4.781c-.945 0-1.715-.77-1.715-1.716s.77-1.716 1.715-1.716c.946 0 1.716.77 1.716 1.716s-.77 1.716-1.716 1.716zm0-2c-.156 0-.284.127-.284.284s.128.284.284.284c.157 0 .285-.127.285-.284 0-.156-.128-.284-.285-.284z"></path><path fill="#583689" d="m23.312 17.27h-1.333c-2.184 0-3.96-1.777-3.96-3.962v-9.168h2v9.168c0 1.082.879 1.962 1.96 1.962h1.333z"></path><path fill="#583689" d="m17.231 6.3h5.007v2h-5.007z"></path></svg>
                                         <div className="flex flex-col ml-2 leading-4 text-left md:ml-3 p-2">
-                                            <span className="text-sm font-light text-black dark:text-gray-300">"Every Time you push to this branch, a new version of the app is automatically destroy. Ensure the branch is always <br/> in a deployable state and tests have passed before pusing"</span>
+                                            <span className="text-sm font-light text-black dark:text-gray-300">`&quot;Every Time you push to this branch, a new version of the app is automatically destroy. Ensure the branch is always <br/> in a deployable state and tests have passed before pusing `&quot;</span>
                                         </div>
                                     </div>
                                 </button>

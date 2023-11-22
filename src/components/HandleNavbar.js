@@ -1,13 +1,12 @@
 "use client"
 import React from 'react';
-import {Button, DarkThemeToggle, Navbar, Dropdown, Avatar} from 'flowbite-react';
+import {Button, Navbar, Dropdown, Avatar} from 'flowbite-react';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
 import {FaUserPlus} from 'react-icons/fa';
-import {IoLogInOutline, IoLogOutOutline} from 'react-icons/io5';
+import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
 import {useTheme} from 'next-themes';
-import ThemeChanger from "@/app/ThemeChanger";
 import HandleImage from "@/components/HandleImage";
 
 function HandleNavbar() {
@@ -33,19 +32,16 @@ function HandleNavbar() {
     }
 
     return (
-        <Navbar container rounded
+        <Navbar container="true" rounded
                 className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
-            <Link href="/">
-                <Navbar.Brand>
+                <Navbar.Brand as={Link} href={"/"}>
                     <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                     <span className="self-center text-xl font-extrabold whitespace-nowrap">
                         <span className="text-cyan-700">Automate</span>
                         <span className="text-cool-blue-100">X</span>
                     </span>
                 </Navbar.Brand>
-            </Link>
             <div className={'flex items-center gap-2 md:order-2'}>
-                <ThemeChanger/>
                 {session ? (
                     <Dropdown
                         arrowIcon={false}
@@ -94,7 +90,7 @@ function HandleNavbar() {
             <Navbar.Collapse>
                 {!developerPath && (
                     <>
-                        <Navbar.Link className={'font-normal text-lg'} href="/features-services">
+                        <Navbar.Link as={Link} active={true} className={'font-normal text-lg'} href="/features-services">
                             Feature & Service
                         </Navbar.Link>
                         <Navbar.Link
@@ -103,11 +99,12 @@ function HandleNavbar() {
                                     ? 'text-orange-500 dark:text-orange-100'
                                     : 'text-gray-600'
                             }`}
+                            as={Link}
                             href="/document"
                         >
                             Document
                         </Navbar.Link>
-                        <Navbar.Link
+                        <Navbar.Link as={Link}
                             className={`font-normal text-lg ${
                                 pathname === '/startbuilding'
                                     ? 'text-orange-500 dark:text-orange-100'
@@ -117,7 +114,7 @@ function HandleNavbar() {
                         >
                             Start Building
                         </Navbar.Link>
-                        <Navbar.Link className={'font-normal text-lg'} href="contact-us">
+                        <Navbar.Link as={Link} className={'font-normal text-lg'} href="contact-us">
                             About Us
                         </Navbar.Link>
                     </>

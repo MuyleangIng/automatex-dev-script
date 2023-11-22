@@ -10,7 +10,7 @@ function HandleImage({src, alt= "Thumbnail", w=8,h=8}) {
         </svg>
     ) : (
         <Image
-            unoptimized
+            unoptimized="true"  
             width={100}
             height={100}
             onError={(event) => setImgError(true)}
