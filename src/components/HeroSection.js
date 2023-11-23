@@ -64,9 +64,8 @@ function HeroSection() {
                         long term version to transform the way you work.
                     </p>
                 </div>
-                <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    <div
-                        className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
+                <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
+                    <div className={" flex "}>
                         <div>
                             <div className=" flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -188,7 +187,7 @@ function HeroSection() {
                                 </h2>
                                 <p className="text-base md:text-lg text-gray-800 dark:text-gray-300">
                                     Our Cloud Storage service provides a secure and user-friendly platform for storing
-                                    your important data, whether it's for backups or file uploads. With 5GB of storage
+                                    your important data, whether it is for backups or file uploads. With 5GB of storage
                                     space, your documents, photos, and files .
                                 </p>
                             </div>
