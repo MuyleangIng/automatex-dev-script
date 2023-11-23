@@ -11,7 +11,7 @@ function FeatureCardList(props) {
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-3/12 rounded"></span>
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 sm:text-lg  mt-5">
-                        "Welcome to AutomateX, your all-in-one solution for seamless automation and
+                        Welcome to AutomateX, your all-in-one solution for seamless automation and
                         effortless deployment.
                     </p>
                 </div>
@@ -22,8 +22,7 @@ function FeatureCardList(props) {
                         <div className="flex items-center justify-center">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={"w-14 h-14 text-orange-100 dark:text-orange-100"}>
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                                 </svg>
                             </div>
                         </div>
