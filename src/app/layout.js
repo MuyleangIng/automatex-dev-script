@@ -3,8 +3,6 @@ import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
 import Providers from "@/app/providers";
 import { NextAuthProvider } from "@/app/provider";
-import { Provider } from "react-redux";
-import store from "@/store";
 
 const satoshi = localFont({
     src: '../fonts/Satoshi-Regular.ttf',
@@ -20,7 +18,6 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <body className={satoshi.className + " dark:bg-gray-900 dark:text-white"}>
-        <Provider store={store}>
             <Providers>
                 <NextAuthProvider>
                     <MainLayout>
@@ -28,7 +25,6 @@ export default function RootLayout({ children }) {
                     </MainLayout>
                 </NextAuthProvider>
             </Providers>
-        </Provider>
         </body>
         </html>
     );

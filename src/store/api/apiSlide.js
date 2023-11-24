@@ -35,7 +35,7 @@ const baseQueryWithReAuth = async (args, api, extraOptions) => {
             const refreshToken = await getDecryptedRefreshToken();
             if (!refreshToken) {
                 const router = useRouter();
-                await router.push("/dashboard");
+                await router.push("/");
             } else {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_BASE_URL}/auth/refresh-token`,
