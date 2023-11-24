@@ -8,10 +8,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import {Button} from "flowbite-react";
 import FeatureCardList from "@/components/FeatureCardList";
+import OurPartner from "@/components/OurPartner";
 
 function HeroSection() {
     const settings = {
-        dots: true, infinite: true, speed: 500, slidesToShow: 3, // Number of slides to show at a time
+        dots: true, infinite: true, speed: 500, slidesToShow: 6, // Number of slides to show at a time
         slidesToScroll: 1, autoplay: true, // Auto-play slides
         autoplaySpeed: 4000, // Duration between slides in milliseconds
         responsive: [{
@@ -67,22 +68,21 @@ function HeroSection() {
                 <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
                     <div className={" flex "}>
                         <div>
-                            <div className=" flex items-center justify-center w-16 h-16 mb-4 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth="1.5" stroke="currentColor"
-                                     className="w-14 h-14 text-orange-200 dark:text-orange-100">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/>
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-
+                            <div
+                                className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
+                                <div>
+                                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                            <circle cx="42.3846" cy="42.3844" r="21" stroke="#FFB621"/>
+                                            <path d="M27.8846 40.2594C34.7192 40.2594 40.2596 34.7189 40.2596 27.8844C40.2596 21.0499 34.7192 15.5094 27.8846 15.5094C21.0501 15.5094 15.5096 21.0499 15.5096 27.8844C15.5096 34.7189 21.0501 40.2594 27.8846 40.2594Z" stroke="#FFB621" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M42.2445 11.668C42.8977 12.2695 43.5164 12.8883 44.1008 13.5242L51.1391 14.5297C52.2859 16.5213 53.1698 18.6531 53.7687 20.8719L49.4891 26.5695C49.4891 26.5695 49.5664 28.3227 49.4891 29.1992L53.7687 34.8969C53.1726 37.1166 52.2885 39.2487 51.1391 41.2391L44.1008 42.2445C44.1008 42.2445 42.8891 43.5078 42.2445 44.1008L41.2391 51.1391C39.2474 52.2859 37.1156 53.1698 34.8969 53.7687L29.1992 49.4891C28.3244 49.5664 27.4444 49.5664 26.5695 49.4891L20.8719 53.7687C18.6522 53.1726 16.52 52.2885 14.5297 51.1391L13.5242 44.1008C12.8883 43.4992 12.2695 42.8805 11.668 42.2445L4.62969 41.2391C3.48289 39.2474 2.59897 37.1156 2 34.8969L6.27969 29.1992C6.27969 29.1992 6.20234 27.4461 6.27969 26.5695L2 20.8719C2.5962 18.6522 3.48026 16.52 4.62969 14.5297L11.668 13.5242C12.2695 12.8883 12.8883 12.2695 13.5242 11.668L14.5297 4.62969C16.5213 3.48289 18.6531 2.59897 20.8719 2L26.5695 6.27969C27.4444 6.20233 28.3244 6.20233 29.1992 6.27969L34.8969 2C37.1166 2.5962 39.2487 3.48026 41.2391 4.62969L42.2445 11.668Z" stroke="#FFB621" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Integrated platform</h6>
+                                    <p className="mb-7 text-base  text-gray-500 dark:text-gray-400">
+                                        This integration enables seamless communication and interaction between different components</p>
+                                </div>
                             </div>
-                            <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Integrated
-                                Platform </h6>
-                            <p className="mb-7 text-base text-gray-500 dark:text-gray-400">
-                                A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear.
-                            </p>
                         </div>
                     </div>
                     <div
@@ -95,12 +95,11 @@ function HeroSection() {
                                     <path strokeLinecap="round" strokeLinejoin="round"
                                           d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                                 </svg>
-
                             </div>
                             <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Personal
                                 Dashboard</h6>
                             <p className="mb-7 text-base  text-gray-500 dark:text-gray-400">
-                                Rough pomfret lemon shark plownose chimaera southern sandfish kokanee northern sea.
+                                User dashboards  ensuring that individuals only see information and features relevant to their roles within an organization.
                             </p>
                         </div>
                     </div>
@@ -115,10 +114,10 @@ function HeroSection() {
                                           d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
                                 </svg>
                             </div>
-                            <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white">Organically
-                                grow</h6>
+                            <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white">
+                                Data Encryption</h6>
                             <p className="mb-7 text-base text-gray-500 dark:text-gray-400">
-                                A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.
+                                Deploy end-to-end encryption solutions to safeguard data from the point of origin to its destination.
                             </p>
                         </div>
                     </div>
@@ -240,13 +239,14 @@ function HeroSection() {
             </main>
 
             {/* Feature Section   */}
-
             <FeatureCardList/>
+
             <section className="bg-white dark:bg-gray-900">
                 {/*Support languages section */}
-                <main className="bg-slate-50 dark:bg-gray-800">
+                <main className=" dark:bg-gray-800">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
-                        <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
+
+                        <h2 className="mb-8 text-center text-3xl font-extrabold text-cool-blue-100 leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
                             Support Languages
                         </h2>
                         <Slider {...settings}>
@@ -360,7 +360,6 @@ function HeroSection() {
                                 </svg>
                             </a>
                         </Slider>
-
                     </div>
                 </main>
             </section>
@@ -370,9 +369,7 @@ function HeroSection() {
 
                         <h1 className="mt-2 md:text-6xl font-bold text-orange-200 text-3xl dark:text-orange-100 !important">Why
                             Us ?</h1>
-
                     </div>
-
                     <div className="grid grid-cols-1 gap-12 lg:col-span-2 sm:grid-cols-2">
                         <div>
                             <h2 className="font-bold text-3xl text-black dark:text-white mb-10">Expertise</h2>
@@ -402,7 +399,7 @@ function HeroSection() {
             </section>
 
             {/* Achievement    */}
-            <main className="bg-sky-50 dark:bg-gray-800  w-full mt-8">
+            <main className="bg-gray-50 dark:bg-gray-800  w-full mt-8">
                 <div
                     className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
                     <div className="col-span-2 mb-8">
@@ -463,70 +460,8 @@ function HeroSection() {
                 </div>
             </main>
 
-            {/* Our Cilent Sections   */}
-            <main className="bg-white dark:bg-gray-900 xl:mb-24">
-                <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
-                    <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
-                        Our Client
-                    </h2>
-                    <Slider {...settings}>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/brachnha.png"
-                                       className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/surveybox.png"
-                                       className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/camgiving.png"
-                                       className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/istaddemy.png"
-                                       className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/portistad.png"
-                                       className="h-28 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#" className="flex items-center justify-center">
-                                <Image width={100} height={100} unoptimized="true"
-                                       src="/images/photostad.png"
-                                       className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                       alt="Ikea - logo"
-                                />
-                            </a>
-                        </div>
-                    </Slider>
-                </div>
-            </main>
+            {/* Our Client Sections   */}
+            <OurPartner/>
         </section>)
 }
 
