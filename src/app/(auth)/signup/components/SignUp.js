@@ -1,13 +1,23 @@
 "use client"
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Button, Label, TextInput} from "flowbite-react";
 import * as Yup from "yup";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
+import {useRouter} from "next/navigation";
+import LoadingIndicator from "@/components/LoadingIndicator";
+import {useRegisterMutation} from "@/store/features/auth/authApiSlice";
 
 function SignUp(props) {
+    const router = useRouter();
+    const [register,isError,isLoading] = useRegisterMutation();
+    const [loadingSubmit, setLoadingSubmit] = useState(false);
+    const handleEmailChange = (e, setFieldValue) => {
+        const lowercaseEmail = e.target.value.toLowerCase();
+        setFieldValue('email', lowercaseEmail);
+    };
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
     const validationSchema = Yup.object().shape({
         username: Yup.string().required('Required'),
@@ -44,21 +54,31 @@ function SignUp(props) {
                         >
                             Login here
                         </a>
-                        .
                     </p>
                     <Formik initialValues={{
                         username: '', email: '', password: '', confirmPassword: '',
                     }}
                             validationSchema={validationSchema}
-                            onSubmit={(values, {setSubmitting}) => {
-                                setTimeout(() => {
-                                    // console.log(values)
-                                    alert(JSON.stringify(values, null, 2))
+                            onSubmit={async (values, {setSubmitting}) => {
+                                try {
+                                    values.authProvider="credentials"
+                                    const data = await register(values).unwrap();
+                                    // toast.success(data.message + " please check "+ data.data);
+                                    router.push('/sign-up-success');
+                                    console.log(values);
+                                } catch (error) {
+                                    const messages = error?.data.errors.map(el => el.name + ": "+ el.message)
+                                    toast.error(messages.join("\n"));
                                     setSubmitting(false);
-                                }, 500);
+                                }
+
+                                // setTimeout(() => {
+                                //     // console.log(values)
+                                //     setSubmitting(false);
+                                // }, 500);
                             }}
                     >
-                        {({isSubmitting}) => (
+                        {({isSubmitting,setFieldValue}) => (
                             <Form className="mt-4 space-y-6 sm:mt-6" action="#">
                             <div className="grid gap-6 sm:grid-cols-2">
                                 <div className="grid grid-cols-1 gap-2">
@@ -83,6 +103,7 @@ function SignUp(props) {
                                             name="email"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             placeholder="Enter your email"
+                                            onChange={(e) => handleEmailChange(e, setFieldValue)}
                                         />
                                         <ErrorMessage name={"email"} component={"div"}
                                                       className={"invalid-feedback text-red-600"}/>
@@ -126,6 +147,7 @@ function SignUp(props) {
                             <SocialLogin />
 
                             <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
+                                {loadingSubmit ? <LoadingIndicator width={5} height={5} /> : null}
                                 Create an account
                             </Button>
                         </Form>)}
