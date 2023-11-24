@@ -56,7 +56,7 @@ function SignUp(props) {
                         </a>
                     </p>
                     <Formik initialValues={{
-                        username: '', email: '', password: '', confirmPassword: '',
+                        username: 'admin', email: '', password: 'Admin@123', confirmPassword: 'Admin@123',
                     }}
                             validationSchema={validationSchema}
                             onSubmit={async (values, {setSubmitting}) => {
@@ -85,7 +85,7 @@ function SignUp(props) {
                                     <div>
                                         <Label htmlFor="username" className="dark:text-white">Full Name</Label>
                                         <Field
-                                            type="text"
+                                            type="username"
                                             name="username"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             placeholder="Enter your username"
@@ -99,7 +99,7 @@ function SignUp(props) {
 
                                         <Label htmlFor="email" className="dark:text-white">Your email</Label>
                                         <Field
-                                            type="text"
+                                            type="email"
                                             name="email"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             placeholder="Enter your email"
@@ -114,6 +114,7 @@ function SignUp(props) {
                                         <Label htmlFor="password" className="dark:text-white">Password</Label>
                                         <Field
                                             name="password"
+                                            id="password"
                                             placeholder="••••••••"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             type="password"
@@ -128,6 +129,7 @@ function SignUp(props) {
                                             Password</Label>
                                         <Field
                                             name="confirmPassword"
+                                            id="confirmPassword"
                                             placeholder="••••••••"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             type="password"

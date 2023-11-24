@@ -10,20 +10,16 @@ import { useRouter } from "next/router";
 // create base query with authentication
 const baseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
-    prepareHeaders: (headers, { getState }) => {
-        // const token = getState().auth.accessToken;
-        // Get the auth state from Redux store
-        // const authState = getState().auth.;
-        console.log(authState);
-        const token = authState.accessToken;
-        console.log(token)
-        headers.set("content-type", "application/json");
+    prepareHeaders: (headers, {getState}) => {
+        const token = getState().auth?.accessToken;
+        console.log('token', token)
         if (token) {
             headers.set("authorization", `Bearer ${token}`);
         }
         return headers;
     },
 });
+
 
 // custom base query with re-authentication when token expires
 const baseQueryWithReAuth = async (args, api, extraOptions) => {

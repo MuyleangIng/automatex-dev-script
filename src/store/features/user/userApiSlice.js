@@ -4,8 +4,11 @@ export const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getUser: builder.query({
             query: () => "/auth/me",
-            keepUnusedDataFor: 5, // keep unused data in cache for 5 seconds
-            providesTags: ["User"], // provideTags are used for updating cache
+            keepUnusedDataFor: 5,
+            providesTags: ["User"],
+            onSuccess: (data) => {
+                console.log('getUser query succeeded:', data);
+            },
         }),
         getRequestUserGoogleByEmail: builder.query({
             query: (email) => `/auth/google-get-me/${email}`,
