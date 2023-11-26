@@ -8,6 +8,7 @@ import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
 import {useTheme} from 'next-themes';
 import HandleImage from "@/components/HandleImage";
+import {button} from "@material-tailwind/react";
 
 function HandleNavbar() {
     const router = useRouter();
@@ -40,6 +41,7 @@ function HandleNavbar() {
                         <span className="text-cyan-700">Automate</span>
                         <span className="text-cool-blue-100">X</span>
                     </span>
+
                 </Navbar.Brand>
             <div className={'flex items-center gap-2 md:order-2'}>
                 {session ? (
@@ -72,10 +74,11 @@ function HandleNavbar() {
                         <Dropdown.Divider/>
                         <Dropdown.Item
                             onClick={handleSignOut}
-                            className="bg-red-500 focus:text-white focus:bg-red-500 dark:focus:bg-red-500"
-                        >
+                            className="bg-red-500 focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
+                            >
                             Sign out
                         </Dropdown.Item>
+                        <Button as={Link}>SignOut</Button>
 
                     </Dropdown>
                 ) : (
@@ -84,7 +87,6 @@ function HandleNavbar() {
                         <BtnSignIn pathname={pathname} router={router}/>
                     </>
                 )}
-
             </div>
             <Navbar.Toggle/>
             <Navbar.Collapse>

@@ -9,5 +9,5 @@ export default withAuth(
 
 // See "Matching Paths" below to learn more
 export const config = {
-    matcher: ['/admin','/admin/:path*'],
+    matcher: ['/app/dashboard']
 }
