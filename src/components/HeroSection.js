@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, {useEffect} from 'react';
 import Slider from 'react-slick';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
@@ -9,8 +9,17 @@ import Image from 'next/image';
 import {Button} from "flowbite-react";
 import FeatureCardList from "@/components/FeatureCardList";
 import OurPartner from "@/components/OurPartner";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import the AOS styles
 
 function HeroSection() {
+    useEffect(() => {
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
     const settings = {
         dots: true, infinite: true, speed: 500, slidesToShow: 6, // Number of slides to show at a time
         slidesToScroll: 1, autoplay: true, // Auto-play slides
@@ -32,10 +41,10 @@ function HeroSection() {
                     <div className="w-full lg:w-1/2">
                         <div className="lg:max-w-lg">
                             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
-                                <span className="text-orange-50 block mb-8">Say Goodbye </span>
-                                <span className="text-orange-50">To <span className="text-cool-blue-300">Manual.</span></span>
+                                <span className="text-orange-50 block mb-8" data-aos="fade-up-right">Say Goodbye </span>
+                                <span className="text-orange-50" data-aos="zoom-in-left">To <span data-aos="fade-down-right" className="text-cool-blue-300">Manual.</span></span>
                             </h1>
-                            <p className=" mb-5 mt-5 text-lg text-gray-600 dark:text-gray-400">At AutomateX we are on a
+                            <p data-aos="zoom-in-left" className=" mb-5 mt-5 text-lg text-gray-600 dark:text-gray-400">At AutomateX we are on a
                                 mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual
                                 tasks.</p>
                             <Button outline
@@ -45,7 +54,7 @@ function HeroSection() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-                        <Image width={100} height={100} unoptimized="true" className="w-full h-full lg:max-w-3xl"
+                        <Image data-aos="zoom-out-left" width={100} height={100} unoptimized="true" className="w-full h-full lg:max-w-3xl"
                                src="/images/herosection1.png" alt="Catalogue-pana.svg"/>
                     </div>
                 </div>
@@ -55,12 +64,12 @@ function HeroSection() {
             <div
                 className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
                         <span
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
                     </h2>
-                    <p className=" text-base text-gray-800 dark:text-gray-400 md:text-lg">
+                    <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-400 md:text-lg">
                         Unique and Powerful suit of software to run and entire, brought to you by a company with the
                         long term version to transform the way you work.
                     </p>
@@ -68,7 +77,7 @@ function HeroSection() {
                 <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
                     <div className={" flex "}>
                         <div>
-                            <div
+                            <div data-aos="zoom-in-down"
                                 className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                                 <div>
                                     <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
@@ -85,7 +94,7 @@ function HeroSection() {
                             </div>
                         </div>
                     </div>
-                    <div
+                    <div data-aos="zoom-in-down"
                         className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
@@ -103,7 +112,7 @@ function HeroSection() {
                             </p>
                         </div>
                     </div>
-                    <div
+                    <div data-aos="zoom-in-down"
                         className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                         <div>
                             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full ">
@@ -126,7 +135,7 @@ function HeroSection() {
 
             {/*Service Section */}
             <div className="max-w-xl mb-10 md:mx-auto text-center lg:max-w-2xl md:mb-12">
-                <h2 className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                <h2 data-aos="fade-up-right" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                     Service
                     <span
                         className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-3/12 rounded"></span>
@@ -140,10 +149,10 @@ function HeroSection() {
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                <h2 data-aos="flip-right" className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Full Service Deployment
                                 </h2>
-                                <p className="text-base md:text-lg text-gray-800 dark:text-gray-300">
+                                <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">
                                     Say goodbye to manual and error-prone deployment processes. Our Service automates
                                     the deployment of frontend code, backend service, database, and all other components
                                     of your application stack.
@@ -161,7 +170,7 @@ function HeroSection() {
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image width={100} height={100} unoptimized="true"
+                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
                                        className="w-full h-full object-cover" src="/images/Service.png" alt=""/>
                             </div>
                         </div>
@@ -174,17 +183,17 @@ function HeroSection() {
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image width={100} height={100} unoptimized="true"
+                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
                                        className="w-full h-full object-cover" src="/images/cloude.png" alt=""/>
                             </div>
                         </div>
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                <h2 data-aos="flip-right"  className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Personal Cloude Storage
                                 </h2>
-                                <p className="text-base md:text-lg text-gray-800 dark:text-gray-300">
+                                <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">
                                     Our Cloud Storage service provides a secure and user-friendly platform for storing
                                     your important data, whether it is for backups or file uploads. With 5GB of storage
                                     space, your documents, photos, and files .
@@ -209,10 +218,10 @@ function HeroSection() {
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
-                                <h2 className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                <h2 data-aos="flip-right" className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Private Git Server
                                 </h2>
-                                <p className="text-base md:text-lg text-gray-800 dark:text-gray-300">
+                                <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">
                                     Take full control of your Git repositories. Our Private Git Server empowers you to
                                     securely manage and version control your source code and projects within your own
                                     environment.
@@ -230,7 +239,7 @@ function HeroSection() {
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image width={100} height={100} unoptimized="true"
+                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
                                        className=" w-full h-full object-cover" src="/images/git.png" alt=""/>
                             </div>
                         </div>
@@ -367,31 +376,31 @@ function HeroSection() {
                 <div className="container grid grid-cols-1 gap-10 px-6 py-12 mx-auto lg:grid-cols-3">
                     <div className="flex items-center">
 
-                        <h1 className="mt-2 md:text-6xl font-bold text-orange-200 text-3xl dark:text-orange-100 !important">Why
+                        <h1 data-aos="flip-up" className="mt-2 md:text-6xl font-bold text-orange-200 text-3xl dark:text-orange-100 !important">Why
                             Us ?</h1>
                     </div>
                     <div className="grid grid-cols-1 gap-12 lg:col-span-2 sm:grid-cols-2">
                         <div>
-                            <h2 className="font-bold text-3xl text-black dark:text-white mb-10">Expertise</h2>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Expertise</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
                                 3000 AU</p>
                         </div>
 
                         <div>
-                            <h2 className="font-bold text-3xl text-black dark:text-white mb-10">London</h2>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">100 Oxford Street <br/> London W1D 1LL
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">London</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Oxford Street <br/> London W1D 1LL
                                 UK</p>
                         </div>
 
                         <div>
-                            <h2 className="font-bold text-3xl text-black dark:text-white mb-10">Sydney</h2>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Sydney</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
                                 3000 AU</p>
                         </div>
 
                         <div>
-                            <h2 className="font-bold text-3xl text-black dark:text-white mb-10">San Francisco</h2>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">San Francisco</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
                                 3000 AU</p>
                         </div>
                     </div>
@@ -403,50 +412,50 @@ function HeroSection() {
                 <div
                     className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
                     <div className="col-span-2 mb-8">
-                        <h1 className="mt-2 md:text-5xl font-bold text-black text-3xl dark:text-white !important mb-4">Helping
+                        <h1 data-aos="zoom-in" className="mt-2 md:text-5xl font-bold text-black text-3xl dark:text-white !important mb-4">Helping
                             a local Business</h1>
-                        <h1 className="mt-2 md:text-5xl font-bold text-black text-3xl dark:text-white !important mb-10">reinvent
+                        <h1 data-aos="zoom-in" className="mt-2 md:text-5xl font-bold text-black text-3xl dark:text-white !important mb-10">reinvent
                             itself</h1>
-                        <p className="font-medium text-gray-500 sm:text-lg dark:text-gray-400">We reached here with our
+                        <p data-aos="zoom-in" className="font-medium text-gray-500 sm:text-lg dark:text-gray-400">We reached here with our
                             hard work hand and dedication</p>
 
                     </div>
                     <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-                        <div>
-                            <svg className="w-8 h-8 mb-2 text-orange-200 md:w-12 md:h-12 dark:text-text-orange-100"
+                        <div data-aos="flip-left">
+                            <svg data-aos="flip-left" className="w-8 h-8 mb-2 text-orange-200 md:w-12 md:h-12 dark:text-text-orange-100"
                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                       d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
                             </svg>
 
-                            <h3 className="mb-2 text-2xl font-bold dark:text-white">2212</h3>
-                            <p className="font-light text-gray-500 dark:text-gray-400">Clients</p>
+                            <h3  data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">2212</h3>
+                            <p  data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Clients</p>
                         </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                        <div data-aos="flip-left">
+                            <svg data-aos="flip-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor"
                                  className="w-8 h-8 mb-2 text-orange-200 md:w-12 md:h-12 dark:text-text-orange-100">
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                       d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.35 15m.002 0h-.002"/>
                             </svg>
 
-                            <h3 className="mb-2 text-2xl font-bold dark:text-white">229</h3>
-                            <p className="font-light text-gray-500 dark:text-gray-400">Collaboration</p>
+                            <h3  data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">229</h3>
+                            <p  data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Collaboration</p>
                         </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                        <div data-aos="flip-left">
+                            <svg  data-aos="flip-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor"
                                  className="w-8 h-8 mb-2 text-orange-200 md:w-12 md:h-12 dark:text-text-orange-100">
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                       d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"/>
                             </svg>
 
-                            <h3 className="mb-2 text-2xl font-bold dark:text-white">828</h3>
-                            <p className="font-light text-gray-500 dark:text-gray-400">Deploy Service</p>
+                            <h3 data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">828</h3>
+                            <p data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Deploy Service</p>
                         </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                        <div data-aos="flip-left">
+                            <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor"
                                  className="w-8 h-8 mb-2 text-orange-200 md:w-12 md:h-12 dark:text-text-orange-100">
                                 <path strokeLinecap="round" strokeLinejoin="round"
@@ -454,7 +463,7 @@ function HeroSection() {
                             </svg>
 
                             <h3 className="mb-2 text-2xl font-bold dark:text-white">1924</h3>
-                            <p className="font-light text-gray-500 dark:text-gray-400">Feedback</p>
+                            <p  className="font-light text-gray-500 dark:text-gray-400">Feedback</p>
                         </div>
                     </div>
                 </div>

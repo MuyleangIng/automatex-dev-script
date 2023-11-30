@@ -8,7 +8,7 @@ import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
 import {useTheme} from 'next-themes';
 import HandleImage from "@/components/HandleImage";
-import {button} from "@material-tailwind/react";
+
 
 function HandleNavbar() {
     const router = useRouter();
@@ -16,6 +16,7 @@ function HandleNavbar() {
     const {data: session, status, error} = useSession();
     const {theme} = useTheme();
     const developerPath = pathname.includes('/app')
+    const userName = session?.user?.name;
 
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
@@ -33,24 +34,22 @@ function HandleNavbar() {
     }
 
     return (
-        <Navbar container="true" rounded
-                className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
-                <Navbar.Brand as={Link} href={"/"}>
-                    <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
-                    <span className="self-center text-xl font-extrabold whitespace-nowrap">
-                        <span className="text-cyan-700">Automate</span>
-                        <span className="text-cool-blue-100">X</span>
-                    </span>
-
-                </Navbar.Brand>
+        <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
+            <Navbar.Brand as={Link} href={"/"}>
+                <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
+                <span className="self-center text-xl font-extrabold whitespace-nowrap">
+                    <span className="text-cyan-700">Automate</span>
+                    <span className="text-cool-blue-100">X</span>
+                </span>
+            </Navbar.Brand>
             <div className={'flex items-center gap-2 md:order-2'}>
-                {session ? (
+                {status === 'authenticated' ? (
                     <Dropdown
                         arrowIcon={false}
                         inline
                         label={
                             <span>
-                             <span className="sr-only">User menu</span>
+                                <span className="sr-only">User menu</span>
                                 {session.user?.image && (
                                     <Avatar
                                         alt="User Avatar"
@@ -59,40 +58,45 @@ function HandleNavbar() {
                                         size="sm"
                                     />
                                 )}
-                                     </span>
+                            </span>
                         }
                     >
                         <Dropdown.Header>
-                            <span className="block text-sm">{session.user?.name}</span>
+                            <span className="block text-sm">{userName}</span>
                             <span className="block truncate text-sm font-medium">
-                             {session.user?.email}
-                                        </span>
+                                {session.user?.email}
+                            </span>
                         </Dropdown.Header>
-                        <Dropdown.Item as={Link} href={"/app/dashboard"}>Dashboard</Dropdown.Item>
+                        <Dropdown.Item as={Link} href={"/app/dashboard"}>
+                            Dashboard
+                        </Dropdown.Item>
                         <Dropdown.Item>Settings</Dropdown.Item>
                         <Dropdown.Item>Earnings</Dropdown.Item>
-                        <Dropdown.Divider/>
+                        <Dropdown.Divider />
                         <Dropdown.Item
                             onClick={handleSignOut}
                             className="bg-red-500 focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
-                            >
+                        >
                             Sign out
                         </Dropdown.Item>
-                        <Button as={Link}>SignOut</Button>
-
                     </Dropdown>
                 ) : (
                     <>
-                        <BtnSignUp pathname={pathname} router={router}/>
-                        <BtnSignIn pathname={pathname} router={router}/>
+                        <BtnSignUp pathname={pathname} router={router} />
+                        <BtnSignIn pathname={pathname} router={router} />
                     </>
                 )}
             </div>
-            <Navbar.Toggle/>
+            <Navbar.Toggle />
             <Navbar.Collapse>
                 {!developerPath && (
                     <>
-                        <Navbar.Link as={Link} active={true} className={'font-normal text-lg'} href="/features-services">
+                        <Navbar.Link
+                            as={Link}
+                            active={true}
+                            className={'font-normal text-lg'}
+                            href="/features-services"
+                        >
                             Feature & Service
                         </Navbar.Link>
                         <Navbar.Link
@@ -106,7 +110,8 @@ function HandleNavbar() {
                         >
                             Document
                         </Navbar.Link>
-                        <Navbar.Link as={Link}
+                        <Navbar.Link
+                            as={Link}
                             className={`font-normal text-lg ${
                                 pathname === '/startbuilding'
                                     ? 'text-orange-500 dark:text-orange-100'
@@ -116,7 +121,11 @@ function HandleNavbar() {
                         >
                             Start Building
                         </Navbar.Link>
-                        <Navbar.Link as={Link} className={'font-normal text-lg'} href="contact-us">
+                        <Navbar.Link
+                            as={Link}
+                            className={'font-normal text-lg'}
+                            href="contact-us"
+                        >
                             About Us
                         </Navbar.Link>
                     </>
@@ -133,8 +142,8 @@ const BtnSignIn = ({pathname, router}) => {
     return (
         <Button
             outline
-            onClick={() => router.push("/login")}
-            className={pathname === '/login'?"hidden":""}
+            onClick={() => router.push("/auth/login")}
+            className={pathname === '/auth/login' || pathname === '/app/dashboard' ? "hidden" : ""}
         >
             <span className={'lg:px-3 uppercase flex gap-2'}>
                 <IoLogInOutline className="h-5 w-5"/>
@@ -147,8 +156,8 @@ const BtnSignIn = ({pathname, router}) => {
 const BtnSignUp = ({pathname, router}) => {
     return (
         <Button
-            onClick={() => router.push("/signup")}
-            className={pathname === '/signup'?"hidden":""}
+            onClick={() => router.push("/auth/signup")}
+            className={pathname === '/auth/signup' || pathname === '/app/dashboard' ? "hidden" : ""}
         >
             <span className={'lg:px-3 uppercase flex gap-2'}>
                 <FaUserPlus className="h-5 w-5"/>

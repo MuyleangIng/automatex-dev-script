@@ -1,16 +1,27 @@
-import React from "react";
+"use client";
+
+import React, {useEffect} from "react";
+import AOS from "aos";
+import 'aos/dist/aos.css'; // Import the AOS styles
 
 export default function StartBuildingSection() {
+    useEffect(() => {
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
     return (
         <>
             {/*Hero Section with text*/}
             <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center mt-40">
-                <h1 className="mb-8 text-4xl font-extrabold  text-gray-900 md:text-6xl md:tracking-tight">
-                    <span>Start</span> <span
+                <h1 data-aos="fade-right"  className="mb-8 text-4xl font-extrabold  text-gray-900 md:text-6xl md:tracking-tight">
+                    <span >Start</span> <span
                     className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Automate X</span>
-                    <span className="dark:text-gray-500">Build the better Runtime Product</span>
+                    <span  data-aos="fade-right" className="dark:text-gray-300">Build the better Runtime Product</span>
                 </h1>
-                <p className="px-0 text-lg text-gray-500 md:text-xl lg:px-24 mb-20">
+                <p data-aos="fade-left" className="px-0 text-lg text-gray-500 dark:text-gray-300 md:text-xl lg:px-24 mb-20">
                     Start gaining the traction you have always wanted with our next-level templates and designs. Crafted
                     to help you tell your story.
                 </p>
@@ -19,12 +30,12 @@ export default function StartBuildingSection() {
 
             {/*Grid of card list*/}
             <div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6">
-                <h2 className="max-w-lg mb-20 text-3xl  font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
+                <h2  data-aos="fade-right" className="max-w-lg mb-20 text-3xl  font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
                     Project KickStarts
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                     {/* Project 1 */}
-                    <a
+                    <a  data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -99,7 +110,7 @@ export default function StartBuildingSection() {
                     </a>
 
                     {/* Project 2 */}
-                    <a
+                    <a data-aos="flip-down"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -119,7 +130,7 @@ export default function StartBuildingSection() {
                     </a>
 
                     {/* Project 3 */}
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -142,7 +153,7 @@ export default function StartBuildingSection() {
                                   d="M84.371 117.744c1.014.624 2.496 1.144 4.056 1.144 2.314 0 3.666-1.222 3.666-2.99 0-1.638-.936-2.574-3.302-3.484-2.86-1.014-4.628-2.496-4.628-4.966 0-2.73 2.262-4.758 5.668-4.758 1.794 0 3.094.416 3.874.858l-.624 1.846c-.572-.312-1.742-.832-3.328-.832-2.392 0-3.302 1.43-3.302 2.626 0 1.638 1.065 2.444 3.484 3.38 2.964 1.145 4.472 2.574 4.472 5.148 0 2.704-2.002 5.044-6.136 5.044-1.69 0-3.536-.494-4.473-1.118l.573-1.898zM111.957 123.074c-2.366-.624-4.68-1.326-6.708-2.028-.364-.13-.728-.26-1.066-.26-4.16-.156-7.722-3.224-7.722-8.866 0-5.616 3.432-9.23 8.164-9.23 4.758 0 7.853 3.692 7.853 8.866 0 4.498-2.08 7.384-4.992 8.398v.104c1.742.442 3.64.858 5.122 1.118l-.651 1.898zm-1.872-11.414c0-3.51-1.819-7.125-5.538-7.125-3.822 0-5.694 3.536-5.668 7.333-.026 3.718 2.028 7.072 5.564 7.072 3.615 0 5.642-3.276 5.642-7.28zM115.414 102.976h2.263v15.626h7.488v1.898h-9.751v-17.524z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-down"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -179,7 +190,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-down"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -194,7 +205,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -206,7 +217,7 @@ export default function StartBuildingSection() {
                                   d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -216,7 +227,7 @@ export default function StartBuildingSection() {
                                   d="M14.887 18.316l2.72 4.523 2.507 4.182c1.301 2.17 2.602 4.34 3.901 6.51l2.662 4.44 3.882 6.465 4.749 7.936c1.369 2.285 2.741 4.569 4.112 6.853l.184.267c.199.062.357.009.521-.03 1.807-.434 3.614-.865 5.421-1.296 2.931-.7 5.862-1.398 8.792-2.099l4.592-1.098c2.962-.708 5.926-1.414 8.889-2.124 2.996-.716 5.99-1.436 8.985-2.154 1.514-.363 3.028-.725 4.543-1.086l8.792-2.096 9.575-2.28.517-.14-.141-.28c-.869-1.232-1.742-2.462-2.613-3.693l-2.581-3.654-2.76-3.898-2.639-3.737-2.614-3.693-2.701-3.816-2.646-3.731-1.396-1.969c-.213-.303-.383-.628-.497-.982-.275-.856.039-1.425.538-1.846.324-.274.696-.474 1.1-.593.562-.166 1.128-.324 1.702-.432 1.151-.217 2.309-.402 3.465-.594 1.304-.217 2.609-.424 3.915-.639.825-.136 1.65-.279 2.476-.419l3.367-.567c1.089-.183 2.18-.364 3.269-.543l3.568-.583 2.477-.417c.94-.157 1.882-.314 2.823-.468 1.174-.191 2.346-.384 3.521-.568.698-.109 1.399-.148 2.093.052.521.151.994.395 1.436.706l.61.426c.061-.141-.027-.217-.067-.298-.881-1.782-2.082-3.314-3.606-4.592-1.419-1.187-3.012-2.06-4.773-2.616-1.04-.33-2.109-.483-3.199-.565l-.535-.08h-79.262l-.429.069c-.954.075-1.892.217-2.815.47-2.021.555-3.817 1.519-5.401 2.885-.932.803-1.745 1.707-2.435 2.727-1.065 1.574-1.792 3.285-2.156 5.189l.461.803c1.033 1.726 2.067 3.449 3.101 5.173zM20.128 106.141c.97.373 1.972.635 3.006.762l1.047.047c.163.021.32.05.48.05h32.288c-.052 0-.099-.149-.157-.25-1.271-2.168-2.554-4.296-3.81-6.472-1.581-2.742-3.147-5.477-4.705-8.233-1.664-2.944-3.313-5.89-4.965-8.842-1.569-2.807-3.135-5.611-4.698-8.42-.944-1.698-1.883-3.396-2.825-5.095l-.252-.388-.458.091c-.908.234-1.814.471-2.721.709-1.262.332-2.522.67-3.785 1-2.834.738-5.669 1.471-8.503 2.207-2.883.748-5.704 1.498-8.589 2.243-.175.046.519.062-.481.092v17.905c1 .104.136.294.158.477.066.53.085 1.064.179 1.59.349 1.957 1.089 3.747 2.224 5.378 1.664 2.392 3.852 4.103 6.567 5.149zM14.006 65.751c3.336-.793 6.672-1.585 10.008-2.377l4.396-1.039c.732-.174 1.468-.341 2.194-.537.646-.175.727-.389.394-.973-.481-.844-.97-1.682-1.458-2.522l-4.288-7.383-4.287-7.385c-1.454-2.504-2.909-5.009-4.364-7.513l-3.736-6.427-1.553-2.781c-.1-.17.689-.371-.311-.461v40.135c0-.027.204-.05.333-.081l2.672-.656zM116.677 94.439c-1.308.465-2.615.933-3.923 1.401-2.977 1.067-5.953 2.134-8.93 3.202-1.652.593-3.304 1.193-4.959 1.784-3.371 1.204-6.744 2.403-10.117 3.604-1.955.696-3.91 1.325-5.863 2.024-.535.193-1.063.546-1.593.546h22.431l.484-.046c.569-.024 1.131-.078 1.691-.181 2.303-.421 4.365-1.359 6.191-2.815 1.402-1.118 2.544-2.456 3.438-4.016.92-1.606 1.466-3.329 1.728-5.153.023-.157.072-.328-.06-.491-.184-.014-.349.08-.518.141zM114.75 64.318c-.99-1.353-1.98-2.704-2.968-4.058-1.362-1.869-2.723-3.74-4.083-5.609-.553-.759-1.113-1.512-1.654-2.279-.162-.231-.348-.292-.601-.224l-.145.042c-2.505.608-5.011 1.216-7.517 1.823l-4.489 1.089-8.782 2.133c-2.896.704-5.791 1.408-8.687 2.111-3.01.729-6.02 1.456-9.028 2.186-2.961.719-5.921 1.44-8.881 2.16-2.863.695-5.726 1.391-8.589 2.085-1.513.367-3.025.733-4.537 1.103-.223.054-.463.067-.699.247l.202.385c1.268 2.19 2.535 4.379 3.806 6.567 1.438 2.478 2.878 4.955 4.321 7.43 1.587 2.72 3.178 5.439 4.768 8.159.913 1.562 1.821 3.127 2.742 4.685 1.023 1.73 2.051 3.458 3.094 5.178.312.515.666 1.006 1.023 1.49.24.323.537.599.887.81.36.218.75.286 1.159.194.212-.048.419-.118.624-.189l.754-.279c2.74-.938 5.48-1.875 8.223-2.809 2.139-.729 4.28-1.453 6.421-2.177 2.125-.72 4.251-1.438 6.376-2.155 2.109-.713 4.219-1.425 6.329-2.137 2.157-.729 4.314-1.458 6.471-2.189 2.647-.898 5.294-1.8 7.942-2.696 2.553-.864 5.107-1.723 7.662-2.584.156-.053.329-.075.459-.247l.016-.372c0-5.296-.001-10.594.006-15.891 0-.283-.076-.511-.246-.738-.801-1.077-1.588-2.162-2.379-3.244zM114.311 14.411c-.595-.753-1.352-.992-2.279-.75-.404.106-.819.172-1.23.248-1.351.247-2.701.49-4.052.735-1.976.359-3.951.722-5.928 1.077-1.564.282-3.131.558-4.696.833l-6.281 1.099c-.264.046-.53.092-.783.173-.37.119-.478.351-.309.699.139.284.311.556.497.812 1.298 1.79 2.604 3.576 3.908 5.362 1.798 2.463 3.598 4.926 5.397 7.388 1.522 2.083 3.046 4.166 4.57 6.248 1.197 1.637 2.395 3.272 3.593 4.908l.237.286c3.447-.853 6.889-1.703 10.39-2.568l.024-.538c0-7.208-.001-14.415.006-21.622 0-.318-.078-.574-.277-.826-.875-1.103-1.732-2.219-2.597-3.33l-.19-.234zM117.106 49.333c-1.572.377-3.149.737-4.759 1.163.171.303 4.585 6.262 4.842 6.544l.162.089.018-.363v-2.51c.002-1.455.006-2.911.002-4.366 0-.178.049-.367-.072-.547l-.193-.01zM12.93 127v-17.133h3.633v14.133h6.949v3h-10.582zM36.977 127l-1.242-4.078h-6.246l-1.243 4.078h-3.914l6.047-17.203h4.441l6.071 17.203h-3.914zm-2.11-7.125c-1.148-3.695-1.795-5.785-1.939-6.27s-.248-.867-.311-1.148c-.258 1-.996 3.473-2.215 7.418h4.465zM46.68 120.426v6.574h-3.633v-17.133h4.992c2.328 0 4.051.424 5.168 1.271s1.676 2.135 1.676 3.861c0 1.008-.277 1.904-.832 2.689s-1.34 1.4-2.355 1.846c2.578 3.852 4.258 6.34 5.039 7.465h-4.031l-4.09-6.574h-1.934zm0-2.953h1.172c1.148 0 1.996-.191 2.543-.574s.82-.984.82-1.805c0-.812-.279-1.391-.838-1.734s-1.424-.516-2.596-.516h-1.101v4.629zM69.379 127l-1.242-4.078h-6.246l-1.243 4.078h-3.914l6.047-17.203h4.441l6.071 17.203h-3.914zm-2.109-7.125c-1.148-3.695-1.795-5.785-1.939-6.27s-.248-.867-.311-1.148c-.258 1-.996 3.473-2.215 7.418h4.465zM85.223 109.867h3.668l-5.825 17.133h-3.961l-5.812-17.133h3.668l3.223 10.195c.18.602.365 1.303.557 2.104s.311 1.357.357 1.67c.086-.719.379-1.977.879-3.773l3.246-10.196zM100.914 127h-9.867v-17.133h9.867v2.977h-6.234v3.762h5.801v2.977h-5.801v4.417h6.234v3zM104.488 127v-17.133h3.633v14.133h6.949v3h-10.582z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -226,7 +237,7 @@ export default function StartBuildingSection() {
                                   d="M64 33.039c-33.74 0-61.094 13.862-61.094 30.961s27.354 30.961 61.094 30.961 61.094-13.862 61.094-30.961-27.354-30.961-61.094-30.961zm-15.897 36.993c-1.458 1.364-3.077 1.927-4.86 2.507-1.783.581-4.052.461-6.811.461h-6.253l-1.733 10h-7.301l6.515-34h14.04c4.224 0 7.305 1.215 9.242 3.432 1.937 2.217 2.519 5.364 1.747 9.337-.319 1.637-.856 3.159-1.614 4.515-.759 1.357-1.75 2.624-2.972 3.748zm21.311 2.968l2.881-14.42c.328-1.688.208-2.942-.361-3.555-.57-.614-1.782-1.025-3.635-1.025h-5.79l-3.731 19h-7.244l6.515-33h7.244l-1.732 9h6.453c4.061 0 6.861.815 8.402 2.231s2.003 3.356 1.387 6.528l-3.031 15.241h-7.358zm40.259-11.178c-.318 1.637-.856 3.133-1.613 4.488-.758 1.357-1.748 2.598-2.971 3.722-1.458 1.364-3.078 1.927-4.86 2.507-1.782.581-4.053.461-6.812.461h-6.253l-1.732 10h-7.301l6.514-34h14.041c4.224 0 7.305 1.215 9.241 3.432 1.935 2.217 2.518 5.418 1.746 9.39zM95.919 54h-5.001l-2.727 14h4.442c2.942 0 5.136-.29 6.576-1.4 1.442-1.108 2.413-2.828 2.918-5.421.484-2.491.264-4.434-.66-5.458-.925-1.024-2.774-1.721-5.548-1.721zM38.934 54h-5.002l-2.727 14h4.441c2.943 0 5.136-.29 6.577-1.4 1.441-1.108 2.413-2.828 2.917-5.421.484-2.491.264-4.434-.66-5.458s-2.772-1.721-5.546-1.721z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -261,7 +272,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -299,7 +310,7 @@ export default function StartBuildingSection() {
                                   d="M32.24,31.71l-6.17,3.6	c1.19,2.38,3.66,4.02,6.5,4.02c2.382,0,4.553-1.156,5.911-3.063l7.076,3.931C42.76,44.666,37.897,47.4,32.57,47.4	c-5.8,0-10.87-3.24-13.47-8.01l-7.7,4.5L32,55.79l20.6-11.9v-0.22V20.11l-0.26-0.15L32.24,31.71z M51,31h-2v2h2v2h-2v2h-2v-2h-2v2	h-2v-2h-2v-2h2v-2h-2v-2h2v-2h2v2h2v-2h2v2h2V31z M45,31h2v2h-2V31z M55.1,16.93L33.5,4.46c-0.93-0.53-2.07-0.53-3,0L8.9,16.93	c-0.92,0.54-1.5,1.53-1.5,2.6v24.94c0,1.07,0.58,2.06,1.5,2.6l21.6,12.47c0.93,0.53,2.07,0.53,3,0l21.6-12.47	c0.92-0.54,1.5-1.53,1.5-2.6V19.53C56.6,18.46,56.02,17.47,55.1,16.93z M54.6,44.47c0,0.36-0.19,0.69-0.5,0.87L32.5,57.81	c-0.31,0.17-0.69,0.17-1,0L9.9,45.34c-0.31-0.18-0.5-0.51-0.5-0.87V19.53c0-0.36,0.19-0.69,0.5-0.87L31.5,6.19	c0.31-0.17,0.69-0.17,1,0l21.6,12.47c0.31,0.18,0.5,0.51,0.5,0.87V44.47z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -312,7 +323,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -330,7 +341,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -344,7 +355,7 @@ export default function StartBuildingSection() {
                                   d="M24,30.9v4.2l-7.9-2.6L15.7,27h4l0.2,2.5L24,30.9z M19.1,17H24v-4h-9.1l0.7,12H24v-4h-4.6L19.1,17z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -355,7 +366,7 @@ export default function StartBuildingSection() {
                                   d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -369,7 +380,7 @@ export default function StartBuildingSection() {
                                   d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -386,7 +397,7 @@ export default function StartBuildingSection() {
                                   d="M38,37c-0.068-0.21-0.182-0.381-0.296-0.575l-9.328-15.849l-2.321-3.943l-2.321,3.943l-9.455,16.065	c0,0,0,0.001,0,0.001c-0.067,0.113-0.101,0.238-0.151,0.358c-0.347,0.829-0.32,1.778,0.134,2.569c0.47,0.822,1.318,1.338,2.25,1.431	h18.576c1.086,0,2.096-0.586,2.635-1.529C38.151,38.724,38.258,37.802,38,37z M26.055,24.519L33.401,37H18.71L26.055,24.519z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -403,7 +414,7 @@ export default function StartBuildingSection() {
                             <path fill="#eee" d="M18 24H24V28H18z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -413,7 +424,7 @@ export default function StartBuildingSection() {
                                   d="M2.861,21.998h2.917c1.05,0,2.261,0.896,2.261,2s-1.21,2-2.261,2H2.861c-1.05,0-1.861-0.895-1.861-2C1,22.893,1.811,21.998,2.861,21.998z M43.021,20.998c-1.401,0-2.521,1.343-2.521,3s1.13,3,2.521,3h4.019l0.96-1h-5c-0.898-0.047-1.289-0.638-1.5-1.5h5.54l0.96-1h-6.5c0.213-0.861,0.592-1.495,1.5-1.5h4.04l0.96-1H43.021z M34,20.998v5.426c0,0.148,0.095,0.292,0.201,0.402s0.249,0.172,0.405,0.172L38.54,27l1-1L35,25.998V21L34,20.998z M27.842,20.998c-1.591,0-2.851,1.346-2.851,3.003s1.26,2.997,2.851,2.997l3.649-0.012l1.149-0.988h-4.819c-1.05,0-1.84-0.894-1.84-1.999s0.79-2.001,1.84-2.001l3.689,0.016l1.13-1.016H27.842z M21,20.998c-0.258,0-0.522,0.215-0.67,0.483l-2.83,5.517h1l2.5-5l1.691,3H20.04l0.941,0.98l2.181-0.006l0.658,1.025l1.081-0.009l-3.277-5.507C21.394,21.112,21.25,20.998,21,20.998z M10,20.998v6h1v-5h3c0.515,0,1,0.464,1,1s-0.485,1-1,1h-2.5l3.481,3H16.5l-2.5-2l0.337-0.009C15.077,24.99,16,24.119,16,22.998c0-1.121-0.687-1.986-1.553-2H10z M2.882,20.998c-1.591,0-2.882,1.344-2.882,3s1.291,3,2.882,3H5.76c1.591,0,3.24-1.343,3.24-3s-1.649-3-3.24-3H2.882z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -443,7 +454,7 @@ export default function StartBuildingSection() {
                                   d="M34.082,11.963c-0.005,1.596-0.01,3.191-0.015,4.787c1.967-0.783,3.934-1.565,5.901-2.348	C38.006,13.589,36.044,12.776,34.082,11.963z"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -455,7 +466,7 @@ export default function StartBuildingSection() {
                                   d="M28.856,32.937c-6.868,0-8.308-3.153-8.308-5.797c0-0.251,0.203-0.452,0.455-0.452h2.028	c0.224,0,0.413,0.163,0.448,0.384c0.306,2.066,1.218,3.108,5.371,3.108c3.308,0,4.715-0.747,4.715-2.502	c0-1.01-0.401-1.76-5.54-2.263c-4.299-0.424-6.955-1.371-6.955-4.809c0-3.167,2.672-5.053,7.147-5.053	c5.026,0,7.517,1.745,7.831,5.493c0.012,0.13-0.035,0.255-0.122,0.35c-0.086,0.09-0.208,0.145-0.334,0.145h-2.039	c-0.212,0-0.397-0.149-0.44-0.354c-0.491-2.173-1.678-2.868-4.904-2.868c-3.611,0-4.031,1.257-4.031,2.2	c0,1.143,0.495,1.477,5.367,2.122c4.825,0.64,7.116,1.544,7.116,4.935c0,3.418-2.853,5.379-7.827,5.379"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -467,7 +478,7 @@ export default function StartBuildingSection() {
                                   d="M28.856,32.937c-6.868,0-8.308-3.153-8.308-5.797c0-0.251,0.203-0.452,0.455-0.452h2.028	c0.224,0,0.413,0.163,0.448,0.384c0.306,2.066,1.218,3.108,5.371,3.108c3.308,0,4.715-0.747,4.715-2.502	c0-1.01-0.401-1.76-5.54-2.263c-4.299-0.424-6.955-1.371-6.955-4.809c0-3.167,2.672-5.053,7.147-5.053	c5.026,0,7.517,1.745,7.831,5.493c0.012,0.13-0.035,0.255-0.122,0.35c-0.086,0.09-0.208,0.145-0.334,0.145h-2.039	c-0.212,0-0.397-0.149-0.44-0.354c-0.491-2.173-1.678-2.868-4.904-2.868c-3.611,0-4.031,1.257-4.031,2.2	c0,1.143,0.495,1.477,5.367,2.122c4.825,0.64,7.116,1.544,7.116,4.935c0,3.418-2.853,5.379-7.827,5.379"></path>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -477,7 +488,7 @@ export default function StartBuildingSection() {
                                 d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"/>
                         </svg>
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -499,7 +510,7 @@ export default function StartBuildingSection() {
                         </svg>
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -517,7 +528,7 @@ export default function StartBuildingSection() {
 
 
                     </a>
-                    <a
+                    <a data-aos="flip-up"
                         className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                         href="#"
                     >
@@ -546,16 +557,16 @@ export default function StartBuildingSection() {
             </svg>
             <div className="bg-orange-100">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10">
-                    <p className="px-0 text-lg text-center text-gray-600 md:text-lg lg:px-24 mb-2 mt-4">
+                    <p data-aos="flip-left" className="px-0 text-lg text-center text-gray-600 md:text-lg lg:px-24 mb-2 mt-4">
                         How about Technology
                     </p>
-                    <h1 className="text-md font-bold text-center text-gray-800 lg:text-4xl dark:text-white">Our Backend
+                    <h1 data-aos="flip-right" className="text-md font-bold text-center text-gray-800 lg:text-4xl dark:text-white">Our Backend
                         Process Technology </h1>
-                    <p className="px-0 text-lg text-center text-gray-600 md:text-lg lg:px-24 mb-2">
+                    <p data-aos="flip-left" className="px-0 text-lg text-center text-gray-600 md:text-lg lg:px-24 mb-2">
                         How about Technology
                     </p>
                     <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-4">
-                        <div
+                        <div data-aos="flip-left"
                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
                          <svg className="h-10 w-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -575,7 +586,7 @@ export default function StartBuildingSection() {
                             </p>
                         </div>
 
-                        <div
+                        <div data-aos="flip-left"
                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
                                <svg className="h-10 w-10 text-red-500" viewBox="0 0 24 24" fill="none"
@@ -594,7 +605,7 @@ export default function StartBuildingSection() {
                         </div>
 
 
-                        <div
+                        <div data-aos="flip-left"
                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
                            <svg className="h-10 w-10 text-red-500" width="24" height="24" viewBox="0 0 24 24"
@@ -617,7 +628,7 @@ export default function StartBuildingSection() {
                             </p>
                         </div>
 
-                        <div
+                        <div data-aos="flip-left"
                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
                                 <svg className="w-10 h-10 text-red-500" xmlns="http://www.w3.org/2000/svg" x="0px"
@@ -646,7 +657,9 @@ export default function StartBuildingSection() {
 
                 {/*Step of 1 to 4*/}
                 <div className="w-full flex justify-center items-center">
-                    <div>
+                    <div data-aos="fade-down"
+                         data-aos-easing="linear"
+                         data-aos-duration="1500">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                              className="w-o h-0 xl:w-16 xl:h-16 absolute right-56 ">
                             <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
@@ -658,7 +671,7 @@ export default function StartBuildingSection() {
                     </div>
 
                     <div className="w-full  h-full  flex flex-col justify-center items-center gap-[30px] inline-flex ">
-                        <div
+                        <div data-aos="zoom-out-down"
                             className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                             <div className="w-8 h-[244px] relative">
                                 <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
@@ -681,13 +694,13 @@ export default function StartBuildingSection() {
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Discovery
                                 </div>
                                 <div
-                                    className="w-full wra dark:text-gray-500  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                    className="w-full wra dark:text-gray-300  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     We will conduct a thorough analysis of your operations, market,
                                     and <br/> competition to identify the best solutions for you.
                                 </div>
                             </div>
                         </div>
-                        <div
+                        <div data-aos="zoom-out-down"
                             className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                  className="w-0 h-0 xl:w-96 xl:h-96 absolute right-20">
@@ -717,7 +730,7 @@ export default function StartBuildingSection() {
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Planning
                                 </div>
                                 <div
-                                    className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                    className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     We will conduct a thorough analysis of your operations, market,
                                     and <br/> competition to identify the best solutions for you.
                                 </div>
@@ -725,7 +738,7 @@ export default function StartBuildingSection() {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
+                <div data-aos="zoom-out-down" className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                          className="w-0 h-0 xl:w-40 xl:h-40 absolute right-56 ">
                         <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
@@ -753,13 +766,13 @@ export default function StartBuildingSection() {
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Development
                         </div>
                         <div
-                            className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                            className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                             We will conduct a thorough analysis of your operations, market, and <br/> competition to
                             identify the best solutions for you.
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
+                <div data-aos="zoom-out-down" className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                     <div className="w-8 h-[244px] relative">
                         <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
                         <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full"/>
@@ -783,7 +796,7 @@ export default function StartBuildingSection() {
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Implementation
                         </div>
                         <div
-                            className="w-full wra dark:text-gray-500   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                            className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
                             We will conduct a thorough analysis of your operations, market, and <br/> competition to
                             identify the best solutions for you.
                         </div>

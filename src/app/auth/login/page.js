@@ -1,21 +1,71 @@
 "use client"
 import React from 'react';
-import Link from "next/link";
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Button, Checkbox, Label, TextInput} from "flowbite-react";
 import Image from "next/image";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
+import {signIn} from "next-auth/react";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
+import {useForm} from 'react-hook-form';
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'), password: Yup.string()
+        .required('Password is required')
+        .matches(passwordRegex, 'Password must be at least 6 '),
+});
 
 function Login(props) {
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
-    const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Invalid email').required('Required'), password: Yup.string()
-            .required('Password is required')
-            .matches(passwordRegex, 'Password must be at least 6 '),
+    const router = useRouter();
+    const {setError, reset, register, handleSubmit, formState: {errors}} = useForm({
+        resolver: yupResolver(validationSchema)
     });
-    return (<section className="bg-gray-50 dark:bg-gray-900">
+
+    const handleFormSubmit = async (data) => {
+        try {
+            const response = await signIn('credentials', {
+                email: data.email,
+                password: data.password,
+                redirect: false,
+                callbackUrl: '/app/deploy-apps'
+            });
+
+            console.log('SignIn Response:', response);
+
+            if (response?.error) {
+                setError('email', { message: 'Something went wrong.', type: 'error' });
+
+                // Show error toast
+                toast.error('Login failed. Please check your credentials.', {
+                    theme: 'colored',
+                    icon: '❌',
+                    autoClose: 3000,
+                    position: 'top-center',
+                });
+            } else {
+                // Show success toast
+                toast.success('Successfully logged in!', {
+                    theme: 'colored',
+                    icon: '🚀',
+                    autoClose: 3000,
+                    position: 'top-center',
+                });
+
+                router.push('/app/deploy-apps');
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+        }
+    };
+
+
+    return (
+        <form onSubmit={handleSubmit(handleFormSubmit)} autoComplete="off"  className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
                 <div className="w-full place-self-center lg:col-span-6">
                     <div className="mx-auto rounded-lg bg-white p-6 shadow dark:bg-gray-800 sm:max-w-xl sm:p-8">
@@ -23,10 +73,6 @@ function Login(props) {
                             href="#"
                             className="mb-4 inline-flex items-center text-xl font-semibold text-gray-900 dark:text-white"
                         >
-                            {/*<Image height={50} width={50}*/}
-                            {/*       alt="logo"*/}
-                            {/*       src="/mainlogo.png"*/}
-                            {/*/>*/}
                             <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                             <span className="self-center text-xl font-bold whitespace-nowrap">
                           <span className="text-orange-100">Automate</span>
@@ -52,8 +98,8 @@ function Login(props) {
                                 validationSchema={validationSchema}
                                 onSubmit={(values, {setSubmitting}) => {
                                     setTimeout(() => {
-                                        // console.log(values)
-                                        alert(JSON.stringify(values, null, 2))
+                                        handleFormSubmit(values)
+                                        // alert(JSON.stringify(values, null, 2))
                                         setSubmitting(false);
                                     }, 500);
                                 }}
@@ -125,14 +171,15 @@ function Login(props) {
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100} unoptimized="true"  
-                        className="mx-auto hidden lg:flex w-full"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
-                        alt="illustration"
+                    <Image width={100} height={100} unoptimized="true"
+                           className="mx-auto hidden lg:flex w-full"
+                           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
+                           alt="illustration"
                     />
                 </div>
             </div>
-        </section>
+            <ToastContainer />
+        </form>
 
     );
 }

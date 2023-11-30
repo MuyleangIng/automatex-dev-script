@@ -2,34 +2,84 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, Label, TextInput} from "flowbite-react";
+import {Button, Label} from "flowbite-react";
 import * as Yup from "yup";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
-import {useRouter} from "next/navigation";
-import LoadingIndicator from "@/components/LoadingIndicator";
-import {useRegisterMutation} from "@/store/features/auth/authApiSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
+const validationSchema = Yup.object().shape({
+    username: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+        .required('Password is required')
+        .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password must match").required("Required"),
+});
+
 
 function SignUp(props) {
-    const router = useRouter();
-    const [register,isError,isLoading] = useRegisterMutation();
-    const [loadingSubmit, setLoadingSubmit] = useState(false);
-    const handleEmailChange = (e, setFieldValue) => {
-        const lowercaseEmail = e.target.value.toLowerCase();
-        setFieldValue('email', lowercaseEmail);
-    };
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
-    const validationSchema = Yup.object().shape({
-        username: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email').required('Required'),
-        password: Yup.string()
-            .required('Password is required')
-            .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
-        confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password must match").required("Required"),
-    });
 
-    return (<div>
-        <section className="bg-gray-50 dark:bg-gray-900">
+
+    const postUser = (user) => {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+            .then((resp) => {
+                if (resp.ok) {
+                    return resp.json();
+                } else {
+                    throw new Error(`Request failed with status: ${resp.statusText}`);
+                }
+            })
+            .then((res) => {
+                if (res.status === true) {
+                    // Show success toast
+                    toast.success("Successfully created account!", {
+                        theme: "colored",
+                        icon: "🚀",
+                        autoClose: 3000,
+                        position: "top-center",
+                    });
+                } else {
+                    let message = res.message || "";
+                    if (res.errors && Array.isArray(res.errors)) {
+                        res.errors.forEach((error) => {
+                            message += "\n" + error.message;
+                        });
+                    }
+                    // Show error toast
+                    toast.error(message, {
+                        theme: "colored",
+                        icon: "❌",
+                        autoClose: 3000,
+                        position: "top-center",
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Error during API call:", error);
+                // Show error toast for network or other errors
+                toast.error(error.message, {
+                    theme: "colored",
+                    icon: "❌",
+                    autoClose: 1000,
+                    position: "top-center",
+                });
+            });
+    };
+
+
+
+
+    return (
+        <section  className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
                 <div
                     className="mx-auto w-full rounded-lg bg-white p-6 shadow dark:bg-gray-800 sm:max-w-xl sm:p-8 lg:col-span-6">
@@ -56,30 +106,21 @@ function SignUp(props) {
                         </a>
                     </p>
                     <Formik initialValues={{
-                        username: 'admin', email: '', password: 'Admin@123', confirmPassword: 'Admin@123',
+                        username: '', email: '', password: '', confirmPassword: '',
                     }}
                             validationSchema={validationSchema}
-                            onSubmit={async (values, {setSubmitting}) => {
-                                try {
-                                    values.authProvider="credentials"
-                                    const data = await register(values).unwrap();
-                                    // toast.success(data.message + " please check "+ data.data);
-                                    router.push('/sign-up-success');
-                                    console.log(values);
-                                } catch (error) {
-                                    const messages = error?.data.errors.map(el => el.name + ": "+ el.message)
-                                    toast.error(messages.join("\n"));
+                            onSubmit={(values, { setSubmitting, resetForm }) => {
+                                setTimeout(() => {
                                     setSubmitting(false);
-                                }
-
-                                // setTimeout(() => {
-                                //     // console.log(values)
-                                //     setSubmitting(false);
-                                // }, 500);
+                                    postUser(values);
+                                    resetForm({
+                                        values: { username: '', email: '', password: '', confirmPassword: '', },
+                                    });
+                                }, 400);
                             }}
                     >
                         {({isSubmitting,setFieldValue}) => (
-                            <Form className="mt-4 space-y-6 sm:mt-6" action="#">
+                            <Form className="mt-4 space-y-6 sm:mt-6">
                             <div className="grid gap-6 sm:grid-cols-2">
                                 <div className="grid grid-cols-1 gap-2">
                                     <div>
@@ -103,7 +144,6 @@ function SignUp(props) {
                                             name="email"
                                             className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
                                             placeholder="Enter your email"
-                                            onChange={(e) => handleEmailChange(e, setFieldValue)}
                                         />
                                         <ErrorMessage name={"email"} component={"div"}
                                                       className={"invalid-feedback text-red-600"}/>
@@ -149,8 +189,7 @@ function SignUp(props) {
                             <SocialLogin />
 
                             <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
-                                {loadingSubmit ? <LoadingIndicator width={5} height={5} /> : null}
-                                Create an account
+                                {isSubmitting ? "Creating..." : " Create an account"}
                             </Button>
                         </Form>)}
                     </Formik>
@@ -163,9 +202,11 @@ function SignUp(props) {
                     />
                 </div>
             </div>
+            <ToastContainer />
         </section>
 
-    </div>);
+    );
+
 }
 
 export default SignUp;

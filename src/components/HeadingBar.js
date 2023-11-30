@@ -5,8 +5,8 @@ import {usePathname} from "next/navigation";
 function HeadingBar() {
     const pathname = usePathname();
     if (
-        pathname ===  "/login" ||
-        pathname === "/signup" ||
+        pathname ===  "/auth/login" ||
+        pathname === "/auth/signup" ||
         pathname === "/user/userproject" ||
         pathname === "/user/createWithGithub"
     ){

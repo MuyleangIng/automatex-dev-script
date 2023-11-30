@@ -1,8 +1,17 @@
 'use client'
 import React from "react";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
+import {useTheme} from "next-themes";
 
 export default function DevTabs(){
+    const pathname = usePathname();
+
+    if (
+        pathname ===  "/app/createWithGithub"
+    ){
+        return null;
+    }
     return(
         <>
             <ul className="max-w-xl mx-auto text-sm flex font-medium text-center text-gray-500 rounded-lg shadow dark:shadow-lg dark:divide-gray-700 dark:text-gray-400">

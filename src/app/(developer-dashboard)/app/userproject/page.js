@@ -4,11 +4,9 @@ import SectionAppDeploy from "@/components/SectionAppDeploy";
 export default function UserProjectPage(){
     return(
         <main className="w-full items-center p-5">
-        <DevTabs/>
             <div className="mt-10 mb-36">
                 <SectionAppDeploy/>
             </div>
-
         </main>
     )
 }

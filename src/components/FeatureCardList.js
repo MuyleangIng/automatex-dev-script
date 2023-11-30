@@ -5,12 +5,12 @@ function FeatureCardList(props) {
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
                 <div className="max-w-xl md:mx-auto text-center lg:max-w-2xl md:mb-12">
-                    <h2 className="max-w-lg text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="fade-down-right" className="max-w-lg text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Our Feature
                         <span
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-3/12 rounded"></span>
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 sm:text-lg  mt-5">
+                    <p data-aos="fade-up-right" className="text-gray-500 dark:text-gray-400 sm:text-lg  mt-5">
                         Welcome to AutomateX, your all-in-one solution for seamless automation and
                         effortless deployment.
                     </p>
@@ -18,7 +18,7 @@ function FeatureCardList(props) {
 
                 <div
                     className="space-y-8 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-                    <Card>
+                    <Card  data-aos="flip-right">
                         <div className="flex items-center justify-center">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={"w-14 h-14 text-orange-100 dark:text-orange-100"}>
@@ -32,7 +32,7 @@ function FeatureCardList(props) {
                             metrics.
                         </p>
                     </Card>
-                    <Card>
+                    <Card data-aos="flip-right">
                         <div className="flex items-center justify-center">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-14 h-14 text-orange-200 dark:text-orange-100">
@@ -46,7 +46,7 @@ function FeatureCardList(props) {
                             software.
                         </p>
                     </Card>
-                    <Card>
+                    <Card  data-aos="flip-right">
                         <div className="flex items-center justify-center">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ function FeatureCardList(props) {
                             effortlessly.
                         </p>
                     </Card>
-                    <Card>
+                    <Card  data-aos="flip-right">
                         <div className="flex items-center justify-center">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="orange" className="w-14 h-14 text-orange-200 dark:text-orange-100">
