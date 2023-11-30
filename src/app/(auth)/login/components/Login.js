@@ -117,7 +117,7 @@ function Login(props) {
                                     </a>
                                 </div>
 
-                                <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
+                                <Button type="submit" disabled={isSubmitting}  className="w-full bg-orange-100">
                                     Sign In
                                 </Button>
                             </Form>)}
@@ -133,7 +133,6 @@ function Login(props) {
                 </div>
             </div>
         </section>
-
     );
 }
 
