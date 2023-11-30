@@ -1,9 +1,12 @@
 'use client'
 import React from 'react';
+import NavTab from "@/components/deploy-app/NavTab";
 
 function Page() {
     return (
-        <div></div>
+        <div>
+            <h1>Setting</h1>
+        </div>
     );
 }
 

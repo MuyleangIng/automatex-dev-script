@@ -1,13 +1,13 @@
-'use client'
 import React from 'react';
+import DevTabs from "@/components/DevTabs";
 import NavTab from "@/components/deploy-app/NavTab";
 
-function Page() {
+function Layout(props) {
     return (
         <div>
-
+            <NavTab/>
         </div>
     );
 }
 
-export default Page;
+export default Layout;
