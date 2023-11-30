@@ -114,9 +114,7 @@ export default function CreateDeploymentFrontendComponent() {
                                     <h2 className="text-lg font-bold text-cyan-500 dark:text-white">
                                         Quick setup - if you’ve done this get automatex git url
                                     </h2>
-                                    <h4 className={"text-gray-500 text-base dark:text-white"}>After this app create you
-                                        will
-                                        get Automatex git url to repository and deploys.</h4>
+                                    <h4 className={"text-gray-500 text-base dark:text-white"}>After this app create you will get Automatex git url to repository and deploys.</h4>
                                     <div className={"py-5"}></div>
                                     <h2 className="text-lg  font-bold text-cyan-500 dark:text-white">
                                         AutomateX Deploys
@@ -146,7 +144,7 @@ export default function CreateDeploymentFrontendComponent() {
                                                   d="M28.9,27.447A1,1,0,0,0,28,26H22v2h4.382l-4.277,8.553A1,1,0,0,0,23,38h6V36H24.618Z"></path>
                                         </svg>
                                         <div className="flex flex-col leading-4 text-sm py-2 ">
-                                        <span className="text-base font-bold text-cool-blue-150 dark:text-gray-300">"Push to deploy: Make sure the branch is stable and tests pass before pushing for automatic app deployment."
+                                        <span className="text-base font-bold text-cool-blue-150 dark:text-gray-300">&quot;Push to deploy: Make sure the branch is stable and tests pass before pushing for automatic app deployment.&quot;
                                         </span>
                                         </div>
                                     </div>

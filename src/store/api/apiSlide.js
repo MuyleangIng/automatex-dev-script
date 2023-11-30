@@ -5,14 +5,14 @@ import {
     setCurrentUser,
 } from "../features/auth/authSlice";
 import { getDecryptedRefreshToken } from "@/lib/cryptography";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/navigation";
 
 // create base query with authentication
 const baseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
     prepareHeaders: (headers, {getState}) => {
         const token = getState().auth?.accessToken;
-        console.log('token', token)
+        // console.log('token', token)
         if (token) {
             headers.set("authorization", `Bearer ${token}`);
         }
@@ -22,7 +22,7 @@ const baseQuery = fetchBaseQuery({
 
 
 // custom base query with re-authentication when token expires
-const baseQueryWithReAuth = async (args, api, extraOptions) => {
+const BaseQueryWithReAuth = async (args, api, extraOptions) => {
     let result;
     try {
         result = await baseQuery(args, {
@@ -32,8 +32,8 @@ const baseQueryWithReAuth = async (args, api, extraOptions) => {
         if (result?.data?.code === 401) {
             const refreshToken = await getDecryptedRefreshToken();
             if (!refreshToken) {
-                const router = useRouter();
-                await router.push("/");
+                // const router = useRouter();
+                // await router.push("/");
             } else {
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_BASE_URL}/auth/refresh-token`,
@@ -80,6 +80,6 @@ const baseQueryWithReAuth = async (args, api, extraOptions) => {
 
 // create api slice with custom base query
 export const apiSlice = createApi({
-    baseQuery: baseQueryWithReAuth,
+    baseQuery: BaseQueryWithReAuth,
     endpoints: (builder) => ({}),
 });
