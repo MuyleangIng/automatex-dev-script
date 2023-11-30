@@ -1,12 +1,14 @@
 import React from 'react';
-import DevTabs from "@/components/DevTabs";
 import NavTab from "@/components/deploy-app/NavTab";
+import MainFooter from "@/components/Footer";
 
-function Layout(props) {
+function Layout({children}) {
     return (
-        <div>
+        <div className={"container"}>
             <NavTab/>
+            {children}
         </div>
+
     );
 }
 

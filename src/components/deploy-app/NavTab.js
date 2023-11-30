@@ -3,9 +3,12 @@ import React from 'react';
 import Link from "next/link";
 import {FaClipboardList} from "react-icons/fa";
 import {BsFillChatRightDotsFill, BsFillFileEarmarkBarGraphFill, BsPatchCheckFill} from "react-icons/bs";
-import {VscSettings} from "react-icons/vsc";
+import {VscLayersActive, VscSettings, VscSourceControl} from "react-icons/vsc";
 import {usePathname} from "next/navigation";
-import {MdDashboard} from "react-icons/md";
+import {MdDashboard, MdViewInAr} from "react-icons/md";
+import {GrAction, GrDeploy, GrResources} from "react-icons/gr";
+import {AiOutlineDeploymentUnit} from "react-icons/ai";
+import {TbLockAccess, TbSettingsBolt} from "react-icons/tb";
 
 function NavTab(props) {
     const pathname = usePathname()
@@ -20,7 +23,7 @@ function NavTab(props) {
                             <Link href={"/app/deploy-apps/id/overview"}
                                   className={" inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("overview") ? active : "")}
                                   aria-current="page">
-                                <MdDashboard className="w-5 h-5 mr-2"/>
+                                <MdViewInAr className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Overview</span>
                             </Link>
                         </li>
@@ -28,21 +31,21 @@ function NavTab(props) {
                             <Link href={"/app/deploy-apps/id/resource"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("resource") ? active : "")
                                   }>
-                                <FaClipboardList className="w-5 h-5 mr-2"/>
+                                <VscSourceControl   className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Resource</span>
                             </Link>
                         </li>
                         <li>
                             <Link href={"/app/deploy-apps/id/deployment"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("deployment") ? active : "")}>
-                                <BsPatchCheckFill className="w-5 h-5 mr-2"/>
+                                <AiOutlineDeploymentUnit   className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Deployment</span>
                             </Link>
                         </li>
                         <li>
                             <Link href={"/app/deploy-apps/id/activities"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("activities") ? active : "")}>
-                                <BsFillFileEarmarkBarGraphFill className="w-5 h-5 mr-2"/>
+                                <VscLayersActive   className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Activities</span>
 
                             </Link>
@@ -50,14 +53,14 @@ function NavTab(props) {
                         <li>
                             <Link href={"/app/deploy-apps/id/access"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("access") ? active : "")}>
-                                <BsFillChatRightDotsFill className="w-5 h-5 mr-2"/>
+                                <TbLockAccess  className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Access</span>
                             </Link>
                         </li>
                         <li>
                             <Link href={"/app/deploy-apps/id/setting"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("setting") ? active : "")}>
-                                <VscSettings className="w-5 h-5 mr-2"/>
+                                <TbSettingsBolt  className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Settings</span>
                             </Link>
                         </li>

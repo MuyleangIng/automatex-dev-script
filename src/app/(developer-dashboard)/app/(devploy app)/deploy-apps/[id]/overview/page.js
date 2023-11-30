@@ -6,7 +6,6 @@ function Page() {
     return (
         <div>
             <h1>overview</h1>
-            <NavTab/>
         </div>
     );
 }
