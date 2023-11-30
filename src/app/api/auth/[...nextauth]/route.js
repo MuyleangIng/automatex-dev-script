@@ -30,6 +30,42 @@ const authOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
+                email: {
+                    label: "Email",
+                    type: "email",
+                },
+                password: { label: "Password", type: "password" },
+            },
+            async authorize(credentials, req) {
+                console.log("cd:",credentials)
+                const resp = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/login", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: credentials.email,
+                        password: credentials.password,
+                        loginKey: "Y71o29qo8RIwIBMRClJWfg=="
+                    }),
+                });
+                const res = await resp.json();
+                console.log("respone:",res)
+                if (resp.ok && res){
+                    console.log("hello")
+                    const user = { id: res.user.uuid , name: res.refreshToken, email: res.accessToken }
+                    return user
+                }
+                if (!res.ok) {
+                    throw new Error(JSON.stringify(res));
+                }
+                return null
+            }
+        })
+        /*CredentialsProvider({
+            name: "Credentials",
+            credentials: {
                 email: { label: "Email", type: "email" },
                 password: { label: "Password", type: "password" },
             },
@@ -52,10 +88,10 @@ const authOptions = {
                 }
                 return null;
             },
-        }),
+        }),*/
     ],
 
-    callbacks: {
+    /*callbacks: {
         async session({ session, token }) {
             session.accessToken = token.accessToken;
             if (session?.accessToken) {
@@ -85,11 +121,14 @@ const authOptions = {
             }
             return await refreshTokenApiCall(token);
         },
-    },
+    },*/
     pages: {
         signIn: "/auth/login",
         newUser: "/auth/signup",
     },
+    session:{
+        strategy:'jwt'
+    }
 };
 
 const handler = NextAuth(authOptions);

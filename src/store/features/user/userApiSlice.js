@@ -58,6 +58,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ["requestUserRegister"],
         }),
+        users:builder.query({
+            query: () => ({
+                url: `/users`,
+                method: "GET",
+            }),
+        })
     }),
 });
 
@@ -71,4 +77,5 @@ export const {
     useCreateRequestRegisterUserMutation,
     useCreateRequestSendMailMutation,
     useCreateRequestWithGoogleMutation,
+    useUsersQuery,
 } = userApiSlice;
