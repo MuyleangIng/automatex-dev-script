@@ -21,6 +21,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
     }),
 });
 // auto generated hooks for login mutation
-export const { useRegisterMutation,
-    useLoginMutation } = authApiSlice;
+export const { useRegisterMutation, useLoginMutation } = authApiSlice;
 export default authApiSlice;

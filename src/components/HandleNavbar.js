@@ -8,6 +8,7 @@ import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
 import {useTheme} from 'next-themes';
 import HandleImage from "@/components/HandleImage";
+import {useUsersQuery} from "@/store/features/user/userApiSlice";
 
 
 function HandleNavbar() {
@@ -16,8 +17,13 @@ function HandleNavbar() {
     const {data: session, status, error} = useSession();
     const {theme} = useTheme();
     const developerPath = pathname.includes('/app')
-    const userName = session?.user?.name;
+    const { data: res, isLoading } = useUsersQuery();
+    console.log("user",res)
+    console.log("status",status)
 
+
+
+    console.log("sesso:",session)
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
         router.push('/');
@@ -50,21 +56,20 @@ function HandleNavbar() {
                         label={
                             <span>
                                 <span className="sr-only">User menu</span>
-                                {session.user?.image && (
                                     <Avatar
                                         alt="User Avatar"
-                                        img={session.user.image}
+                                        img={"https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}
                                         rounded
                                         size="sm"
                                     />
-                                )}
+
                             </span>
                         }
                     >
                         <Dropdown.Header>
-                            <span className="block text-sm">{userName}</span>
+                            <span className="block text-sm">UserName</span>
                             <span className="block truncate text-sm font-medium">
-                                {session.user?.email}
+                                Email
                             </span>
                         </Dropdown.Header>
                         <Dropdown.Item as={Link} href={"/app/dashboard"}>

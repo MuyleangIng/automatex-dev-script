@@ -7,13 +7,17 @@ import {Button, Checkbox, Label, TextInput} from "flowbite-react";
 import Image from "next/image";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
+import {signIn} from "next-auth/react";
+import {useRouter} from "next/navigation";
 
 function Login(props) {
+    const router = useRouter();
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Invalid email').required('Required'), password: Yup.string()
+        email: Yup.string().email('Invalid email').required('Required'),
+        password: Yup.string()
             .required('Password is required')
-            .matches(passwordRegex, 'Password must be at least 6 '),
+            // .matches(passwordRegex, 'Password must be at least 6 '),
     });
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
@@ -47,15 +51,23 @@ function Login(props) {
                             .
                         </p>
                         <Formik initialValues={{
-                            email: '', password: '',
+                            email: 'developer@gmail.com', password: 'password',
                         }}
                                 validationSchema={validationSchema}
-                                onSubmit={(values, {setSubmitting}) => {
-                                    setTimeout(() => {
+                                onSubmit={ async (values, {setSubmitting}) => {
+                                        const res = await signIn('credentials', {
+                                            email: values.email,
+                                            password:values.password,
+                                            redirect: false,
+                                        })
+                                    if (res.error === null) {
+                                        router.push("/app/dashboard");
+                                    }
+                                        // const resp = JSON.parse(res.error)
+                                        console.log("data:",res)
                                         // console.log(values)
-                                        alert(JSON.stringify(values, null, 2))
+                                        // alert(JSON.stringify(values, null, 2))
                                         setSubmitting(false);
-                                    }, 500);
                                 }}
                         >
                             {({isSubmitting}) => (<Form className="mt-4 space-y-6 sm:mt-6" action="#">

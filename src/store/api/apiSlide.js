@@ -5,16 +5,18 @@ import {
     setCurrentUser,
 } from "../features/auth/authSlice";
 import { getDecryptedRefreshToken } from "@/lib/cryptography";
+import {getSession} from "next-auth/react";
 // import { useRouter } from "next/navigation";
 
 // create base query with authentication
 const baseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
-    prepareHeaders: (headers, {getState}) => {
-        const token = getState().auth?.accessToken;
-        // console.log('token', token)
-        if (token) {
-            headers.set("authorization", `Bearer ${token}`);
+    prepareHeaders : async (headers, {getState}) => {
+        // const token = getState().auth?.accessToken
+        const session= await getSession();
+        console.log('token', session)
+        if (session) {
+            headers.set("authorization", `Bearer ${session.user.email}`);
         }
         return headers;
     },
