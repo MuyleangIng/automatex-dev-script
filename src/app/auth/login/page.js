@@ -32,7 +32,6 @@ function Login(props) {
                 email: data.email,
                 password: data.password,
                 redirect: false,
-                callbackUrl: '/app/deploy-apps'
             });
 
             console.log('SignIn Response:', response);
@@ -65,7 +64,7 @@ function Login(props) {
 
 
     return (
-        <form onSubmit={handleSubmit(handleFormSubmit)} autoComplete="off"  className="bg-gray-50 dark:bg-gray-900">
+        <form className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
                 <div className="w-full place-self-center lg:col-span-6">
                     <div className="mx-auto rounded-lg bg-white p-6 shadow dark:bg-gray-800 sm:max-w-xl sm:p-8">

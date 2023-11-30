@@ -36,13 +36,12 @@ const authOptions = {
             authorize: async (credentials) => {
                 const url = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`;
                 const formData = new URLSearchParams();
-                formData.append('email', credentials.email);
+                formData.append('username', credentials.email);
                 formData.append('password', credentials.password);
 
                 const res = await fetch(url, {
                     method: "POST",
-                    headers: { "Accept": "application/json",
-                        "loginKey": "Y71o29qo8RIwIBMRClJWfg=="  },
+                    headers: { "Accept": "application/json"},
                     body: formData,
                 });
 
@@ -60,7 +59,7 @@ const authOptions = {
         async session({ session, token }) {
             session.accessToken = token.accessToken;
             if (session?.accessToken) {
-                const url = `${process.env.NEXT_PUBLIC_BASE_URL}/users`;
+                const url = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`;
                 const userRes = await fetch(url, {
                     method: "GET",
                     headers: {
