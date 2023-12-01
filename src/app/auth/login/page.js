@@ -19,6 +19,7 @@ function Login(props) {
             .required('Password is required')
             // .matches(passwordRegex, 'Password must be at least 6 '),
     });
+
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
                 <div className="w-full place-self-center lg:col-span-6">
@@ -68,7 +69,6 @@ function Login(props) {
                                         // console.log(values)
                                         // alert(JSON.stringify(values, null, 2))
                                         setSubmitting(false);
-                                    }, 500);
                                 }}
                         >
                             {({isSubmitting}) => (<Form className="mt-4 space-y-6 sm:mt-6" action="#">
@@ -131,7 +131,7 @@ function Login(props) {
                                 </div>
 
                                 <Button type="submit" disabled={isSubmitting}  className="w-full bg-orange-100">
-                                    Sign In
+                                    {isSubmitting ? 'Signing In...' : 'Sign In'}
                                 </Button>
                             </Form>)}
                         </Formik>

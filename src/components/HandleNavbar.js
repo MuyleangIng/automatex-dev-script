@@ -23,7 +23,7 @@ function HandleNavbar() {
 
 
 
-    console.log("sesso:",session)
+    console.log("session:",session)
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
         router.push('/');
