@@ -8,6 +8,7 @@ function Loading(props) {
             <Lottie
                 animationData={"GithubAim"}
                 className={"w-64 md:w-72 lg:w-64 xl:w-96"}
+
             />
         </div>
     );
