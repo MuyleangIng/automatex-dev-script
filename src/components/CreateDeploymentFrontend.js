@@ -36,7 +36,7 @@ export default function CreateDeploymentFrontendComponent() {
             selectedOption: selectedOption,
             enableAutomaticDeploys: enableAutomaticDeploys,
         }
-        router.push('/app/useraccount');
+        router.push('/app/deploy-apps/id/resource');
         console.log('Form Data:', formDat);
     };
 
