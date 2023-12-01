@@ -1,9 +1,6 @@
 import './globals.css'
 import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
-import Providers from "@/app/providers";
-import { NextAuthProvider } from "@/app/provider";
-
 const satoshi = localFont({
     src: '../fonts/Satoshi-Regular.ttf',
     display: 'swap',
@@ -18,13 +15,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <body className={satoshi.className + " dark:bg-gray-900 dark:text-white"}>
-            <Providers>
-                <NextAuthProvider>
-                    <MainLayout>
-                        {children}
-                    </MainLayout>
-                </NextAuthProvider>
-            </Providers>
+            <MainLayout>
+                {children}
+            </MainLayout>
         </body>
         </html>
     );

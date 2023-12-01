@@ -1,8 +1,6 @@
 "use client";
 import React, {useEffect} from 'react';
 import Slider from 'react-slick';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
@@ -10,9 +8,13 @@ import {Button} from "flowbite-react";
 import FeatureCardList from "@/components/FeatureCardList";
 import OurPartner from "@/components/OurPartner";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import the AOS styles
+import 'aos/dist/aos.css';
+import {FaArrowRight} from "react-icons/fa6";
+import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 function HeroSection() {
+    const router = useRouter()
     useEffect(() => {
         AOS.init({
             duration: 900,
@@ -48,6 +50,7 @@ function HeroSection() {
                                 mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual
                                 tasks.</p>
                             <Button outline
+                                    onClick={() => router.push("/startbuilding")}
                             >
                                 Subscribe
                             </Button>
@@ -83,8 +86,8 @@ function HeroSection() {
                                     <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
                                             <circle cx="42.3846" cy="42.3844" r="21" stroke="#FFB621"/>
-                                            <path d="M27.8846 40.2594C34.7192 40.2594 40.2596 34.7189 40.2596 27.8844C40.2596 21.0499 34.7192 15.5094 27.8846 15.5094C21.0501 15.5094 15.5096 21.0499 15.5096 27.8844C15.5096 34.7189 21.0501 40.2594 27.8846 40.2594Z" stroke="#FFB621" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M42.2445 11.668C42.8977 12.2695 43.5164 12.8883 44.1008 13.5242L51.1391 14.5297C52.2859 16.5213 53.1698 18.6531 53.7687 20.8719L49.4891 26.5695C49.4891 26.5695 49.5664 28.3227 49.4891 29.1992L53.7687 34.8969C53.1726 37.1166 52.2885 39.2487 51.1391 41.2391L44.1008 42.2445C44.1008 42.2445 42.8891 43.5078 42.2445 44.1008L41.2391 51.1391C39.2474 52.2859 37.1156 53.1698 34.8969 53.7687L29.1992 49.4891C28.3244 49.5664 27.4444 49.5664 26.5695 49.4891L20.8719 53.7687C18.6522 53.1726 16.52 52.2885 14.5297 51.1391L13.5242 44.1008C12.8883 43.4992 12.2695 42.8805 11.668 42.2445L4.62969 41.2391C3.48289 39.2474 2.59897 37.1156 2 34.8969L6.27969 29.1992C6.27969 29.1992 6.20234 27.4461 6.27969 26.5695L2 20.8719C2.5962 18.6522 3.48026 16.52 4.62969 14.5297L11.668 13.5242C12.2695 12.8883 12.8883 12.2695 13.5242 11.668L14.5297 4.62969C16.5213 3.48289 18.6531 2.59897 20.8719 2L26.5695 6.27969C27.4444 6.20233 28.3244 6.20233 29.1992 6.27969L34.8969 2C37.1166 2.5962 39.2487 3.48026 41.2391 4.62969L42.2445 11.668Z" stroke="#FFB621" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M27.8846 40.2594C34.7192 40.2594 40.2596 34.7189 40.2596 27.8844C40.2596 21.0499 34.7192 15.5094 27.8846 15.5094C21.0501 15.5094 15.5096 21.0499 15.5096 27.8844C15.5096 34.7189 21.0501 40.2594 27.8846 40.2594Z" stroke="#FFB621" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M42.2445 11.668C42.8977 12.2695 43.5164 12.8883 44.1008 13.5242L51.1391 14.5297C52.2859 16.5213 53.1698 18.6531 53.7687 20.8719L49.4891 26.5695C49.4891 26.5695 49.5664 28.3227 49.4891 29.1992L53.7687 34.8969C53.1726 37.1166 52.2885 39.2487 51.1391 41.2391L44.1008 42.2445C44.1008 42.2445 42.8891 43.5078 42.2445 44.1008L41.2391 51.1391C39.2474 52.2859 37.1156 53.1698 34.8969 53.7687L29.1992 49.4891C28.3244 49.5664 27.4444 49.5664 26.5695 49.4891L20.8719 53.7687C18.6522 53.1726 16.52 52.2885 14.5297 51.1391L13.5242 44.1008C12.8883 43.4992 12.2695 42.8805 11.668 42.2445L4.62969 41.2391C3.48289 39.2474 2.59897 37.1156 2 34.8969L6.27969 29.1992C6.27969 29.1992 6.20234 27.4461 6.27969 26.5695L2 20.8719C2.5962 18.6522 3.48026 16.52 4.62969 14.5297L11.668 13.5242C12.2695 12.8883 12.8883 12.2695 13.5242 11.668L14.5297 4.62969C16.5213 3.48289 18.6531 2.59897 20.8719 2L26.5695 6.27969C27.4444 6.20233 28.3244 6.20233 29.1992 6.27969L34.8969 2C37.1166 2.5962 39.2487 3.48026 41.2391 4.62969L42.2445 11.668Z" stroke="#FFB621" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
                                     <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Integrated platform</h6>
@@ -164,7 +167,7 @@ function HeroSection() {
                                     className={"bg-cyan-300 "}
                                 >
                                     See More
-                                    <FontAwesomeIcon icon={faArrowRight} className="w-3.5 h-3.5 ml-2"/>
+                                    <FaArrowRight className="w-3.5 h-3.5 ml-2"/>
                                 </Button>
                             </div>
                         </div>
@@ -205,7 +208,7 @@ function HeroSection() {
                                     className={"bg-cyan-300 "}
                                 >
                                     See More
-                                    <FontAwesomeIcon icon={faArrowRight} className="w-3.5 h-3.5 ml-2"/>
+                                    <FaArrowRight className="w-3.5 h-3.5 ml-2"/>
                                 </Button>
                             </div>
                         </div>
@@ -233,7 +236,7 @@ function HeroSection() {
                                     className={"bg-cyan-300 "}
                                 >
                                     See More
-                                    <FontAwesomeIcon icon={faArrowRight} className="w-3.5 h-3.5 ml-2"/>
+                                    <FaArrowRight className="w-3.5 h-3.5 ml-2"/>
                                 </Button>
                             </div>
                         </div>
@@ -255,11 +258,11 @@ function HeroSection() {
                 <main className=" dark:bg-gray-800">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
 
-                        <h2 className="mb-8 text-center text-3xl font-extrabold text-cool-blue-100 leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
+                        <h2 className="mb-8 text-center text-3xl font-extrabold text-cool-blue-100 leading-tight tracking-tight dark:text-white md:text-4xl lg:mb-16">
                             Support Languages
                         </h2>
                         <Slider {...settings}>
-                            <a href="#" className="flex items-center justify-center">
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      className="h-16 hover:text-gray-900 dark:hover:text-white"
                                      viewBox="0 0 48 48" width="48px" height="48px">
@@ -267,8 +270,8 @@ function HeroSection() {
                                           d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z"/>
                                 </svg>
 
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
@@ -283,8 +286,8 @@ function HeroSection() {
                                           d="M128.221 94.665c11.144 0 20.177 9.034 20.177 20.177 0 11.144-9.033 20.178-20.177 20.178-11.143 0-20.177-9.034-20.177-20.178 0-11.143 9.034-20.177 20.177-20.177"></path>
                                 </svg>
 
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
@@ -295,8 +298,8 @@ function HeroSection() {
                                     <path fill="#35495E"
                                           d="M50.56 0L128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56z"></path>
                                 </svg>
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
@@ -308,8 +311,8 @@ function HeroSection() {
                                     <path fill="#FFF"
                                           d="M126.107 32.274L47.714 206.693l29.285-.498 15.739-39.347h70.325l17.233 39.845 27.99.498-82.179-174.917zm.2 55.882l26.496 55.383h-49.806l23.31-55.383z"></path>
                                 </svg>
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
@@ -330,8 +333,8 @@ function HeroSection() {
                                     <path fill="#DEDEDE"
                                           d="M12,16.658l-0.009,0.002v0v2.756L12,19.414V16.658L12,16.658z M12,9.778h-0.009v2.649H12V9.778L12,9.778z M12,4.415h-0.009v2.65H12V4.415L12,4.415z"></path>
                                 </svg>
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 16 16"
@@ -340,8 +343,8 @@ function HeroSection() {
                                     <path fill="#FAFAFA"
                                           d="m12.274 4.709-.161 1.809-.486 5.423L8 12.944l-.003.001-3.625-1.004-.253-2.836h1.776l.132 1.471 1.971.532.001-.001 1.974-.532.269-2.451-6.208.017-.176-1.676 6.533-.077.132-1.794-6.84.019-.115-1.669h8.864z"></path>
                                 </svg>
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
@@ -351,8 +354,8 @@ function HeroSection() {
                                     <path fill="#fff"
                                           d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z"></path>
                                 </svg>
-                            </a>
-                            <a href="#" className="flex items-center justify-center">
+                            </Link>
+                            <Link href="#" className="flex items-center justify-center">
                                 <svg
                                     className=" hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
@@ -367,7 +370,7 @@ function HeroSection() {
                                     <path fill="#00838f"
                                           d="M38,37c-0.068-0.21-0.182-0.381-0.296-0.575l-9.328-15.849l-2.321-3.943l-2.321,3.943l-9.455,16.065	c0,0,0,0.001,0,0.001c-0.067,0.113-0.101,0.238-0.151,0.358c-0.347,0.829-0.32,1.778,0.134,2.569c0.47,0.822,1.318,1.338,2.25,1.431	h18.576c1.086,0,2.096-0.586,2.635-1.529C38.151,38.724,38.258,37.802,38,37z M26.055,24.519L33.401,37H18.71L26.055,24.519z"></path>
                                 </svg>
-                            </a>
+                            </Link>
                         </Slider>
                     </div>
                 </main>

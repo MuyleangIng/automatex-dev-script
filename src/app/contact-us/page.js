@@ -1,15 +1,13 @@
 "use client"
 import React from 'react';
 import Image from "next/image";
-import {Button, Card, Label, TextInput} from "flowbite-react";
-import {HiSearch} from "react-icons/hi";
+import {Button} from "flowbite-react";
 import Concardduty from "@/components/contact-us/Concardduty";
 import OurTeam from "@/components/contact-us/OurTeam";
 import ContactUs from "@/components/contact-us/ContactUs";
 
-function Page(props) {
+function Page() {
     return (<div>
-
             <section className="bg-white dark:bg-gray-900">
                 <div
                     className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
@@ -35,7 +33,7 @@ function Page(props) {
                             </Button>
                         </div>
                     </div>
-                    <Image width={100} height={100} unoptimized="true"  
+                    <Image width={100} height={100} unoptimized="true"
                            alt="mobile app"
                            src="/images/about/vision.png"
                            className="mx-auto hidden w-9/12 md:flex"
@@ -45,25 +43,28 @@ function Page(props) {
             {/*card duty component*/}
             <Concardduty/>
 
-        {/*vision section*/}
+            {/*vision section*/}
             <section className="bg-white dark:bg-gray-900">
-                <div className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
-                    <Image width={100} height={100} unoptimized="true"  
-                        alt=""
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
-                        className="w-full dark:hidden"
+                <div
+                    className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
+                    <Image width={100} height={100} unoptimized="true"
+                           alt=""
+                           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
+                           className="w-full dark:hidden"
                     />
-                    <Image width={100} height={100} unoptimized="true"  
-                        alt="sasa"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
-                        className="hidden w-full dark:block"
+                    <Image width={100} height={100} unoptimized="true"
+                           alt="sasa"
+                           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
+                           className="hidden w-full dark:block"
                     />
                     <div className="mt-4 md:mt-0">
                         <h2 className="mb-4 text-4xl font-extrabold text-orange-100 tracking-tight text-gray-900 dark:text-white">
                             Our Visions +
                         </h2>
                         <p className="mb-6 text-gray-500 dark:text-gray-400 md:text-lg">
-                            We warmly welcome all stakeholders, partners, and enthusiasts to join us in shaping this transformative journey. Your contributions are key to turning our collective vision into a dynamic reality that exceeds every expectation.
+                            We warmly welcome all stakeholders, partners, and enthusiasts to join us in shaping this
+                            transformative journey. Your contributions are key to turning our collective vision into a
+                            dynamic reality that exceeds every expectation.
                         </p>
                         <Button href="#" className="w-fit [&>span]:items-center bg-orange-100">
                             Get started
@@ -84,11 +85,11 @@ function Page(props) {
                 </div>
             </section>
 
-        {/*    our team member */}
-    <OurTeam/>
-    {/*Contact Us*/}
-    <ContactUs/>
-    </div>
+            {/*    our team member */}
+            <OurTeam/>
+            {/*Contact Us*/}
+            <ContactUs/>
+        </div>
     )
 
 }
