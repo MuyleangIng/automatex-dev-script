@@ -1,11 +1,12 @@
 'use client'
 import React from 'react';
 import NavTab from "@/components/deploy-app/NavTab";
+import OverViewDeploy from "@/components/deploy-app/OverViewDeploy";
 
 function Page() {
     return (
         <div>
-            <h1>overview</h1>
+        <OverViewDeploy/>
         </div>
     );
 }
