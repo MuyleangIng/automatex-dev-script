@@ -6,7 +6,6 @@ import Lottie from 'lottie-react';
 import { HiSearch } from 'react-icons/hi'; // Assuming you're using React Icons for search icon
 import GithubAim from '../../../utils/assets/github.json';
 import { ToggleSwitch } from 'flowbite-react';
-import axios from 'axios';
 import Image from "next/image";
 
 
