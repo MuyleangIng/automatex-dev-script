@@ -1,14 +1,11 @@
 "use client"
-
-
 import React from 'react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import ThemeChanger from "@/app/ThemeChanger";
-import { useTheme } from 'next-themes';
+import BtnTheme from "@/components/BtnTheme";
+
 function MainFooter(){
     const pathname = usePathname();
-    const { theme } = useTheme();
 
     if (
         pathname ===  "/login" ||
@@ -18,7 +15,7 @@ function MainFooter(){
     }
     return(
         <>
-            <footer className={`px-4 divide-y ${theme === 'dark' ? 'dark:bg-gray-800 dark:text-gray-100' : 'bg-slate-50 dark:bg-gray-800 dark:text-gray-100'}`}>
+            <footer className={`px-4 divide-y bg-slate-50 dark:bg-gray-800 dark:text-gray-100`}>
                 <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                     <div className="lg:w-1/3">
                         <Link href="/" className="flex justify-center space-x-3 lg:justify-start">
@@ -91,7 +88,7 @@ function MainFooter(){
                             </ul>
                         </div>
                         <div className="space-y-3">
-                            <ThemeChanger/>
+                            <BtnTheme/>
                             <div className="flex justify-start space-x-3">
                                 <a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">

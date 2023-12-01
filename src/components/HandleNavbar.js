@@ -6,16 +6,15 @@ import {usePathname, useRouter} from 'next/navigation';
 import {FaUserPlus} from 'react-icons/fa';
 import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
-import {useTheme} from 'next-themes';
 import HandleImage from "@/components/HandleImage";
 import {useUsersQuery} from "@/store/features/user/userApiSlice";
+import BtnTheme from "@/components/BtnTheme";
 
 
 function HandleNavbar() {
     const router = useRouter();
     const pathname = usePathname();
     const {data: session, status, error} = useSession();
-    const {theme} = useTheme();
     const developerPath = pathname.includes('/app')
     const { data: res, isLoading } = useUsersQuery();
     console.log("user",res)
@@ -40,7 +39,7 @@ function HandleNavbar() {
     }
 
     return (
-        <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
+        <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 dark:bg-gray-900`}>
             <Navbar.Brand as={Link} href={"/"}>
                 <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                 <span className="self-center text-xl font-extrabold whitespace-nowrap">
@@ -49,6 +48,7 @@ function HandleNavbar() {
                 </span>
             </Navbar.Brand>
             <div className={'flex items-center gap-2 md:order-2'}>
+                <BtnTheme />
                 {status === 'authenticated' ? (
                     <Dropdown
                         arrowIcon={false}

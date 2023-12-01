@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import Link from "next/link";
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {Button, Checkbox, Label, TextInput} from "flowbite-react";
@@ -10,7 +9,7 @@ import SocialLogin from "@/components/SocialLogin";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 
-function Login(props) {
+function Login() {
     const router = useRouter();
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
     const validationSchema = Yup.object().shape({
