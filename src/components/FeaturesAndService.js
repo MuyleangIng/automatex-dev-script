@@ -5,13 +5,14 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import OurPartner from "@/components/OurPartner";
 
 function FeaturesAndServices() {
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3, // Number of slides to show at a time
+        slidesToShow: 6, // Number of slides to show at a time
         slidesToScroll: 1,
         autoplay: true, // Auto-play slides
         autoplaySpeed: 4000, // Duration between slides in milliseconds
@@ -53,7 +54,7 @@ function FeaturesAndServices() {
                     </div>
                 </div>
                 <div className="flex justify-center items-center mx-auto max-w-screen-md">
-                    <Image width={100} height={100} unoptimized="true" src="images/features.png" />
+                    <Image width={100} height={100} className={"w-8/12 h-full"} unoptimized="true" src="images/features.png" />
                 </div>
 
 
@@ -160,9 +161,12 @@ function FeaturesAndServices() {
                 <section className="bg-transparent dark:bg-gray-900">
                     <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10">
 
-                        <h2 className="mb-8 text-center text-2xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
-                            How to deploy?
-                        </h2>
+                        <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                    <h2 data-aos="zoom-in-up"
+                        className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                        How to Deploy
+                    </h2>
+                </span>
 
                         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-4">
 
@@ -269,18 +273,17 @@ function FeaturesAndServices() {
 
                 <main className="bg-transparent">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
-                        <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
-                            Our Tech Stack
-                        </h2>
-
+                        <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                           Our Tech Stack
+                    </h2>
+                </span>
 
                         <Slider {...settings}>
-
                             <a href="#" className="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      className="h-16 hover:text-gray-900 dark:hover:text-white"
                                      viewBox="0 0 48 48" width="48px" height="48px"><path fill="#212121" d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z" /></svg>
-
                             </a>
                             <a href="#" className="flex items-center justify-center">
                                 <svg
@@ -329,20 +332,19 @@ function FeaturesAndServices() {
                     {/*</div>*/}
                 </main>
 
-
-
                 {/* Cloud Section   */}
                 <section className="bg-white dark:bg-gray-900">
                     <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 mt-20">
-                        <h2 className="max-w-lg mb-6 text-4xl font-bold text-black dark:text-white  sm:text-4xl md:mx-auto block whitespace-nowrap">
+                        <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
                             Our Cloud Storage
-                        </h2>
 
+                        </h2>
                     </div>
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
                         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
                             <div className="col-span-6 hidden lg:flex">
                                 <Image width={100} height={100} unoptimized="true"
+                                       className={"w-96 h-full "}
                                     alt=""
                                     src="/images/cloud.png"
                                 />
@@ -565,85 +567,10 @@ function FeaturesAndServices() {
                 </div>
 
             </section>
-            <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
-            <main className="bg-transparent dark:bg-transparent w-full mt-0 mb-8">
-                <div className="flex justify-between max-w-screen-xl px-4 py-8 mx-auto mt-20">
-                    <div className="mb-8 py11">
-                        <h2 className="mt-2 md:text-3xl font-bold text-gray-800 text-3xl dark:text-white !important mb-4">Do you have a next-level idea?
-                            <p className="mt-9 font-normal text-gray-500 sm:text-sm dark:text-gray-400">Reach out and we can create magic together</p></h2>
-
-
-                    </div>
-                    <div className="py-11">
-                        <button type="button" className="text-white bg-orange-50 font-medium rounded-lg text-sm px-5 py-3 text-center hover:bg-cool-blue-300">
-                            WORK WITH US
-                        </button>
-                    </div>
-                </div>
-            </main>
-            <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
             {/* <main className="bg-white dark:bg-gray-900 xl:mb-24"> */}
             <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
-                <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-black dark:text-white md:text-4xl lg:mb-16">
-                    Our Client
-                </h2>
-                <Slider {...settings}>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/brachnha.png"
-                                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/surveybox.png"
-                                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/camgiving.png"
-                                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/istaddemy.png"
-                                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/portistad.png"
-                                className="h-28 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="flex items-center justify-center">
-                            <Image width={100} height={100} unoptimized="true"
-                                src="/images/photostad.png"
-                                className="h-16 hover:text-gray-900 dark:hover:text-white"
-                                alt="Ikea - logo"
-                            />
-                        </a>
-                    </div>
-                </Slider>
+                <OurPartner/>
             </div>
             {/* </main> */}
         </section>

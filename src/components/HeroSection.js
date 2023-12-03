@@ -66,7 +66,7 @@ function HeroSection() {
             {/*Feature Section */}
             <div
                 className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
-                <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
                         <span
@@ -76,7 +76,7 @@ function HeroSection() {
                         Unique and Powerful suit of software to run and entire, brought to you by a company with the
                         long term version to transform the way you work.
                     </p>
-                </div>
+                </span>
                 <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
                     <div className={" flex "}>
                         <div>
