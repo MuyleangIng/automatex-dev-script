@@ -17,12 +17,6 @@ function HandleNavbar() {
     const {data: session, status, error} = useSession();
     const developerPath = pathname.includes('/app')
     const { data: res, isLoading } = useUsersQuery();
-    console.log("user",res)
-    console.log("status",status)
-
-
-
-    console.log("session:",session)
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
         router.push('/');
