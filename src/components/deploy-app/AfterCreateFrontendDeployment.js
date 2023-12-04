@@ -5,6 +5,7 @@ import {RiGitBranchLine} from "react-icons/ri";
 import {HiOutlineDotsHorizontal} from "react-icons/hi";
 import Link from "next/link";
 import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deploySlice";
+import Image from "next/image";
 
 function AfterCreateFrontendDeployment(props) {
     const {data , isLoading} = useGetAllDeploymentAppsQuery({page: 1, limit: 15});
@@ -46,13 +47,13 @@ function AfterCreateFrontendDeployment(props) {
         {/*loop the card component*/}
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
             {data?.list?.map((item, index) => (
-                <Card as={Link} href={"/app/useraccount"}>
+                <Card as={Link} key={index} href={"/app/useraccount"}>
                     <span>
                      <div className={"float-right"}>
                     <HiOutlineDotsHorizontal />
                 </div>
                     <div className="flex items-center space-x-4">
-                        <img
+                        <Image width={100} height={100} unoptimized={true}
                             className="h-10 w-10 rounded-full"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                             alt="Jese Leos avatar"
