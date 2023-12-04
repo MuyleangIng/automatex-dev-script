@@ -2,6 +2,20 @@ import { apiSlice } from "@/store/api/apiSlide";
 
 export const deploymentAppApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
+        getAllDeploymentApps: builder.query({
+            query: ({ page, limit }) => ({
+                url: `/deploy-apps?page=${page}&limit=${limit}`,
+                method: "GET",
+            }),
+            providesTags: ["requestAllDeploymentApps"],
+        }),
+        getSingleDeployment: builder.query({
+            query: (uuid) => ({
+                url: `/deploy-apps/${uuid}`,
+                method: "GET",
+            }),
+            providesTags: ["requestSingleDeployment"],
+        }),
         createDeploymentApp: builder.mutation({
             query: (appData) => ({
                 url: "/deploy-apps",
@@ -10,22 +24,9 @@ export const deploymentAppApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ["requestUserRegister"],
         }),
-        getAllDeploymentApps: builder.query({
-            // query: () => `votes`,
-            query: ({page,limit,filters}) => ({
-                url: "/deploy-apps",
-                params: {
-                    page,
-                    limit,
-                    ...filters
-                },
-            }),
-            keepUnusedDataFor: 5, // keep unused data in cache for 5 seconds
-            providesTags: ["DeploymentApp"], // provideTags are used for updating cache
-        }),
     }),
 });
 
 // auto-generated hooks for createDeploymentApp mutation (POST)
 export const {
-    useCreateDeploymentAppMutation, useGetAllDeploymentAppsQuery } = deploymentAppApiSlice;
+    useCreateDeploymentAppMutation, useGetAllDeploymentAppsQuery,useGetSingleDeploymentQuery } = deploymentAppApiSlice;

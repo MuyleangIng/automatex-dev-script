@@ -2,18 +2,14 @@ import React, {useState} from 'react';
 import {Avatar, Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
-import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deploySlice";
+import { useGetSingleDeploymentQuery} from "@/store/features/deploy-app/deploySlice";
 
 function GitAutomateX({params}) {
+    const { id } = params
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-    const {id} = params;
-    console.log("id", id)
 
-    // const { data: gitProjects, isLoading, isError, error } = useGetGitProjectsQuery(projectId);
-
-    const { data: gitProjects, isLoading, isError, error } =useCreateDeploymentAppMutation();
-
-    console.log("git :", gitProjects)
+    const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(id);
+    console.log("data-uuid:", data)
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
@@ -28,10 +24,8 @@ function GitAutomateX({params}) {
         });
     };
 
-    // Use gitProjects data as needed
-    console.log("Git Projects:", gitProjects?.http_url_to_repo);
-    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${gitProjects?.http_url_to_repo}\n`, 'git push -u origin main',];
-    const command2 = [`git remote add origin ${gitProjects?.http_url_to_repo}\n`, 'git branch -M main\n', 'git push -u origin main']
+    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin undifine \n`, 'git push -u origin main',];
+    const command2 = [`git remote add origin undifind \n`, 'git branch -M main\n', 'git push -u origin main']
     return (<div>
         <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
             <h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">

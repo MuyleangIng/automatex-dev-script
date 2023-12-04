@@ -211,22 +211,3 @@ export default function CreateDeploymentFrontendComponent() {
 }
 
 
-// const initiateGitHubAuthentication = () => {
-//     const clientId = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID;
-//     console.log('GitHub Client ID:', clientId);
-//
-//     // Log the client ID to the console for debugging
-//     console.log('GitHub Client ID:', clientId);
-//
-//     const redirectUri = encodeURIComponent(`${window.location.origin}/user/createWithGithub`); // Specify the repo page URL
-//
-//     const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
-//
-//     window.location.href = githubAuthUrl;
-// };
-//
-// const handleSignInClick = (e) => {
-//     e.preventDefault();
-//     router.push('/user/createWithGithub');
-//     initiateGitHubAuthentication();
-// };

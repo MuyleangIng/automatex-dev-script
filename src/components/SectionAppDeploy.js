@@ -2,8 +2,6 @@ import Link from "next/link";
 import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deploySlice";
 
 export default function SectionAppDeploy() {
-    const { data , isLoading, isFetching,error } = useGetAllDeploymentAppsQuery({page: 1, limit: 15});
-    console.log("data:", data)
     return (<section className="bg-white dark:bg-gray-900">
             <div className="container flex flex-col items-center px-4 py-12 mx-auto text-center">
                 <h2 className="text-4xl font-bold text-gray-800 xl:text-3xl dark:text-white pb-8">
