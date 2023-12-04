@@ -8,7 +8,7 @@ import {usePathname} from "next/navigation";
 import {MdDashboard, MdViewInAr} from "react-icons/md";
 import {GrAction, GrDeploy, GrResources} from "react-icons/gr";
 import {AiOutlineDeploymentUnit} from "react-icons/ai";
-import {TbLockAccess, TbSettingsBolt} from "react-icons/tb";
+import {TbLockAccess, TbSettingsBolt, TbReport} from "react-icons/tb";
 
 function NavTab(props) {
     const pathname = usePathname()
@@ -55,6 +55,13 @@ function NavTab(props) {
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("access") ? active : "")}>
                                 <TbLockAccess  className="w-5 h-5 mr-2"/>
                                 <span className={"hidden md:inline"}>Access</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href={"/app/deploy-apps/id/report"}
+                                  className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("report") ? active : "")}>
+                                <TbReport  className="w-5 h-5 mr-2"/>
+                                <span className={"hidden md:inline"}>Report</span>
                             </Link>
                         </li>
                         <li>

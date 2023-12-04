@@ -1,11 +1,13 @@
 'use client'
 import React from 'react';
 import NavTab from "@/components/deploy-app/NavTab";
+import AccountSetting from "@/components/AccountSetting";
+import SettingDev from "@/components/deploy-app/Setting";
 
 function Page() {
     return (
         <div>
-            <h1>Setting</h1>
+            <SettingDev/>
         </div>
     );
 }

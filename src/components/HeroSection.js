@@ -38,9 +38,9 @@ function HeroSection() {
     };
     return (// Hero section
         <section className="{`bg-white ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}  relative my-13">
-            <div className="container px-6 py-16 mx-auto">
+            <div className="container px-6 py-16 mx-auto w-full">
                 <div className="items-center lg:flex">
-                    <div className="w-full lg:w-1/2">
+                    <div className="w-full lg:w-full xl:mx-20">
                         <div className="lg:max-w-lg">
                             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold md:text-5xl xl:text-6xl dark:text-white">
                                 <span className="text-orange-50 block mb-8" data-aos="fade-up-right">Say Goodbye </span>
@@ -56,7 +56,7 @@ function HeroSection() {
                             </Button>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                    <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-full">
                         <Image data-aos="zoom-out-left" width={100} height={100} unoptimized="true" className="w-full h-full lg:max-w-3xl"
                                src="/images/herosection1.png" alt="Catalogue-pana.svg"/>
                     </div>
@@ -67,12 +67,12 @@ function HeroSection() {
             <div
                 className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
                 <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
                         <span
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
                     </h2>
-                    <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-400 md:text-lg">
+                    <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-400 md:text-base mb-10">
                         Unique and Powerful suit of software to run and entire, brought to you by a company with the
                         long term version to transform the way you work.
                     </p>

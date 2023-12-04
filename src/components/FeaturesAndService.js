@@ -42,18 +42,19 @@ function FeaturesAndServices() {
 
                 <div className="  px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8 lg:py-20">
                     <div className="max-w-xl mb- md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                        <h1 className="max-w-2xl mb-4 text-4xl font-bold md:text-xl xl:text-6xl dark:text-white">
+                        <h1 className="max-w-2xl mb-4 text-4xl font-bold md:text-xl xl:text-6xl dark:text-white" data-aos="fade-left">
                             <span className="text-orange-50  block mb-8">Learn How <span className="text-cool-blue-300">AutomateX</span></span>
-                            <span className="text-orange-50 whitespace-nowrap">Can Build Your Product <span className="text-cool-blue-300">Fast</span></span>
+                            <span className="text-orange-50 whitespace-nowrap" >Can Build Your Product <span className="text-cool-blue-300">Fast</span></span>
                         </h1>
-                        <p className="max-w-2xl mb-6 font-normal  text-gray-500 lg:mb-8 md:text-lg  lg:text-lg  dark:text-gray-300 mt-10">
+                        <p data-aos="fade-up-right" className="max-w-2xl mb-6 font-normal  text-gray-500 lg:mb-8 md:text-lg  lg:text-lg  dark:text-gray-300 mt-10">
                             Unlock the incredible power of AutomateX, revolutionizing product development speed. Accelerate your process, embrace rapid innovation, and experience a swift and efficient journey. Discover AutomateX is potential today.
                         </p>
                         <Lottie
                             animationData={Space}
-                            className="w-0 md:w-0 lg:w-0  xl:w-[200px] absolute top-10 left-[350px]"
+                            className="w-0 md:w-0 lg:w-0  xl:w-[200px] absolute top-10 left-[250px]"
+                            data-aos="fade-right"
                         />
-                        <button type="button" className="text-white bg-orange-50 font-bold rounded-lg text-sm px-5 py-2.5 text-center mt-5 hover:bg-cool-blue-300  ">
+                        <button type="button" className="text-white bg-black font-bold rounded-lg text-sm px-5 py-2.5 text-center mt-5 rainbow-5 ">
                             Get Started Now
                         </button>
 
@@ -78,18 +79,18 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
 
-                                <h1 className=" mt-3 font-bold text-xl mb-2 text-orange-50 ">Improve your product</h1>
-                                <h1 className=" font-extrabold text-xl mb-5 text-orange-50 ">deploy fast.</h1>
+                                <h1 data-aos="fade-right" className=" mt-3 font-bold text-xl mb-2 text-orange-50 ">Improve your product</h1>
+                                <h1 data-aos="fade-right" className=" font-extrabold text-xl mb-5 text-orange-50 ">deploy fast.</h1>
 
-                                <p className="mb-7 text-lg font-normal text-gray-800 dark:text-gray-300">
+                                <p data-aos="fade-right" className="mb-7 text-lg font-normal text-gray-800 dark:text-gray-300">
                                     One of the best ways to improve your product deployment speed is to automate as much of the process as possible.
                                 </p>
                             </div>
                         </article>
                         <div className="space-y-8 lg:pl-8">
-                            <article className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div className="relative">
-                                    <div className="w-12 h-12 bg-orange-50 rounded-xl" >
+                                    <div className="w-12 h-12 bg-orange-50 rounded-xl">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="white" className="w-6 h-6 absolute top-3 left-3 text-white"><path d="M13.49,7.61l-2,9c-.05,.23-.26,.39-.49,.39-.04,0-.07,0-.11-.01-.27-.06-.44-.33-.38-.6l2-9c.06-.27,.33-.44,.6-.38,.27,.06,.44,.33,.38,.6Zm-4.57,2.31c.2-.2,.2-.51,0-.71s-.51-.2-.71,0l-1.78,1.78c-.58,.58-.58,1.52,0,2.1l1.73,1.73c.1,.1,.23,.15,.35,.15s.26-.05,.35-.15c.2-.2,.2-.51,0-.71l-1.73-1.73c-.19-.19-.19-.5,0-.69l1.78-1.78Zm6.87-.71c-.2-.2-.51-.2-.71,0s-.2,.51,0,.71l1.78,1.78c.19,.19,.19,.5,0,.69l-1.73,1.73c-.2,.2-.2,.51,0,.71,.1,.1,.23,.15,.35,.15s.26-.05,.35-.15l1.73-1.73c.58-.58,.58-1.52,0-2.1l-1.78-1.78Zm6.45,9.06c-.42,.68-1.08,1.16-1.86,1.35-.78,.19-1.58,.06-2.27-.36l-.44-.27c-.8,.65-1.7,1.15-2.67,1.5v.51c0,1.65-1.35,3-3,3s-3-1.35-3-3v-.51c-.97-.34-1.87-.84-2.67-1.5l-.44,.27c-.68,.42-1.49,.55-2.27,.36-.78-.19-1.44-.67-1.86-1.35-.86-1.41-.42-3.26,.99-4.13l.44-.27c-.13-.61-.2-1.24-.2-1.88s.07-1.26,.2-1.88l-.44-.27c-1.41-.86-1.85-2.71-.99-4.13,.42-.68,1.08-1.16,1.86-1.35,.78-.19,1.58-.06,2.27,.36l.44,.27c.8-.65,1.7-1.15,2.67-1.5v-.51c0-1.65,1.35-3,3-3s3,1.35,3,3v.51c.97,.34,1.87,.84,2.67,1.5l.44-.27c.68-.42,1.49-.54,2.27-.36,.78,.19,1.44,.67,1.86,1.35,.86,1.41,.42,3.26-.99,4.13l-.44,.27c.13,.61,.2,1.24,.2,1.88s-.07,1.26-.2,1.88l.44,.27c1.41,.86,1.85,2.71,.99,4.13Zm-1.51-3.27l-.75-.46c-.19-.11-.28-.34-.22-.55,.17-.65,.25-1.32,.25-1.99s-.08-1.34-.25-1.99c-.05-.21,.04-.44,.22-.55l.75-.46c.94-.58,1.24-1.81,.66-2.75-.58-.94-1.81-1.24-2.75-.66l-.75,.46c-.19,.11-.43,.09-.59-.05-.86-.76-1.85-1.31-2.94-1.65-.21-.06-.35-.26-.35-.48v-.87c0-1.1-.9-2-2-2s-2,.9-2,2v.87c0,.22-.14,.41-.35,.48-1.09,.33-2.08,.89-2.94,1.65-.16,.15-.4,.17-.59,.05l-.75-.46c-.94-.58-2.17-.28-2.75,.66-.58,.94-.28,2.17,.66,2.75l.75,.46c.19,.11,.28,.34,.22,.55-.17,.65-.25,1.32-.25,1.99s.08,1.34,.25,1.99c.05,.21-.04,.44-.22,.55l-.75,.46c-.94,.58-1.24,1.81-.66,2.75,.58,.94,1.81,1.24,2.75,.66l.75-.46c.08-.05,.17-.07,.26-.07,.12,0,.24,.04,.33,.12,.86,.76,1.85,1.31,2.94,1.65,.21,.06,.35,.26,.35,.48v.87c0,1.1,.9,2,2,2s2-.9,2-2v-.87c0-.22,.14-.41,.35-.48,1.09-.33,2.08-.89,2.94-1.65,.17-.15,.41-.17,.59-.05l.75,.46c.94,.58,2.17,.28,2.75-.66,.58-.94,.28-2.17-.66-2.75Z" /></svg>
 
@@ -106,7 +107,7 @@ function FeaturesAndServices() {
                                 </p>
 
                             </article>
-                            <article className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div className="relative">
                                     <div className="w-12 h-12 bg-orange-50 rounded-xl" >
 
@@ -126,7 +127,7 @@ function FeaturesAndServices() {
                             </article>
                         </div>
                         <div className="space-y-8 lg:pl-8">
-                            <article className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div className="relative">
                                     <div className="w-12 h-12 bg-orange-50 rounded-xl" >
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="white" className="w-6 h-6 absolute top-3 left-3 text-white"><path d="M19.5,1H4.5C2.019,1,0,3.019,0,5.5V14.5c0,2.481,2.019,4.5,4.5,4.5h7v3H7c-.276,0-.5,.224-.5,.5s.224,.5,.5,.5h10c.276,0,.5-.224,.5-.5s-.224-.5-.5-.5h-4.5v-3h7c2.481,0,4.5-2.019,4.5-4.5V5.5c0-2.481-2.019-4.5-4.5-4.5Zm3.5,13.5c0,1.93-1.57,3.5-3.5,3.5H4.5c-1.93,0-3.5-1.57-3.5-3.5V5.5c0-1.93,1.57-3.5,3.5-3.5h15c1.93,0,3.5,1.57,3.5,3.5V14.5Zm-4.732-6.266c.975,.975,.975,2.562,0,3.536l-3.083,3.083c-.098,.098-.226,.146-.354,.146s-.256-.049-.354-.146c-.195-.195-.195-.512,0-.707l3.083-3.083c.585-.585,.585-1.537,0-2.122l-3.088-3.088c-.195-.195-.195-.512,0-.707s.512-.195,.707,0l3.088,3.088Zm-11.828,.707c-.585,.585-.585,1.537,0,2.122l3.083,3.083c.195,.195,.195,.512,0,.707-.098,.098-.226,.146-.354,.146s-.256-.049-.354-.146l-3.083-3.083c-.975-.975-.975-2.562,0-3.536l3.088-3.088c.195-.195,.512-.195,.707,0s.195,.512,0,.707l-3.088,3.088Z" /></svg>
@@ -141,7 +142,7 @@ function FeaturesAndServices() {
 
                             </article>
 
-                            <article className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div className="relative">
                                     <div className="w-12 h-12 bg-orange-50 text-white rounded-xl" >
 
@@ -164,7 +165,7 @@ function FeaturesAndServices() {
 
                 {/*How to deploy section */}
 
-                <section className="bg-transparent dark:bg-gray-900">
+                <section className="bg-slate-50 dark:bg-gray-800">
                     <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10">
 
                         <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -176,10 +177,10 @@ function FeaturesAndServices() {
 
                         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-4">
 
-                            <div className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                            <div  className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
                                 <a
                                     href="#"
-                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-700"
                                 >
                                     <div
                                         className="bg-purple-100 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
@@ -200,12 +201,15 @@ function FeaturesAndServices() {
                                         Your can register acccount with Google, github, and Gitlab.
                                     </p>
                                 </a>
+                                <Image data-aos="fade-right"
+                                       data-aos-offset="300"
+                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-72 absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
-                            <div className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                            <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
                                 <a
                                     href="#"
-                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-700"
                                 >
                                     <div
                                         className="bg-purple-100 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
@@ -223,13 +227,16 @@ function FeaturesAndServices() {
                                         Upload your source with two option within git url or a zip file.
                                     </p>
                                 </a>
+                                <Image data-aos="fade-right"
+                                       data-aos-offset="300"
+                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[670px] absolute"} unoptimized="true" src="images/arrow.png" />
                             </div>
 
 
-                            <div className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                            <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
                                 <a
                                     href="#"
-                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-700"
                                 >
                                     <div
                                         className="bg-purple-100 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
@@ -247,12 +254,15 @@ function FeaturesAndServices() {
                                         Just one click your project will automatically build, test and deploy.
                                     </p>
                                 </a>
+                                <Image data-aos="fade-right"
+                                       data-aos-offset="300"
+                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[1050px] absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
-                            <div className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                            <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
                                 <a
                                     href="#"
-                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-700"
                                 >
                                     <div
                                         className="bg-purple-100 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
@@ -280,7 +290,7 @@ function FeaturesAndServices() {
                 <main className="bg-transparent">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
                         <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-16 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                            Our Tech Stack
                     </h2>
                 </span>

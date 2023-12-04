@@ -61,42 +61,6 @@ function SignUp(props) {
                     });
                 }
             })
-
-        // .then((res) => {
-            //     if (res.status === true) {
-            //         // Show success toast
-            //         toast.success("Successfully created account!", {
-            //             theme: "colored",
-            //             icon: "🚀",
-            //             autoClose: 3000,
-            //             position: "top-center",
-            //         });
-            //     } else {
-            //         let message = res.message || "";
-            //         if (res.errors && Array.isArray(res.errors)) {
-            //             res.errors.forEach((error) => {
-            //                 message += "\n" + error.message;
-            //             });
-            //         }
-            //         // Show error toast
-            //         toast.error(message, {
-            //             theme: "colored",
-            //             icon: "❌",
-            //             autoClose: 3000,
-            //             position: "top-center",
-            //         });
-            //     }
-            // })
-            // .catch((error) => {
-            //     console.error("Error during API call:", error);
-            //     // Show error toast for network or other errors
-            //     toast.error(error.message, {
-            //         theme: "colored",
-            //         icon: "❌",
-            //         autoClose: 1000,
-            //         position: "top-center",
-            //     });
-            // });
     };
 
     useEffect(() => {
@@ -203,7 +167,7 @@ function SignUp(props) {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute left-[580px] top-[455px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
+                                            className="absolute right-4 top-1/2 text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
                                         >
                                             {showPassword ? (
                                                 <FaEyeSlash className="h-5 w-5" aria-hidden="true" />
