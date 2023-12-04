@@ -35,13 +35,13 @@ function NavTab(props) {
                                 <span className={"hidden md:inline"}>Resource</span>
                             </Link>
                         </li>
-                        <li>
-                            <Link href={"/app/deploy-apps/id/deployment"}
-                                  className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("deployment") ? active : "")}>
-                                <AiOutlineDeploymentUnit   className="w-5 h-5 mr-2"/>
-                                <span className={"hidden md:inline"}>Deployment</span>
-                            </Link>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <Link href={"/app/deploy-apps/id/deployment"}*/}
+                        {/*          className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("deployment") ? active : "")}>*/}
+                        {/*        <AiOutlineDeploymentUnit   className="w-5 h-5 mr-2"/>*/}
+                        {/*        <span className={"hidden md:inline"}>Deployment</span>*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
                         <li>
                             <Link href={"/app/deploy-apps/id/activities"}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("activities") ? active : "")}>
