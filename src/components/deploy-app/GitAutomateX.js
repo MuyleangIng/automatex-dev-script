@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Avatar, Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
-import {useGetGitProjectsQuery} from "@/store/features/gitlab/gitApiSlice";
+import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deploySlice";
 
 function GitAutomateX({params}) {
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
@@ -11,7 +11,10 @@ function GitAutomateX({params}) {
 
     // const { data: gitProjects, isLoading, isError, error } = useGetGitProjectsQuery(projectId);
 
-    const { data: gitProjects, isLoading, isError, error } = useGetGitProjectsQuery(id);
+    const { data: gitProjects, isLoading, isError, error } =useCreateDeploymentAppMutation();
+
+    console.log("git :", gitProjects)
+
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
