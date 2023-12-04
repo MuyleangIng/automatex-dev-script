@@ -8,6 +8,8 @@ import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
+import AXGoogleButton from "@/components/AXGoogleButton";
+import AXGithubButton from "@/components/AXGitHubButton";
 
 function Login() {
     const router = useRouter();
@@ -109,7 +111,8 @@ function Login() {
                                     <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
                                 </div>
 
-                                <SocialLogin />
+                                <AXGoogleButton/>
+                                <AXGithubButton/>
 
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">

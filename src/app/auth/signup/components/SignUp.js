@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import {getSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
+import AXGoogleButton from "@/components/AXGoogleButton";
+import AXGithubButton from "@/components/AXGitHubButton";
 
 
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
@@ -247,7 +249,8 @@ function SignUp(props) {
                                 </div>
                                 <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
                             </div>
-                            <SocialLogin />
+                                <AXGoogleButton/>
+                                <AXGithubButton/>
 
                             <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
                                 {isSubmitting ? "Creating..." : " Create an account"}

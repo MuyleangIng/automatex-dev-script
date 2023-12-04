@@ -9,6 +9,7 @@ import {useSession, signOut} from 'next-auth/react';
 import HandleImage from "@/components/HandleImage";
 import {useUsersQuery} from "@/store/features/user/userApiSlice";
 import BtnTheme from "@/components/BtnTheme";
+import Image from "next/image";
 
 
 function HandleNavbar() {
@@ -50,20 +51,17 @@ function HandleNavbar() {
                         label={
                             <span>
                                 <span className="sr-only">User menu</span>
-                                    <Avatar
-                                        alt="User Avatar"
-                                        img={"https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}
-                                        rounded
-                                        size="sm"
-                                    />
+                                  <Image src={session.user.image} alt="user"
+                                         width={40} height={40} className="rounded-full"
+                                  />
 
                             </span>
                         }
                     >
                         <Dropdown.Header>
-                            <span className="block text-sm">UserName</span>
+                            <span className="block text-sm">{session.user.name}</span>
                             <span className="block truncate text-sm font-medium">
-                                Email
+                                 {session.user.email}
                             </span>
                         </Dropdown.Header>
                         <Dropdown.Item as={Link} href={"/app/dashboard"}>
