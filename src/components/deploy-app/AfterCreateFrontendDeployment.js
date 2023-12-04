@@ -8,7 +8,7 @@ import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deploySl
 
 function AfterCreateFrontendDeployment(props) {
     const {data , isLoading} = useGetAllDeploymentAppsQuery({page: 1, limit: 15});
-
+    console.log("data list", data?.list[0]);
 
     return (<>
         {/* Start Search */}
@@ -42,8 +42,11 @@ function AfterCreateFrontendDeployment(props) {
             </div>
         </div>
         {/* End Search */}
+
+        {/*loop the card component*/}
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
-            <Card as={Link} href={"/app/useraccount"}>
+            {data?.list?.map((item, index) => (
+                <Card as={Link} href={"/app/useraccount"}>
                     <span>
                      <div className={"float-right"}>
                     <HiOutlineDotsHorizontal />
@@ -55,17 +58,18 @@ function AfterCreateFrontendDeployment(props) {
                             alt="Jese Leos avatar"
                         />
                         <div className="font-medium dark:text-white">
-                            <Badge color="purple" className="!inline">Service-Name</Badge>
+                            <Badge color="purple" className="!inline">{item?.uuid}</Badge>
                             <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
                                 reactjs.kuberthy.me
                             </div>
                         </div>
                     </div>
             </span>
-                <p className="flex">
-                    Branch: <span className={"font-bold"}>master</span>
-                </p>
-            </Card>
+                    <p className="flex">
+                        Branch: <span className={"font-bold"}>master</span>
+                    </p>
+                </Card>
+            ))}
         </div>
     </>);
 }
