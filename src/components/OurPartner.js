@@ -8,7 +8,7 @@ function OurPartner(props) {
             <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
               <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
-                        Our Best Partner
+                        Our Best Clients
                     </h2>
                 </span>
                 <div className="grid grid-cols-2 gap-8 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-6">
@@ -32,8 +32,8 @@ function OurPartner(props) {
                     </a>
                     <a href="#" className="flex items-center justify-center">
                         <Image data-aos="flip-down" width={100} height={100} unoptimized="true"
-                               src="/images/brachnha.png"
-                               className="w-5/12 hover:text-gray-900 dark:hover:text-white"
+                               src="/images/brachnha1.png"
+                               className="w-2/3 hover:text-gray-900 dark:hover:text-white"
                                alt="Ikea - logo"></Image>
                     </a>
                     <a href="#" className="flex items-center justify-center">

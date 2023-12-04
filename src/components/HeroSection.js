@@ -12,8 +12,53 @@ import 'aos/dist/aos.css';
 import {FaArrowRight} from "react-icons/fa6";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
+import Lottie from "lottie-react";
+import Space from "@/app/utils/assets/cloud.json";
+import Spaces from "@/app/utils/assets/service.json";
+import { gsap } from 'gsap';
 
 function HeroSection() {
+    // git animation
+    useEffect(() => {
+        const face = ".tanuki-shape";
+        const ear = ".tanuki-shapes";
+        const tl = gsap.timeline({
+            repeat: -1,
+            repeatDelay: 0.3,
+            yoyo: true
+        });
+        tl.set(face, {
+            scale: 0,
+            opacity: 0,
+            transformOrigin: "top bottom"
+        });
+        tl.set(ear, {
+            y: 30,
+            opacity: 0,
+            scale: 0,
+        });
+        tl.staggerTo(face, 1, {
+            scale: 1,
+            opacity: 1,
+            ease: 'elastic.inOut', // or Elastic.easeInOut for GSAP 2
+        }, 0.06, 0);
+        tl.staggerTo(ear, 1, {
+            delay: 0.5,
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            ease: 'elastic.inOut', // or Elastic.easeInOut for GSAP 2
+        }, 0.06, 0);
+        tl.staggerTo('.tanuki-left-cheek', 0.2, {
+            delay: 1.5,
+            fill: '#fff',
+            ease: 'power2.inOut', // or Ease.easeInOut for GSAP 2
+        }, 0.06, 0);
+        // ... (Continue modifying the rest of your animation)
+
+        // Clean up the animation on component unmount
+        return () => tl.kill();
+    }, []);
     const router = useRouter()
     useEffect(() => {
         AOS.init({
@@ -23,9 +68,13 @@ function HeroSection() {
         });
     }, []);
     const settings = {
-        dots: true, infinite: true, speed: 500, slidesToShow: 6, // Number of slides to show at a time
-        slidesToScroll: 1, autoplay: true, // Auto-play slides
-        autoplaySpeed: 4000, // Duration between slides in milliseconds
+        // dots: true,
+        infinite: true,
+        speed: 200,
+        slidesToShow: 6, // Number of slides to show at a time
+        slidesToScroll: 1,
+        autoplay: true, // Auto-play slides
+        autoplaySpeed: 2000, // Duration between slides in milliseconds
         responsive: [{
             breakpoint: 1024, settings: {
                 slidesToShow: 2, slidesToScroll: 1,
@@ -36,7 +85,10 @@ function HeroSection() {
             },
         },],
     };
-    return (// Hero section
+
+
+
+        return (// Hero section
         <section className="{`bg-white ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}  relative my-13">
             <div className="container px-6 py-16 mx-auto w-full">
                 <div className="items-center lg:flex">
@@ -73,7 +125,7 @@ function HeroSection() {
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
                     </h2>
                     <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-400 md:text-base mb-10">
-                        Unique and Powerful suit of software to run and entire, brought to you by a company with the
+                        Unique and Powerful suit of software to run and entire,<br/> brought to you by a company with the
                         long term version to transform the way you work.
                     </p>
                 </span>
@@ -173,8 +225,11 @@ function HeroSection() {
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
-                                       className="w-full h-full object-cover" src="/images/Service.png" alt=""/>
+                                <Lottie
+                                    animationData={Spaces}
+                                    className="w-52 md:w-0 lg:w-0 xl:w-[500px]"
+                                    data-aos="fade-right"
+                                />
                             </div>
                         </div>
                     </div>
@@ -186,8 +241,11 @@ function HeroSection() {
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
-                                       className="w-full h-full object-cover" src="/images/cloude.png" alt=""/>
+                                <Lottie
+                                    animationData={Space}
+                                    className="w-40 md:w-0 lg:w-0 xl:w-[300px]"
+                                    data-aos="fade-right"
+                                />
                             </div>
                         </div>
                         <div
@@ -242,8 +300,15 @@ function HeroSection() {
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
                             <div className="w-6/12">
-                                <Image data-aos="flip-left" width={100} height={100} unoptimized="true"
-                                       className=" w-full h-full object-cover" src="/images/git.png" alt=""/>
+                                <svg width="150" height="150" className="tanuki-logo" viewBox="0 0 36 36">
+                                    <path className="tanuki-shapes tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+                                    <path className="tanuki-shapes tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+                                    <path className="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+                                    <path className="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+                                    <path className="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+                                    <path className="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+                                    <path className="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -264,7 +329,7 @@ function HeroSection() {
                         <Slider {...settings}>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                     className="h-16 hover:text-gray-900 dark:hover:text-white"
+                                     className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                      viewBox="0 0 48 48" width="48px" height="48px">
                                     <path fill="#212121"
                                           d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z"/>
@@ -273,7 +338,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 230" id="react">
                                     <path fill="#FFF"
@@ -289,7 +354,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 221" id="vue">
                                     <path fill="#41B883"
@@ -301,7 +366,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     preserveAspectRatio="xMidYMid" viewBox="0 0 256 272" id="angular">
                                     <path fill="#E23237"
@@ -314,7 +379,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     enableBackground="new 0 0 24 24" viewBox="0 0 24 24" id="html">
                                     <polygon fill="#E44D26"
@@ -336,7 +401,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 16 16"
                                     id="css">
                                     <path fill="#2196F3" d="m1 0 1.275 14.4L8 16l5.723-1.599L15 0z"></path>
@@ -346,7 +411,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
                                     viewBox="0 0 48 48">
                                     <path fill="#8bc34a"
@@ -357,7 +422,7 @@ function HeroSection() {
                             </Link>
                             <Link href="#" className="flex items-center justify-center">
                                 <svg
-                                    className=" hover:text-gray-900 dark:hover:text-white"
+                                    className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
                                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
                                     viewBox="0 0 48 48">
                                     <polygon fill="none" points="26.055,24.519 18.71,37 33.401,37"></polygon>
@@ -385,26 +450,25 @@ function HeroSection() {
                     <div className="grid grid-cols-1 gap-12 lg:col-span-2 sm:grid-cols-2">
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Expertise</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
-                                3000 AU</p>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our team of experienced experts have the<br/> knowledge and expertise
+                                to deliver innovative IT <br/> solutions
+                                that meet your unique needs.</p>
                         </div>
 
                         <div>
-                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">London</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Oxford Street <br/> London W1D 1LL
-                                UK</p>
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Tech</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">We stay up to date with the latest trends <br/> and technologies in the IT industry, so you can get the <br/> most advanced solutions available.</p>
                         </div>
 
                         <div>
-                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Sydney</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
-                                3000 AU</p>
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Solutions</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">We take a personalized approach
+                                to every project,<br/> working closely with you to understand your <br/> business and create specific solutions.</p>
                         </div>
 
                         <div>
-                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">San Francisco</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">100 Flinders Street <br/> Melbourne VIC
-                                3000 AU</p>
+                            <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Results</h2>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our track record speaks for itself – we've helped <br/> businesses of all sizes and industries achieve <br/> their goals with our IT solutions.</p>
                         </div>
                     </div>
                 </div>
