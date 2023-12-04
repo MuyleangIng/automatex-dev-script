@@ -6,6 +6,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import OurPartner from "@/components/OurPartner";
+import Lottie from "lottie-react";
+import Space from "@/app/utils/assets/space.json";
 
 function FeaturesAndServices() {
     const settings = {
@@ -47,6 +49,10 @@ function FeaturesAndServices() {
                         <p className="max-w-2xl mb-6 font-normal  text-gray-500 lg:mb-8 md:text-lg  lg:text-lg  dark:text-gray-300 mt-10">
                             Unlock the incredible power of AutomateX, revolutionizing product development speed. Accelerate your process, embrace rapid innovation, and experience a swift and efficient journey. Discover AutomateX is potential today.
                         </p>
+                        <Lottie
+                            animationData={Space}
+                            className="w-0 md:w-0 lg:w-0  xl:w-[200px] absolute top-10 left-[350px]"
+                        />
                         <button type="button" className="text-white bg-orange-50 font-bold rounded-lg text-sm px-5 py-2.5 text-center mt-5 hover:bg-cool-blue-300  ">
                             Get Started Now
                         </button>
