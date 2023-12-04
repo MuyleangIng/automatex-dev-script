@@ -17,7 +17,6 @@ function HandleNavbar() {
     const {data: session, status, error} = useSession();
     const developerPath = pathname.includes('/app')
     const { data: res, isLoading } = useUsersQuery();
-
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
         router.push('/');
@@ -93,8 +92,11 @@ function HandleNavbar() {
                     <>
                         <Navbar.Link
                             as={Link}
-                            active={true}
-                            className={'font-normal text-lg'}
+                            className={`font-normal text-lg ${
+                                pathname === '/features-services'
+                                    ? 'text-cyan-500 dark:text-cyan-500'
+                                    : 'text-gray-600'
+                            }`}
                             href="/features-services"
                         >
                             Feature & Service
@@ -102,7 +104,7 @@ function HandleNavbar() {
                         <Navbar.Link
                             className={`font-normal text-lg ${
                                 pathname === '/document'
-                                    ? 'text-orange-500 dark:text-orange-100'
+                                    ? 'text-cyan-500 dark:text-cyan-500'
                                     : 'text-gray-600'
                             }`}
                             as={Link}
@@ -114,7 +116,7 @@ function HandleNavbar() {
                             as={Link}
                             className={`font-normal text-lg ${
                                 pathname === '/startbuilding'
-                                    ? 'text-orange-500 dark:text-orange-100'
+                                    ? 'text-cyan-500 dark:text-cyan-500'
                                     : 'text-gray-600'
                             }`}
                             href="/startbuilding"
@@ -123,8 +125,12 @@ function HandleNavbar() {
                         </Navbar.Link>
                         <Navbar.Link
                             as={Link}
-                            className={'font-normal text-lg'}
-                            href="contact-us"
+                            className={`font-normal text-lg ${
+                                pathname === '/about-us'
+                                    ? 'text-cyan-500 dark:text-cyan-500'
+                                    : 'text-gray-600'
+                            }`}
+                            href="about-us"
                         >
                             About Us
                         </Navbar.Link>
