@@ -5,14 +5,18 @@ import {useRouter} from "next/navigation";
 import {Breadcrumb, Button, Label, Select, TextInput, ToggleSwitch} from "flowbite-react";
 import {HiArrowCircleRight, HiHome, HiUserCircle} from "react-icons/hi";
 import DeployMethod from "@/components/DeployMethod";
+import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deploySlice";
 
 export default function CreateDeploymentFrontendComponent() {
+    const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
+
     const [switch2, setSwitch2] = useState(true);
     const [projectName, setProjectName] = useState('');
     const [domainName, setDomainName] = useState('');
-    const [selectedOption, setSelectedOption] = useState('');
+    const [defaultBranch, setdefaultBranch] = useState('');
     const [enableAutomaticDeploys, setEnableAutomaticDeploys] = useState(false);
     const router=useRouter();
+
 
     const handleToggleChange = (isChecked) => {
         setEnableAutomaticDeploys(isChecked);
@@ -25,19 +29,35 @@ export default function CreateDeploymentFrontendComponent() {
 
     const handleSelectChange = (event) => {
         const selectedValue = event.target.value;
-        setSelectedOption(selectedValue);
+        setdefaultBranch(selectedValue);
+    };
+    const handleCreateApp = async (appData) => {
+        try {
+            const response = await createDeploymentApp(appData);
+            router.push(`/app/deploy-apps/${response.data.repo.id}/resource`);
+            console.log("Deployment App created successfully:", response.data);
+            // Handle success, e.g., redirect to another page, show a success message, etc.
+        } catch (error) {
+            console.error("Error creating Deployment App:", error);
+            // Handle error, e.g., show an error message to the user, log the error, etc.
+        }
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const formDat = {
-            projectName: projectName,
-            domainName: domainName,
-            selectedOption: selectedOption,
-            enableAutomaticDeploys: enableAutomaticDeploys,
-        }
-        router.push('/app/deploy-apps/id/resource');
-        console.log('Form Data:', formDat);
+        const formData = {
+            name: projectName,
+            appType: 'FRONTEND',
+            sourceType: 'automatexGit',
+            domain: domainName,
+            defaultBranch: defaultBranch,
+            deployType: 'Auto',
+        };
+        await handleCreateApp(formData);
+
+        // Optionally, you can add additional logic here after the deployment app is created
+
+        console.log('Form Data:', formData);
     };
 
     return (<>
@@ -160,7 +180,7 @@ export default function CreateDeploymentFrontendComponent() {
                                     <Select
                                         id="branch"
                                         onChange={handleSelectChange}
-                                        value={selectedOption}
+                                        value={defaultBranch}
                                         required>
                                         <option>master</option>
                                         <option>main</option>
@@ -191,22 +211,3 @@ export default function CreateDeploymentFrontendComponent() {
 }
 
 
-// const initiateGitHubAuthentication = () => {
-//     const clientId = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID;
-//     console.log('GitHub Client ID:', clientId);
-//
-//     // Log the client ID to the console for debugging
-//     console.log('GitHub Client ID:', clientId);
-//
-//     const redirectUri = encodeURIComponent(`${window.location.origin}/user/createWithGithub`); // Specify the repo page URL
-//
-//     const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user`;
-//
-//     window.location.href = githubAuthUrl;
-// };
-//
-// const handleSignInClick = (e) => {
-//     e.preventDefault();
-//     router.push('/user/createWithGithub');
-//     initiateGitHubAuthentication();
-// };

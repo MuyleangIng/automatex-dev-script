@@ -472,7 +472,7 @@ function HeroSection() {
 
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Results</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our track record speaks for itself – we've helped <br/> businesses of all sizes and industries achieve <br/> their goals with our IT solutions.</p>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our track record speaks for itself – we helped <br/> businesses of all sizes and industries achieve <br/> their goals with our IT solutions.</p>
                         </div>
                     </div>
                 </div>
