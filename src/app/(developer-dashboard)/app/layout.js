@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 
 function Layout({children}) {
     const pathname = usePathname();
-    const developerPath = pathname.includes('/id/')
+    const developerPath = pathname.includes('/deploy-apps/')
 
     return (
         <main className={"container"}>

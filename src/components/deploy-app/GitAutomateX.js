@@ -24,8 +24,8 @@ function GitAutomateX({params}) {
         });
     };
 
-    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin undifine \n`, 'git push -u origin main',];
-    const command2 = [`git remote add origin undifind \n`, 'git branch -M main\n', 'git push -u origin main']
+    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.sourcePath} \n`, 'git push -u origin main',];
+    const command2 = [`git remote add origin ${data?.sourcePath} \n`, 'git branch -M main\n', 'git push -u origin main']
     return (<div>
         <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
             <h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">

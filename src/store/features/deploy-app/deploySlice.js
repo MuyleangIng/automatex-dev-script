@@ -29,4 +29,6 @@ export const deploymentAppApiSlice = apiSlice.injectEndpoints({
 
 // auto-generated hooks for createDeploymentApp mutation (POST)
 export const {
-    useCreateDeploymentAppMutation, useGetAllDeploymentAppsQuery,useGetSingleDeploymentQuery } = deploymentAppApiSlice;
+    useCreateDeploymentAppMutation,
+    useGetAllDeploymentAppsQuery,
+    useGetSingleDeploymentQuery } = deploymentAppApiSlice;

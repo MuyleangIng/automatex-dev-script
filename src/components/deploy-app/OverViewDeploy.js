@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image";
 import {FaCodeBranch, FaCopy, FaGithub} from "react-icons/fa";
 import {Alert, Button, Card, Label, Textarea, TextInput} from "flowbite-react";
 import {HiInformationCircle} from "react-icons/hi";

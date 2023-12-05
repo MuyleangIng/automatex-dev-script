@@ -1,6 +1,5 @@
 import React from 'react';
 import NavTab from "@/components/deploy-app/NavTab";
-import MainFooter from "@/components/Footer";
 
 function Layout({children}) {
     return (
