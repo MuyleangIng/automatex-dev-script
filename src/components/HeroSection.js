@@ -16,6 +16,7 @@ import Lottie from "lottie-react";
 import Space from "@/app/utils/assets/cloud.json";
 import Spaces from "@/app/utils/assets/service.json";
 import { gsap } from 'gsap';
+import Service from "@/app/utils/assets/herosec.json";
 
 function HeroSection() {
     // git animation
@@ -109,8 +110,11 @@ function HeroSection() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-full">
-                        <Image data-aos="zoom-out-left" width={100} height={100} unoptimized="true" className="w-full h-full lg:max-w-3xl"
-                               src="/images/herosection1.png" alt="Catalogue-pana.svg"/>
+                        <Lottie
+                            animationData={Service}
+                            className="mx-auto hidden w-6/12 md:flex"
+                            data-aos="fade-right"
+                        />
                     </div>
                 </div>
             </div>

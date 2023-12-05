@@ -15,16 +15,15 @@ function OurTeam(props) {
                 </div>
                 <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                            alt="Bonnie Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/leang.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Bonnie Green</a>
+                            <a href="#">Ing Mouyleang</a>
                         </h3>
-                        <p>CEO/Co-founder</p>
+                        <p>IAC and Backend</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -102,14 +101,14 @@ function OurTeam(props) {
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
                         <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
+                            className="mx-auto mb-4 w-40 h-36 rounded-full"
+                            src="images/lit.jpg"
                             alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Helene Engels</a>
+                            <a href="#">Thon Chavalit</a>
                         </h3>
-                        <p>CTO/Co-founder</p>
+                        <p>Backup and document</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -186,15 +185,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                            alt="Jese Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/mich.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Jese Leos</a>
+                            <a href="#">Neuy Mich</a>
                         </h3>
-                        <p>SEO &amp;Marketing</p>
+                        <p>full stack </p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -271,15 +270,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-                            alt="Joseph Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/thy.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Joseph Mcfall</a>
+                            <a href="#">Nun Somrithy</a>
                         </h3>
-                        <p>Sales</p>
+                        <p>UI UX and Frontend</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -356,15 +355,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-                            alt="Sofia Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/nha.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Lana Byrd</a>
+                            <a href="#">Pos Panha</a>
                         </h3>
-                        <p>Web Designer</p>
+                        <p>Frontend and document</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -441,15 +440,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
-                            alt="Leslie Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/sal.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Leslie Livingston</a>
+                            <a href="#">Sak Visal</a>
                         </h3>
-                        <p>Graphic Designer</p>
+                        <p>UI UX and Frontend</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -526,15 +525,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                            alt="Michael Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/leap.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Michael Gough</a>
+                            <a href="#">So VathanaSomboleap</a>
                         </h3>
-                        <p>React Developer</p>
+                        <p>IAC and backend</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a
@@ -611,15 +610,15 @@ function OurTeam(props) {
                         </ul>
                     </div>
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                        <Image width={100} height={100} unoptimized="true"  
-                            className="mx-auto mb-4 w-36 h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
-                            alt="Neil Avatar"
+                        <Image width={100} height={100} unoptimized="true"
+                               className="mx-auto mb-4 w-40 h-36 rounded-full"
+                               src="images/pav.jpg"
+                               alt="Helene Avatar"
                         />
                         <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">
-                            <a href="#">Neil Sims</a>
+                            <a href="#">Chay SeavPav</a>
                         </h3>
-                        <p>Vue.js Developer</p>
+                        <p>Backend</p>
                         <ul className="flex justify-center mt-4 space-x-4">
                             <li>
                                 <a

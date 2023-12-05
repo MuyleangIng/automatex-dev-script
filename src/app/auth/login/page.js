@@ -10,6 +10,8 @@ import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import AXGoogleButton from "@/components/AXGoogleButton";
 import AXGithubButton from "@/components/AXGitHubButton";
+import Lottie from "lottie-react";
+import Spaces from "@/app/utils/assets/bot.json";
 
 function Login() {
     const router = useRouter();
@@ -140,10 +142,10 @@ function Login() {
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100} unoptimized="true"
+                    <Lottie
+                        animationData={Spaces}
                         className="mx-auto hidden lg:flex w-full"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
-                        alt="illustration"
+                        data-aos="fade-right"
                     />
                 </div>
             </div>

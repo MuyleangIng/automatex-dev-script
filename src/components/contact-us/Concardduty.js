@@ -7,7 +7,7 @@ function Concardduty(props) {
 
                 <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
                     <div className="mx-auto max-w-screen-sm text-center">
-                        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-cool-blue-150">
+                        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-orange-100">
                             Our Duty
                         </h1>
                     </div>

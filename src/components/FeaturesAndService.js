@@ -8,6 +8,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import OurPartner from "@/components/OurPartner";
 import Lottie from "lottie-react";
 import Space from "@/app/utils/assets/space.json";
+import Spaces from "@/app/utils/assets/planes.json";
+import Spacees from "@/app/utils/assets/cloud.json";
 
 function FeaturesAndServices() {
     const settings = {
@@ -59,6 +61,11 @@ function FeaturesAndServices() {
                         </button>
 
                     </div>
+                    <Lottie
+                        animationData={Spaces}
+                        className="w-0 md:w-0 lg:w-0  xl:w-[200px] absolute top-10 right-[180px]"
+                        data-aos="fade-right"
+                    />
                 </div>
                 <div className="flex justify-center items-center mx-auto max-w-screen-md">
                     <Image width={100} height={100} className={"w-8/12 h-full"} unoptimized="true" src="images/features.png" />
@@ -359,10 +366,10 @@ function FeaturesAndServices() {
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
                         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
                             <div className="col-span-6 hidden lg:flex">
-                                <Image width={100} height={100} unoptimized="true"
-                                       className={"w-96 h-full "}
-                                    alt=""
-                                    src="/images/cloud.png"
+                                <Lottie
+                                    animationData={Spacees}
+                                    className="w-2/3"
+                                    data-aos="fade-right"
                                 />
                             </div>
                             <div className="col-span-6  text-center sm:mb-6 lg:mb-0 lg:text-left">

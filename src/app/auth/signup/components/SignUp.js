@@ -13,6 +13,8 @@ import {useRouter} from "next/navigation";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
 import AXGoogleButton from "@/components/AXGoogleButton";
 import AXGithubButton from "@/components/AXGitHubButton";
+import Lottie from "lottie-react";
+import Spaces from "@/app/utils/assets/bot.json";
 
 
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
@@ -167,7 +169,7 @@ function SignUp(props) {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute right-4 top-1/2 text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
+                                            className="absolute left-[380px] top-[450px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
                                         >
                                             {showPassword ? (
                                                 <FaEyeSlash className="h-5 w-5" aria-hidden="true" />
@@ -193,7 +195,7 @@ function SignUp(props) {
                                         <button
                                             type="button"
                                             onClick={togglePasswordVisibility}
-                                            className="absolute left-[845px] top-[455px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
+                                            className="absolute left-[645px] top-[450px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
                                         >
                                             {showPassword ? (
                                                 <FaEyeSlash className="h-5 w-5" aria-hidden="true" />
@@ -223,10 +225,10 @@ function SignUp(props) {
                     </Formik>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
-                    <Image width={100} height={100} unoptimized="true"  
-                        alt=""
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
+                    <Lottie
+                        animationData={Spaces}
                         className="mx-auto hidden lg:flex w-full"
+                        data-aos="fade-right"
                     />
                 </div>
             </div>
