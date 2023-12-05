@@ -11,6 +11,7 @@ import AXGoogleButton from "@/components/AXGoogleButton";
 import AXGithubButton from "@/components/AXGitHubButton";
 import Lottie from "lottie-react";
 import Spaces from "@/app/utils/assets/bot.json";
+import Bot from "@/app/utils/assets/botai.json";
 
 function Login() {
     const router = useRouter();
@@ -143,58 +144,6 @@ function Login() {
                             </Form>)}
 
                         </Formik>
-                        {showForgotPassword && (
-                            <>
-                                <div className="fixed inset-0 bg-gray-500 backdrop-filter backdrop-blur-sm opacity-75"></div>
-                                <Formik
-                                >
-                                    {({ isSubmitting }) => (
-                                        <Form
-                                            onClick={handleCloseForgotPasswordModal}
-                                            className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center"
-                                        >
-                                            <Card className="w-full lg:max-w-[640px] lg:[&>*]:w-full lg:[&>*]:p-16" onClick={(event) => {
-                                                event.stopPropagation();
-                                            }}>
-                                                <h1 className="text-2xl font-bold dark:text-white md:text-3xl">
-                                                    Forgot your password?
-                                                </h1>
-                                                <p className="mb-3 text-gray-500 dark:text-gray-300">
-                                                    Don't fret! Just type in your email and we will send you a code to
-                                                    reset your pasword!
-                                                </p>
-                                                <form>
-                                                    <div className="mb-6 flex flex-col gap-y-3">
-                                                        <Label htmlFor="email">Your email</Label>
-                                                        <TextInput
-                                                            id="email"
-                                                            name="email"
-                                                            placeholder="name@company.com"
-                                                            type="email"
-                                                        />
-                                                    </div>
-                                                    <div className="mb-6 flex items-center gap-x-3">
-                                                        <Checkbox id="acceptTerms" name="acceptTerms" />
-                                                        <Label htmlFor="acceptTerms">
-                                                            I accept the&nbsp;
-                                                            <a href="#" className="text-primary-700 dark:text-primary-300">
-                                                                Terms and Conditions
-                                                            </a>
-                                                        </Label>
-                                                    </div>
-                                                    <div>
-                                                        <Button type="submit" className="w-full lg:w-auto">
-                                                            Reset password
-                                                        </Button>
-                                                    </div>
-                                                </form>
-                                            </Card>
-                                        </Form>
-
-                                    )}
-                                </Formik>
-                            </>
-                        )}
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
@@ -205,6 +154,64 @@ function Login() {
                     />
                 </div>
             </div>
+            {showForgotPassword && (
+                <>
+                    <div className="fixed inset-0 bg-gray-500 backdrop-filter backdrop-blur-sm opacity-75"></div>
+                    <Formik
+                    >
+                        {({ isSubmitting }) => (
+                            <Form
+                                onClick={handleCloseForgotPasswordModal}
+                                className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center"
+                            >
+                                <Card className="w-full lg:max-w-[640px] lg:[&>*]:w-full lg:[&>*]:p-16" onClick={(event) => {
+                                    event.stopPropagation();
+                                }}>
+                                    <h1 className="text-2xl font-bold dark:text-white md:text-3xl">
+                                        Forgot your password?
+                                    </h1>
+                                    <p className="mb-3 text-gray-500 dark:text-gray-300">
+                                        Don't fret! Just type in your email and we will send you a code to
+                                        reset your pasword!
+                                    </p>
+                                    <form>
+                                        <div className="mb-6 flex flex-col gap-y-3">
+                                            <Label htmlFor="email">Your email</Label>
+                                            <TextInput
+                                                id="email"
+                                                name="email"
+                                                placeholder="name@company.com"
+                                                type="email"
+                                            />
+                                        </div>
+                                        <div className="mb-6 flex items-center gap-x-3">
+                                            <Checkbox id="acceptTerms" name="acceptTerms" />
+                                            <Label htmlFor="acceptTerms">
+                                                I accept the&nbsp;
+                                                <a href="#" className="text-primary-700 dark:text-primary-300">
+                                                    Terms and Conditions
+                                                </a>
+                                            </Label>
+                                        </div>
+                                        <div>
+                                            <Button type="submit" className="w-full lg:w-auto">
+                                                Reset password
+                                            </Button>
+                                        </div>
+                                    </form>
+
+                                </Card>
+                                <Lottie
+                                    animationData={Bot}
+                                    className=" w-64 absolute xl:right-64"
+                                    data-aos="fade-right"
+                                />
+                            </Form>
+
+                        )}
+                    </Formik>
+                </>
+            )}
         </section>
     );
 }
