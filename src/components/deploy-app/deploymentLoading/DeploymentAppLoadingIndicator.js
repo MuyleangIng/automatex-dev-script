@@ -10,7 +10,7 @@ function DeploymentAppLoadingIndicator() {
 
             <div className="container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
                 {Array.from({length: 12}).map((_, index) => (
-                        <div className="animate-pulse flex space-x-4 shadow p-5 dark:border dark:border-gray-700 rounded">
+                        <div key={index} className="animate-pulse flex space-x-4 shadow p-5 dark:border dark:border-gray-700 rounded">
                             <div className="flex-1 space-y-4 py-1">
                                 <div className="grid grid-cols-2 gap-2">
                                     <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded"></div>
