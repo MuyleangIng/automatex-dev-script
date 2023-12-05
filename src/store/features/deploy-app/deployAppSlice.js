@@ -1,14 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const deployAppSlice = createSlice({
-    name: 'survey',
+    name: 'deploymentApp',
     initialState: {
         deploymentApp: null,
         isLoading: true,
     },
     reducers: {
         addDeploymentApp(state, action) {
-            state.survey = action.payload
+            state.deploymentApp = action.payload
         },
         setIsLoading: (state,action) => {
             state.isLoading = action.payload
@@ -22,4 +22,5 @@ export const {
 
 export default deployAppSlice.reducer
 
-export const selectDeploymentApp = state => state.deploymentApp.deploymentApp
+export const selectDeploymentApp = state => state.deploymentApp
+console.log(selectDeploymentApp)

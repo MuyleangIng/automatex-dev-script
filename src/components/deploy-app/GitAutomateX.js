@@ -1,16 +1,33 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Avatar, Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
-import { useGetSingleDeploymentQuery} from "@/store/features/deploy-app/deployAppApiSlice";
+import {
+    useGetSingleDeploymentQuery,
+    useLazyGetSingleDeploymentQuery
+} from "@/store/features/deploy-app/deployAppApiSlice";
+import {useDispatch} from "react-redux";
+import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
+import HandleContent from "@/components/deploy-app/HandleContent";
+import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 
 function GitAutomateX({params}) {
-    const { id } = params
+    const { uuid } = params
+    const dispatch = useDispatch()
+
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-    const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(id);
-    console.log("data-uuid:", data)
+    // const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(uuid);
+    const [fetchDeployment, {data, isLoading,isFetching,error}] = useLazyGetSingleDeploymentQuery(uuid);
 
+    useEffect(() => {
+        fetchDeployment(uuid);
+    }, [fetchDeployment, uuid]);
+    useEffect(() => {
+            if (data){
+                dispatch(addDeploymentApp(data.uuid))
+            }
+    }, [data, dispatch]);
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
@@ -26,7 +43,12 @@ function GitAutomateX({params}) {
 
     const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.sourcePath} \n`, 'git push -u origin main',];
     const command2 = [`git remote add origin ${data?.sourcePath} \n`, 'git branch -M main\n', 'git push -u origin main']
-    return (<div>
+    return (
+        <HandleContent
+            error={error}
+            isLoading={isLoading}
+            customLoadingContent={<ResourceLoadingIndicator/>}
+        >
         <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
             <h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">
                 Quick setup — if you’ve done this kind of thing before
@@ -100,7 +122,8 @@ function GitAutomateX({params}) {
                 </div>
             </dl>
         </div>
-    </div>);
+
+    </HandleContent>);
 }
 
 export default GitAutomateX;

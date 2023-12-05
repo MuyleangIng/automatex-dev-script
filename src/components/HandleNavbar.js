@@ -7,28 +7,26 @@ import {FaUserPlus} from 'react-icons/fa';
 import {IoLogInOutline} from 'react-icons/io5';
 import {useSession, signOut} from 'next-auth/react';
 import HandleImage from "@/components/HandleImage";
-import {useUsersQuery} from "@/store/features/user/userApiSlice";
+import {useGetUserQuery} from "@/store/features/user/userApiSlice";
 import BtnTheme from "@/components/BtnTheme";
 import Image from "next/image";
-
 
 function HandleNavbar() {
     const router = useRouter();
     const pathname = usePathname();
     const {data: session, status, error} = useSession();
     const developerPath = pathname.includes('/app')
-    const { data: res, isLoading } = useUsersQuery();
+    const { data: res, isLoading } = useGetUserQuery();
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/'});
         router.push('/');
     };
-
     if (status === 'loading' && !error) {
         // Display the loading indicator only during authentication requests
         return (
             <div className="flex items-center justify-center">
                 <div className="animate-spin rounded-full border-t-4 border-b-4 border-orange-150 h-8 w-8"></div>
-                <span className="ml-2">Loading...</span>
+
             </div>
         );
     }
@@ -51,17 +49,22 @@ function HandleNavbar() {
                         label={
                             <span>
                                 <span className="sr-only">User menu</span>
-                                  <Image src={session.user.image} alt="user"
-                                         width={40} height={40} className="rounded-full"
+                                  <Image
+                                      src={session.user.image ? session.user.image : 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png'}
+                                      alt="user"
+                                      width={40}
+                                      height={40}
+                                      className="rounded-full"
                                   />
+
 
                             </span>
                         }
                     >
                         <Dropdown.Header>
-                            <span className="block text-sm">{session.user.name}</span>
+                            <span className="block text-sm"></span>
                             <span className="block truncate text-sm font-medium">
-                                 {session.user.email}
+                                 {res?.email ? res.email : "automatex@gmail.com"}
                             </span>
                         </Dropdown.Header>
                         <Dropdown.Item as={Link} href={"/app/dashboard"}>
@@ -136,6 +139,7 @@ function HandleNavbar() {
                 )}
             </Navbar.Collapse>
         </Navbar>
+       // </HandleContent>
     );
 }
 

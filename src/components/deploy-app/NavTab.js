@@ -6,11 +6,16 @@ import {BsFillChatRightDotsFill, BsFillFileEarmarkBarGraphFill, BsPatchCheckFill
 import {VscLayersActive, VscSettings, VscSourceControl} from "react-icons/vsc";
 import {usePathname} from "next/navigation";
 import {MdDashboard, MdViewInAr} from "react-icons/md";
-import {GrAction, GrDeploy, GrResources} from "react-icons/gr";
-import {AiOutlineDeploymentUnit} from "react-icons/ai";
+
 import {TbLockAccess, TbSettingsBolt, TbReport} from "react-icons/tb";
+import {useSelector} from "react-redux";
+import {selectDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
+
 
 function NavTab(props) {
+    const deploy = useSelector(selectDeploymentApp)
+    console.log('a',deploy)
+
     const pathname = usePathname()
     const active = "text-cyan-600  border-b-2 border-blue-400"
     const paths = pathname.split("/").filter(el => el)
@@ -20,7 +25,7 @@ function NavTab(props) {
                 <div className="border-b border-gray-200 dark:border-gray-700 ">
                     <ul className="flex lg:justify-center  text-sm font-medium text-center text-gray-500 dark:text-gray-400 overflow-x-auto ">
                         <li>
-                            <Link href={"/app/deploy-apps/id/overview"}
+                            <Link href={"/app/deploy-apps/overview"}
                                   className={" inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("overview") ? active : "")}
                                   aria-current="page">
                                 <MdViewInAr className="w-5 h-5 mr-2"/>

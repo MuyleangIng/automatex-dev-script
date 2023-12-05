@@ -4,7 +4,7 @@ import SectionAppDeploy from "@/components/SectionAppDeploy";
 import AfterCreateFrontendDeployment from "@/components/deploy-app/AfterCreateFrontendDeployment";
 import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
 import HandleContent from "@/components/deploy-app/HandleContent";
-import DeploymentAppLoadingIndicator from "@/components/deploy-app/DeploymentAppLoadingIndicator";
+import DeploymentAppLoadingIndicator from "@/components/deploy-app/deploymentLoading/DeploymentAppLoadingIndicator";
 import HandlePagination from "@/components/deploy-app/HandlePagination";
 
 function Page() {

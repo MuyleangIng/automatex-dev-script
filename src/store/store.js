@@ -10,9 +10,9 @@ const store = configureStore({
         deploymentApp: deployAppReducer
     },
     // this need for rtks query to work with cache and other stuff
-    middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(apiSlice.middleware);
-    },
+    // middleware: (getDefaultMiddleware) => {
+    //     return getDefaultMiddleware().concat(apiSlice.middleware);
+    // },
     // devTools must set to false in production
     devTools: true,
 });

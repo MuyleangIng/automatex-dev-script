@@ -34,7 +34,7 @@ export default function CreateDeploymentFrontendComponent() {
     const handleCreateApp = async (appData) => {
         try {
             const response = await createDeploymentApp(appData);
-            router.push(`/app/deploy-apps/${response.data.repo.id}/resource`);
+            router.push(`/app/deploy-apps/${response.data.uuid}/resource`);
             console.log("Deployment App created successfully:", response.data);
             // Handle success, e.g., redirect to another page, show a success message, etc.
         } catch (error) {

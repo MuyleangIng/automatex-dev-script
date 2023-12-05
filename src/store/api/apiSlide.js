@@ -59,6 +59,7 @@ export const apiSlice = createApi({
         "User",
         "requestUserRegister",
         "requestUserLogin",
+        "requestSingleDeployment"
     ],
     endpoints: (builder) => ({}),
 });

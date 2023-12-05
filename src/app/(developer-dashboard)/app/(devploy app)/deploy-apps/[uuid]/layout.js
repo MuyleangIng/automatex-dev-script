@@ -4,6 +4,7 @@ import NavTab from "@/components/deploy-app/NavTab";
 function Layout({children}) {
     return (
         <div className={"container"}>
+
             <NavTab/>
             {children}
         </div>

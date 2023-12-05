@@ -31,5 +31,6 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
 export const {
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
-    useGetSingleDeploymentQuery 
+    useGetSingleDeploymentQuery,
+    useLazyGetSingleDeploymentQuery
 } = deployAppApiSlice;
