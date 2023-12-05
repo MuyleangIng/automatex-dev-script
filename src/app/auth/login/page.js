@@ -1,9 +1,8 @@
 "use client"
-import React from 'react';
+import React, {useState} from 'react';
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, Checkbox, Label, TextInput} from "flowbite-react";
-import Image from "next/image";
+import {Button, Card, Checkbox, Label, TextInput} from "flowbite-react";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
 import {signIn} from "next-auth/react";
@@ -15,6 +14,7 @@ import Spaces from "@/app/utils/assets/bot.json";
 
 function Login() {
     const router = useRouter();
+    const [showForgotPassword, setShowForgotPassword] = useState(false);
     const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Required'),
@@ -22,6 +22,14 @@ function Login() {
             .required('Password is required')
             // .matches(passwordRegex, 'Password must be at least 6 '),
     });
+
+    // forgot password
+    const toggleForgotPasswordVisibility = () => {
+        setShowForgotPassword((prevState) => !prevState);
+    };
+    const handleCloseForgotPasswordModal = () => {
+        setShowForgotPassword(false);
+    };
 
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
@@ -118,27 +126,75 @@ function Login() {
 
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">
-                                        <div className="flex h-5 items-center">
-                                            <Checkbox id="remember-illustration" />
-                                        </div>
-                                        <div className="ml-3 text-sm">
-                                            <Label htmlFor="remember-illustration"
-                                                   className="text-gray-500 dark:text-gray-300">Remember me</Label>
-                                        </div>
                                     </div>
-                                    <a
-                                        href="#"
-                                        className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                    <div
+                                        type="submit"
+                                        className="text-sm cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                        onClick={toggleForgotPasswordVisibility}
                                     >
                                         Forgot password?
-                                    </a>
+                                    </div>
                                 </div>
 
                                 <Button type="submit" disabled={isSubmitting}  className="w-full bg-orange-100">
                                     {isSubmitting ? 'Signing In...' : 'Sign In'}
                                 </Button>
+
                             </Form>)}
+
                         </Formik>
+                        {showForgotPassword && (
+                            <>
+                                <div className="fixed inset-0 bg-gray-500 backdrop-filter backdrop-blur-sm opacity-75"></div>
+                                <Formik
+                                >
+                                    {({ isSubmitting }) => (
+                                        <Form
+                                            onClick={handleCloseForgotPasswordModal}
+                                            className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center"
+                                        >
+                                            <Card className="w-full lg:max-w-[640px] lg:[&>*]:w-full lg:[&>*]:p-16" onClick={(event) => {
+                                                event.stopPropagation();
+                                            }}>
+                                                <h1 className="text-2xl font-bold dark:text-white md:text-3xl">
+                                                    Forgot your password?
+                                                </h1>
+                                                <p className="mb-3 text-gray-500 dark:text-gray-300">
+                                                    Don't fret! Just type in your email and we will send you a code to
+                                                    reset your pasword!
+                                                </p>
+                                                <form>
+                                                    <div className="mb-6 flex flex-col gap-y-3">
+                                                        <Label htmlFor="email">Your email</Label>
+                                                        <TextInput
+                                                            id="email"
+                                                            name="email"
+                                                            placeholder="name@company.com"
+                                                            type="email"
+                                                        />
+                                                    </div>
+                                                    <div className="mb-6 flex items-center gap-x-3">
+                                                        <Checkbox id="acceptTerms" name="acceptTerms" />
+                                                        <Label htmlFor="acceptTerms">
+                                                            I accept the&nbsp;
+                                                            <a href="#" className="text-primary-700 dark:text-primary-300">
+                                                                Terms and Conditions
+                                                            </a>
+                                                        </Label>
+                                                    </div>
+                                                    <div>
+                                                        <Button type="submit" className="w-full lg:w-auto">
+                                                            Reset password
+                                                        </Button>
+                                                    </div>
+                                                </form>
+                                            </Card>
+                                        </Form>
+
+                                    )}
+                                </Formik>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
