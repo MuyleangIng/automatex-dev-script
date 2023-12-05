@@ -8,7 +8,8 @@ import DeploymentAppLoadingIndicator from "@/components/deploy-app/DeploymentApp
 import HandlePagination from "@/components/deploy-app/HandlePagination";
 
 function Page() {
-    const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentAppsQuery({page: 1, limit: 12});
+    const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentAppsQuery({page: 2, limit: 12});
+    console.log("data from :", data)
     const onPageChange = ({page, perPage}) => {
         refetch({page: page, limit: perPage || 12});
     }
