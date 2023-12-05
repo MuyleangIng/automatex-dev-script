@@ -16,7 +16,7 @@ import {
     HiViewGrid
 } from "react-icons/hi";
 import Link from "next/link";
-import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deploySlice";
+import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
 import Image from "next/image";
 import {FaGithubAlt, FaLink, FaPlus} from "react-icons/fa";
 import {MdComment} from "react-icons/md";

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Avatar, Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
-import { useGetSingleDeploymentQuery} from "@/store/features/deploy-app/deploySlice";
+import { useGetSingleDeploymentQuery} from "@/store/features/deploy-app/deployAppApiSlice";
 
 function GitAutomateX({params}) {
     const { id } = params

@@ -1,6 +1,6 @@
 import { apiSlice } from "@/store/api/apiSlide";
 
-export const deploymentAppApiSlice = apiSlice.injectEndpoints({
+export const deployAppApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllDeploymentApps: builder.query({
             query: ({ page, limit }) => ({
@@ -31,4 +31,5 @@ export const deploymentAppApiSlice = apiSlice.injectEndpoints({
 export const {
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
-    useGetSingleDeploymentQuery } = deploymentAppApiSlice;
+    useGetSingleDeploymentQuery 
+} = deployAppApiSlice;

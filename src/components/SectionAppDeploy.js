@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deploySlice";
+import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
 
 export default function SectionAppDeploy() {
     return (<section className="bg-white dark:bg-gray-900">

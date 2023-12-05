@@ -5,7 +5,7 @@ import {useRouter} from "next/navigation";
 import {Breadcrumb, Button, Label, Select, TextInput, ToggleSwitch} from "flowbite-react";
 import {HiArrowCircleRight, HiHome, HiUserCircle} from "react-icons/hi";
 import DeployMethod from "@/components/DeployMethod";
-import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deploySlice";
+import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
