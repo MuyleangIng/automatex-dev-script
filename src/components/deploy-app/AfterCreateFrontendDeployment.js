@@ -25,16 +25,14 @@ import {ImConnection} from "react-icons/im";
 import {AiOutlineDisconnect} from "react-icons/ai";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
 
-function AfterCreateFrontendDeployment(props) {
-    const {data, isLoading} = useGetAllDeploymentAppsQuery({page: 1, limit: 15});
-    console.log("data list", data?.list[0]);
-
+function AfterCreateFrontendDeployment({data}) {
     return (<>
         {/* Start Search */}
-        <div className="flex flex-col-reverse sm:grid sm:grid-cols-6 items-center justify-between gap-3">
-            <div
-                className="relative text-gray-600 focus-within:text-gray-400 w-full sm:w-auto sm:col-span-4 lg:col-span-3">
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+        <div className="grid grid-cols-6 gap-2">
+            <div className={"col-span-5"}>
+                <div
+                    className="relative text-gray-600 focus-within:text-gray-400 w-full sm:w-auto sm:col-span-4 lg:col-span-3">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                             <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
                                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                                      strokeWidth="2"
@@ -43,18 +41,18 @@ function AfterCreateFrontendDeployment(props) {
                                 </svg>
                             </button>
                         </span>
-                <input
-                    id="searchInput"
-                    type="text"
-                    autoComplete="off"
-                    className="py-2 text-sm text-white dark:text-gray-100 dark:bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 w-full"
-                    placeholder="Search..."
-                />
+                    <input
+                        id="searchInput"
+                        type="text"
+                        autoComplete="off"
+                        className="py-2 text-sm text-white dark:text-gray-100 dark:bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 w-full"
+                        placeholder="Search..."
+                    />
+                </div>
             </div>
-            <div className={"flex space-x-2 sm:col-span-2 lg:col-span-3 justify-end"}>
-
-                <Button type={"button"} as={Link} href={"/app/deploy-apps"}>
-                    <FaPlus className={"m-2"}/> New Deployment
+            <div className={"col-span-1"}>
+                <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-apps"}>
+                    <FaPlus className={"m-2"}/> <strong>New Deploy App</strong>
                 </Button>
             </div>
         </div>
@@ -63,9 +61,9 @@ function AfterCreateFrontendDeployment(props) {
         {/*loop the card component*/}
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
 
-             {data?.list?.map((item, index) => (
+            {data.list.map((item, index) => (
                 <CardDeploymentApp key={index} deployApp={item}/>
-             ))}
+            ))}
 
 
             {/*//     <Card as={Link} key={index} href={`/app/deploy-apps/${item.uuid}/resource/`}>*/}
