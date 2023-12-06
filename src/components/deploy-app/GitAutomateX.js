@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
-import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
+import {
+    selectDeploymentApp,
+    selectError,
+    selectIsLoading
+} from "@/store/features/deploy-app/deployAppSlice";
 import HandleContent from "@/components/deploy-app/HandleContent";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
+import {useSession} from "next-auth/react";
 
 function GitAutomateX({params}) {
+    const dispatch = useDispatch()
+    const {loading } = useSession()
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
     const data = useSelector(selectDeploymentApp)
     const isLoading = useSelector(selectIsLoading)
     const error = useSelector(selectError)
-
-    console.log(data)
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
@@ -32,7 +37,7 @@ function GitAutomateX({params}) {
     return (
         <HandleContent
             error={error}
-            isLoading={isLoading}
+            isLoading={isLoading || loading || !data}
             customLoadingContent={<ResourceLoadingIndicator/>}
         >
         <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">

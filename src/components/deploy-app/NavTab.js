@@ -23,16 +23,12 @@ function NavTab(props) {
     const paths = pathname.split("/").filter(el => el)
     const [uuid, setUuid] = useState(deploy?.uuid || props.uuid)
     const [fetchDeployment, {data, isLoading,isFetching,error}] = useLazyGetSingleDeploymentQuery(uuid);
-    console.log('deploy', deploy)
-    console.log('data OutuseEffect', data)
     useEffect(() => {
-        if (data) {
-            fetchDeployment(props.uuid)
-            setUuid(props.uuid)
-            dispatch(addDeploymentApp(data))
-            dispatch(setIsLoading(isLoading))
-            dispatch(setError(error))
-        }
+        fetchDeployment(props.uuid)
+        setUuid(props.uuid)
+        dispatch(addDeploymentApp(data))
+        dispatch(setIsLoading(isLoading))
+        dispatch(setError(error))
     }, [fetchDeployment,data])
 
     return (
