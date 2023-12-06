@@ -16,15 +16,14 @@ function ActivitiesLogs({ params }) {
     const [pollingInterval, setPollingInterval] = useState(null);
     const [isPolling, setIsPolling] = useState(false);
     const active = 'dark:!bg-gray-700 dark:!text-white';
-    const datav1 = useGetConsoleLogsQuery(uuid, { ...pollingInterval });
+    const dataLogs = useGetConsoleLogsQuery(uuid, { ...pollingInterval });
     const containerRef = useRef();
 
-    // useEffect to handle auto-scrolling when new data is fetched
     useEffect(() => {
         if (containerRef.current) {
             containerRef.current.scrollTop = containerRef.current.scrollHeight;
         }
-    }, [datav1?.error?.data]);
+    }, [dataLogs?.error?.data]);
 
     return (
         <div className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8'}>
@@ -44,7 +43,7 @@ function ActivitiesLogs({ params }) {
                 ref={containerRef}
                 className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[100vh] overflow-auto space-y-5 scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-rounded-full"
             >
-                <pre>{datav1?.error?.data}</pre>
+                <pre>{dataLogs?.error?.data}</pre>
             </div>
         </div>
     );
