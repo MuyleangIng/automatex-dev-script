@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import {Button, Navbar, Dropdown, Avatar} from 'flowbite-react';
+import {Button, Navbar, Dropdown} from 'flowbite-react';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
 import {FaUserPlus} from 'react-icons/fa';
@@ -18,7 +18,7 @@ function HandleNavbar() {
     const developerPath = pathname.includes('/app')
     const { data: res, isLoading } = useGetUserQuery();
     const handleSignOut = async () => {
-        await signOut({callbackUrl: '/'});
+        await signOut({callbackUrl: '/', redirect: false});
         router.push('/');
     };
     if (status === 'loading' && !error) {

@@ -4,15 +4,14 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllDeploymentApps: builder.query({
             query: ({ page, limit }) => ({
-                url: `/deploy-apps?page=${page}&limit=${limit}`,
-                method: "GET",
+                url: `/deploy-apps?page=${page}&limit=${limit}`
             }),
+            keepUnusedDataFor: 5,
             providesTags: ["DeploymentApps"],
         }),
         getSingleDeployment: builder.query({
             query: (uuid) => ({
-                url: `/deploy-apps/${uuid}`,
-                method: "GET",
+                url: `/deploy-apps/${uuid}`
             }),
         }),
         createDeploymentApp: builder.mutation({
@@ -29,6 +28,7 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
 export const {
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
+    useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
     useLazyGetSingleDeploymentQuery
 } = deployAppApiSlice;
