@@ -10,6 +10,8 @@ import {
 import { useGetConsoleLogsQuery } from '@/store/features/deploy-app/deployAppApiSlice';
 import { TfiReload } from 'react-icons/tfi';
 import { Button } from 'flowbite-react';
+import Link from "next/link";
+import {FaPlus} from "react-icons/fa";
 
 function ActivitiesLogs({ params }) {
     const { uuid } = params;
@@ -45,6 +47,14 @@ function ActivitiesLogs({ params }) {
             >
                 <pre>{dataLogs?.error?.data}</pre>
             </div>
+            <div className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">
+
+                    <div className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center">
+                            <div className="text-base font-bold text-cool-blue-150 dark:text-gray-300">&quot;Your App was Success Deploy&quot;</div>
+                    </div>
+
+            </div>
+
         </div>
     );
 }
