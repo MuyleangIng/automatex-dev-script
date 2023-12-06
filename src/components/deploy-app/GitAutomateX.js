@@ -10,19 +10,20 @@ import {useDispatch} from "react-redux";
 import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
 import HandleContent from "@/components/deploy-app/HandleContent";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
+import {useSession} from "next-auth/react";
 
 function GitAutomateX({params}) {
     const { uuid } = params
     const dispatch = useDispatch()
-
+    const {loading} = useSession()
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-    // const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(uuid);
-    const [fetchDeployment, {data, isLoading,isFetching,error}] = useLazyGetSingleDeploymentQuery(uuid);
+    const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(uuid);
+    // const [fetchDeployment, {data, isLoading,isFetching,error}] = useLazyGetSingleDeploymentQuery(uuid);
 
-    useEffect(() => {
-        fetchDeployment(uuid);
-    }, [fetchDeployment, uuid]);
+    // useEffect(() => {
+    //     fetchDeployment(uuid);
+    // }, [fetchDeployment, uuid]);
     useEffect(() => {
             if (data){
                 dispatch(addDeploymentApp(data.uuid))
