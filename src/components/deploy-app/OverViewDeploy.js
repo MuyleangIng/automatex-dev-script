@@ -10,6 +10,7 @@ import {useSelector} from "react-redux";
 import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import HandleContent from "@/components/deploy-app/HandleContent";
+import Link from "next/link";
 
 function OverViewDeploy(params) {
     const {loading } = useSession()
@@ -36,8 +37,12 @@ function OverViewDeploy(params) {
                         </div>
                         <div className="grid grid-cols-1 gap-y-2">
                             <Label htmlFor="organization">Domain :</Label>
-                            <Alert color="teal" icon={PiGoogleCardboardLogo  }>
-                                <span className="font-medium">{data?.domains[0]?.fullSubdomain}</span>
+                            <Alert color="teal" icon={PiGoogleCardboardLogo}>
+                                <Link className="font-medium" target="_blank" rel="noopener noreferrer" href={`https://${data?.domains[0]?.fullSubdomain}`} passHref>
+
+                                        {data?.domains[0]?.fullSubdomain}
+
+                                </Link>
                             </Alert>
                         </div>
                         <div className="grid grid-cols-1 gap-y-2">
