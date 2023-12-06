@@ -39,9 +39,7 @@ function OverViewDeploy(params) {
                             <Label htmlFor="organization">Domain :</Label>
                             <Alert color="teal" icon={PiGoogleCardboardLogo}>
                                 <Link className="font-medium" target="_blank" rel="noopener noreferrer" href={`https://${data?.domains[0]?.fullSubdomain}`} passHref>
-
                                         {data?.domains[0]?.fullSubdomain}
-
                                 </Link>
                             </Alert>
                         </div>
