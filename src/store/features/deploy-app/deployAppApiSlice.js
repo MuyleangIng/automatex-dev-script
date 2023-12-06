@@ -7,14 +7,13 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 url: `/deploy-apps?page=${page}&limit=${limit}`,
                 method: "GET",
             }),
-            providesTags: ["requestAllDeploymentApps"],
+            providesTags: ["DeploymentApps"],
         }),
         getSingleDeployment: builder.query({
             query: (uuid) => ({
                 url: `/deploy-apps/${uuid}`,
                 method: "GET",
             }),
-            providesTags: ["requestSingleDeployment"],
         }),
         createDeploymentApp: builder.mutation({
             query: (appData) => ({
@@ -22,7 +21,6 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: appData,
             }),
-            invalidatesTags: ["requestUserRegister"],
         }),
     }),
 });

@@ -5,6 +5,7 @@ const deployAppSlice = createSlice({
     initialState: {
         deploymentApp: null,
         isLoading: true,
+        error: null
     },
     reducers: {
         addDeploymentApp(state, action) {
@@ -12,15 +13,22 @@ const deployAppSlice = createSlice({
         },
         setIsLoading: (state,action) => {
             state.isLoading = action.payload
+        },
+        setError: (state,action) => {
+            state.error = action.payload
         }
     }
 })
 
 export const {
-    addDeploymentApp
+    addDeploymentApp,
+    setIsLoading,
+    setError
 } = deployAppSlice.actions
 
 export default deployAppSlice.reducer
 
-export const selectDeploymentApp = state => state.deploymentApp
-console.log(selectDeploymentApp)
+export const selectDeploymentApp = (state) => state.deploymentApp.deploymentApp
+export const selectIsLoading = (state) => state.deploymentApp.isLoading
+export const selectError = (state) => state.deploymentApp.error
+export const getUuid = (state) => state.deploymentApp.deploymentApp?.uuid

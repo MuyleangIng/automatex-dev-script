@@ -19,19 +19,28 @@ import Link from "next/link";
 import moment from "moment";
 import {MdOutlineDateRange} from "react-icons/md";
 import {VscGitCommit} from "react-icons/vsc";
+import {useDispatch} from "react-redux";
+import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
+import {useRouter} from "next/navigation";
 
 function CardDeploymentApp({deployApp , index}) {
-    return (<Card as={Link} key={index}  href={`/app/deploy-apps/${deployApp.uuid}/resource/`}>
+    const dispatch = useDispatch();
+    const router = useRouter()
+
+    const handleDeployApp = () => {
+        dispatch(addDeploymentApp(deployApp))
+        router.push(`/app/deploy-apps/${deployApp.uuid}/resource`)
+    }
+
+    return (<Card key={index}>
         <div className="flex items-center space-x-4">
             <div className="shrink-0">
                 <ImConnection className={"mb-2 text-3xl text-cyan-100"}/>
                 {/*<AiOutlineDisconnect className={"mb-2 text-3xl text-red-600"}/>*/}
             </div>
-            <div className="min-w-0 flex-1">
-                <p className="capitalize  text-sm font-semibold text-gray-900 dark:text-white">
-                    {deployApp?.uuid}
-                </p>
-            </div>
+            <h4 onClick={handleDeployApp} className="capitalize truncate font-semibold text-gray-900 dark:text-white hover:cursor-pointer hover:text-cyan-500">
+                {deployApp?.uuid}
+            </h4>
             <Dropdown
                 arrowIcon={false}
                 inline

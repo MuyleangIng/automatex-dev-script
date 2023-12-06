@@ -1,34 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {Avatar, Card} from "flowbite-react";
+import React, {useState} from 'react';
+import {Card} from "flowbite-react";
 import Image from "next/image";
 import {FaCopy} from "react-icons/fa";
-import {
-    useGetSingleDeploymentQuery,
-    useLazyGetSingleDeploymentQuery
-} from "@/store/features/deploy-app/deployAppApiSlice";
-import {useDispatch} from "react-redux";
-import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
 import HandleContent from "@/components/deploy-app/HandleContent";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
-import {useSession} from "next-auth/react";
 
 function GitAutomateX({params}) {
-    const { uuid } = params
-    const dispatch = useDispatch()
-    const {loading} = useSession()
     const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+    const data = useSelector(selectDeploymentApp)
+    const isLoading = useSelector(selectIsLoading)
+    const error = useSelector(selectError)
 
-    const {data, isLoading, isFetching, error} = useGetSingleDeploymentQuery(uuid);
-    // const [fetchDeployment, {data, isLoading,isFetching,error}] = useLazyGetSingleDeploymentQuery(uuid);
-
-    // useEffect(() => {
-    //     fetchDeployment(uuid);
-    // }, [fetchDeployment, uuid]);
-    useEffect(() => {
-            if (data){
-                dispatch(addDeploymentApp(data.uuid))
-            }
-    }, [data, dispatch]);
+    console.log(data)
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
