@@ -1,7 +1,7 @@
 import React from 'react';
 import {Checkbox, Table} from "flowbite-react";
 
-function ActivitiesFeedTable(props) {
+function ActivitiesFeedTable() {
     const tableBodyData = [
         {
             id: 1,
@@ -67,8 +67,8 @@ function ActivitiesFeedTable(props) {
                         <Table.HeadCell>Option</Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
-                        {tableBodyData.map((rowData) => (
-                            <Table.Row key={rowData.id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                        {tableBodyData?.map((rowData,i) => (
+                            <Table.Row  key={i} rowData={rowData} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <Table.Cell className="whitespace-nowrap p-4 text-sm font-normal text-gray-500 dark:text-gray-400">
                                     <div className="text-base font-semibold text-gray-900 dark:text-white">
                                         {rowData.projectName.main}
@@ -91,6 +91,7 @@ function ActivitiesFeedTable(props) {
                                 </Table.Cell>
                             </Table.Row>
                         ))}
+
                     </Table.Body>
                 </Table>
             </div>

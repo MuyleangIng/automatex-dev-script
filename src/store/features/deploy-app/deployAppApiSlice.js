@@ -22,6 +22,12 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 body: appData,
             }),
         }),
+        getConsoleLogs: builder.query({
+            query: (uuid) => ({
+                url: `/deploy-apps/console-latest-output/${uuid}`,
+                method: "GET",
+            }),
+        }),
     }),
 });
 
@@ -30,5 +36,6 @@ export const {
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
+    useGetConsoleLogsQuery,
     useLazyGetSingleDeploymentQuery
 } = deployAppApiSlice;
