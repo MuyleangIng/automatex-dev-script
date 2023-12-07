@@ -107,7 +107,7 @@ function Login() {
                             .
                         </p>
                         <Formik initialValues={{
-                            email: 'developer@gmail.com', password: 'password',
+                            email: '', password: '',
                         }}
                                 validationSchema={validationSchema}
                                 onSubmit={ async (values, {setSubmitting}) => {
