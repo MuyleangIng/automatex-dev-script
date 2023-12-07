@@ -3,6 +3,7 @@ import React from 'react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import BtnTheme from "@/components/BtnTheme";
+import Image from "next/image";
 
 function MainFooter(){
     const pathname = usePathname();
@@ -21,8 +22,8 @@ function MainFooter(){
                     <div className="lg:w-1/3">
                         <Link href="/" className="flex justify-center space-x-3 lg:justify-start">
                             <div className="flex items-center justify-center w-12 h-12 rounded-full">
-                                <img
-                                    unoptimized="true"  
+                                <Image
+                                    unoptimized
                                     width={100}
                                     height={100}
                                     alt="Logo"
