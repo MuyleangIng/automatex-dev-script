@@ -20,7 +20,7 @@ function ActivitiesLogs({ params }) {
     const active = 'dark:!bg-gray-700 dark:!text-white';
     const dataLogs = useGetConsoleLogsQuery(uuid, { ...pollingInterval });
     const containerRef = useRef();
-
+    console.log("dataLogs from ActivitiesLogs :", dataLogs)
     useEffect(() => {
         if (containerRef.current) {
             containerRef.current.scrollTop = containerRef.current.scrollHeight;
