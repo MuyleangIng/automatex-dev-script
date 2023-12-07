@@ -49,7 +49,7 @@ function CardDeploymentApp({deployApp , index}) {
           <HiViewGrid className="text-2xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"/>
         </span>}>
                 <div className="grid grid-cols-3 gap-4 p-4">
-                    <a
+                    <Link
                         href="#"
                         className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
                     >
@@ -57,7 +57,7 @@ function CardDeploymentApp({deployApp , index}) {
                         <div className="text-sm font-medium text-gray-900 dark:text-white">
                             Sales
                         </div>
-                    </a>
+                    </Link>
                     <a
                         href="#"
                         className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
@@ -169,12 +169,15 @@ function CardDeploymentApp({deployApp , index}) {
             </div>
         </div>
         <div className="flex border-gray-200 dark:border-gray-700">
-            <div as={Link} href={"/app/deploy-apps/id/resource"}
-                 className="flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-cyan-500 cursor-pointer dark:hover:text-white"
-            >
-                <FaLink className=" truncate mr-2 text-sm"/> <span className="truncate">
-    {deployApp?.domains[0]?.fullSubdomain ?? 'Default Subdomain'}
-  </span>
+            <div as={Link}
+                 href={"/app/deploy-apps/id/resource"}
+                 className="flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-cyan-500 cursor-pointer dark:hover:text-white">
+                <FaLink className=" truncate mr-2 text-sm"/>
+                    <span className="truncate">
+                        <Link className="font-medium" target="_blank" rel="noopener noreferrer" href={`https://${deployApp?.domains[0]?.fullSubdomain}`} passHref>
+                            {deployApp?.domains[0]?.fullSubdomain ?? 'Default Subdomain'}
+                        </Link>
+                    </span>
             </div>
         </div>
     </Card>);
