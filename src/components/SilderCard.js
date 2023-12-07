@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function SilderCard(){
     return(
@@ -8,10 +9,11 @@ export default function SilderCard(){
                     className="flex flex-col w:2/3 items-center w-2/3 justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:hover:bg-white dark:hover:bg-opacity-10"
                     href="#"
                 >
-                    <img
+                    <Image
                         src="/images/photostad.png"
                         className="mx-auto w-20 h-20 md:w-24 md:h-20mb-4"
                         alt="Ikea - logo"
+                        unoptimized
                     />
 
                 </a>
