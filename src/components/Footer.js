@@ -9,7 +9,8 @@ function MainFooter(){
 
     if (
         pathname ===  "/login" ||
-        pathname === "/signup"
+        pathname === "/signup" ||
+        pathname === "/auth/reset-password"
     ){
         return null;
     }

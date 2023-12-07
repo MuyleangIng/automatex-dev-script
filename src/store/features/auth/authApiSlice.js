@@ -18,8 +18,18 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 body: { ...userData },
             }),
         }),
+        verifyEmail: builder.mutation({
+            query: ({  email, verifyCode }) => ({
+                url: '/auth/verify',
+                method: 'GET',
+                params: {
+                    email,
+                    verifyCode,
+                },
+            }),
+        }),
     }),
 });
 // auto generated hooks for login mutation
-export const { useRegisterMutation, useLoginMutation } = authApiSlice;
+export const { useRegisterMutation, useLoginMutation,useVerifyEmailMutation } = authApiSlice;
 export default authApiSlice;

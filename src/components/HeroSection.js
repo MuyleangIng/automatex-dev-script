@@ -99,7 +99,7 @@ function HeroSection() {
                                 <span className="text-orange-50 block mb-8" data-aos="fade-up-right">Say Goodbye </span>
                                 <span className="text-orange-50" data-aos="zoom-in-left">To <span data-aos="fade-down-right" className="text-cool-blue-300">Manual.</span></span>
                             </h1>
-                            <p data-aos="zoom-in-left" className=" mb-5 mt-5 text-lg text-gray-600 dark:text-gray-400">At AutomateX we are on a
+                            <p data-aos="zoom-in-left" className=" mb-5 mt-5 text-lg text-gray-600 dark:text-gray-300">At AutomateX we are on a
                                 mission to revolutionize the way you work. With AutomateX, you can say goodbye to manual
                                 tasks.</p>
                             <Button outline
@@ -109,10 +109,10 @@ function HeroSection() {
                             </Button>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-full">
+                    <div className="flex items-center justify-center lg:w-1/2 mt-6 lg:mt-0 lg:w-full">
                         <Lottie
                             animationData={Service}
-                            className="mx-auto hidden w-6/12 md:flex"
+                            className="mx-auto hidden w-7/12 md:flex"
                             data-aos="fade-right"
                         />
                     </div>
@@ -128,7 +128,7 @@ function HeroSection() {
                         <span
                             className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
                     </h2>
-                    <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-400 md:text-base mb-10">
+                    <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-300 md:text-lg mb-14 mt-14f">
                         Unique and Powerful suit of software to run and entire,<br/> brought to you by a company with the
                         long term version to transform the way you work.
                     </p>
@@ -139,16 +139,16 @@ function HeroSection() {
                             <div data-aos="zoom-in-down"
                                 className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                                 <div>
-                                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
+                                    <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
                                             <circle cx="42.3846" cy="42.3844" r="21" stroke="#FFB621"/>
                                             <path d="M27.8846 40.2594C34.7192 40.2594 40.2596 34.7189 40.2596 27.8844C40.2596 21.0499 34.7192 15.5094 27.8846 15.5094C21.0501 15.5094 15.5096 21.0499 15.5096 27.8844C15.5096 34.7189 21.0501 40.2594 27.8846 40.2594Z" stroke="#FFB621" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                                             <path d="M42.2445 11.668C42.8977 12.2695 43.5164 12.8883 44.1008 13.5242L51.1391 14.5297C52.2859 16.5213 53.1698 18.6531 53.7687 20.8719L49.4891 26.5695C49.4891 26.5695 49.5664 28.3227 49.4891 29.1992L53.7687 34.8969C53.1726 37.1166 52.2885 39.2487 51.1391 41.2391L44.1008 42.2445C44.1008 42.2445 42.8891 43.5078 42.2445 44.1008L41.2391 51.1391C39.2474 52.2859 37.1156 53.1698 34.8969 53.7687L29.1992 49.4891C28.3244 49.5664 27.4444 49.5664 26.5695 49.4891L20.8719 53.7687C18.6522 53.1726 16.52 52.2885 14.5297 51.1391L13.5242 44.1008C12.8883 43.4992 12.2695 42.8805 11.668 42.2445L4.62969 41.2391C3.48289 39.2474 2.59897 37.1156 2 34.8969L6.27969 29.1992C6.27969 29.1992 6.20234 27.4461 6.27969 26.5695L2 20.8719C2.5962 18.6522 3.48026 16.52 4.62969 14.5297L11.668 13.5242C12.2695 12.8883 12.8883 12.2695 13.5242 11.668L14.5297 4.62969C16.5213 3.48289 18.6531 2.59897 20.8719 2L26.5695 6.27969C27.4444 6.20233 28.3244 6.20233 29.1992 6.27969L34.8969 2C37.1166 2.5962 39.2487 3.48026 41.2391 4.62969L42.2445 11.668Z" stroke="#FFB621" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
-                                    <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Integrated platform</h6>
-                                    <p className="mb-7 text-base  text-gray-500 dark:text-gray-400">
-                                        This integration enables seamless communication and interaction between different components</p>
+                                    <h6 className="mb-3 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Integrated platform</h6>
+                                    <p className="mb-7 text-base lg:text-lg text-gray-500 dark:text-gray-300">
+                                        This integration enables seamless communication and interaction between different components have access to the most up-to-date information, promoting</p>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ function HeroSection() {
                     <div data-aos="zoom-in-down"
                         className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                         <div>
-                            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full">
+                            <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth="1.5" stroke="currentColor"
                                      className="w-14 h-14 text-orange-200 dark:text-orange-100">
@@ -164,9 +164,9 @@ function HeroSection() {
                                           d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                                 </svg>
                             </div>
-                            <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white ">Personal
+                            <h6 className="mb-3 font-bold font-xl lg:text-xl text-cool-blue-100 dark:text-white ">Personal
                                 Dashboard</h6>
-                            <p className="mb-7 text-base  text-gray-500 dark:text-gray-400">
+                            <p className="mb-7 text-base lg:text-lg text-gray-500 dark:text-gray-300">
                                 User dashboards  ensuring that individuals only see information and features relevant to their roles within an organization.
                             </p>
                         </div>
@@ -174,7 +174,7 @@ function HeroSection() {
                     <div data-aos="zoom-in-down"
                         className="flex flex-col justify-between p-5 border-b-cyan-50 rounded-md shadow-0 bg-slate-100 dark:bg-gray-800">
                         <div>
-                            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full ">
+                            <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth="1.5" stroke="currentColor"
                                      className="w-14 h-14 text-orange-200  dark:text-orange-100">
@@ -182,9 +182,9 @@ function HeroSection() {
                                           d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
                                 </svg>
                             </div>
-                            <h6 className="mb-2 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white">
+                            <h6 className="mb-3 font-bold font-xl  lg:text-xl text-cool-blue-100 dark:text-white">
                                 Data Encryption</h6>
-                            <p className="mb-7 text-base text-gray-500 dark:text-gray-400">
+                            <p className="mb-7 text-base lg:text-lg text-gray-500 dark:text-gray-300">
                                 Deploy end-to-end encryption solutions to safeguard data from the point of origin to its destination.
                             </p>
                         </div>
@@ -200,9 +200,9 @@ function HeroSection() {
                         className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-3/12 rounded"></span>
                 </h2>
             </div>
-            <main className="relative mb-5">
+
                 {/* First Card */}
-                <div
+                <main
                     className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 rounded-r-full mb-8 lg:mb-0 bg-white dark:bg-gray-900">
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div
@@ -228,29 +228,25 @@ function HeroSection() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
-                            <div className="w-6/12">
                                 <Lottie
                                     animationData={Spaces}
-                                    className="w-52 md:w-0 lg:w-0 xl:w-[500px]"
+                                    className="w-52 md:w-0 lg:w-0 xl:w-full"
                                     data-aos="fade-right"
                                 />
-                            </div>
                         </div>
                     </div>
-                </div>
+                </main>
 
                 {/* Second Card */}
                 <div
                     className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl mt-5 md:px-24 lg:px-8 lg:py-20 mb-8 lg:mb-0 bg-white  dark:bg-gray-900">
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div className="flex items-center justify-center lg:w-1/2">
-                            <div className="w-6/12">
                                 <Lottie
                                     animationData={Space}
-                                    className="w-40 md:w-0 lg:w-0 xl:w-[300px]"
+                                    className="w-40 md:w-0 lg:w-0 xl:w-2/3"
                                     data-aos="fade-right"
                                 />
-                            </div>
                         </div>
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
@@ -303,8 +299,7 @@ function HeroSection() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center lg:w-1/2">
-                            <div className="w-6/12">
-                                <svg width="150" height="150" className="tanuki-logo" viewBox="0 0 36 36">
+                                <svg width="250" height="250" className="tanuki-logo" viewBox="0 0 36 36">
                                     <path className="tanuki-shapes tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
                                     <path className="tanuki-shapes tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
                                     <path className="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
@@ -313,16 +308,14 @@ function HeroSection() {
                                     <path className="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
                                     <path className="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
                                 </svg>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </main>
 
             {/* Feature Section   */}
             <FeatureCardList/>
 
-            <section className="bg-white dark:bg-gray-900">
+            <section className="bg-white dark:bg-gray-100">
                 {/*Support languages section */}
                 <main className=" dark:bg-gray-800">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
@@ -446,33 +439,33 @@ function HeroSection() {
             </section>
             <section className="bg-white dark:bg-gray-900">
                 <div className="container grid grid-cols-1 gap-10 px-6 py-12 mx-auto lg:grid-cols-3">
-                    <div className="flex items-center">
+                    <div className="flex items-center lg:w-2/3">
 
                         <h1 data-aos="flip-up" className="mt-2 md:text-6xl font-bold text-orange-200 text-3xl dark:text-orange-100 !important">Why
                             Us ?</h1>
                     </div>
-                    <div className="grid grid-cols-1 gap-12 lg:col-span-2 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-10 lg:col-span-2 sm:grid-cols-2">
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Expertise</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our team of experienced experts have the<br/> knowledge and expertise
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 text-lg dark:text-gray-400">Our team of experienced experts have the<br/> knowledge and expertise
                                 to deliver innovative IT <br/> solutions
                                 that meet your unique needs.</p>
                         </div>
 
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Tech</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">We stay up to date with the latest trends <br/> and technologies in the IT industry, so you can get the <br/> most advanced solutions available.</p>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 text-lg dark:text-gray-400">We stay up to date with the latest trends <br/> and technologies in the IT industry, so you can get the <br/> most advanced solutions available.</p>
                         </div>
 
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Solutions</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">We take a personalized approach
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 text-lg dark:text-gray-400">We take a personalized approach
                                 to every project,<br/> working closely with you to understand your <br/> business and create specific solutions.</p>
                         </div>
 
                         <div>
                             <h2 data-aos="flip-right" className="font-bold text-3xl text-black dark:text-white mb-10">Results</h2>
-                            <p data-aos="flip-right" className="mt-2 text-gray-500 dark:text-gray-400">Our track record speaks for itself – we helped <br/> businesses of all sizes and industries achieve <br/> their goals with our IT solutions.</p>
+                            <p data-aos="flip-right" className="mt-2 text-gray-500 text-lg dark:text-gray-400">Our track record speaks for itself – we helped <br/> businesses of all sizes and industries achieve <br/> their goals with our IT solutions.</p>
                         </div>
                     </div>
                 </div>
@@ -487,7 +480,7 @@ function HeroSection() {
                             a local Business</h1>
                         <h1 data-aos="zoom-in" className="mt-2 md:text-5xl font-bold text-black text-3xl dark:text-white !important mb-10">reinvent
                             itself</h1>
-                        <p data-aos="zoom-in" className="font-medium text-gray-500 sm:text-lg dark:text-gray-400">We reached here with our
+                        <p data-aos="zoom-in" className="font-medium text-lg text-gray-500 sm:text-lg dark:text-gray-400">We reached here with our
                             hard work hand and dedication</p>
 
                     </div>
@@ -501,7 +494,7 @@ function HeroSection() {
                             </svg>
 
                             <h3  data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">2212</h3>
-                            <p  data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Clients</p>
+                            <p  data-aos="flip-left" className="font-light text-lg text-gray-500 dark:text-gray-400">Clients</p>
                         </div>
                         <div data-aos="flip-left">
                             <svg data-aos="flip-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
@@ -512,7 +505,7 @@ function HeroSection() {
                             </svg>
 
                             <h3  data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">229</h3>
-                            <p  data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Collaboration</p>
+                            <p  data-aos="flip-left" className="font-light text-lg text-gray-500 dark:text-gray-400">Collaboration</p>
                         </div>
                         <div data-aos="flip-left">
                             <svg  data-aos="flip-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
@@ -523,7 +516,7 @@ function HeroSection() {
                             </svg>
 
                             <h3 data-aos="flip-left" className="mb-2 text-2xl font-bold dark:text-white">828</h3>
-                            <p data-aos="flip-left" className="font-light text-gray-500 dark:text-gray-400">Deploy Service</p>
+                            <p data-aos="flip-left" className="font-light text-lg text-gray-500 dark:text-gray-400">Deploy Service</p>
                         </div>
                         <div data-aos="flip-left">
                             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
@@ -534,7 +527,7 @@ function HeroSection() {
                             </svg>
 
                             <h3 className="mb-2 text-2xl font-bold dark:text-white">1924</h3>
-                            <p  className="font-light text-gray-500 dark:text-gray-400">Feedback</p>
+                            <p  className="font-light text-lg text-gray-500 dark:text-gray-400">Feedback</p>
                         </div>
                     </div>
                 </div>

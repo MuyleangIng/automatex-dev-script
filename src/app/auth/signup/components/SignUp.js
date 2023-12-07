@@ -49,9 +49,9 @@ function SignUp(props) {
                         theme: "colored",
                         icon: "🚀",
                         autoClose: 3000,
-                        position: "top-center",
+                        position: "top-right",
                     });
-                    router.push("/auth/login")
+                    router.push("/auth/sign-up-success")
                     return resp.json();
                 } else {
                     const errorMessage = "Cannot Create Account";
@@ -59,28 +59,28 @@ function SignUp(props) {
                         theme: "colored",
                         icon: "❌",
                         autoClose: 3000,
-                        position: "top-center",
+                        position: "top-right",
                     });
                 }
             })
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const session = await getSession();
-                console.log("sessionMe",session)
-                if(session!==null){
-                    router.push("/app/dashboard")
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        console.log("Fetching data...");
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const session = await getSession();
+    //             console.log("sessionMe",session)
+    //             if(session!==null){
+    //                 router.push("/app/dashboard")
+    //             }
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
+    //
+    //     console.log("Fetching data...");
+    //     fetchData();
+    // }, []);
     const router = useRouter();
 
 
@@ -208,6 +208,9 @@ function SignUp(props) {
                                     </div>
                                 </div>
                             </div>
+                                <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
+                                    {isSubmitting ? "Creating..." : " Create an account"}
+                                </Button>
                             <div className="flex items-center">
                                 <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
                                 <div className="px-5 text-center text-gray-500 dark:text-gray-400">
@@ -217,10 +220,6 @@ function SignUp(props) {
                             </div>
                                 <AXGoogleButton/>
                                 <AXGithubButton/>
-
-                            <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
-                                {isSubmitting ? "Creating..." : " Create an account"}
-                            </Button>
                         </Form>)}
                     </Formik>
                 </div>
