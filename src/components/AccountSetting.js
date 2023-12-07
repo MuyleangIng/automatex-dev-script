@@ -1,6 +1,7 @@
 "use client"
 import { Button, Card, Label, Select, TextInput } from "flowbite-react";
 import { HiCloudUpload } from "react-icons/hi";
+import Image from "next/image";
 
 export default function AccountSetting() {
     return (
@@ -8,9 +9,9 @@ export default function AccountSetting() {
             <div className="container flex items-center justify-between">
                 <div className="w-96 mb-10 mt-0">
                     <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
-                        <img
+                        <Image
                             alt=""
-                            src="https://i.pinimg.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
+                            src="https://i.pinImage.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
                             className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
                         />
                         <div>

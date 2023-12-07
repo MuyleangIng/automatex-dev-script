@@ -217,7 +217,7 @@ function Login() {
                                         Forgot your password?
                                     </h1>
                                     <p className="mb-3 text-gray-500 dark:text-gray-300">
-                                        Don't fret! Just type in your email and we will send you a code to reset your password!
+                                        Don&apos;t fret! Just type in your email and we will send you a code to reset your password!
                                     </p>
                                     <div className="mb-6 flex flex-col gap-y-3">
                                         <Label htmlFor="email">Your email</Label>
