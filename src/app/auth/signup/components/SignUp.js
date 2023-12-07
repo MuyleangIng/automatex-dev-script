@@ -29,11 +29,16 @@ const validationSchema = Yup.object().shape({
 
 
 function SignUp(props) {
-    const [showPassword, setShowPassword] = useState(false);
+    // const [showPassword, setShowPassword] = useState(false);
+    //
+    // // eye toggle
+    // const togglePasswordVisibility = () => {
+    //     setShowPassword(!showPassword);
+    // };
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
-    // eye toggle
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setPasswordVisible((prevState) => !prevState);
     };
     const postUser = (user) => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/register", {
@@ -128,99 +133,105 @@ function SignUp(props) {
                     >
                         {({isSubmitting,setFieldValue}) => (
                             <Form className="mt-4 space-y-6 sm:mt-6">
-                            <div className="grid gap-6 sm:grid-cols-2">
-                                <div className="grid grid-cols-1 gap-2">
-                                    <div>
-                                        <Label htmlFor="username" className="dark:text-white">Full Name</Label>
-                                        <Field
-                                            type="text"
-                                            name="username"
-                                            className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                            placeholder="Enter your username"
-                                        />
-                                        <ErrorMessage name={"username"} component={"div"}
-                                                      className={"text-red-500 text-sm mt-1"}/>
+                                <div className="grid gap-6 sm:grid-cols-2">
+                                    <div className="grid grid-cols-1 gap-2">
+                                        <div>
+                                            <Label htmlFor="username" className="dark:text-white">Full Name</Label>
+                                            <Field
+                                                type="text"
+                                                name="username"
+                                                className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                placeholder="Enter your username"
+                                            />
+                                            <ErrorMessage name={"username"} component={"div"}
+                                                          className={"text-red-500 text-sm mt-1"}/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                    <div>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        <div>
 
-                                        <Label htmlFor="email" className="dark:text-white">Your email</Label>
-                                        <Field
-                                            type="email"
-                                            name="email"
-                                            className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                            placeholder="Enter your email"
-                                        />
-                                        <ErrorMessage name={"email"} component={"div"}
-                                                      className={"text-red-500 text-sm mt-1"}/>
+                                            <Label htmlFor="email" className="dark:text-white">Your email</Label>
+                                            <Field
+                                                type="email"
+                                                name="email"
+                                                className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                placeholder="Enter your email"
+                                            />
+                                            <ErrorMessage name={"email"} component={"div"}
+                                                          className={"text-red-500 text-sm mt-1"}/>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        <div>
+                                            <Label htmlFor="password" className="dark:text-white">Password</Label>
+                                            <div className={"relative"}>
+                                                <Field
+                                                    name="password"
+                                                    id="password"
+                                                    placeholder="••••••••"
+                                                    className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                    type={passwordVisible ? "password" : "text"}
+                                                />
+                                                {passwordVisible ? (
+                                                    <FaEye
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                ) : (
+                                                    <FaEyeSlash
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                )}
+                                            </div>
+                                            <ErrorMessage name={"password"} component={"div"}
+                                                          className={"text-red-500 text-sm mt-1"}/>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        <div>
+                                            <Label htmlFor="confirmPassword" className="dark:text-white">Confirm
+                                                Password
+                                            </Label>
+                                            <div className={"relative"}>
+                                                <Field
+                                                    name="confirmPassword"
+                                                    id="confirmPassword"
+                                                    placeholder="••••••••"
+                                                    className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                    type={passwordVisible ? "password" : "text"}
+                                                />
+                                                {passwordVisible ? (
+                                                    <FaEye
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                ) : (
+                                                    <FaEyeSlash
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                )}
+                                            </div>
+
+                                            <ErrorMessage name={"confirmPassword"} component={"div"}
+                                                          className={"text-red-500 text-sm mt-1"}/>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                    <div>
-                                        <Label htmlFor="password" className="dark:text-white">Password</Label>
-                                        <Field
-                                            name="password"
-                                            id="password"
-                                            placeholder="••••••••"
-                                            className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                            type={showPassword ? "password" : "text"}
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={togglePasswordVisibility}
-                                            className="absolute left-[380px] top-[450px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
-                                        >
-                                            {showPassword ? (
-                                                <FaEyeSlash className="h-5 w-5" aria-hidden="true" />
-                                            ) : (
-                                                <FaEye className="h-5 w-5" aria-hidden="true" />
-                                            )}
-                                        </button>
-                                        <ErrorMessage name={"password"} component={"div"}
-                                                      className={"text-red-500 text-sm mt-1"}/>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 gap-2">
-                                    <div>
-                                        <Label htmlFor="confirmPassword" className="dark:text-white">Confirm
-                                            Password</Label>
-                                        <Field
-                                            name="confirmPassword"
-                                            id="confirmPassword"
-                                            placeholder="••••••••"
-                                            className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                            type={showPassword ? "password" : "text"}
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={togglePasswordVisibility}
-                                            className="absolute left-[645px] top-[450px] text-gray-700 dark:text-gray-300 hover:text-gray-400 focus:outline-none"
-                                        >
-                                            {showPassword ? (
-                                                <FaEyeSlash className="h-5 w-5" aria-hidden="true" />
-                                            ) : (
-                                                <FaEye className="h-5 w-5" aria-hidden="true" />
-                                            )}
-                                        </button>
-                                        <ErrorMessage name={"confirmPassword"} component={"div"}
-                                                      className={"text-red-500 text-sm mt-1"}/>
-                                    </div>
-                                </div>
-                            </div>
                                 <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
                                     {isSubmitting ? "Creating..." : " Create an account"}
                                 </Button>
-                            <div className="flex items-center">
-                                <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
-                                <div className="px-5 text-center text-gray-500 dark:text-gray-400">
-                                    or
+                                <div className="flex items-center">
+                                    <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
+                                    <div className="px-5 text-center text-gray-500 dark:text-gray-400">
+                                        or
+                                    </div>
+                                    <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
                                 </div>
-                                <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
-                            </div>
                                 <AXGoogleButton/>
                                 <AXGithubButton/>
-                        </Form>)}
+                            </Form>)}
                     </Formik>
                 </div>
                 <div className="mr-auto place-self-center lg:col-span-6">
