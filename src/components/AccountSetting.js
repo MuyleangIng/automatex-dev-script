@@ -11,7 +11,9 @@ export default function AccountSetting() {
                     <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
                         <Image
                             alt=""
-                            src="https://i.pinImage.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
+                            src="https://wp-api.zipmex.com/wp-content/uploads/2021/12/NFT-marketplace.jpg"
+                            width="30"
+                            height="30"
                             className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
                         />
                         <div>

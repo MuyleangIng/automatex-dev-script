@@ -117,8 +117,23 @@ function Login() {
                                             redirect: false,
                                         })
                                     if (res.error === null) {
+                                        toast.success("Login Successfully", {
+                                            theme: "colored",
+                                            icon: "🚀",
+                                            autoClose: 4000,
+                                            position: "bottom-right",
+                                        });
                                         router.push("/app/dashboard");
                                     }
+                                    else {
+                                            // Error: Show error toast
+                                            toast.error('Login failed. Please check your credentials.',{
+                                                theme: "colored",
+                                                icon: "❌",
+                                                autoClose: 4000,
+                                                position: "bottom-right",
+                                            });
+                                        }
                                         // const resp = JSON.parse(res.error)
                                         console.log("data:",res)
                                         // console.log(values)

@@ -156,7 +156,7 @@ export default function NewPassword(){
                                     <span>
                                 <Spinner size={'md'} className={isLoading || isSubmitting ? 'block' : 'hidden'} />
                                 <span className={'pl-3'}>
-                                    Submit  <i className="bi bi-check-all"></i>
+                                    Save  <i className="bi bi-check-all"></i>
                                 </span>
                                 </span>
                                 </Button>
