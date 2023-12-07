@@ -1,103 +1,88 @@
 "use client"
-
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
-import {Breadcrumb, Button, Label, Select, TextInput, ToggleSwitch} from "flowbite-react";
+import {Breadcrumb, Button, Card, Label, Radio, Select, TextInput, ToggleSwitch} from "flowbite-react";
 import {HiArrowCircleRight, HiHome, HiUserCircle} from "react-icons/hi";
-import DeployMethod from "@/components/DeployMethod";
 import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
+import * as Yup from "yup";
+import {Field, Form, Formik} from "formik";
+import {reset} from "next/dist/lib/picocolors";
+import {DeploymentTypes} from "@/lib/enumTypes";
+import DeployMethod from "@/components/DeployMethod";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
-
     const [switch2, setSwitch2] = useState(true);
     const [projectName, setProjectName] = useState('');
     const [domainName, setDomainName] = useState('');
     const [defaultBranch, setdefaultBranch] = useState('main');
     const [enableAutomaticDeploys, setEnableAutomaticDeploys] = useState(true);
-    const router=useRouter();
+    const router = useRouter();
 
-
+    const validationSchema = Yup.object().shape({
+        projectName: Yup.string().required('Required'), // domainName: Yup.string().required('Required'),
+        // appType: Yup.string().required('Required'),
+        // sourceType: Yup.string().required('Required'),
+        // defaultBranch: Yup.string().required('Required'),
+        // deployType: Yup.string().required('Required'),
+    });
     const handleToggleChange = (isChecked) => {
         setEnableAutomaticDeploys(isChecked);
     };
 
-    const updateSecondLabel = (value) => {
-        const newDomainName = value + '.kuberthy.me';
-        setDomainName(newDomainName);
-    };
-
-    const handleSelectChange = (event) => {
-        const selectedValue = event.target.value;
-        setdefaultBranch(selectedValue);
-    };
-    const handleCreateApp = async (appData) => {
-        try {
-            const response = await createDeploymentApp(appData);
-            router.push(`/app/deploy-apps/${response.data.uuid}/resource`);
-            console.log("Deployment App created successfully:", response.data);
-            // Handle success, e.g., redirect to another page, show a success message, etc.
-        } catch (error) {
-            console.error("Error creating Deployment App:", error);
-            // Handle error, e.g., show an error message to the user, log the error, etc.
-        }
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const formData = {
-            name: projectName,
-            appType: 'FRONTEND',
-            sourceType: 'automatexGit',
-            domain: domainName,
-            defaultBranch: defaultBranch,
-            deployType: 'Auto',
-        };
-        await handleCreateApp(formData);
-
-        // Optionally, you can add additional logic here after the deployment app is created
-
-        console.log('Form Data:', formData);
-    };
-
-    return (<>
-
-            <div className="grid grid-cols-12 gap-4">
-                <div
-                    className="col-span-12 mx-4 mb-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800 sm:p-6 md:mx-6 lg:my-6 xl:p-8 2xl:col-span-10 2xl:col-start-2">
-                    <section className="flex items-center flex-1 w-full mb-24">
-                        <div className="flex flex-col w-full ">
-                            <h1 className="text-5xl font-extrabold text-center lg:text-2xl xl:text-4xl">
-                    <span
-                        className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500 animate-gradient">
-                        Create Your Deployment
-                    </span>
-                            </h1>
-                        </div>
-                    </section>
-                    <section className="bg-white dark:bg-gray-900">
-                        <form onSubmit={handleSubmit}>
+    return (
+        <>
+        <div className="grid grid-cols-12 gap-4">
+            <div
+                className="col-span-12 mx-4 mb-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800 sm:p-6 md:mx-6 lg:my-6 xl:p-8 2xl:col-span-10 2xl:col-start-2">
+                <section className="flex items-center flex-1 w-full mb-24">
+                    <div className="flex flex-col w-full ">
+                        <h1 className="text-5xl font-extrabold text-center lg:text-2xl xl:text-4xl">
+                            <span
+                                className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500 animate-gradient">
+                                Create Your Deployment
+                            </span>
+                        </h1>
+                    </div>
+                </section>
+                <section className="bg-white dark:bg-gray-900">
+                    <Formik
+                        initialValues={{
+                            projectName: '',
+                            domainName: '', appType: DeploymentTypes.fe, // Set a default value
+                            sourceType: DeploymentTypes.sourceTypeGit, // Set a default value
+                            defaultBranch: 'main', // Set a default value
+                            deployType: 'Auto', // Set a default value
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={(values, {setSubmitting, resetForm}) => {
+                            resetForm({values: ''});
+                            console.log(values);
+                        }}
+                    >
+                        {({isSubmitting, setFieldValue}) => (<Form>
                             <div className="grid gap-4 md:gap-6 md:grid-cols-2">
                                 <div className="relative z-0 w-full mb-6 group">
-                                    <input
+                                    <Field
                                         type="text"
-                                        name="project_name"
+                                        name="projectName"
                                         placeholder=" "
-                                        id="project_name"
+                                        id="projectName"
                                         className="block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                         onChange={(e) => {
-                                            const formattedValue = e.target.value
-                                                .replace(/\s+/g, ' ') // Replace consecutive spaces with a single space
-                                                .replace(/ /g, '-') // Replace spaces with hyphens
-                                                .toLowerCase() // Convert to lowercase
-                                                .replace(/[^a-z-]/g, ''); // Remove non-lowercase and non-hyphen characters
-                                            setProjectName(formattedValue);
-                                            updateSecondLabel(formattedValue);
+                                            const projectNameValue = e.target.value;
+                                            // Remove spaces before updating state
+                                            const formattedProjectName = projectNameValue.replace(/\s/g, '');
+                                            // Convert to lowercase before updating state
+                                            const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
+                                            setFieldValue('projectName', formattedProjectNameLowercase);
+                                            // Dynamically update the "domainName" field by appending to the default value
+                                            setFieldValue('domainName', `${formattedProjectNameLowercase}.kuberthy.me`);
                                         }}
                                         required
                                     />
                                     <label
-                                        htmlFor="project_name"
+                                        htmlFor="projectName"
                                         id="projectLabel"
                                         className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                     >
@@ -105,29 +90,51 @@ export default function CreateDeploymentFrontendComponent() {
                                     </label>
                                 </div>
                                 <div className="relative z-0 w-full mb-6 group">
-                                    <input
+                                    <Field
                                         type="text"
-                                        name="domain_name"
-                                        id="domain_name"
-                                        className=" block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                        name="domainName"
+                                        id="domainName"
+                                        className="block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                         placeholder=" "
                                         disabled={true}
-                                        value={domainName}
-                                        required
                                     />
                                     <label
-                                        htmlFor="domain_name"
+                                        htmlFor="domainName"
                                         id="domainLabel"
                                         className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                     >
                                         Domain Name
                                     </label>
                                 </div>
+                                {/*App type*/}
+                                <div>
+                                    <h2 className="text-xl py-8 font-bold text-cyan-500 dark:text-white">
+                                        Type :
+                                    </h2>
+                                    <fieldset className="flex  max-w-md flex-row gap-16">
+                                        <div className="flex items-center gap-2">
+                                            <Radio
+                                                checked={true}
+                                                id="Frontend"
+                                                name="appType"
+                                                value={DeploymentTypes.fe}
+                                                onChange={() => setFieldValue('appType', DeploymentTypes.fe)}
+                                            />
+                                            <Label htmlFor="Frontend">Frontend</Label>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <Radio
+                                                id="Backend"
+                                                name="appType"
+                                                value={DeploymentTypes.be}
+                                                onChange={() => setFieldValue('appType', DeploymentTypes.be)}
+                                            />
+                                            <Label htmlFor="Backend">Backend</Label>
+                                        </div>
+                                    </fieldset>
+                                </div>
                             </div>
-                            {/*deployment method */}
                             <DeployMethod/>
-                            {/*deployment method end */}
-
                             {/*choose branch to deploy*/}
                             <section
                                 className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-gray-700">
@@ -135,12 +142,14 @@ export default function CreateDeploymentFrontendComponent() {
                                     <h2 className="text-lg font-bold text-cyan-500 dark:text-white">
                                         Quick setup - if you’ve done this get automatex git url
                                     </h2>
-                                    <h4 className={"text-gray-500 text-base dark:text-white"}>After this app create you will get Automatex git url to repository and deploys.</h4>
+                                    <h4 className={"text-gray-500 text-base dark:text-white"}>After this app create
+                                        you will get Automatex git url to repository and deploys.</h4>
                                     <div className={"py-5"}></div>
                                     <h2 className="text-lg  font-bold text-cyan-500 dark:text-white">
                                         AutomateX Deploys
                                     </h2>
-                                    <h4 className={"text-gray-500 text-base dark:text-white"}> Facilitates a selected
+                                    <h4 className={"text-gray-500 text-base dark:text-white"}> Facilitates a
+                                        selected
                                         branch
                                         to be automatically deployed to this application.</h4>
                                 </div>
@@ -165,29 +174,25 @@ export default function CreateDeploymentFrontendComponent() {
                                                   d="M28.9,27.447A1,1,0,0,0,28,26H22v2h4.382l-4.277,8.553A1,1,0,0,0,23,38h6V36H24.618Z"></path>
                                         </svg>
                                         <div className="flex flex-col leading-4 text-sm py-2 ">
-                                        <span className="text-base font-bold text-cool-blue-150 dark:text-gray-300">&quot;Push to deploy: Make sure the branch is stable and tests pass before pushing for automatic app deployment.&quot;
+                                        <span
+                                            className="text-base font-bold text-cool-blue-150 dark:text-gray-300">&quot;Push to deploy: Make sure the branch is stable and tests pass before pushing for automatic app deployment.&quot;
                                         </span>
                                         </div>
                                     </div>
                                 </div>
-                                {/*choose branch to deploy*/}
+                                choose branch to deploy
                                 <div className="w-3/12 p-11">
                                     <h2 className=" mb-2 block text-lg  font-bold text-cyan-500 dark:text-white">
-                                        AutomateX Deploys
+                                        Choose Branch
                                     </h2>
                                     <div className="mb-2 block">
                                         <Label htmlFor="branch"/>
                                     </div>
-                                    <Select
-                                        id="branch"
-                                        onChange={handleSelectChange}
-                                        value={defaultBranch}
-                                        required>
-                                        <option>master</option>
+                                    <Field as="select" id="branch" name="branch" required >
+                                        <option >master</option>
                                         <option>main</option>
-                                    </Select>
+                                    </Field>
                                 </div>
-
                                 <div className={"mt-0 m-11"}>
                                     <h2 className=" mb-2 block text-lg  font-bold text-cyan-500 dark:text-white">
                                         Only enable this option if you have a CI service configured on your repo.
@@ -203,12 +208,13 @@ export default function CreateDeploymentFrontendComponent() {
                                     Submit
                                 </Button>
                             </section>
-                        </form>
-                    </section>
-                </div>
+                        </Form>)}
+                    </Formik>
+                </section>
             </div>
+        </div>
 
-        </>)
+    </>)
 }
 
 
