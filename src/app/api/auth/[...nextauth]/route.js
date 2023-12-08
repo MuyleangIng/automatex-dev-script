@@ -40,6 +40,10 @@ const authOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
+                username: {
+                    label: "Username",
+                    type: "text",
+                },
                 email: {
                     label: "Email",
                     type: "email",
@@ -55,6 +59,7 @@ const authOptions = {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
+                        username: credentials.username,
                         email: credentials.email,
                         password: credentials.password,
                         loginKey: "Y71o29qo8RIwIBMRClJWfg=="

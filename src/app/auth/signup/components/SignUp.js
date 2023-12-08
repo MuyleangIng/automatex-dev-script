@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, Label} from "flowbite-react";
+import {Alert, Button, Label} from "flowbite-react";
 import * as Yup from "yup";
 import HandleImage from "@/components/HandleImage";
 import SocialLogin from "@/components/SocialLogin";
@@ -19,8 +19,8 @@ import Spaces from "@/app/utils/assets/bot.json";
 
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
 const validationSchema = Yup.object().shape({
-    username: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+    username: Yup.string().required('Username is Required'),
+    email: Yup.string().email('Invalid email').required('Gmail is Required'),
     password: Yup.string()
         .required('Password is required')
         .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
@@ -29,12 +29,8 @@ const validationSchema = Yup.object().shape({
 
 
 function SignUp(props) {
-    // const [showPassword, setShowPassword] = useState(false);
-    //
-    // // eye toggle
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(!showPassword);
-    // };
+    const [resErr, setResErr] = useState(null);
+
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -47,9 +43,10 @@ function SignUp(props) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
-        })
+        }).then(r => r.json())
             .then((resp) => {
                 if (resp.ok) {
+                    console.log("resp:",resp)
                     toast.success("Successfully created account!", {
                         theme: "colored",
                         icon: "🚀",
@@ -58,34 +55,10 @@ function SignUp(props) {
                     });
                     router.push("/auth/sign-up-success")
                     return resp.json();
-                } else {
-                    const errorMessage = "Cannot Create Account";
-                    toast.error(errorMessage, {
-                        theme: "colored",
-                        icon: "❌",
-                        autoClose: 3000,
-                        position: "top-right",
-                    });
                 }
             })
     };
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const session = await getSession();
-    //             console.log("sessionMe",session)
-    //             if(session!==null){
-    //                 router.push("/app/dashboard")
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //
-    //     console.log("Fetching data...");
-    //     fetchData();
-    // }, []);
     const router = useRouter();
 
 
@@ -108,26 +81,48 @@ function SignUp(props) {
                     <h1 className="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
                         Create your Account
                     </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
-                        Start your website in seconds. Already have an account?&nbsp;
-                        <a
-                            href="#"
-                            className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                        >
-                            Login here
-                        </a>
-                    </p>
+
+                    {resErr ? (
+                        <Alert color="failure" className={"w-full"}>
+                            {typeof resErr === 'string' ? resErr  : (
+                                <ul>
+                                    {resErr.map((err, index) => (
+                                        <li key={index}>{err.message}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </Alert>
+                    ) : null}
                     <Formik initialValues={{
-                        username: '', email: '', password: '', confirmPassword: '',
+                        username: '', email: '', password: 'Admin123', confirmPassword: 'Admin123',
                     }}
                             validationSchema={validationSchema}
-                            onSubmit={(values, { setSubmitting, resetForm }) => {
+                            onSubmit={async (values, { setSubmitting, resetForm }) => {
+                                const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/register", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify(values),
+                                })
+                                const data = await res.json()
+                                if (data.code === 400){
+                                    console.log("resp:",data.errors[0].message)
+                                    setResErr(data.errors[0].message)
+                                } else if (data.code === 401){
+                                    console.log("resp:",data)
+                                    setResErr([{message:"Your password is incorrect."}])
+                                } else {
+                                    setResErr(resp.errors[0].message)
+                                }
+                                console.log("data:",data)
                                 setTimeout(() => {
                                     setSubmitting(false);
+                                    console.log("values:",values)
                                     postUser(values);
-                                    resetForm({
-                                        values: { username: '', email: '', password: '', confirmPassword: '', },
-                                    });
+                                    // resetForm({
+                                    //     values: { username: '', email: '', password: '', confirmPassword: '', },
+                                    // });
                                 }, 400);
                             }}
                     >
@@ -173,12 +168,12 @@ function SignUp(props) {
                                                     type={passwordVisible ? "password" : "text"}
                                                 />
                                                 {passwordVisible ? (
-                                                    <FaEye
+                                                    <FaEyeSlash
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
                                                 ) : (
-                                                    <FaEyeSlash
+                                                    <FaEye
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
@@ -202,12 +197,12 @@ function SignUp(props) {
                                                     type={passwordVisible ? "password" : "text"}
                                                 />
                                                 {passwordVisible ? (
-                                                    <FaEye
+                                                    <FaEyeSlash
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
                                                 ) : (
-                                                    <FaEyeSlash
+                                                    <FaEye
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
