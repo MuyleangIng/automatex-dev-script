@@ -2,25 +2,27 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, Label} from "flowbite-react";
+import {Alert, Button, Label} from "flowbite-react";
 import * as Yup from "yup";
 import HandleImage from "@/components/HandleImage";
-import SocialLogin from "@/components/SocialLogin";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {getSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import {FaEye, FaEyeSlash} from "react-icons/fa";
 import AXGoogleButton from "@/components/AXGoogleButton";
 import AXGithubButton from "@/components/AXGitHubButton";
 import Lottie from "lottie-react";
 import Spaces from "@/app/utils/assets/bot.json";
+import Link from "next/link";
+import {setEmail} from "@/store/features/personalInfo/personalInfoSlice";
+import {useDispatch} from "react-redux";
+import {setUser} from "@/store/features/user/userSlice";
 
 
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
 const validationSchema = Yup.object().shape({
-    username: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+    username: Yup.string().required('Username is Required'),
+    email: Yup.string().email('Invalid email').required('Gmail is Required'),
     password: Yup.string()
         .required('Password is required')
         .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
@@ -29,73 +31,19 @@ const validationSchema = Yup.object().shape({
 
 
 function SignUp(props) {
-    // const [showPassword, setShowPassword] = useState(false);
-    //
-    // // eye toggle
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(!showPassword);
-    // };
+    const [resErr, setResErr] = useState(null);
     const [passwordVisible, setPasswordVisible] = useState(false);
-
+    const router = useRouter();
+    const dispatch = useDispatch();
     const togglePasswordVisibility = () => {
         setPasswordVisible((prevState) => !prevState);
     };
-    const postUser = (user) => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        })
-            .then((resp) => {
-                if (resp.ok) {
-                    toast.success("Successfully created account!", {
-                        theme: "colored",
-                        icon: "🚀",
-                        autoClose: 3000,
-                        position: "top-right",
-                    });
-                    router.push("/auth/sign-up-success")
-                    return resp.json();
-                } else {
-                    const errorMessage = "Cannot Create Account";
-                    toast.error(errorMessage, {
-                        theme: "colored",
-                        icon: "❌",
-                        autoClose: 3000,
-                        position: "top-right",
-                    });
-                }
-            })
-    };
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const session = await getSession();
-    //             console.log("sessionMe",session)
-    //             if(session!==null){
-    //                 router.push("/app/dashboard")
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //
-    //     console.log("Fetching data...");
-    //     fetchData();
-    // }, []);
-    const router = useRouter();
-
-
-
     return (
         <section  className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
                 <div
                     className="mx-auto w-full rounded-lg bg-white p-6 shadow dark:bg-gray-800 sm:max-w-xl sm:p-8 lg:col-span-6">
-                    <a
+                    <Link
                         href="#"
                         className="mb-4 inline-flex items-center text-xl font-semibold text-gray-900 dark:text-white"
                     >
@@ -104,32 +52,56 @@ function SignUp(props) {
                           <span className="text-orange-100">Automate</span>
                           <span className="text-cool-blue-100">X</span>
                         </span>
-                    </a>
+                    </Link>
                     <h1 className="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
                         Create your Account
                     </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
-                        Start your website in seconds. Already have an account?&nbsp;
-                        <a
-                            href="#"
-                            className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                        >
-                            Login here
-                        </a>
-                    </p>
-                    <Formik initialValues={{
-                        username: '', email: '', password: '', confirmPassword: '',
-                    }}
-                            validationSchema={validationSchema}
-                            onSubmit={(values, { setSubmitting, resetForm }) => {
-                                setTimeout(() => {
-                                    setSubmitting(false);
-                                    postUser(values);
+                    {resErr ? (
+                        <Alert color="failure" className={"w-full"}>
+                            {typeof resErr === 'string' ? resErr  : (
+                                <ul>
+                                    {resErr.map((err, index) => (
+                                        <li key={index}>{err.message}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </Alert>
+                    ) : null}
+                    <Formik
+                        initialValues={{
+                            username: '',
+                            email: '',
+                            password: 'Admin123',
+                            confirmPassword: 'Admin123',
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={async (values, { setSubmitting, resetForm }) => {
+                            try {
+                                const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/register", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify(values),
+                                });
+                                const data = await res.json();
+                                if (data.code === 400) {
+                                    setResErr(data.errors[0].message);
+                                } else if (data.code === 401) {
+                                    setResErr([{ message: "Your password is incorrect." }]);
+                                } else {
+                                    dispatch(setEmail(values.email));
+                                    dispatch(setUser(values));
                                     resetForm({
-                                        values: { username: '', email: '', password: '', confirmPassword: '', },
+                                        values: { username: '', email: '', password: '', confirmPassword: '' },
                                     });
-                                }, 400);
-                            }}
+                                    router.push("/auth/sign-up-success");
+                                }
+                            } catch (error) {
+                            } finally {
+                                setSubmitting(false);
+                            }
+                        }}
                     >
                         {({isSubmitting,setFieldValue}) => (
                             <Form className="mt-4 space-y-6 sm:mt-6">
@@ -173,12 +145,12 @@ function SignUp(props) {
                                                     type={passwordVisible ? "password" : "text"}
                                                 />
                                                 {passwordVisible ? (
-                                                    <FaEye
+                                                    <FaEyeSlash
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
                                                 ) : (
-                                                    <FaEyeSlash
+                                                    <FaEye
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
@@ -202,12 +174,12 @@ function SignUp(props) {
                                                     type={passwordVisible ? "password" : "text"}
                                                 />
                                                 {passwordVisible ? (
-                                                    <FaEye
+                                                    <FaEyeSlash
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
                                                 ) : (
-                                                    <FaEyeSlash
+                                                    <FaEye
                                                         className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
                                                         onClick={togglePasswordVisibility}
                                                     />
@@ -244,9 +216,6 @@ function SignUp(props) {
             </div>
             <ToastContainer />
         </section>
-
     );
-
 }
-
 export default SignUp;

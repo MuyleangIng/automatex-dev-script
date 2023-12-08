@@ -2,9 +2,8 @@
 import React, {useState} from 'react';
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, Card, Checkbox, Label, TextInput} from "flowbite-react";
+import {Alert, Button, Card, Label} from "flowbite-react";
 import HandleImage from "@/components/HandleImage";
-import SocialLogin from "@/components/SocialLogin";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import AXGoogleButton from "@/components/AXGoogleButton";
@@ -18,19 +17,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     const router = useRouter();
-    const [email, setEmail] = useState("");
+    const [resErr, setResErr] = useState(null);
     const [showForgotPassword, setShowForgotPassword] = useState(false);
-    const [showResetPassword, setShowResetPassword] = useState(false);
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Invalid email').required('Required'),
+        email: Yup.string()
+            .test('emailOrUsername', 'Invalid email or username', value => {
+                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+                return emailRegex.test(value) || /^[a-zA-Z0-9_]+$/.test(value);
+            })
+            .required('Required'),
         password: Yup.string()
             .required('Password is required')
-            // .matches(
-            //     passwordRegex,
-            //     "Password must be at least 6 characters, a number, an Uppercase, and a Lowercase"
-            // )
-        // .matches(passwordRegex, 'Password must be at least 6 ,'),
     });
 
     // forgot password
@@ -52,28 +49,13 @@ function Login() {
 
     const [sendMail]=useCreateRequestSendMailMutation();
     const handleSubmitMail = (values, { setSubmitting }) => {
-        // Handle form submission here
         sendMail(values)
         setSubmitting(false);
-        console.log("Email sent:", values);
-        // You can add the API call to send the reset password email here
         toast.success("A password reset email has been sent to your email address!", {
             autoClose: 1000,
         });
         // router.push("/auth/new-password");
     };
-    const initialValuesReset = {
-        newPassword: "",
-        confirmNewPassword: "",
-    };
-
-    const validationSchemaReset = Yup.object({
-        newPassword: Yup.string().required("Required"),
-        confirmNewPassword: Yup.string()
-            .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-            .required("Required"),
-    });
-
 
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
@@ -83,10 +65,6 @@ function Login() {
                             href="#"
                             className="mb-4 inline-flex items-center text-xl font-semibold text-gray-900 dark:text-white"
                         >
-                            {/*<Image height={50} width={50}*/}
-                            {/*       alt="logo"*/}
-                            {/*       src="/mainlogo.png"*/}
-                            {/*/>*/}
                             <HandleImage src={"/mainlogo.png"} w={10} h={10}/>
                             <span className="self-center text-xl font-bold whitespace-nowrap">
                           <span className="text-orange-100">Automate</span>
@@ -96,37 +74,46 @@ function Login() {
                         <h1 className="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
                             Welcome back
                         </h1>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">
-                            Start your website in seconds. Don’t have an account?&nbsp;
-                            <a
-                                href="#"
-                                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                            >
-                                Sign up
-                            </a>
-                            .
-                        </p>
+
+                        {resErr ? (
+                            <Alert color="failure" className={"w-full"}>
+                                {typeof resErr === 'string' ? resErr  : (
+                                    <ul>
+                                        {resErr.map((err, index) => (
+                                            <li key={index}>{err.message}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </Alert>
+                        ) : null}
+
                         <Formik initialValues={{
                             email: '', password: '',
                         }}
                                 validationSchema={validationSchema}
                                 onSubmit={ async (values, {setSubmitting}) => {
-                                        const res = await signIn('credentials', {
-                                            email: values.email,
-                                            password:values.password,
-                                            redirect: false,
-                                        })
-                                    if (res.error === null) {
-                                        router.push("/app/dashboard");
+                                    const res = await signIn('credentials', {
+                                        email: values.email,
+                                        password:values.password,
+                                        redirect: false,
+                                    })
+                                    router.push("/app/dashboard");
+
+                                    const resp = JSON.parse(res.error)
+                                    if (resp.code === 400){
+                                        setResErr(resp.errors[0].message)
+                                    } else if (resp.code === 401){
+                                        setResErr([{message:"Your password is incorrect."}])
+                                    } else {
+                                        setResErr(resp.errors[0].message)
                                     }
-                                        // const resp = JSON.parse(res.error)
-                                        console.log("data:",res)
-                                        // console.log(values)
-                                        // alert(JSON.stringify(values, null, 2))
-                                        setSubmitting(false);
+                                    setSubmitting(false);
                                 }}
                         >
-                            {({isSubmitting}) => (<Form className="mt-4 space-y-6 sm:mt-6" action="#">
+
+                            {({isSubmitting}) => (
+
+                                <Form className="mt-4 space-y-6 sm:mt-6" action="#">
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     <div className="grid grid-cols-1 gap-2">
                                         <div className="grid grid-cols-1 gap-2">

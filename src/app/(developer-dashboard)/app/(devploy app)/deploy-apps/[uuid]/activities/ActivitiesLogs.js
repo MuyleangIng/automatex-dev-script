@@ -1,17 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { useSession } from 'next-auth/react';
-import { useSelector } from 'react-redux';
-import {
-    selectDeploymentApp,
-    selectError,
-    selectIsLoading,
-} from '@/store/features/deploy-app/deployAppSlice';
 import { useGetConsoleLogsQuery } from '@/store/features/deploy-app/deployAppApiSlice';
 import { TfiReload } from 'react-icons/tfi';
 import { Button } from 'flowbite-react';
-import Link from "next/link";
-import {FaPlus} from "react-icons/fa";
 
 function ActivitiesLogs({ params }) {
     const { uuid } = params;
