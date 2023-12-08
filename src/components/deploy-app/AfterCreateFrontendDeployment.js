@@ -25,7 +25,8 @@ import {ImConnection} from "react-icons/im";
 import {AiOutlineDisconnect} from "react-icons/ai";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
 
-function AfterCreateFrontendDeployment({data}) {
+function AfterCreateFrontendDeployment({data }) {
+    const { refetch } = useGetAllDeploymentAppsQuery(); // Destructure refetch from the hook result
     return (<>
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">
@@ -62,34 +63,8 @@ function AfterCreateFrontendDeployment({data}) {
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
 
             {data.list.map((item, index) => (
-                <CardDeploymentApp key={index} deployApp={item}/>
+                <CardDeploymentApp key={index} deployApp={item} refetch={refetch}/>
             ))}
-
-
-            {/*//     <Card as={Link} key={index} href={`/app/deploy-apps/${item.uuid}/resource/`}>*/}
-            {/*//         <span>*/}
-            {/*//          <div className={"float-right"}>*/}
-            {/*//         <HiOutlineDotsHorizontal />*/}
-            {/*//     </div>*/}
-            {/*//         <div className="flex items-center space-x-4">*/}
-            {/*//             <Image width={100} height={100} unoptimized={true}*/}
-            {/*//                 className="h-10 w-10 rounded-full"*/}
-            {/*//                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"*/}
-            {/*//                 alt="Jese Leos avatar"*/}
-            {/*//             />*/}
-            {/*//             <div className="font-medium dark:text-white">*/}
-            {/*//                 <Badge color="purple" className="!inline">{item?.name}</Badge>*/}
-            {/*//                 <div className="text-sm font-normal text-gray-500 dark:text-gray-400">*/}
-            {/*//                     reactjs.kuberthy.me*/}
-            {/*//                 </div>*/}
-            {/*//             </div>*/}
-            {/*//         </div>*/}
-            {/*// </span>*/}
-            {/*//         <p className="flex">*/}
-            {/*//             Branch: <span className={"font-bold"}>master</span>*/}
-            {/*//         </p>*/}
-            {/*//     </Card>*/}
-            {/*// ))}*/}
         </div>
     </>);
 }

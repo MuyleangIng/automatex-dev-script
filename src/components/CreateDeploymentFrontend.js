@@ -1,22 +1,18 @@
 "use client"
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
-import {Breadcrumb, Button, Card, Label, Radio, Select, TextInput, ToggleSwitch} from "flowbite-react";
-import {HiArrowCircleRight, HiHome, HiUserCircle} from "react-icons/hi";
+import { Button, FloatingLabel} from "flowbite-react";
+import {HiArrowCircleRight} from "react-icons/hi";
 import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
 import * as Yup from "yup";
-import {Field, Form, Formik} from "formik";
-import {reset} from "next/dist/lib/picocolors";
-import {DeploymentTypes} from "@/lib/enumTypes";
+import { useFormik} from "formik";
+import {DeploymentTypes, SourceType} from "@/lib/enumTypes";
 import DeployMethod from "@/components/DeployMethod";
+import ConnectToGit from "@/components/deploy-app/deploymethod/ConnectToGit";
+import AutomateXCli from "@/components/deploy-app/deploymethod/AutomateXCli";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
-    const [switch2, setSwitch2] = useState(true);
-    const [projectName, setProjectName] = useState('');
-    const [domainName, setDomainName] = useState('');
-    const [defaultBranch, setdefaultBranch] = useState('main');
-    const [enableAutomaticDeploys, setEnableAutomaticDeploys] = useState(true);
     const router = useRouter();
 
     const validationSchema = Yup.object().shape({
@@ -26,9 +22,27 @@ export default function CreateDeploymentFrontendComponent() {
         // defaultBranch: Yup.string().required('Required'),
         // deployType: Yup.string().required('Required'),
     });
+
     const handleToggleChange = (isChecked) => {
         setEnableAutomaticDeploys(isChecked);
     };
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            appType: DeploymentTypes.fe, // Set a default value
+            sourceType: SourceType.default, // Set a default value
+            sourcePath: '', // Set a default value
+            defaultBranch: 'main', // Set a default value
+            autoDeploy: true, // Set a default value
+        },
+        validationSchema:validationSchema,
+        onSubmit: (values, {setSubmitting, resetForm}) => {
+            resetForm({values: ''});
+            console.log(values);
+        },
+    });
+
+    console.log("formik",formik.values)
 
     return (
         <>
@@ -46,170 +60,49 @@ export default function CreateDeploymentFrontendComponent() {
                     </div>
                 </section>
                 <section className="bg-white dark:bg-gray-900">
-                    <Formik
-                        initialValues={{
-                            projectName: '',
-                            domainName: '', appType: DeploymentTypes.fe, // Set a default value
-                            sourceType: DeploymentTypes.sourceTypeGit, // Set a default value
-                            defaultBranch: 'main', // Set a default value
-                            deployType: 'Auto', // Set a default value
-                        }}
-                        validationSchema={validationSchema}
-                        onSubmit={(values, {setSubmitting, resetForm}) => {
-                            resetForm({values: ''});
-                            console.log(values);
-                        }}
-                    >
-                        {({isSubmitting, setFieldValue}) => (<Form>
-                            <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-                                <div className="relative z-0 w-full mb-6 group">
-                                    <Field
-                                        type="text"
-                                        name="projectName"
-                                        placeholder=" "
-                                        id="projectName"
-                                        className="block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        onChange={(e) => {
-                                            const projectNameValue = e.target.value;
-                                            // Remove spaces before updating state
-                                            const formattedProjectName = projectNameValue.replace(/\s/g, '');
-                                            // Convert to lowercase before updating state
-                                            const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
-                                            setFieldValue('projectName', formattedProjectNameLowercase);
-                                            // Dynamically update the "domainName" field by appending to the default value
-                                            setFieldValue('domainName', `${formattedProjectNameLowercase}.kuberthy.me`);
-                                        }}
-                                        required
-                                    />
-                                    <label
-                                        htmlFor="projectName"
-                                        id="projectLabel"
-                                        className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Project Name
-                                    </label>
-                                </div>
-                                <div className="relative z-0 w-full mb-6 group">
-                                    <Field
-                                        type="text"
-                                        name="domainName"
-                                        id="domainName"
-                                        className="block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                        placeholder=" "
-                                        disabled={true}
-                                    />
-                                    <label
-                                        htmlFor="domainName"
-                                        id="domainLabel"
-                                        className="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                    >
-                                        Domain Name
-                                    </label>
-                                </div>
-                                {/*App type*/}
-                                <div>
-                                    <h2 className="text-xl py-8 font-bold text-cyan-500 dark:text-white">
-                                        Type :
-                                    </h2>
-                                    <fieldset className="flex  max-w-md flex-row gap-16">
-                                        <div className="flex items-center gap-2">
-                                            <Radio
-                                                checked={true}
-                                                id="Frontend"
-                                                name="appType"
-                                                value={DeploymentTypes.fe}
-                                                onChange={() => setFieldValue('appType', DeploymentTypes.fe)}
-                                            />
-                                            <Label htmlFor="Frontend">Frontend</Label>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <Radio
-                                                id="Backend"
-                                                name="appType"
-                                                value={DeploymentTypes.be}
-                                                onChange={() => setFieldValue('appType', DeploymentTypes.be)}
-                                            />
-                                            <Label htmlFor="Backend">Backend</Label>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <DeployMethod/>
-                            {/*choose branch to deploy*/}
-                            <section
-                                className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-gray-700">
-                                <div className="container flex flex-col mx-auto p-a ">
-                                    <h2 className="text-lg font-bold text-cyan-500 dark:text-white">
-                                        Quick setup - if you’ve done this get automatex git url
-                                    </h2>
-                                    <h4 className={"text-gray-500 text-base dark:text-white"}>After this app create
-                                        you will get Automatex git url to repository and deploys.</h4>
-                                    <div className={"py-5"}></div>
-                                    <h2 className="text-lg  font-bold text-cyan-500 dark:text-white">
-                                        AutomateX Deploys
-                                    </h2>
-                                    <h4 className={"text-gray-500 text-base dark:text-white"}> Facilitates a
-                                        selected
-                                        branch
-                                        to be automatically deployed to this application.</h4>
-                                </div>
-                                {/*Push to deploy*/}
-                                <div
-                                    className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">
-                                    <div className="relative flex items-center space-x-4 pb-2 text-center ">
-                                        <svg className="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                                             id="zip-file">
-                                            <path fill="#5aaae7"
-                                                  d="M13 51H43v6a4 4 0 0 0 8 0V43H13zM55 3H17.11A4.11 4.11 0 0 0 13 7.11V21H51V7A4 4 0 0 1 55 3z"></path>
-                                            <path fill="#78b9eb"
-                                                  d="M43,57V51H5v6a4,4,0,0,0,4,4H47a3.995,3.995,0,0,1-4-4Z"></path>
-                                            <path fill="#1e81ce"
-                                                  d="M55,3a4,4,0,0,0-4,4v6h8V7a3.995,3.995,0,0,0-4-4Z"></path>
-                                            <polygon fill="#ff9478"
-                                                     points="51 21 13 21 9 21 9 43 13 43 51 43 55 43 55 21 51 21"></polygon>
-                                            <path fill="#fff"
-                                                  d="M40,26H36a1,1,0,0,0-1,1V38h2V33h3a3,3,0,0,0,3-3V29A3,3,0,0,0,40,26Zm1,4a1,1,0,0,1-1,1H37V28h3a1,1,0,0,1,1,1Z"></path>
-                                            <rect width="2" height="12" x="31" y="26" fill="#fff"></rect>
-                                            <path fill="#fff"
-                                                  d="M28.9,27.447A1,1,0,0,0,28,26H22v2h4.382l-4.277,8.553A1,1,0,0,0,23,38h6V36H24.618Z"></path>
-                                        </svg>
-                                        <div className="flex flex-col leading-4 text-sm py-2 ">
-                                        <span
-                                            className="text-base font-bold text-cool-blue-150 dark:text-gray-300">&quot;Push to deploy: Make sure the branch is stable and tests pass before pushing for automatic app deployment.&quot;
-                                        </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                choose branch to deploy
-                                <div className="w-3/12 p-11">
-                                    <h2 className=" mb-2 block text-lg  font-bold text-cyan-500 dark:text-white">
-                                        Choose Branch
-                                    </h2>
-                                    <div className="mb-2 block">
-                                        <Label htmlFor="branch"/>
-                                    </div>
-                                    <Field as="select" id="branch" name="branch" required >
-                                        <option >master</option>
-                                        <option>main</option>
-                                    </Field>
-                                </div>
-                                <div className={"mt-0 m-11"}>
-                                    <h2 className=" mb-2 block text-lg  font-bold text-cyan-500 dark:text-white">
-                                        Only enable this option if you have a CI service configured on your repo.
-                                    </h2>
-                                    <ToggleSwitch
-                                        checked={enableAutomaticDeploys}
-                                        label="Enable Automatic Deploys"
-                                        onChange={handleToggleChange}
-                                    />
-                                </div>
-                                <Button type="submit" className=" m-11 bg-orange-100">
-                                    <HiArrowCircleRight className="mr-3 h-4 w-full text-xl text-white "/>
-                                    Submit
-                                </Button>
-                            </section>
-                        </Form>)}
-                    </Formik>
+                    <form onSubmit={formik.handleSubmit} className={""}>
+
+                        <FloatingLabel
+                            autoComplete="off"
+                            variant="filled"
+                            name="name"
+                            label="Project Name"
+                            onChange={(e) => {
+                                const projectNameValue = e.target.value;
+                                // Remove spaces before updating state
+                                const formattedProjectName = projectNameValue.replace(/\s/g, '');
+                                // Convert to lowercase before updating state
+                                const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
+                                formik.setFieldValue('name', formattedProjectNameLowercase);
+                            }}
+                        />
+                        <p>Domain Name : {formik.values.name?(formik.values.name+"."+process.env.NEXT_PUBLIC_DOMAIN_NAME):"default your project name"}</p>
+
+                        {/*choose branch to deploy*/}
+                        <DeployMethod formik={formik}/>
+                        {/*choose branch to deploy*/}
+                    <div className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-gray-700">
+
+
+                        {(() => {
+                            switch (formik.values.sourceType) {
+                                case SourceType.default:
+                                    return (<AutomateXCli/>)
+                                case SourceType.public:
+                                    return ("null")
+                                case SourceType.github:
+                                    return (<ConnectToGit formik={formik} />)
+                                case SourceType.gitlab:
+                                    return ("null");
+                            }
+                        })()}
+                    </div>
+
+                        <Button type="submit" className=" m-11 bg-orange-100">
+                            <HiArrowCircleRight className="mr-3 h-4 w-full text-xl text-white "/>
+                            Submit
+                        </Button>
+                    </form>
                 </section>
             </div>
         </div>
