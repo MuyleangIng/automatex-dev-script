@@ -3,18 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const personalInfoSlice = createSlice({
     name: 'personalInfo',
     initialState: {
-        personalInfo: {
-            email: null,
-        },
+        email: null, // Adjusted the structure of initialState
     },
     reducers: {
         setPersonalInfo: (state, action) => {
-            state.personalInfo = action.payload;
+            return action.payload; // Replace the entire state with the payload
         },
         setEmail: (state, action) => {
-            state.personalInfo.email = action.payload.email;
+            state.email = action.payload; // Update only the email property
         },
-
     },
 });
 

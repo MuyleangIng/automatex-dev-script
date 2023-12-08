@@ -15,6 +15,7 @@ import AXGoogleButton from "@/components/AXGoogleButton";
 import AXGithubButton from "@/components/AXGitHubButton";
 import Lottie from "lottie-react";
 import Spaces from "@/app/utils/assets/bot.json";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
@@ -25,6 +26,7 @@ const validationSchema = Yup.object().shape({
         .required('Password is required')
         .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password must match").required("Required"),
+    captcha: Yup.string().required('Please complete the reCAPTCHA verification.'),
 });
 
 
@@ -35,6 +37,11 @@ function SignUp(props) {
     // const togglePasswordVisibility = () => {
     //     setShowPassword(!showPassword);
     // };
+    const [captcha, setCaptcha]= useState()
+    const onSubmit = () => {
+
+    }
+
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -59,11 +66,11 @@ function SignUp(props) {
                     router.push("/auth/sign-up-success")
                     return resp.json();
                 } else {
-                    const errorMessage = "Cannot Create Account";
+                    const errorMessage = "Email Already Exists";
                     toast.error(errorMessage, {
                         theme: "colored",
                         icon: "❌",
-                        autoClose: 3000,
+                        autoClose: 4000,
                         position: "top-right",
                     });
                 }
@@ -118,7 +125,7 @@ function SignUp(props) {
                         </a>
                     </p>
                     <Formik initialValues={{
-                        username: '', email: '', password: '', confirmPassword: '',
+                        username: '', email: '', password: '', confirmPassword: '',captcha: '',
                     }}
                             validationSchema={validationSchema}
                             onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -126,7 +133,7 @@ function SignUp(props) {
                                     setSubmitting(false);
                                     postUser(values);
                                     resetForm({
-                                        values: { username: '', email: '', password: '', confirmPassword: '', },
+                                        values: { username: '', email: '', password: '', confirmPassword: '',captcha: '', },
                                     });
                                 }, 400);
                             }}
@@ -170,7 +177,7 @@ function SignUp(props) {
                                                     id="password"
                                                     placeholder="••••••••"
                                                     className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                                    type={passwordVisible ? "password" : "text"}
+                                                    type={passwordVisible ? "text" : "password"}
                                                 />
                                                 {passwordVisible ? (
                                                     <FaEye
@@ -199,7 +206,7 @@ function SignUp(props) {
                                                     id="confirmPassword"
                                                     placeholder="••••••••"
                                                     className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                                    type={passwordVisible ? "password" : "text"}
+                                                    type={passwordVisible ? "text" : "password"}
                                                 />
                                                 {passwordVisible ? (
                                                     <FaEye
@@ -218,6 +225,19 @@ function SignUp(props) {
                                                           className={"text-red-500 text-sm mt-1"}/>
                                         </div>
                                     </div>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        <ReCAPTCHA
+                                            size="normal"
+                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                            onChange={(value) => {
+                                                setFieldValue('captcha', value);
+                                                setCaptcha(value);
+                                            }}
+                                            className="mx-auto"
+                                        />
+                                        <ErrorMessage name="captcha" component="div" className="text-red-500 text-sm mt-1" />
+                                    </div>
+
                                 </div>
                                 <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
                                     {isSubmitting ? "Creating..." : " Create an account"}

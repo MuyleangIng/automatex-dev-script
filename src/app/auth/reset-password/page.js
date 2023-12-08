@@ -8,7 +8,7 @@ export const metadata = {
 
 function Page() {
     return (
-        <section className="my-10">
+        <section className="my-24">
             <NewPassword />
         </section>
 

@@ -26,9 +26,9 @@ const AXVerify = () => {
     }, [email, verifyCode, verifyEmail]);
 
 
-    if (data) {
-        dispatch(setEmail({email: data.data}))
-    }
+    // if (data) {
+    //     dispatch(setEmail({email: data.data}))
+    // }
 
 
     return (

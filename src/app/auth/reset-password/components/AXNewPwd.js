@@ -107,46 +107,51 @@ export default function NewPassword(){
                             </h1>
                             <div className="mb-6 flex flex-col gap-y-3">
                                 <Label htmlFor="password">Password</Label>
-                                <Field
-                                    id="password"
-                                    name="password"
-                                    placeholder="........"
-                                    type={passwordVisible ? "text" : "password"}
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-80 focus:border-orange-80 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-80 dark:focus:border-orange-80"
-                                />
-                                {passwordVisible ? (
-                                    <FaEye
-                                        className="absolute right-[530px] top-[330px] transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
-                                        onClick={togglePasswordVisibility}
+                                <div className={"relative"}>
+                                    <Field
+                                        id="password"
+                                        name="password"
+                                        placeholder="................"
+                                        type={passwordVisible ? "text" : "password"}
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-80 focus:border-orange-80 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-80 dark:focus:border-orange-80"
                                     />
-                                ) : (
-                                    <FaEyeSlash
-                                        className="absolute right-[530px] top-[330px] transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
-                                        onClick={togglePasswordVisibility}
-                                    />
-                                )}
+                                    {passwordVisible ? (
+                                        <FaEye
+                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                            onClick={togglePasswordVisibility}
+                                        />
+                                    ) : (
+                                        <FaEyeSlash
+                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                            onClick={togglePasswordVisibility}
+                                        />
+                                    )}
+                                </div>
+
                                 <ErrorMessage name="password" component="div" className="invalid-feedback text-red-600" />
                             </div>
                             <div className="mb-6 flex flex-col gap-y-3">
                                 <Label htmlFor="email">Comfirm Password</Label>
-                                <Field
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    placeholder="........"
-                                    type={passwordVisible ? "text" : "password"}
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-80 focus:border-orange-80 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-80 dark:focus:border-orange-80"
-                                />
-                                {passwordVisible ? (
-                                    <FaEye
-                                        className="absolute right-[530px] top-[450px] transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
-                                        onClick={togglePasswordVisibility}
+                                <div className={"relative"}>
+                                    <Field
+                                        id="confirmPassword"
+                                        name="confirmPassword"
+                                        placeholder=".................."
+                                        type={passwordVisible ? "text" : "password"}
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-80 focus:border-orange-80 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-80 dark:focus:border-orange-80"
                                     />
-                                ) : (
-                                    <FaEyeSlash
-                                        className="absolute right-[530px] top-[450px] transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
-                                        onClick={togglePasswordVisibility}
-                                    />
-                                )}
+                                    {passwordVisible ? (
+                                        <FaEye
+                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                            onClick={togglePasswordVisibility}
+                                        />
+                                    ) : (
+                                        <FaEyeSlash
+                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                            onClick={togglePasswordVisibility}
+                                        />
+                                    )}
+                                </div>
                                 <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback text-red-600" />
                             </div>
                             <div>

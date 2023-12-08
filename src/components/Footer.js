@@ -9,8 +9,8 @@ function MainFooter(){
     const pathname = usePathname();
 
     if (
-        pathname ===  "/login" ||
-        pathname === "/signup" ||
+        pathname ===  "/auth/login" ||
+        pathname === "/auth/signup" ||
         pathname === "/auth/reset-password"
     ){
         return null;

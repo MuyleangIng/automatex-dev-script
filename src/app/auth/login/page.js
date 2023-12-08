@@ -15,6 +15,8 @@ import Bot from "@/app/utils/assets/botai.json";
 import {useCreateRequestSendMailMutation} from "@/store/features/user/userApiSlice";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {FaEye, FaEyeSlash} from "react-icons/fa";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 function Login() {
     const router = useRouter();
@@ -25,12 +27,13 @@ function Login() {
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Required'),
         password: Yup.string()
-            .required('Password is required')
+            .required('Password is required'),
             // .matches(
             //     passwordRegex,
             //     "Password must be at least 6 characters, a number, an Uppercase, and a Lowercase"
             // )
         // .matches(passwordRegex, 'Password must be at least 6 ,'),
+        // captcha: Yup.string().required('Please complete the reCAPTCHA verification.'),
     });
 
     // forgot password
@@ -74,6 +77,12 @@ function Login() {
             .required("Required"),
     });
 
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible((prevState) => !prevState);
+    };
+
 
     return (<section className="bg-gray-50 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-20 lg:py-16">
@@ -96,18 +105,8 @@ function Login() {
                         <h1 className="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
                             Welcome back
                         </h1>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">
-                            Start your website in seconds. Don’t have an account?&nbsp;
-                            <a
-                                href="#"
-                                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                            >
-                                Sign up
-                            </a>
-                            .
-                        </p>
                         <Formik initialValues={{
-                            email: '', password: '',
+                            email: '', password: ''
                         }}
                                 validationSchema={validationSchema}
                                 onSubmit={ async (values, {setSubmitting}) => {
@@ -141,7 +140,7 @@ function Login() {
                                         setSubmitting(false);
                                 }}
                         >
-                            {({isSubmitting}) => (<Form className="mt-4 space-y-6 sm:mt-6" action="#">
+                            {({isSubmitting,errors,touched}) => (<Form className="mt-4 space-y-6 sm:mt-6" action="#">
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     <div className="grid grid-cols-1 gap-2">
                                         <div className="grid grid-cols-1 gap-2">
@@ -161,16 +160,31 @@ function Login() {
                                     <div className="grid grid-cols-1 gap-2">
                                         <div>
                                             <Label htmlFor="password" className="dark:text-white">Password</Label>
-                                            <Field
-                                                name="password"
-                                                placeholder="••••••••"
-                                                className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                                type="password"
-                                            />
+                                            <div className={"relative"}>
+                                                <Field
+                                                    name="password"
+                                                    placeholder="••••••••"
+                                                    className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                    type={passwordVisible ? "text" : "password"}
+                                                />
+                                                {passwordVisible ? (
+                                                    <FaEye
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                ) : (
+                                                    <FaEyeSlash
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                )}
+                                            </div>
+
                                             <ErrorMessage name={"password"} component={"div"}
                                                           className={"invalid-feedback text-red-600"}/>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">
@@ -193,12 +207,8 @@ function Login() {
                                     </div>
                                     <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>
                                 </div>
-
                                 <AXGoogleButton/>
                                 <AXGithubButton/>
-
-
-
                             </Form>)}
 
                         </Formik>
