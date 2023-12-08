@@ -2,9 +2,8 @@
 import React, {useState} from 'react';
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Alert, Button, Card, Checkbox, Label, TextInput} from "flowbite-react";
+import {Alert, Button, Card, Label} from "flowbite-react";
 import HandleImage from "@/components/HandleImage";
-import SocialLogin from "@/components/SocialLogin";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import AXGoogleButton from "@/components/AXGoogleButton";
@@ -19,11 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Login() {
     const router = useRouter();
     const [resErr, setResErr] = useState(null);
-    const [email, setEmail] = useState("");
     const [showForgotPassword, setShowForgotPassword] = useState(false);
-    const [showResetPassword, setShowResetPassword] = useState(false);
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
-
     const validationSchema = Yup.object().shape({
         email: Yup.string()
             .test('emailOrUsername', 'Invalid email or username', value => {
@@ -54,12 +49,8 @@ function Login() {
 
     const [sendMail]=useCreateRequestSendMailMutation();
     const handleSubmitMail = (values, { setSubmitting }) => {
-        // Handle form submission here
-
         sendMail(values)
         setSubmitting(false);
-        console.log("Email sent:", values);
-        // You can add the API call to send the reset password email here
         toast.success("A password reset email has been sent to your email address!", {
             autoClose: 1000,
         });
@@ -109,12 +100,9 @@ function Login() {
                                     router.push("/app/dashboard");
 
                                     const resp = JSON.parse(res.error)
-                                    console.log("resp11:",resp)
                                     if (resp.code === 400){
-                                        console.log("resp:",resp.errors[0].message)
                                         setResErr(resp.errors[0].message)
                                     } else if (resp.code === 401){
-                                        console.log("resp:",resp)
                                         setResErr([{message:"Your password is incorrect."}])
                                     } else {
                                         setResErr(resp.errors[0].message)

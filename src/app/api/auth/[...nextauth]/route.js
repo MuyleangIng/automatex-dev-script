@@ -68,7 +68,6 @@ const authOptions = {
                 const res = await resp.json();
                 console.log("respone:",res)
                 if (resp.ok && res){
-                    console.log("hello")
                     const user = { id: res.user.uuid , name: res.refreshToken, email: res.accessToken }
                     return user
                 }
