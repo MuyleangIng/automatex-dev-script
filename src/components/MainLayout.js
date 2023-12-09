@@ -20,9 +20,7 @@ function MainLayout({children}) {
     return (
         <Provider store={store}>
             <SessionProvider>
-                <Flowbite theme={{
-                    mode: 'dark'
-                }}>
+                <Flowbite theme={{ dark: themeMode ? (themeMode==='dark') : true }} >
                     {!developerPath && (<HeadingBar/>)}
                     <HandleNavbar/>
                     {children}
