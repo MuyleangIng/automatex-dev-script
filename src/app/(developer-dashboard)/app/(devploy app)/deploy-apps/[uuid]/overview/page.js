@@ -2,10 +2,10 @@
 import React from 'react';
 import OverViewDeploy from "@/components/deploy-app/OverViewDeploy";
 
-function Page() {
+function Page({params}) {
     return (
         <div>
-        <OverViewDeploy/>
+        <OverViewDeploy params={params}/>
         </div>
     );
 }

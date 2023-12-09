@@ -1,14 +1,28 @@
 import React from 'react';
-import {FaCodeBranch, FaCopy, FaGithub} from "react-icons/fa";
+import {FaGithub} from "react-icons/fa";
 import {Alert, Button, Card, Label, Textarea, TextInput} from "flowbite-react";
-import {HiInformationCircle} from "react-icons/hi";
 import {GrDeploy} from "react-icons/gr";
 import {PiGoogleCardboardLogo} from "react-icons/pi";
 import {AiOutlineBranches} from "react-icons/ai";
 import ActivitiesFeedTable from "@/components/deploy-app/ActivitiesFeedTable";
+import {useSession} from "next-auth/react";
+import {useSelector} from "react-redux";
+import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
+import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
+import HandleContent from "@/components/deploy-app/HandleContent";
+import Link from "next/link";
 
-function OverViewDeploy(props) {
-    return (<>
+function OverViewDeploy(params) {
+    const {loading } = useSession()
+    const data = useSelector(selectDeploymentApp)
+    const isLoading = useSelector(selectIsLoading)
+    const error = useSelector(selectError)
+    console.log("data from overview deploy :", data)
+    return (<HandleContent
+        error={error}
+        isLoading={isLoading || loading || !data}
+        customLoadingContent={<ResourceLoadingIndicator/>}
+    >
         <Card className={"mt-14"}>
             <h3 className="mb-4 text-xl font-bold dark:text-white text-center underline">
                 Deployment Information
@@ -18,22 +32,24 @@ function OverViewDeploy(props) {
                         <div className="grid grid-cols-1 gap-y-2">
                             <Label htmlFor="organization">Deployment Service :</Label>
                             <Alert  color="success" icon={GrDeploy }>
-                                <span className="font-medium">movie-website-blmab9rekvisalsak.automatex.com</span>
+                                <span className="font-medium">{data?.name}</span>
                             </Alert>
                         </div>
                         <div className="grid grid-cols-1 gap-y-2">
                             <Label htmlFor="organization">Domain :</Label>
-                            <Alert color="teal" icon={PiGoogleCardboardLogo  }>
-                                <span className="font-medium">react-js.kubernet.me</span>
+                            <Alert color="teal" icon={PiGoogleCardboardLogo}>
+                                <Link className="font-medium" target="_blank" rel="noopener noreferrer" href={`https://${data?.domains[0]?.fullSubdomain}`} passHref>
+                                        {data?.domains[0]?.fullSubdomain}
+                                </Link>
                             </Alert>
                         </div>
                         <div className="grid grid-cols-1 gap-y-2">
                             <Label htmlFor="department">Source From :</Label>
                             <Alert color="gray"  icon={AiOutlineBranches  }>
-                                <span className="font-medium ">Main</span>
+                                <span className="font-medium ">{data?.defaultBranch}</span>
                             </Alert>
                             <Alert color="lime"  icon={FaGithub }>
-                                <span className="font-medium ">https://github.com/Nun-SomRithy/first_pipeline.git</span>
+                                <span className="font-medium ">{data?.sourcePath}</span>
                             </Alert>
                         </div>
                     </div>
@@ -46,7 +62,7 @@ function OverViewDeploy(props) {
             Activities Feed
         </h3>
         <ActivitiesFeedTable/>
-        </>);
+        </HandleContent>);
 }
 
 export default OverViewDeploy;

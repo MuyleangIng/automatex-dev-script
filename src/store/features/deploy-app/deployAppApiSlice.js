@@ -21,14 +21,29 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 body: appData,
             }),
         }),
+        getConsoleLogs: builder.query({
+            query: (uuid) => ({
+                url: `/deploy-apps/console-latest-output/${uuid}`,
+                method: "GET",
+            }),
+        }),
+        deleteDeploymentApp: builder.mutation({
+            query: (uuid) => ({
+                url: `/deploy-apps/${uuid}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["DeploymentApps"],
+        }),
     }),
 });
 
 // auto-generated hooks for createDeploymentApp mutation (POST)
 export const {
+    useDeleteDeploymentAppMutation,
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
     useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
+    useGetConsoleLogsQuery,
     useLazyGetSingleDeploymentQuery
 } = deployAppApiSlice;
