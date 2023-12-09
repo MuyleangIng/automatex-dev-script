@@ -1,31 +1,25 @@
-"use client";
+"use client"
 import { Button, Card, Label, Select, TextInput } from "flowbite-react";
 import { HiCloudUpload } from "react-icons/hi";
-import { useGetUserQuery } from "@/store/features/user/userApiSlice";
+import Image from "next/image";
 
 export default function AccountSetting() {
-    const { data: userData, isLoading } = useGetUserQuery();
-    console.log(userData)
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <section className="bg-white dark:bg-gray-900">
             <div className="container flex items-center justify-between">
                 <div className="w-96 mb-10 mt-0">
                     <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
-                        <img
+                        <Image
                             alt=""
-                            src="https://i.pinimg.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
+                            src="https://i.pinImage.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
                             className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
                         />
                         <div>
                             <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">
-
+                                Kim Ken
                             </h3>
                             <div className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-                                {/*{userData?.role}*/}
+                                Software Engineer
                             </div>
                             <a
                                 href="#"
@@ -35,6 +29,7 @@ export default function AccountSetting() {
                                 Change picture
                             </a>
                         </div>
+
                     </div>
                 </div>
                 <div className="w-2/3">
@@ -51,7 +46,6 @@ export default function AccountSetting() {
                                         name="last-name"
                                         placeholder="Kim"
                                         required
-                                        value={userData?.lastName ? userData?.lastName : 'automatex'}
                                     />
                                 </div>
                                 <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
@@ -61,17 +55,14 @@ export default function AccountSetting() {
                                         name="first-name"
                                         placeholder="Ken"
                                         required
-                                        value={userData?.firstName ? userData?.firstName : 'automatex'}
                                     />
                                 </div>
+
                                 <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
                                     <Label htmlFor="country">Gender</Label>
                                     <div className="mb-1 grid grid-cols-1 gap-y-2">
-                                        <Select
-                                            id="settings-language"
-                                            name="settings-language"
-                                            value={userData?.gender || 'Male'}
-                                        >
+
+                                        <Select id="settings-language" name="settings-language">
                                             <option>---</option>
                                             <option>Male</option>
                                             <option>Female</option>
@@ -86,7 +77,6 @@ export default function AccountSetting() {
                                         name="number"
                                         placeholder="+855 87 654 536"
                                         required
-                                        value={userData?.phone ? userData?.phone : '0871234567'}
                                     />
                                 </div>
                                 <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
@@ -97,26 +87,19 @@ export default function AccountSetting() {
                                         placeholder="example@gmail.com"
                                         required
                                         type="email"
-                                        value={userData?.email || ''}
                                     />
                                 </div>
                                 <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
-                                    <Label htmlFor="address">Username</Label>
+                                    <Label htmlFor="address">Address</Label>
                                     <TextInput
-                                        id="username"
-                                        name="username"
-                                        placeholder="AutomateX"
+                                        id="address"
+                                        name="address"
+                                        placeholder="Phnom Penh"
                                         required
-                                        value={`${userData?.lastName} ${userData?.firstName}` || 'AutomateX'}
                                     />
                                 </div>
                                 <div className="col-span-6">
-                                    <Button
-                                        color="primary"
-                                        className="bg-orange-100 text-white "
-                                    >
-                                        Save all
-                                    </Button>
+                                    <Button color="primary" className="bg-orange-100 text-white ">Save all</Button>
                                 </div>
                             </div>
                         </form>
@@ -124,5 +107,5 @@ export default function AccountSetting() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

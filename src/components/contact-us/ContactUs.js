@@ -4,7 +4,7 @@ import {Button, Label, Textarea, TextInput} from "flowbite-react";
 function ContactUs(props) {
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="bg-gray-700 bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/contact/laptop-human.jpg')] bg-cover bg-center bg-no-repeat bg-blend-multiply">
+            <div className="bg-gray-700 bg-[url('https://img.freepik.com/free-photo/rpa-concept-with-blurry-hand-touching-screen_23-2149311914.jpg?w=1060&t=st=1701758512~exp=1701759112~hmac=e4d90f59829007b3c71283be7d67b9f096c7c3293786fb8b52705625a6712383')] bg-cover bg-center bg-no-repeat bg-blend-multiply">
                 <div className="mx-auto max-w-screen-sm px-4 pb-72 pt-8 text-center lg:px-6 lg:pb-80 lg:pt-24 ">
                     <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-white">
                         Contact Us

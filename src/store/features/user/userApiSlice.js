@@ -36,17 +36,25 @@ export const userApiSlice = apiSlice.injectEndpoints({
         }),
         createRequestSendMail: builder.mutation({
             query: (mail) => ({
-                url: "/auth/send-mail",
+                url: "/auth/forgot-password",
                 method: "POST",
                 body: mail,
             }),
             invalidatesTags: ["requestMail"],
         }),
         updateRequestForgotPassword: builder.mutation({
-            query: ({ uuid, ...password}) => ({
-                url: `/auth/forgot-password/${uuid}`,
-                method: "PUT",
-                body: password,
+            query: ({ verificationCode, email, password, confirmPassword }) => ({
+                url: `/auth/reset-password`,
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                    password,
+                    confirmPassword,
+                    verificationCode,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             }),
             invalidatesTags: ["requestPassword"],
         }),
