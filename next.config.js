@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
+        remotePatterns: [
             "avatars.githubusercontent.com",'lh3.googleusercontent.com',
-            'flowbite.s3.amazonaws.com'
+            'flowbite.s3.amazonaws.com',
+            'i.pinimage.com'
         ]
     }
 }

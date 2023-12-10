@@ -13,6 +13,7 @@ export default function AccountSetting() {
                             alt=""
                             src="https://i.pinImage.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
                             className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
+                            width={100} height={100}
                         />
                         <div>
                             <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">
