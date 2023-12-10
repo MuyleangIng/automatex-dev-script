@@ -12,7 +12,7 @@ function AutomateXCli({formik}) {
     };
 
     return (<div>
-            <h1 className={"text-center"}> AutomateX Git CLI </h1>
+            {/*<h1 className={"text-center"}> AutomateX Git CLI </h1>*/}
             <div className="container flex flex-col mx-auto p-a ">
                 <h2 className="text-lg font-bold text-cyan-500 dark:text-white">
                     Quick setup - if you’ve done this get automatex git url
@@ -58,18 +58,18 @@ function AutomateXCli({formik}) {
             </div>
             <div className="w-3/12 p-11">
                 <h2 className=" mb-2 block text-lg  font-bold text-cyan-500 dark:text-white">
-                    Choose Branch
+                    Default Branch
                 </h2>
                 <div className="mb-2 block">
                     <Label htmlFor="defaultBranch"/>
                 </div>
                 <Select
                     name="defaultBranch"
+                    disabled={true}
                     onChange={handleDefaultBranchChange} // use the new handler
                     value={formik.values.defaultBranch}
                 >
-                    <option value="main">Main</option>
-                    <option value="master">Master</option>
+                    <option value="main" >main</option>
                     {/* Add more options as needed */}
                 </Select>
             </div>
