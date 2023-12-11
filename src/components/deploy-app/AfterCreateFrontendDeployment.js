@@ -4,8 +4,7 @@ import Link from "next/link";
 import { FaPlus} from "react-icons/fa";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
 
-function AfterCreateFrontendDeployment({data }) {
-    const { refetch } = useGetAllDeploymentAppsQuery(); // Destructure refetch from the hook result
+function AfterCreateFrontendDeployment({data,refetch}) {
     return (<>
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">

@@ -55,7 +55,7 @@ export default function CreateDeploymentFrontendComponent() {
                     setSubmitting(false)
                     toast.success("Insert! Successfully")
                     resetForm()
-                    // router.push(`/app/deploy-apps/${res.uuid}/resource`); // Navigate to the new route
+                    router.push(`/app/deploy-apps/${res.uuid}/resource`); // Navigate to the new route
                     setLoading(false); // Stop loading
                 })
                 .catch((err) => {

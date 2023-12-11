@@ -27,6 +27,12 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 method: "GET",
             }),
         }),
+        getActivities: builder.query({
+            query: (uuid) => ({
+                url: `/deploy-apps/activities/${uuid}`,
+                method: "GET",
+            }),
+        }),
         deleteDeploymentApp: builder.mutation({
             query: (uuid) => ({
                 url: `/deploy-apps/${uuid}`,
@@ -45,5 +51,7 @@ export const {
     useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
     useGetConsoleLogsQuery,
-    useLazyGetSingleDeploymentQuery
+    useLazyGetSingleDeploymentQuery,
+    useGetActivitiesQuery,
+    useLazyGetActivitiesQuery,
 } = deployAppApiSlice;
