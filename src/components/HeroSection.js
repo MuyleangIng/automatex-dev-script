@@ -105,14 +105,14 @@ function HeroSection() {
                             <Button outline
                                     onClick={() => router.push("/startbuilding")}
                             >
-                                Subscribe
+                                Start Deploy
                             </Button>
                         </div>
                     </div>
                     <div className="flex items-center justify-center lg:w-1/2 mt-6 lg:mt-0 lg:w-full">
                         <Lottie
                             animationData={Service}
-                            className="mx-auto hidden w-7/12 md:flex"
+                            className="mx-auto hidden xl:w-7/12 md:flex"
                             data-aos="fade-right"
                         />
                     </div>
@@ -317,7 +317,7 @@ function HeroSection() {
 
             <section className="bg-white dark:bg-gray-100">
                 {/*Support languages section */}
-                <main className=" dark:bg-gray-800">
+                <main className=" dark:bg-gray-500">
                     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
 
                         <h2 className="mb-8 text-center text-3xl font-extrabold text-cool-blue-100 leading-tight tracking-tight dark:text-white md:text-4xl lg:mb-16">

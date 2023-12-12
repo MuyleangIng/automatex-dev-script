@@ -16,7 +16,6 @@ import {
 import {IoGitBranchOutline} from "react-icons/io5";
 import {FaGithubAlt, FaLink} from "react-icons/fa";
 import Link from "next/link";
-import moment from "moment";
 import {MdOutlineDateRange} from "react-icons/md";
 import {VscGitCommit} from "react-icons/vsc";
 import {useDispatch} from "react-redux";

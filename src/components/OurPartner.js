@@ -47,7 +47,7 @@ function OurPartner(props) {
                     <a href="#" className="flex items-center justify-center">
                         <Image data-aos="flip-down" width={100} height={100} unoptimized="true"
                                src="/images/photostad.png"
-                               className="w-8/12 hover:text-gray-900 dark:hover:text-white"
+                               className="w-80 hover:text-gray-900 dark:hover:text-white"
                                alt="Ikea - logo"></Image>
                     </a>
                 </div>
