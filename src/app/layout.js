@@ -1,6 +1,8 @@
 import './globals.css'
 import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
+import Script from "next/script";
+import React from "react";
 const satoshi = localFont({
     src: '../fonts/Satoshi-Regular.ttf',
     display: 'swap',

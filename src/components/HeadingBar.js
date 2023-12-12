@@ -8,7 +8,8 @@ function HeadingBar() {
         pathname ===  "/auth/login" ||
         pathname === "/auth/signup" ||
         pathname === "/user/userproject" ||
-        pathname === "/user/createWithGithub"
+        pathname === "/user/createWithGithub" ||
+        pathname === "/auth/reset-password"
     ){
         return null;
     }
