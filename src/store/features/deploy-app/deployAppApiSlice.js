@@ -4,15 +4,14 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllDeploymentApps: builder.query({
             query: ({ page, limit }) => ({
-                url: `/deploy-apps?page=${page}&limit=${limit}`,
-                method: "GET",
+                url: `/deploy-apps?page=${page}&limit=${limit}`
             }),
+            keepUnusedDataFor: 5,
             providesTags: ["DeploymentApps"],
         }),
         getSingleDeployment: builder.query({
             query: (uuid) => ({
-                url: `/deploy-apps/${uuid}`,
-                method: "GET",
+                url: `/deploy-apps/${uuid}`
             }),
         }),
         createDeploymentApp: builder.mutation({
@@ -28,14 +27,38 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 method: "GET",
             }),
         }),
+        getActivities: builder.query({
+            query: (uuid) => ({
+                url: `/deploy-apps/activities/${uuid}`,
+                method: "GET",
+            }),
+        }),
+        deleteDeploymentApp: builder.mutation({
+            query: (uuid) => ({
+                url: `/deploy-apps/${uuid}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["DeploymentApps"],
+        }),
+        buildPublicDeploymentApp: builder.mutation({
+            query: (uuid) => ({
+                url: `/deploy-apps/build-app/${uuid}`,
+                method: "POST",
+            }),
+        }),
     }),
 });
 
 // auto-generated hooks for createDeploymentApp mutation (POST)
 export const {
+    useDeleteDeploymentAppMutation,
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
+    useBuildPublicDeploymentAppMutation,
+    useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
     useGetConsoleLogsQuery,
-    useLazyGetSingleDeploymentQuery
+    useLazyGetSingleDeploymentQuery,
+    useGetActivitiesQuery,
+    useLazyGetActivitiesQuery,
 } = deployAppApiSlice;

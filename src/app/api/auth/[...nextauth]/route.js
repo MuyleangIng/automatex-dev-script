@@ -51,7 +51,6 @@ const authOptions = {
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials, req) {
-                console.log("cd:",credentials)
                 const resp = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/login", {
                     method: "POST",
                     headers: {
@@ -66,7 +65,6 @@ const authOptions = {
                     }),
                 });
                 const res = await resp.json();
-                console.log("respone:",res)
                 if (resp.ok && res){
                     const user = { id: res.user.uuid , name: res.refreshToken, email: res.accessToken }
                     return user

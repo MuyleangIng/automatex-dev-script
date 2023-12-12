@@ -12,14 +12,14 @@ import {usePathname} from "next/navigation";
 import {useReadLocalStorage} from "usehooks-ts";
 
 function MainLayout({children}) {
-    const themeMode = useReadLocalStorage("theme")
+    const themeMode = useReadLocalStorage("flowbite-theme-mode")
     const pathname = usePathname()
     const developerPath = pathname.includes('/app')
 
     return (
         <Provider store={store}>
             <SessionProvider>
-                <Flowbite theme={{ dark: themeMode ? (themeMode==='dark') : true }}>
+                <Flowbite theme={{ dark: themeMode ? (themeMode==='dark') : true }} >
                     {!developerPath && (<HeadingBar/>)}
                     <HandleNavbar/>
                     {children}

@@ -20,7 +20,7 @@ function Page() {
             customLoadingContent={<DeploymentAppLoadingIndicator/>}
         >
             <div className={"m-14 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
-                {data?.total === 0 ? <SectionAppDeploy/> : (isLoading ? <DeploymentAppLoadingIndicator/> : <AfterCreateFrontendDeployment data={data}/> )}
+                {data?.total === 0 ? <SectionAppDeploy/> : (isLoading ? <DeploymentAppLoadingIndicator/> : <AfterCreateFrontendDeployment data={data} refetch={refetch}/> )}
             </div>
             <div className="my-5">
                 <HandlePagination

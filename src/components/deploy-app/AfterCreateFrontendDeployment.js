@@ -1,31 +1,10 @@
 import React from 'react';
-import {Badge, Button, Card, Dropdown} from "flowbite-react";
-import {
-    HiArchive,
-    HiCog,
-    HiCurrencyDollar,
-    HiDotsVertical,
-    HiHeart,
-    HiInbox,
-    HiLogout,
-    HiOutlineDotsHorizontal,
-    HiOutlineTicket,
-    HiShoppingBag,
-    HiUserCircle,
-    HiUsers,
-    HiViewGrid
-} from "react-icons/hi";
+import {Button} from "flowbite-react";
 import Link from "next/link";
-import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
-import Image from "next/image";
-import {FaGithubAlt, FaLink, FaPlus} from "react-icons/fa";
-import {MdComment} from "react-icons/md";
-import {IoGitBranchOutline, IoRocketOutline} from "react-icons/io5";
-import {ImConnection} from "react-icons/im";
-import {AiOutlineDisconnect} from "react-icons/ai";
+import { FaPlus} from "react-icons/fa";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
 
-function AfterCreateFrontendDeployment({data}) {
+function AfterCreateFrontendDeployment({data,refetch}) {
     return (<>
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">
@@ -61,35 +40,9 @@ function AfterCreateFrontendDeployment({data}) {
         {/*loop the card component*/}
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
 
-            {data.list.map((item, index) => (
-                <CardDeploymentApp key={index} deployApp={item}/>
+            {data?.list.map((item, index) => (
+                <CardDeploymentApp key={index} deployApp={item} refetch={refetch}/>
             ))}
-
-
-            {/*//     <Card as={Link} key={index} href={`/app/deploy-apps/${item.uuid}/resource/`}>*/}
-            {/*//         <span>*/}
-            {/*//          <div className={"float-right"}>*/}
-            {/*//         <HiOutlineDotsHorizontal />*/}
-            {/*//     </div>*/}
-            {/*//         <div className="flex items-center space-x-4">*/}
-            {/*//             <Image width={100} height={100} unoptimized={true}*/}
-            {/*//                 className="h-10 w-10 rounded-full"*/}
-            {/*//                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"*/}
-            {/*//                 alt="Jese Leos avatar"*/}
-            {/*//             />*/}
-            {/*//             <div className="font-medium dark:text-white">*/}
-            {/*//                 <Badge color="purple" className="!inline">{item?.name}</Badge>*/}
-            {/*//                 <div className="text-sm font-normal text-gray-500 dark:text-gray-400">*/}
-            {/*//                     reactjs.kuberthy.me*/}
-            {/*//                 </div>*/}
-            {/*//             </div>*/}
-            {/*//         </div>*/}
-            {/*// </span>*/}
-            {/*//         <p className="flex">*/}
-            {/*//             Branch: <span className={"font-bold"}>master</span>*/}
-            {/*//         </p>*/}
-            {/*//     </Card>*/}
-            {/*// ))}*/}
         </div>
     </>);
 }

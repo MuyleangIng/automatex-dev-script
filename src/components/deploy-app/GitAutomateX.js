@@ -19,6 +19,8 @@ function GitAutomateX({params}) {
     const data = useSelector(selectDeploymentApp)
     const isLoading = useSelector(selectIsLoading)
     const error = useSelector(selectError)
+
+    console.log("data", data?.repo?.http_url_to_repo)
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             console.log('Text copied to clipboard');
@@ -32,8 +34,12 @@ function GitAutomateX({params}) {
         });
     };
 
-    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.sourcePath} \n`, 'git push -u origin main',];
-    const command2 = [`git remote add origin ${data?.sourcePath} \n`, 'git branch -M main\n', 'git push -u origin main']
+    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`, 'git push -u origin main',];
+    const command2 = [
+        `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`,
+        'git branch -M main\n',
+        'git push -u origin main'
+    ]
     return (
         <HandleContent
             error={error}
