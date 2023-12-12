@@ -2,9 +2,18 @@
 const nextConfig = {
     images: {
         remotePatterns: [
-            "avatars.githubusercontent.com",'lh3.googleusercontent.com',
-            'flowbite.s3.amazonaws.com',
-            'i.pinimage.com'
+            {
+                hostname: 'avatars.githubusercontent.com',
+            },
+            {
+                hostname: 'lh3.googleusercontent.com',
+            },
+            {
+                hostname: 'flowbite.s3.amazonaws.com',
+            },
+            {
+                hostname: 'i.pinimg.com',
+            },
         ]
     }
 }

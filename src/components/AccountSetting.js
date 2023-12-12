@@ -12,8 +12,6 @@ export default function AccountSetting() {
                         <Image
                             alt=""
                             src="https://wp-api.zipmex.com/wp-content/uploads/2021/12/NFT-marketplace.jpg"
-                            width="30"
-                            height="30"
                             className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
                             width={100} height={100}
                         />
