@@ -1,6 +1,8 @@
 'use client';
 import React, {useState, useEffect, useRef} from 'react';
 import {
+    useBuildPublicDeploymentAppMutation,
+    useCreateDeploymentAppMutation,
     useGetActivitiesQuery,
     useGetAllDeploymentAppsQuery,
     useGetConsoleLogsQuery
@@ -8,12 +10,14 @@ import {
 import {TfiReload} from 'react-icons/tfi';
 import {Accordion, Button} from 'flowbite-react';
 import {IoRocketOutline} from "react-icons/io5";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
 
 function ActivitiesLogs({params}) {
     const {uuid} = params;
+    const [buildPublicDeployment, {isLoading, error, data}] = useBuildPublicDeploymentAppMutation();
     const deployment = useSelector(selectDeploymentApp)
+    const dispatch = useDispatch(); // Get the dispatch function
     const [pollingInterval, setPollingInterval] = useState(null);
     const [isPolling, setIsPolling] = useState(false);
     const active = 'dark:!bg-gray-700 dark:!text-white';
@@ -24,8 +28,21 @@ function ActivitiesLogs({params}) {
     //         containerRef.current.scrollTop = containerRef.current.scrollHeight;
     //     }
     // }, [dataLogs?.error?.data]);
-
-    console.log("deployment from :", deployment?.jobInfo?.builds)
+    const handleDeploy = () => {
+        buildPublicDeployment({uuid}).unwrap()
+            .then((res) => {
+                console.log(`Successfully deployed app with UUID: ${uuid}`);
+            })
+            .catch((err) => {
+                console.error(`Error deploying app with UUID: ${uuid}`, err);
+                if (err.status === 'FETCH_ERROR') {
+                    console.error('There was an error while fetching data:', err.message);
+                }
+            });
+        console.log(`Deploying app with UUID: ${uuid}`);
+    }
+    console.log("uuid from :", uuid)
+    console.log("deployment from :", buildPublicDeployment)
 
     return (
         <div
@@ -33,7 +50,7 @@ function ActivitiesLogs({params}) {
         >
 
             <div className="flex items-center justify-end">
-                <Button>
+                <Button onClick={handleDeploy} >
                     <IoRocketOutline className={"h-5 w-5 mr-2"} /> Deploy App
                 </Button>
             </div>

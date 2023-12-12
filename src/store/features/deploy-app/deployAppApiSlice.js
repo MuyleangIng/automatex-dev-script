@@ -40,6 +40,12 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ["DeploymentApps"],
         }),
+        buildPublicDeploymentApp: builder.mutation({
+            query: (uuid) => ({
+                url: `/deploy-apps/build-app/${uuid}`,
+                method: "POST",
+            }),
+        }),
     }),
 });
 
@@ -48,6 +54,7 @@ export const {
     useDeleteDeploymentAppMutation,
     useCreateDeploymentAppMutation,
     useGetAllDeploymentAppsQuery,
+    useBuildPublicDeploymentAppMutation,
     useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
     useGetConsoleLogsQuery,
