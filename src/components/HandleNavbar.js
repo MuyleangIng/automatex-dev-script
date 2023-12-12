@@ -35,7 +35,7 @@ function HandleNavbar() {
         <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 dark:bg-gray-900`}>
             <Navbar.Brand as={Link} href={"/"}>
                 <HandleImage src={"/mainlogo.png"} w={14} h={15}/>
-                <span className="self-center text-xl font-extrabold whitespace-nowrap w-">
+                <span className="self-center text-0  xl:text-xl font-extrabold whitespace-nowrap w-">
                     <span className="text-cyan-700">Automate</span>
                     <span className="text-cool-blue-100">X</span>
                 </span>
