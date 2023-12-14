@@ -1,32 +1,10 @@
 import React from 'react';
-import {Badge, Button, Card, Dropdown} from "flowbite-react";
-import {
-    HiArchive,
-    HiCog,
-    HiCurrencyDollar,
-    HiDotsVertical,
-    HiHeart,
-    HiInbox,
-    HiLogout,
-    HiOutlineDotsHorizontal,
-    HiOutlineTicket,
-    HiShoppingBag,
-    HiUserCircle,
-    HiUsers,
-    HiViewGrid
-} from "react-icons/hi";
+import {Button} from "flowbite-react";
 import Link from "next/link";
-import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
-import Image from "next/image";
-import {FaGithubAlt, FaLink, FaPlus} from "react-icons/fa";
-import {MdComment} from "react-icons/md";
-import {IoGitBranchOutline, IoRocketOutline} from "react-icons/io5";
-import {ImConnection} from "react-icons/im";
-import {AiOutlineDisconnect} from "react-icons/ai";
+import { FaPlus} from "react-icons/fa";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
 
-function AfterCreateFrontendDeployment({data }) {
-    const { refetch } = useGetAllDeploymentAppsQuery(); // Destructure refetch from the hook result
+function AfterCreateFrontendDeployment({data,refetch}) {
     return (<>
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">

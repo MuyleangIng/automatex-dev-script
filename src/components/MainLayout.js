@@ -16,7 +16,6 @@ function MainLayout({children}) {
     const pathname = usePathname()
     const developerPath = pathname.includes('/app')
 
-    console.log(themeMode)
     return (
         <Provider store={store}>
             <SessionProvider>
