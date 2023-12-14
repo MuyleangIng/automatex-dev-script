@@ -108,3 +108,65 @@ body{
         background-position:20vw;
     }
 }
+
+@keyframes is-active {
+    0% {
+        fill: auto;
+    }
+    5% {
+        fill: white;
+    }
+    100% {
+        fill: auto;
+    }
+}
+
+#tanuki-logo {
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.is-active {
+    #tanuki-right-cheek {
+        animation: is-active 2s infinite;
+        animation-delay: 0;
+    }
+    #tanuki-right-eye {
+        animation: is-active 2s infinite;
+        animation-delay: .1s;
+    }
+    #tanuki-right-ear {
+        animation: is-active 2s infinite;
+        animation-delay: .1s;
+    }
+    #tanuki-nose {
+        animation: is-active 2s infinite;
+        animation-delay: .2s;
+    }
+    #tanuki-left-eye {
+        animation: is-active 2s infinite;
+        animation-delay: .3s;
+    }
+    #tanuki-left-ear {
+        animation: is-active 2s infinite;
+        animation-delay: .3s;
+    }
+    #tanuki-left-cheek {
+        animation: is-active 2s infinite;
+        animation-delay: .4s;
+    }
+}
+
+/*btn2 hover*/
+.btn2 span:first-child{
+    transform: translateX(-101%);
+    transition: transform .3s ease-in
+}
+.btn2:hover span{
+    transform: translateX(0)
+}
+
+.two:hover span {
+    width: 50%;
+}
