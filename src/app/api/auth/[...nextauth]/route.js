@@ -65,9 +65,10 @@ const authOptions = {
                     }),
                 });
                 const res = await resp.json();
+                res.accessGitToken = undefined;
                 if (resp.ok && res){
-                    const user = { id: res.user.uuid , name: res.refreshToken, email: res.accessToken }
-                    return user
+                    // localStorage.setItem('userData', JSON.stringify(user));
+                    return {id: res.user.uuid, name: res.refreshToken, email: res.accessToken,token: res.accessGitToken};
                 }
                 if (!res.ok) {
                     throw new Error(JSON.stringify(res));

@@ -11,6 +11,7 @@ import {
 import HandleContent from "@/components/deploy-app/HandleContent";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import {useSession} from "next-auth/react";
+import {useGetProjectsQuery} from "@/store/api/apiGitSlice";
 
 function GitAutomateX({params}) {
     const dispatch = useDispatch()
@@ -19,7 +20,8 @@ function GitAutomateX({params}) {
     const data = useSelector(selectDeploymentApp)
     const isLoading = useSelector(selectIsLoading)
     const error = useSelector(selectError)
-
+    const gitProject = useGetProjectsQuery()
+    console.log('gitProject', gitProject)
     console.log("data", data?.repo?.http_url_to_repo)
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
