@@ -9,10 +9,9 @@ const baseQuery = fetchBaseQuery({
         if (session) {
             headers.set("authorization", `Bearer ${session.user.token}`);
         }
-        // Set your custom headers
         headers.set("Accept", "*/*");
         headers.set("User-Agent", "Thunder Client (https://www.thunderclient.com)");
-        // headers.set("Authorization", "Bearer glpat-zdCs4Z-SY7PUzRfB7Ct5");
+        headers.set("Authorization", "Bearer glpat-zdCs4Z-SY7PUzRfB7Ct5");
         return headers;
     },
 });

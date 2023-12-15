@@ -12,6 +12,7 @@ import {Accordion, Button} from 'flowbite-react';
 import {IoRocketOutline} from "react-icons/io5";
 import {useDispatch, useSelector} from "react-redux";
 import {selectDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
+import {useGetProjectsQuery} from "@/store/api/apiGitSlice";
 
 function ActivitiesLogs({params}) {
     const {uuid} = params;
@@ -21,6 +22,8 @@ function ActivitiesLogs({params}) {
     const [pollingInterval, setPollingInterval] = useState(null);
     const [isPolling, setIsPolling] = useState(false);
     const active = 'dark:!bg-gray-700 dark:!text-white';
+    const { data: gitProjects } = useGetProjectsQuery();
+
     // const dataLogs = useGetConsoleLogsQuery(uuid, {...pollingInterval});
     // const containerRef = useRef();
     // useEffect(() => {
@@ -45,15 +48,10 @@ function ActivitiesLogs({params}) {
     console.log("deployment from :", buildPublicDeployment)
 
     return (
-        <div
-            className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}
-        >
 
-            <div className="flex items-center justify-end">
-                <Button onClick={handleDeploy} >
-                    <IoRocketOutline className={"h-5 w-5 mr-2"} /> Deploy App
-                </Button>
-            </div>
+
+        <div className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}>
+
             <br/>
 
             <Accordion>
@@ -61,9 +59,11 @@ function ActivitiesLogs({params}) {
                     <Accordion.Title>What is Flowbite?</Accordion.Title>
                     <Accordion.Content>
                         <p className="mb-2 text-gray-500 dark:text-gray-400">
-                            Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons,
+                            Flowbite is an open-source library of interactive components built on top of Tailwind CSS
+                            including buttons,
                             dropdowns, modals, navbars, and more.
                         </p>
+                        {/*<pre>{datav1}</pre>*/}
                         <p className="text-gray-500 dark:text-gray-400">
                             Check out this guide to learn how to&nbsp;
                             <a
@@ -80,12 +80,14 @@ function ActivitiesLogs({params}) {
                     <Accordion.Title>Is there a Figma file available?</Accordion.Title>
                     <Accordion.Content>
                         <p className="mb-2 text-gray-500 dark:text-gray-400">
-                            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
+                            Flowbite is first conceptualized and designed using the Figma software so everything you see
+                            in the library
                             has a design equivalent in our Figma file.
                         </p>
                         <p className="text-gray-500 dark:text-gray-400">
                             Check out the
-                            <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                            <a href="https://flowbite.com/figma/"
+                               className="text-cyan-600 hover:underline dark:text-cyan-500">
                                 Figma design system
                             </a>
                             based on the utility classes from Tailwind CSS and components from Flowbite.
@@ -96,18 +98,22 @@ function ActivitiesLogs({params}) {
                     <Accordion.Title>What are the differences between Flowbite and Tailwind UI?</Accordion.Title>
                     <Accordion.Content>
                         <p className="mb-2 text-gray-500 dark:text-gray-400">
-                            The main difference is that the core components from Flowbite are open source under the MIT license, whereas
-                            Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
+                            The main difference is that the core components from Flowbite are open source under the MIT
+                            license, whereas
+                            Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and
+                            standalone
                             components, whereas Tailwind UI offers sections of pages.
                         </p>
                         <p className="mb-2 text-gray-500 dark:text-gray-400">
-                            However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no
+                            However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as
+                            there is no
                             technical reason stopping you from using the best of two worlds.
                         </p>
                         <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
                         <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
                             <li>
-                                <a href="https://flowbite.com/pro/" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                                <a href="https://flowbite.com/pro/"
+                                   className="text-cyan-600 hover:underline dark:text-cyan-500">
                                     Flowbite Pro
                                 </a>
                             </li>
@@ -124,7 +130,6 @@ function ActivitiesLogs({params}) {
                     </Accordion.Content>
                 </Accordion.Panel>
             </Accordion>
-
 
 
             {/*<Button*/}
