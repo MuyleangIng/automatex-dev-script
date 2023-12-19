@@ -7,7 +7,7 @@
 //     error: null
 // };
 //
-// const gitApiSlice = createSlice({
+// const nv = createSlice({
 //     name: 'gitApi',
 //     initialState,
 //     reducers: {
