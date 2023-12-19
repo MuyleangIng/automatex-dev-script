@@ -71,6 +71,24 @@ export const userApiSlice = apiSlice.injectEndpoints({
                 url: `/users`,
                 method: "GET",
             }),
+            updateUsers: builder.mutation({
+                query: ({ avatar,firstName, lastName, username, email, password, roleId }) => ({
+                    url: `/users`,
+                    method: "POST",
+                    body: JSON.stringify({
+                        avatar,
+                        firstName,
+                        lastName,
+                        username,
+                        email,
+                        password,
+                        roleId,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }),
+            }),
         })
     }),
 });
