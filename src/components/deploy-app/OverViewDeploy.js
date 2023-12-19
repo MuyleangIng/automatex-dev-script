@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FaGithub} from "react-icons/fa";
 import {Alert, Button, Card, Label, Textarea, TextInput} from "flowbite-react";
 import {GrDeploy} from "react-icons/gr";
@@ -6,18 +6,27 @@ import {PiGoogleCardboardLogo} from "react-icons/pi";
 import {AiOutlineBranches} from "react-icons/ai";
 import ActivitiesFeedTable from "@/components/deploy-app/ActivitiesFeedTable";
 import {useSession} from "next-auth/react";
-import {useSelector} from "react-redux";
+import {useSelector,useDispatch} from "react-redux";
 import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import HandleContent from "@/components/deploy-app/HandleContent";
 import Link from "next/link";
+import {fetchGitProjects, selectAllProjects} from "@/store/api/apiGitSlice";
 
 function OverViewDeploy(params) {
+    const dispatch = useDispatch();
+
     const {loading } = useSession()
     const data = useSelector(selectDeploymentApp)
     const isLoading = useSelector(selectIsLoading)
     const error = useSelector(selectError)
+
+    const gitProjects = useSelector(selectAllProjects);
+    console.log("gitProjects", gitProjects);
     console.log("data from overview deploy :", data)
+    useEffect(() => {
+        dispatch(fetchGitProjects());
+    }, []);
     return (<HandleContent
         error={error}
         isLoading={isLoading || loading || !data}
@@ -49,7 +58,7 @@ function OverViewDeploy(params) {
                                 <span className="font-medium ">{data?.defaultBranch}</span>
                             </Alert>
                             <Alert color="lime"  icon={FaGithub }>
-                                <span className="font-medium ">{data?.sourcePath}</span>
+                                <span className="font-medium ">{data?.repo?.http_url_to_repo}</span>
                             </Alert>
                         </div>
                     </div>
