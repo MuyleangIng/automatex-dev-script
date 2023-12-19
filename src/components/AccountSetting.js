@@ -9,12 +9,12 @@ export default function AccountSetting() {
             <div className="container flex items-center justify-between">
                 <div className="w-96 mb-10 mt-0">
                     <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
-                        <Image
-                            alt=""
-                            src="https://wp-api.zipmex.com/wp-content/uploads/2021/12/NFT-marketplace.jpg"
-                            className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
-                            width={100} height={100}
-                        />
+                        {/*<Image*/}
+                        {/*    alt=""*/}
+                        {/*    src="https://wp-api.zipmex.com/wp-content/uploads/2021/12/NFT-marketplace.jpg"*/}
+                        {/*    className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"*/}
+                        {/*    width={100} height={100}*/}
+                        {/*/>*/}
                         <div>
                             <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">
                                 Kim Ken

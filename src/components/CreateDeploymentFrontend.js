@@ -16,6 +16,7 @@ import {toast, ToastContainer} from "react-toastify";
 import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
 import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
+import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
@@ -172,6 +173,7 @@ export default function CreateDeploymentFrontendComponent() {
                                 }
                             })()}
                         </div>
+                        <EnvironmentDeploy/>
                         <Button type="submit"  className="m-11 bg-orange-100">
                             <HiArrowCircleRight className="mr-3 h-4 w-full text-xl text-white "/>
                             Submit
