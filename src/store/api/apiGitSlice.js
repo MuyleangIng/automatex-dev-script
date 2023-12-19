@@ -1,21 +1,63 @@
-import { createApi, fetchBaseQuery, createSlice } from '@reduxjs/toolkit';
-import { getSession } from "next-auth/react";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getSession } from 'next-auth/react';
+import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Define the async thunk
-export const fetchGitProjects = async () => {
-    const { gitToken } = await getSession() || {};
-    const headers = new Headers();
-    headers.set("Accept", "*/*");
-    headers.set("User-Agent", "Thunder Client (https://www.thunderclient.com)");
-    if (gitToken) headers.set("Authorization", `Bearer ${gitToken}`);
-    const response = await fetch(`${process.env.NEXT_PUBLIC_GITLAB_URL}/projects`, { method: "GET", headers });
-    if (!response.ok) throw new Error("Failed to fetch Git projects");
+const baseQuery = fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_GITLAB_URL,
+    prepareHeaders: async (headers) => {
+        const session = await getSession();
+        console.log('session', session);
+        if (session) {
+            const { gitToken } = session;
+            if (gitToken) {
+                headers.set("Authorization", `Bearer ${gitToken}`);
+            }
+        }
+        headers.set("Accept", "*/*");
+        headers.set("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+        return headers;
+    },
+});
 
-    const data = await response.json();
-    console.log('Data from GitLab API:', data); // Log the data
+ const fetchGitProjects = createAsyncThunk(
+    'projects/fetchGitProjects',
+    async () => {
+        const url = `${process.env.NEXT_PUBLIC_GITLAB_URL + "/projects"}`;
+        console.log('Request URL:', url);
+        const response = await baseQuery(url, { method: "GET" });
+        console.log('Response:', response);
+        // const data = response.data;
+        // console.log('Data from GitLab API:', data);
+        const data = await response.data;
+        console.log('Data from GitLab API:', data);
+        return data;
+    }
+);
 
-    return data;
-};
+const gitSlice = createSlice({
+    name: "git",
+    initialState: { projects: [], status: 'idle', error: null },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchGitProjects.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchGitProjects.fulfilled, (state, action) => {
+                console.log('Fulfilled action payload:', action.payload);
+                state.status = 'succeeded';
+                state.projects = state.projects.concat(action.payload);
+            })
+            .addCase(fetchGitProjects.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            });
+    },
+});
+// export const selectResponseVote = state => state.responsesVote.vote
+export const selectAllProjects = (state) => state.git.projects;
+export default gitSlice.reducer;
+export { fetchGitProjects };
 
 // Create the Git API
 // export const gitApi = createApi({

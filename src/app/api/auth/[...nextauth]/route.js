@@ -92,8 +92,8 @@ const authOptions = {
      callbacks :{
         async jwt({token, user}) {
             // Persist the OAuth access_token to the token right after signin
-            console.log('token in rote.js', token)
-            console.log('account rote.js', user)
+            // console.log('token in rote.js', token)
+            // console.log('account rote.js', user)
             if (token && user) {
                 return {
                     ...token,
@@ -107,7 +107,7 @@ const authOptions = {
             return token
         },
          async session ({ session, token, user }) {
-            console.log("user in route.js", user)
+            // console.log("user in route.js", user)
              session.accessToken = token.accessToken
                 session.refreshToken = token.refreshToken
                 session.expiresIn = token.expiresIn
