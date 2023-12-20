@@ -14,9 +14,7 @@ const store = configureStore({
         deploymentApp: deployAppReducer,
         user: userReducer,
         git: gitSlice
-
     },
-
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(apiSlice.middleware);
     },

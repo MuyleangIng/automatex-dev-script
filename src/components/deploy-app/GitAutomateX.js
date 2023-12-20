@@ -15,10 +15,9 @@ import {
 import HandleContent from "@/components/deploy-app/HandleContent";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import {useSession} from "next-auth/react";
-import {fetchGitProjects, selectAllProjects, selectProjectById, selectProjectTree} from "@/store/api/apiGitSlice";
-import {Accordion, Button} from 'flowbite-react';
+import {selectProjectById, selectProjectTree} from "@/store/api/apiGitSlice";
 import {fetchGitProjectById, fetchProjectTree} from "@/store/features/gitlab/gitApi";
-import {Checkbox, Table} from "flowbite-react";
+import {Table} from "flowbite-react";
 
 function GitAutomateX({params}) {
     const dispatch = useDispatch()
@@ -75,22 +74,23 @@ function GitAutomateX({params}) {
                         {/*</h3>*/}
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                             <div className="sm:col-span-2">
-                                {/*<dt className="text-lg font-medium text-gray-900 dark:text-white">*/}
-                                {/*    Connect this app to Automatex to enable your repository and deploys.*/}
-                                {/*</dt>*/}
-
                                 <Card className={"m-5"}>
-                                    <Table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                                    <Table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600 text-2xl">
                                         <Table.Head className="bg-gray-100 dark:bg-gray-700">
-                                            <Table.HeadCell className={'flex items-center gap-4'}>
-                                                <Image
-                                                    src={gitProjects.owner.avatar_url ? gitProjects.owner.avatar_url: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png'}
-                                                    alt="user"
-                                                    width={40}
-                                                    height={40}
-                                                    className="rounded-full"
-                                                />
-                                                {gitProjects?.owner?.name}
+                                            <Table.HeadCell >
+                                                <div className={'flex items-center gap-4'}>
+                                                    <Image
+                                                        src={gitProjects.owner.avatar_url ? gitProjects.owner.avatar_url: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png'}
+                                                        alt="user"
+                                                        width={40}
+                                                        height={40}
+                                                        className="rounded-full"
+                                                    />
+                                                    <div className={'text-2xl'}>{gitProjects?.owner?.name}</div>
+                                                </div>
+                                            </Table.HeadCell>
+                                            <Table.HeadCell className={'items-end'}>
+                                                <div className={'text-2xl'}>Branch: {gitProjects?.default_branch}</div>
                                             </Table.HeadCell>
                                         </Table.Head>
                                         <Table.Body className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
@@ -161,13 +161,10 @@ function GitAutomateX({params}) {
                                     </div>
                                     <div className="flex items-center text-2xl font-bold dark:text-white">
                                         <div className="flowbite-container">
-                                            <span
-                                                className={"text-cyan-500"}>(</span> push an existing repository from the command
-                                            line
+                                            <span className={"text-cyan-500"}>(</span> push an existing repository from the command line
                                             line<span className={"text-cyan-500 "}> )</span>
                                         </div>
                                     </div>
-
                                     <div className="space-y-6 relative">
                                         <figure className="rounded bg-gray-50 p-6 dark:bg-gray-800">
                                             <div
