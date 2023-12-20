@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import SectionAppDeploy from "@/components/SectionAppDeploy";
 import AfterCreateFrontendDeployment from "@/components/deploy-app/AfterCreateFrontendDeployment";
 import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
@@ -8,10 +8,14 @@ import DeploymentAppLoadingIndicator from "@/components/deploy-app/deploymentLoa
 import HandlePagination from "@/components/deploy-app/HandlePagination";
 
 function Page() {
-    const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentAppsQuery({page: 1, limit: 12});
-    // console.log("data from :", data)
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(12);
+    const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentAppsQuery({page, limit});
+
     const onPageChange = ({page, perPage}) => {
-        refetch({page: page, limit: perPage || 12});
+        setPage(page);
+        setLimit(perPage);
+        refetch({page, limit: perPage});
     }
     return (
         <HandleContent

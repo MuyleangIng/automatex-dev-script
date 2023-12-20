@@ -16,6 +16,7 @@ import {toast, ToastContainer} from "react-toastify";
 import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
 import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
+import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
@@ -72,7 +73,7 @@ export default function CreateDeploymentFrontendComponent() {
         <>
 
             <ToastConfig/>
-            {/*{loading && <LoadingLogo />}*/}
+            {loading && <LoadingLogo />}
             <div className="grid grid-cols-12 gap-4 ">
             <div
                 className="col-span-12 mx-4 mb-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800 sm:p-6 md:mx-6 lg:my-6 xl:p-8 2xl:col-span-10 2xl:col-start-2">
