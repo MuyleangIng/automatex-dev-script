@@ -21,12 +21,7 @@ function ActivitiesLogs({params}) {
     const [pollingInterval, setPollingInterval] = useState(null);
     const [isPolling, setIsPolling] = useState(false);
     const active = 'dark:!bg-gray-700 dark:!text-white';
-    const dispatch = useDispatch();
-    const gitProjects = useSelector(selectAllProjects);
-    useEffect(() => {
-        dispatch(fetchGitProjects());
-    }, []);
-    console.log("gitProjects", gitProjects);
+
 
 
 
@@ -58,20 +53,6 @@ function ActivitiesLogs({params}) {
         <div className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}>
 
             {/*<br/>*/}
-
-            {/*<Accordion>*/}
-            {/*    {gitProjects?.map((project, index) => (*/}
-            {/*        <Accordion.Panel key={index}>*/}
-            {/*            <Accordion.Title>{project?.name}</Accordion.Title>*/}
-            {/*            <Accordion.Content>*/}
-            {/*                <p>Description: {project?.description}</p>*/}
-            {/*                /!* Add more properties as needed *!/*/}
-            {/*            </Accordion.Content>*/}
-            {/*        </Accordion.Panel>*/}
-            {/*    ))}*/}
-            {/*</Accordion>*/}
-
-
             <Button
                 color="gray"
                 size={'sm'}

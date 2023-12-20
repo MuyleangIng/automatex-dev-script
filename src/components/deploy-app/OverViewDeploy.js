@@ -32,6 +32,7 @@ function OverViewDeploy(params) {
         isLoading={isLoading || loading || !data}
         customLoadingContent={<ResourceLoadingIndicator/>}
     >
+
         <Card className={"mt-14"}>
             <h3 className="mb-4 text-xl font-bold dark:text-white text-center underline">
                 Deployment Information

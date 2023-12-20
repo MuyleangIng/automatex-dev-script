@@ -16,6 +16,9 @@ const nextConfig = {
             },
             {
                 hostname: 'wp-api.zipmex.com',
+            },
+            {
+                hostname: "secure.gravatar.com",
             }
         ]
     }
