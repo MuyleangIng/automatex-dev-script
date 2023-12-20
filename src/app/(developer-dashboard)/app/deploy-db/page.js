@@ -1,9 +1,12 @@
 'use client'
 import React from 'react';
+import SectionAppDb from "@/components/SectionAppDB";
 
 function Page() {
     return (
-        <div></div>
+        <div>
+            <SectionAppDb/>
+        </div>
     );
 }
 

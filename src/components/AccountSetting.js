@@ -15,10 +15,12 @@ const validationSchema = Yup.object({
     userName: Yup.string().required('Username is required'),
     email: Yup.string().email('Invalid email address').required('Email is required'),
     password: Yup.string().required('Password is required'),
+    avatar: Yup.mixed().required('Avatar is required'),
 });
 
-const YourFormComponent = () => {
+const AccountSetting = () => {
     const initialValues = {
+        avatar:'',
         lastName: '',
         firstName: '',
         userName: '',
@@ -163,4 +165,4 @@ const YourFormComponent = () => {
     );
 };
 
-export default YourFormComponent;
+export default AccountSetting;
