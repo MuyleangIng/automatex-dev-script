@@ -4,6 +4,11 @@ import { CiFileOn } from "react-icons/ci";
 import {Card} from "flowbite-react";
 import Image from "next/image";
 import { FaFolder } from "react-icons/fa6";
+import { FaGitAlt } from "react-icons/fa6";
+import { IoIosGitBranch } from "react-icons/io";
+import { IoMdPricetags } from "react-icons/io";
+
+
 
 import {FaCopy} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
@@ -54,6 +59,7 @@ function GitAutomateX({params}) {
         });
     };
 
+    const style = "mt-[25px] text-[20px] text-des-light dark:text-des-dark flex items-center gap-2 px-2.5 py-1.5 focus:outline focus:outline-1 rounded-md focus:outline-gray-700 dark:focus:outline-white";
     const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`, 'git push -u origin main',];
     const command2 = [
         `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`,
@@ -67,8 +73,25 @@ function GitAutomateX({params}) {
             customLoadingContent={<ResourceLoadingIndicator/>}
         >
             <>
+                <div className={'flex'}>
+                    <div
+                        className={style}>
+                        <span><FaGitAlt/></span>
+                        master
+                    </div>
+                    <div className={style}>
+                    <span><IoIosGitBranch/></span>
+                        10 branch
+                    </div>
+                    <div
+                        className={style}>
+                        <span><IoMdPricetags /></span>
+                        10 branch
+                    </div>
+                </div>
                 {gitProjects?.empty_repo === false ? (
-                    <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
+                    <div
+                        className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
                         {/*<h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">*/}
                         {/*    Quick setup — if you’ve done this kind of thing before*/}
                         {/*</h3>*/}
