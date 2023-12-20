@@ -1,49 +1,100 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useFormik} from 'formik';
 import {Button, Card, Label, TextInput} from "flowbite-react";
-import {FaPlus} from "react-icons/fa";
+import {FaRegSquarePlus} from "react-icons/fa6";
+import {MdCancel} from "react-icons/md";
 
-function EnvironmentDeploy(props) {
-    return (
-        <div>
-            <div className="mt-5">
-                <Card>
-                    <h3 className="mb-4 text-xl font-bold dark:text-white text-cyan-500">
-                        Environment Variables :
-                    </h3>
-                    <p className="mb-4 text-base font-medium dark:text-white">
-                        In order to provide your Deployment with Environment Variables  at Build and Runtime,<br/> you may enter them right here, for the Environment of your choice.                    </p>
-                    <form action="#">
-                        <div className="grid grid-cols-6 gap-6">
-                            <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
-                                <Label htmlFor="current-password">Key</Label>
-                                <TextInput
-                                    id="current-password"
-                                    name="current-password"
-                                    placeholder="NEXT_PUBLIC_API_URL"
-                                    type="text"
-                                />
-                            </div>
-                            <div className="col-span-6 grid grid-cols-1 gap-y-2 sm:col-span-3">
-                                <Label htmlFor="new-password">Value</Label>
-                                <TextInput
-                                    id="new-password"
-                                    name="new-password"
-                                    placeholder="https://surveybox-api.istad.co/api"
-                                    type="text"
-                                />
-                            </div>
-                            <div className="col-span-6">
-                                <Button>
-                                    <FaPlus className="mr-2 h-5 w-5" />
-                                    Add another
-                                </Button>
-                            </div>
-                        </div>
-                    </form>
-                </Card>
+const EnvironmentDeploy = ({formik}) => {
+    function InputEnv(item, index) {
+        const handleRemoveEnv = () => {
+            const data = formik.values.envs.filter((_, i) => i !== index)
+            formik.setFieldValue('envs', data)
+        }
+        return <div className="grid grid-cols-3 gap-6">
+            <div className="col-span-1 grid grid-cols-1 gap-y-2">
+                <Label htmlFor="key">Key</Label>
+                <TextInput
+                    id="key"
+                    name="key"
+                    placeholder="NEXT_PUBLIC_API_URL"
+                    type="text"
+                    // onChange={formik.handleChange}
+                    value={formik.values.envs[index].key}
+                />
             </div>
-        </div>
+            <div className="col-span-1 grid grid-cols-1 gap-y-2">
+                <Label htmlFor="value">Value</Label>
+                <TextInput
+                    id="value"
+                    name="value"
+                    type="text"
+                    value={formik.values.envs[index].value}
+                />
+            </div>
+            <div className="col-span-1 flex flex-row gap-6">
+                <Button onClick={handleRemoveEnv} type="button" color="red" className="h-10 mt-8 ">
+                    <MdCancel className="h-4 w-4"/>
+                </Button>
+            </div>
+        </div>;
+    }
+
+    return (
+        <Card className={"bg-white dark:bg-gray-900 m-2 mt-5 py-5 border-2 border-gray-300 border-dashed  rounded-lg dark:border-cyan"}>
+            <h3 className="mb-4 text-xl font-bold  text-cyan-500 dark:text-cool-blue-150">
+                Environment Variables :
+            </h3>
+            <p className="mb-4 text-base font-medium dark:text-white">
+                In order to provide your Deployment with Environment Variables at Build and Runtime,
+                you may enter them right here, for the Environment of your choice.
+            </p>
+            {formik.values.envs.map((item, index) =>InputEnv(item, index))}
+            {addEnvItem(formik)}
+        </Card>
     );
 }
 
 export default EnvironmentDeploy;
+const addEnvItem = (formik) => {
+    const [env, setEnv] = useState({
+        key: '',
+        value: ''
+    })
+    const handleAddEnv = () => {
+        formik.setFieldValue('envs', [...formik.values.envs, env])
+        setEnv({
+            key: '',
+            value: ''
+        })
+    }
+    return(
+        <div className="grid grid-cols-3 gap-6">
+            <div className="col-span-1 grid grid-cols-1 gap-y-2">
+                <Label htmlFor="key">Key</Label>
+                <TextInput
+                    id="key"
+                    name="key"
+                    // placeholder="NEXT_PUBLIC_API_URL"
+                    type="text"
+                    onChange={(e) => setEnv({...env, key: e.target.value})}
+                    value={env.key}
+                />
+            </div>
+            <div className="col-span-1 grid grid-cols-1 gap-y-2">
+                <Label htmlFor="value">Value</Label>
+                <TextInput
+                    id="value"
+                    name="value"
+                    type="text"
+                    onChange={(e) => setEnv({...env, value: e.target.value})}
+                    value={env.value}
+                />
+            </div>
+            <div className="col-span-1 flex flex-row gap-6">
+                <Button disabled={env.value==='' || env.key===''} onClick={handleAddEnv}  type="button" color="gray" className="h-10 mt-8 ">
+                    <FaRegSquarePlus className="h-4 w-4"/>
+                </Button>
+            </div>
+        </div>
+    )
+}

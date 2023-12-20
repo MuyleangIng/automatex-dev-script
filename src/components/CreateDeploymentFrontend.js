@@ -14,7 +14,6 @@ import {useDispatch} from "react-redux";
 import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
 import {toast, ToastContainer} from "react-toastify";
 import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
-import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
 import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
 import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
 
@@ -44,11 +43,13 @@ export default function CreateDeploymentFrontendComponent() {
             sourcePath: '',
             defaultBranch: 'main',
             autoDeploy: 'true' ,
+            envs: [ ],
         },
         // validationSchema:validationSchema,
         onSubmit:( values,{setSubmitting,resetForm}) => {
             setLoading(true); // Start loading
             console.log('Form submitted with values:', values);
+            resetForm();
             createDeploymentApp(values).unwrap()
                 .then((res) => {
                     console.log('Response from createDeploymentApp:', res.uuid);
@@ -111,7 +112,6 @@ export default function CreateDeploymentFrontendComponent() {
                                     }}
                                 />
                             </div>
-
                             <div className="relative z-0 w-full mb-6 group">
                                 <div>
                                     <div className="mb-2 block">
@@ -137,29 +137,43 @@ export default function CreateDeploymentFrontendComponent() {
                         </div>
                         <fieldset className="flex max-w-md flex-col gap-4">
                             <legend className="mb-4">Choose your Application Type</legend>
-                            <div className="flex items-center gap-2">
-                                <Radio
-                                    name="appType"
-                                    value={DeploymentTypes.fe}
-                                    onChange={formik.handleChange}
-                                    checked={formik.values.appType === DeploymentTypes.fe}
-                                />
-                                <Label htmlFor="appType">Frontend</Label>
+                            <div className="grid gap-4 md:gap-6 md:grid-cols-2">
+                                <div className="flex items-center gap-2">
+                                    <label
+                                        className='border border-slate-400 w-full rounded-xl flex items-center space-x-2 px-5 py-2 md:text-lg hover:cursor-pointer'
+                                    >
+                                        <input
+                                            type={"radio"}
+                                            name={"appType"}
+                                            value={DeploymentTypes.fe}
+                                            onChange={formik.handleChange}
+                                            checked={formik.values.appType === DeploymentTypes.fe}
+                                            className="w-5 h-5 text-cyan-500 bg-gray-100 border-gray-300 focus:ring-cyan-500 dark:focus:ring-cyan-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        <p className={"text-center uppercase"}>Frontend</p>
+                                    </label>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <label
+                                        className='border border-slate-400 w-full rounded-xl flex items-center space-x-2 px-5 py-2 md:text-lg hover:cursor-pointer'
+                                    >
+                                        <input
+                                            type={"radio"}
+                                            name={"appType"}
+                                            value={DeploymentTypes.be}
+                                            onChange={formik.handleChange}
+                                            checked={formik.values.appType === DeploymentTypes.be}
+                                            className="w-5 h-5 text-cyan-500 bg-gray-100 border-gray-300 focus:ring-cyan-500 dark:focus:ring-cyan-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        <p className={"uppercase"}>BackEnd</p>
+                                    </label>
+
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <Radio
-                                    name="appType"
-                                    value={DeploymentTypes.be}
-                                    onChange={formik.handleChange}
-                                    checked={formik.values.appType === DeploymentTypes.be}
-                                />
-                                <Label htmlFor="appType">Backend</Label>
-                            </div>
+
                         </fieldset>
                         {/*choose branch to deploy*/}
                         <DeployMethod formik={formik}/>
                         {/*choose branch to deploy*/}
-                        <div className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-gray-700">
+                        <div className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-cyan">
                             {(() => {
                                 switch (formik.values.sourceType) {
                                     case SourceType.default:
@@ -173,7 +187,8 @@ export default function CreateDeploymentFrontendComponent() {
                                 }
                             })()}
                         </div>
-                        <EnvironmentDeploy/>
+                         <EnvironmentDeploy formik={formik}/>
+
                         <Button type="submit"  className="m-11 bg-orange-100">
                             <HiArrowCircleRight className="mr-3 h-4 w-full text-xl text-white "/>
                             Submit
