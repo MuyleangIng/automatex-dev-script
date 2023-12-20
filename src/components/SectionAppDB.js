@@ -24,7 +24,6 @@ function SectionAppDb(props) {
                     </div>
                 </div>
             </div>
-
         </>
     )
         ;
