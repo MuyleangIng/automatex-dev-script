@@ -49,13 +49,13 @@ const EnvironmentDeploy = ({formik}) => {
                 you may enter them right here, for the Environment of your choice.
             </p>
             {formik.values.envs.map((item, index) =>InputEnv(item, index))}
-            {addEnvItem(formik)}
+            {AddEnvItem(formik)}
         </Card>
     );
 }
 
 export default EnvironmentDeploy;
-const addEnvItem = (formik) => {
+const AddEnvItem = (formik) => {
     const [env, setEnv] = useState({
         key: '',
         value: ''
