@@ -26,7 +26,7 @@ import {useDeleteDeploymentAppMutation} from "@/store/features/deploy-app/deploy
 import {toast} from "react-toastify";
 import moment from 'moment/moment';
 
-function CardDeploymentApp({deployApp, index, refetch}) {
+function CardDeploymentDb({deployApp, index, refetch}) {
     const dispatch = useDispatch();
     const router = useRouter()
     const [isDeleting, setIsDeleting] = useState(false);
@@ -233,4 +233,4 @@ function CardDeploymentApp({deployApp, index, refetch}) {
         </>);
 }
 
-export default CardDeploymentApp;
+export default CardDeploymentDb;

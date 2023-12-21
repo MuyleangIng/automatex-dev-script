@@ -24,6 +24,7 @@ import {IoGitBranchOutline, IoRocketOutline} from "react-icons/io5";
 import {ImConnection} from "react-icons/im";
 import {AiOutlineDisconnect} from "react-icons/ai";
 import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
+import CardDeploymentDb from './CardDeploymentDb';
 
 function AfterCreateDbDeployment({data }) {
     const { refetch } = useGetAllDeploymentAppsQuery(); // Destructure refetch from the hook result
@@ -63,7 +64,7 @@ function AfterCreateDbDeployment({data }) {
         <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
 
             {data?.list.map((item, index) => (
-                <CardDeploymentApp key={index} deployApp={item} refetch={refetch}/>
+                <CardDeploymentDb key={index} deployApp={item} refetch={refetch}/>
             ))}
         </div>
     </>);
