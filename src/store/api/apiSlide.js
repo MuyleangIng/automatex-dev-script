@@ -20,6 +20,7 @@ const BaseQueryWithReAuth = async (args, api, extraOptions) => {
     const result = await baseQuery(args, api, extraOptions);
     if (result?.error?.status === 401) {
         const session= await getSession();
+        console.log('sessionapi', session)
         if (session){
             const response = await fetch(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/auth/refresh-token`,
