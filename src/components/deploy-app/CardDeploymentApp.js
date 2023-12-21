@@ -33,7 +33,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
     const [isDeleting, setIsDeleting] = useState(false);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteDeploymentApp, {isLoading: isError}] = useDeleteDeploymentAppMutation();
-
+    console.log("deployApp", deployApp)
     //delete function
     const handleDelete = async () => {
         setIsDeleting(true);
