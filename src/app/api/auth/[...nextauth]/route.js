@@ -48,10 +48,13 @@ const authOptions = {
                     label: "Email",
                     type: "email",
                 },
+                gitToken: {
+                    label: "GitToken",
+                    type: "text",
+                },
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials, req) {
-                console.log("cd:",credentials)
                 const resp = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/login", {
                     method: "POST",
                     headers: {
@@ -66,10 +69,14 @@ const authOptions = {
                     }),
                 });
                 const res = await resp.json();
-                console.log("respone:",res)
+                // res.accessGitToken = undefined;
+
                 if (resp.ok && res){
-                    const user = { id: res.user.uuid , name: res.refreshToken, email: res.accessToken }
-                    return user
+                    return {
+                        id: res.user.uuid, name: res.refreshToken, email: res.accessToken,
+                        gitToken: res.gitAccessToken
+
+                    };
                 }
                 if (!res.ok) {
                     throw new Error(JSON.stringify(res));
@@ -77,16 +84,38 @@ const authOptions = {
                 return null
             }
         })
-
     ],
-
     pages: {
         signIn: "/auth/login",
         newUser: "/auth/signup",
     },
-    session:{
-        strategy:'jwt'
-    }
+     callbacks :{
+        async jwt({token, user}) {
+            // Persist the OAuth access_token to the token right after signin
+            // console.log('token in rote.js', token)
+            // console.log('account rote.js', user)
+            if (token && user) {
+                return {
+                    ...token,
+                    accessToken: user.accessToken,
+                    refreshToken: user.refreshToken,
+                    expiresIn: Date.now() + parseInt(user.expiresIn) * 1000 - 2000,
+                    gitToken: user.gitToken,
+                };
+
+            }
+            return token
+        },
+         async session ({ session, token, user }) {
+            // console.log("user in route.js", user)
+             session.accessToken = token.accessToken
+                session.refreshToken = token.refreshToken
+                session.expiresIn = token.expiresIn
+                session.gitToken = token.gitToken
+             return session
+         }
+    },
+
 };
 
 const handler = NextAuth(authOptions);
