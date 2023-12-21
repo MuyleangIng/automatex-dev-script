@@ -111,19 +111,19 @@ function HeroSection() {
                         long term version to transform the way you work.
                     </p>
                 </span>
-                    <div className=" grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-3 " data-aos="zoom-in-up">
-                        <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <div className=" grid gap-4 row-gap-5 sm:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 " data-aos="zoom-in-up">
+                        <article data-aos="fade-up-left" className="rounded-lg border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <div className="relative">
                                 <div className="w-12 h-12 bg-orange-50 rounded-xl" >
                                     <svg className="w-6 h-6 absolute top-3 left-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="Setting"><path fill="#1d8dd7" d="M6.98 1a.978.978 0 0 0-.98.98v1.231a5.5 5.5 0 0 0-1.176.492l-.873-.873a.978.978 0 0 0-1.387 0l-.734.735a.978.978 0 0 0 0 1.386l.87.87A5.5 5.5 0 0 0 2.214 7H.98A.978.978 0 0 0 0 7.98V9.02c0 .543.437.98.98.98h1.231a5.5 5.5 0 0 0 .49 1.178l-.87.871a.978.978 0 0 0 0 1.387l.733.734a.978.978 0 0 0 1.387 0l.87-.869A5.5 5.5 0 0 0 6 13.785v1.235c0 .543.437.98.98.98h1.04c.543 0 .98-.437.98-.98v-1.23a5.5 5.5 0 0 0 1.176-.493l.873.873a.978.978 0 0 0 1.387 0l.734-.734a.978.978 0 0 0 0-1.387l-.87-.87A5.5 5.5 0 0 0 12.786 10h1.235c.543 0 .98-.437.98-.98V7.98a.978.978 0 0 0-.98-.98h-1.23a5.5 5.5 0 0 0-.493-1.176l.873-.873a.978.978 0 0 0 0-1.386l-.734-.735a.978.978 0 0 0-1.387 0l-.87.87A5.5 5.5 0 0 0 9 3.214V1.981A.978.978 0 0 0 8.02 1H6.98zm.52 5A2.5 2.5 0 0 1 10 8.5 2.5 2.5 0 0 1 7.5 11 2.5 2.5 0 0 1 5 8.5 2.5 2.5 0 0 1 7.5 6z" className="colorf05542 svgShape"></path></svg>
                                 </div>
                             </div>
-                            <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
+                            <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-base  ">
                                 <a href="#">
                                     Integrated platform
                                 </a>
                             </h2>
-                            <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
+                            <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300 sm:text-xs">
                                 This integration enables seamless communication and interaction between different components have access to the most up-to-date information, promoting
                             </p>
 
@@ -179,7 +179,7 @@ function HeroSection() {
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
-                                <h2 data-aos="flip-right" className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                <h2 data-aos="flip-right" className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none ">
                                     Full Service Deployment
                                 </h2>
                                 <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">
@@ -201,7 +201,7 @@ function HeroSection() {
                         <div className="flex items-center justify-center lg:w-1/2">
                             <Lottie
                                 animationData={Spaces}
-                                className="w-52 md:w-0 lg:w-0 xl:w-full"
+                                className="w-52 md:w-60 lg:w-60 xl:w-full"
                                 data-aos="fade-right"
                             />
                         </div>
@@ -215,7 +215,7 @@ function HeroSection() {
                         <div className="flex items-center justify-center lg:w-1/2">
                             <Lottie
                                 animationData={Space}
-                                className="w-40 md:w-0 lg:w-0 xl:w-2/3"
+                                className="w-40 md:w-60 lg:w-60 xl:w-2/3 mb-6"
                                 data-aos="fade-right"
                             />
                         </div>
@@ -223,7 +223,7 @@ function HeroSection() {
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
                                 <h2 data-aos="flip-right"  className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
-                                    Personal Cloude Storage
+                                    Personal Cloud Storage
                                 </h2>
                                 <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">
                                     Our Cloud Storage service provides a secure and user-friendly platform for storing
@@ -245,7 +245,7 @@ function HeroSection() {
                 </div>
                 {/* Third Card */}
                 <div
-                    className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full mt-5 lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 rounded-r-full mb-8 lg:mb-0 bg-white  dark:bg-gray-900">
+                    className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full mt-5 lg:max-w-screen-xl md:px-0 lg:px-8 lg:py-20 rounded-r-full mb-8 lg:mb-0 bg-white  dark:bg-gray-900">
                     <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">

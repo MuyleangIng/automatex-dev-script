@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -13,14 +14,12 @@ function FormDB() {
                     </p>
                 </div>
 
-                <button className="rounded-lg bg-gray-800 py-2.5 px-5 text-sm text-white font-medium">
-                    Create Database
-                </button>
+                
             </div>
 
-            <div className=" relative flex justify-center items-center w-full h-screen bg-slate-200 dark:bg-gray-800">
+            <div className=" relative flex justify-center items-center w-5/6 mx-24 my-8 h-modal bg-slate-200 dark:bg-gray-800 rounded-xl">
                 
-        <form className="w-5/6 p-9 mt-10 bg-white">
+        <form className="w-5/6 p-9 my-10 bg-white rounded-lg">
         <div className="mb-5">
         <b className="font-bold text-xl ">Create Database Credentials</b>
         </div>
@@ -44,7 +43,9 @@ function FormDB() {
           <label for="password" class="text-sm font-medium text-gray-900 block mb-2">Version</label>
           <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required=""/>
         </div>
-        <button type="submit" class="w-full text-white bg-orange-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login</button>
+        <Link href={`/app/deploy-db/db-deployed`}>
+        <button type="submit" class="w-full text-white bg-orange-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Deploy</button>
+        </Link>
       </form>
       </div>
       </>

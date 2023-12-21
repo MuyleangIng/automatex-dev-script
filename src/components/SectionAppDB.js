@@ -8,17 +8,15 @@ function SectionAppDb(props) {
             <div className="flex justify-between items-center py-6 px-24">
                 <div className=" items-center">
                     <b className="font-bold text-xl">Database</b>
-                    <p className="text-lg  mt-10 ">
+                    <p className="text-lg  mt-5 ">
                         Read and Write directly to your database and store from your project
                     </p>
                 </div>
 
-                <button className="rounded-lg bg-gray-800 py-2.5 px-5 text-sm text-white font-medium">
-                    Create Database
-                </button>
+                
             </div>
 
-            <div className=" relative flex justify-center items-center w-full h-screen bg-slate-200 dark:bg-gray-800">
+            <div className=" relative flex justify-center items-center w-5/6 mx-24 my-8 h-modal bg-slate-200 dark:bg-gray-800 rounded-xl">
                 <div className="flex flex-col items-center bg-whitesmoke rounded-lg w-full max-w-3xl p-8">
                     <div>
                         <div className="relative">
@@ -38,7 +36,7 @@ function SectionAppDb(props) {
                         </p>
                     </div>
 
-                    <ul className="mt-10 bg-white  max-w-xl mx-auto text-sm block font-medium text-center text-gray-500 rounded-md shadow dark:shadow-lg dark:divide-gray-700 dark:text-gray-400 ">
+                    <ul className="mt-8 bg-white  max-w-xl mx-auto text-sm block font-medium text-center text-gray-500 rounded-md shadow dark:shadow-lg dark:divide-gray-700 dark:text-gray-400 ">
                         <li className="w-full px-5 py-5 grid grid-cols-2 gap-60 border-b ">
 
                             <div className="flex ">

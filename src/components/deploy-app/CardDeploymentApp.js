@@ -24,6 +24,7 @@ import {useRouter} from "next/navigation";
 import {RiDeleteBin3Fill} from "react-icons/ri";
 import {useDeleteDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
 import {toast} from "react-toastify";
+import moment from 'moment/moment';
 
 function CardDeploymentApp({deployApp, index, refetch}) {
     const dispatch = useDispatch();
