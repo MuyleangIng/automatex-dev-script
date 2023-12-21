@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import {Button, Navbar, Dropdown, Avatar} from 'flowbite-react';
+import {Button, Navbar, Dropdown} from 'flowbite-react';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
 import {FaUserPlus} from 'react-icons/fa';
@@ -18,7 +18,7 @@ function HandleNavbar() {
     const developerPath = pathname.includes('/app')
     const { data: res, isLoading } = useGetUserQuery();
     const handleSignOut = async () => {
-        await signOut({callbackUrl: '/'});
+        await signOut({callbackUrl: '/', redirect: false});
         router.push('/');
     };
     if (status === 'loading' && !error) {
@@ -33,12 +33,18 @@ function HandleNavbar() {
 
     return (
         <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 dark:bg-gray-900`}>
-            <Navbar.Brand as={Link} href={"/"}>
+            <Navbar.Brand as={Link} href={"/"} style={{
+                fontFamily: 'inherit',
+                fontWeight: 'bold',
+                color: '#ff6347',
+                fontSize: '30px',
+                letterSpacing: '2px'
+            }}>
                 <HandleImage src={"/mainlogo.png"} w={14} h={15}/>
-                <span className="self-center text-0  xl:text-xl font-extrabold whitespace-nowrap w-">
-                    <span className="text-cyan-700">Automate</span>
-                    <span className="text-cool-blue-100">X</span>
-                </span>
+                <span className="self-center text-xl font-extrabold whitespace-nowrap w-">
+        <span className="text-cyan-700 ">Automate</span>
+        <span className="text-cool-blue-100">X</span>
+    </span>
             </Navbar.Brand>
             <div className={'flex items-center gap-2 md:order-2'}>
                 <BtnTheme />
@@ -70,8 +76,7 @@ function HandleNavbar() {
                         <Dropdown.Item as={Link} href={"/app/dashboard"}>
                             Dashboard
                         </Dropdown.Item>
-                        <Dropdown.Item>Settings</Dropdown.Item>
-                        <Dropdown.Item>Earnings</Dropdown.Item>
+                        <Dropdown.Item as={Link} href={"/app/useraccount"}>Settings</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item
                             onClick={handleSignOut}

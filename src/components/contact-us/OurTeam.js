@@ -13,7 +13,7 @@ function OurTeam(props) {
                             width="100"
                             height="100"
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/thy.jpg"
+                            src="/images/our-member/thy.jpg"
                             unoptimized={true}
                             alt=""/>
 
@@ -28,7 +28,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/leang.jpg"
+                            src="/images/our-member/leang.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Ing MouyLeang</h1>
@@ -41,7 +41,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/mich.jpg"
+                            src="/images/our-member/mich.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Neuy Mich</h1>
@@ -55,7 +55,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/sal.jpg"
+                            src="/images/our-member/sal.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Sak Visal</h1>
@@ -68,7 +68,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/nha.jpg"
+                            src="/images/our-member/nha.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Pos Panha</h1>
@@ -81,7 +81,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/leap.jpg"
+                            src="/images/our-member/leap.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Sovathana Somboleab</h1>
@@ -94,7 +94,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/lit.jpg"
+                            src="/images/our-member/lit.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Thorn Chavalit</h1>
@@ -107,7 +107,7 @@ function OurTeam(props) {
                             height="100"
                             unoptimized={true}
                             class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                            src="/images/pav.jpg"
+                            src="/images/our-member/pav.jpg"
                             alt=""/>
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Chhay SeavPav</h1>

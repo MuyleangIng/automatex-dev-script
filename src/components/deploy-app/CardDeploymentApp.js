@@ -16,14 +16,16 @@ import {
 import {IoGitBranchOutline} from "react-icons/io5";
 import {FaGithubAlt, FaLink} from "react-icons/fa";
 import Link from "next/link";
-import {MdOutlineDateRange} from "react-icons/md";
-import {VscGitCommit} from "react-icons/vsc";
+import moment from "moment";
+import {MdOutlineDateRange, MdViewInAr} from "react-icons/md";
+import {VscGitCommit, VscLayersActive, VscSourceControl} from "react-icons/vsc";
 import {useDispatch} from "react-redux";
 import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
 import {useRouter} from "next/navigation";
 import {RiDeleteBin3Fill} from "react-icons/ri";
 import {useDeleteDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
 import {toast} from "react-toastify";
+import {TbLockAccess, TbReport, TbSettingsBolt} from "react-icons/tb";
 
 function CardDeploymentApp({deployApp, index, refetch}) {
     const dispatch = useDispatch();
@@ -31,14 +33,14 @@ function CardDeploymentApp({deployApp, index, refetch}) {
     const [isDeleting, setIsDeleting] = useState(false);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteDeploymentApp, {isLoading: isError}] = useDeleteDeploymentAppMutation();
-
+    console.log("deployApp", deployApp)
     //delete function
     const handleDelete = async () => {
         setIsDeleting(true);
         try {
             await deleteDeploymentApp(deployApp.uuid); // Pass the id of the deployment app to delete
             console.log("Deleted Successfully"); // Show success message
-            refetch(); // Fetch the latest data after deletion
+            refetch({page: page, limit: perPage || 12});// Fetch the latest data after deletion
         } catch (error) {
             toast.error("An error occurred while deleting the deployment app"); // Show error message
         }
@@ -85,101 +87,11 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                     </div>
                     <h4 onClick={handleDeployApp}
                         className="capitalize truncate font-semibold text-gray-900 dark:text-white hover:cursor-pointer hover:text-cyan-500">
-                        {deployApp?.uuid}
+                        {deployApp?.name}
                     </h4>
-                    <Dropdown
-                        arrowIcon={false}
-                        inline
-                        label={<span className="rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
-          <span className="sr-only">Apps</span>
-          <HiViewGrid className="text-2xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"/>
-        </span>}>
-                        <div className="grid grid-cols-3 gap-4 p-4">
-                            <Link
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiShoppingBag className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Sales
-                                </div>
-                            </Link>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiUsers className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Users
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiInbox className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Inbox
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiUserCircle className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Profile
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiCog className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Settings
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiArchive className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Products
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiCurrencyDollar className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Pricing
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <HiOutlineTicket className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Billing
-                                </div>
-                            </a>
-                            <a
-                                href="#"
-                                onClick={() => setShowConfirmationModal(true)}
-                                className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
-                            >
-                                <RiDeleteBin3Fill className="mx-auto mb-1 h-7 w-7 text-red-600 dark:text-white"/>
-                                <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                    Delete
-                                </div>
-                            </a>
-                        </div>
-                    </Dropdown>
+                    <DropdownMenu deployApp={deployApp} setShowConfirmationModal={setShowConfirmationModal} />
                 </div>
+
                 <div className="space-y-4">
                     <div
                         className="flex items-center text-sm font-medium text-gray-500   dark:text-gray-400 dark:hover:text-white"
@@ -207,12 +119,9 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                         {deployApp?.defaultBranch}
                     </div>
                     <div
-                        className="flex items-center text-sm font-medium text-gray-500   dark:text-gray-400 dark:hover:text-white"
+                        className="flex items-center font-medium text-gray-500 dark:text-gray-400 dark:hover:text-white"
                     >
-                        <FaGithubAlt className="mx-4 text-lg"/>:
-                        <span>
-                    {deployApp?.sourceType}
-                    </span>
+                        <FaGithubAlt className="mx-4 text-md"/> {deployApp?.sourceType}
                     </div>
                 </div>
                 <div className="flex border-gray-200 dark:border-gray-700">
@@ -233,3 +142,83 @@ function CardDeploymentApp({deployApp, index, refetch}) {
 }
 
 export default CardDeploymentApp;
+
+const DropdownMenu = ({deployApp,setShowConfirmationModal}) => {
+    return (
+        <Dropdown
+            arrowIcon={false}
+            inline
+            label={<span className="rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+                          <span className="sr-only">Apps</span>
+                              <HiViewGrid className="text-2xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"/>
+                            </span>}>
+            <div className="grid grid-cols-3 gap-4 p-4">
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/overview`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <MdViewInAr className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Overview
+                    </div>
+                </Link>
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/resource`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <VscSourceControl   className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Resources
+                    </div>
+                </Link>
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/activities`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <VscLayersActive   className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Activities
+                    </div>
+                </Link>
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/access`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <TbLockAccess  className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Access
+                    </div>
+                </Link>
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/report`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <TbReport  className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Reports
+                    </div>
+                </Link>
+                <Link
+                    href={`/app/deploy-apps/${deployApp.uuid}/setting`}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <TbSettingsBolt  className="mx-auto mb-1 h-7 w-7 text-gray-500 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Settings
+                    </div>
+                </Link>
+                <Link
+                    href="#"
+                    onClick={() => setShowConfirmationModal(true)}
+                    className="block rounded-lg p-2 text-center hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                    <RiDeleteBin3Fill className="mx-auto mb-1 h-7 w-7 text-red-600 dark:text-white"/>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                        Delete
+                    </div>
+                </Link>
+            </div>
+        </Dropdown>
+    )
+}

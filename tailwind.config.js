@@ -38,7 +38,14 @@ module.exports = {
           150: '#3AA0E4',
           200: '#2897E2',
           300: '#1D8DD7',
-
+        },
+        'base-color':{
+          dark : '#f1f5f9',
+          light : '#464040',
+        },
+        'des':{
+          dark : '#9CA3AF',
+          light : '#6B7280',
         }
       },
       fontWeight: {
