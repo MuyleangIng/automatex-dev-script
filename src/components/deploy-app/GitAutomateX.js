@@ -92,9 +92,6 @@ function GitAutomateX({params}) {
                 {gitProjects?.empty_repo === false ? (
                     <div
                         className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
-                        {/*<h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">*/}
-                        {/*    Quick setup — if you’ve done this kind of thing before*/}
-                        {/*</h3>*/}
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                             <div className="sm:col-span-2">
                                 <Card className={"m-5"}>
