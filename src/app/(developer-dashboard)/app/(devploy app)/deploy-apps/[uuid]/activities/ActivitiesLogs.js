@@ -1,5 +1,6 @@
 'use client';
 import {Card,Table} from "flowbite-react";
+import { IoRocketOutline } from "react-icons/io5";
 
 import React, { useState, useEffect, useRef } from 'react';
 import {
@@ -25,9 +26,23 @@ function ActivitiesLogs({ params }) {
     const [toastShown, setToastShown] = useState(false);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [hasFailure, setHasFailure] = useState(false);
-
     const dataLogs = useGetConsoleLogsQuery(uuid, { ...pollingInterval });
     const containerRef = useRef();
+    const uuidBuild = deployment?.uuid;
+
+    const handleDeploy = () => {
+        buildPublicDeployment(uuidBuild).unwrap()
+            .then((data) => {
+                console.log('data', data);
+                setIsPolling(true);
+                setPollingInterval({ pollingInterval: 2000 });
+            })
+            .catch((error) => {
+                console.error(`Error deploying app with UUID: ${uuidBuild}`, error);
+            });
+        setIsPolling(true);
+        setPollingInterval({ pollingInterval: 2000 });
+    }
     useEffect(() => {
         if (isPolling) {
             setIsLoadingSpinner(true);
@@ -44,6 +59,8 @@ function ActivitiesLogs({ params }) {
         let logs = dataLogs?.error?.data;
         if (typeof logs === 'string') { // Check if logs is a string
             let lines = logs.split('\n');
+            lines = lines.filter(line => !line.includes('TASK')); // Filter out lines containing 'TASK ['
+            logs = lines.join('\n');
             let filteredLines = lines.filter(
                 (line) => line.includes('Finished: SUCCESS') || line.includes('Finished: FAILURE')
             );
@@ -57,6 +74,7 @@ function ActivitiesLogs({ params }) {
                     setIsPolling(false);
                     setPollingInterval(null);
                     setIsLoadingSpinner(false);
+                    setToastShown(true);
                 }
             }
         } else {
@@ -70,13 +88,18 @@ function ActivitiesLogs({ params }) {
             );
         }
     }, [hasSuccess, hasFailure]);
-    console.log('dataLogs', dataLogs.error);
-    console.log(deployment)
     return (
         <>
             <ToastConfig />
-            <div className={'mt-10 w-full sm:p-6 xl:p-8'}>
+            <div  className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}
+            >
 
+                <div className="flex items-center justify-end">
+                    <Button onClick={handleDeploy}  disabled={isPolling || isLoadingSpinner}>
+                        <IoRocketOutline className={"h-5 w-5 mr-2"} /> Deploy App
+                    </Button>
+                </div>
+                <br/>
 
                 <Accordion>
                     <Accordion.Panel>
@@ -89,9 +112,10 @@ function ActivitiesLogs({ params }) {
                                         size={'sm'}
                                         onClick={() => {
                                             setIsPolling(!isPolling);
-                                            setPollingInterval(isPolling ? null : { pollingInterval: 8000 });
+                                            setPollingInterval(isPolling ? null : { pollingInterval: 2000 });
                                             setIsLoadingSpinner(isPolling);
                                         }}
+
                                         className={isPolling ? active : ''}
                                     >
                                         {isLoadingSpinner ? (
@@ -128,6 +152,22 @@ function ActivitiesLogs({ params }) {
                             ) : (
                                 <div>Error: Data logs not available</div>
                             )}
+                        </Accordion.Content>
+                    </Accordion.Panel>
+                    <Accordion.Panel>
+                        <Accordion.Title>Is there a Figma file available?</Accordion.Title>
+                        <Accordion.Content>
+                            <p className="mb-2 text-gray-500 dark:text-gray-400">
+                                Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
+                                has a design equivalent in our Figma file.
+                            </p>
+                            <p className="text-gray-500 dark:text-gray-400">
+                                Check out the
+                                <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                                    Figma design system
+                                </a>
+                                based on the utility classes from Tailwind CSS and components from Flowbite.
+                            </p>
                         </Accordion.Content>
                     </Accordion.Panel>
                 </Accordion>
