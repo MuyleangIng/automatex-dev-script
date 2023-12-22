@@ -3,8 +3,11 @@ import { apiSlice } from "@/store/api/apiSlide";
 export const deployAppApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getAllDeploymentApps: builder.query({
-            query: ({ page, limit }) => ({
-                url: `/deploy-apps?page=${page}&limit=${limit}`
+            query: ({ filters }) => ({
+                url: `/deploy-apps`,
+                params:{
+                    ...filters
+                }
             }),
             keepUnusedDataFor: 5,
             providesTags: ["DeploymentApps"],
@@ -53,7 +56,6 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
 export const {
     useDeleteDeploymentAppMutation,
     useCreateDeploymentAppMutation,
-    useGetAllDeploymentAppsQuery,
     useBuildPublicDeploymentAppMutation,
     useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,

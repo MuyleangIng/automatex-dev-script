@@ -8,7 +8,7 @@ function HandlePagination({data,isLoading,onPageChange, defaultPerPage=10, selec
         return <LoadingIndicator />
     }
     return (
-        <div className={"flex flex-wrap justify-center lg:justify-between sb-pagination"}>
+        <div className={"flex flex-wrap justify-center lg:justify-between c-pagination"}>
             <div className={"flex items-center"}>
                 <p className={"text-sm text-gray-700 dark:text-gray-400 mr-2"}>
                     Showing {data?.startRow || 0} to {data?.endRow || 0} of {data?.total || 0} entries

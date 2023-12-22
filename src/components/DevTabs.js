@@ -46,7 +46,7 @@ export default function DevTabs() {
                     </Link>
                 </li>
                 <li className="w-full">
-                    <Link href={"https://cloud.chhayseavpav.me"} passHref={true} target={"_blank"}
+                    <Link href={process.env.NEXT_PUBLIC_CLOUD_URL} passHref={true} target={"_blank"}
                           className={" inline-flex p-4 rounded-t-lg group text-base "}
                           aria-current="page">
                         <BsCloud    className="w-6 h-6 mr-2"/>

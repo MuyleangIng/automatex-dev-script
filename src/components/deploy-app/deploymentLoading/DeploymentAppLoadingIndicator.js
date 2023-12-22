@@ -2,13 +2,13 @@ import React from 'react';
 
 function DeploymentAppLoadingIndicator() {
     return (
-        <div className={"m-14 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 hover:cursor-wait"}>
-            <div className="grid grid-cols-6 gap-2">
-                <div className="animate-pulse h-10 w-full bg-gray-200 dark:bg-gray-700 rounded col-span-5"></div>
-                <div className={"animate-pulse h-10 bg-gray-200 dark:bg-gray-700 rounded col-span-1"}></div>
-            </div>
+        <div>
+            {/*<div className="grid grid-cols-6 gap-2">*/}
+            {/*    <div className="animate-pulse h-10 w-full bg-gray-200 dark:bg-gray-700 rounded col-span-5"></div>*/}
+            {/*    <div className={"animate-pulse h-10 bg-gray-200 dark:bg-gray-700 rounded col-span-1"}></div>*/}
+            {/*</div>*/}
 
-            <div className="container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
+            <div className="container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14 hover:cursor-wait">
                 {Array.from({length: 12}).map((_, index) => (
                         <div key={index} className="animate-pulse flex space-x-4 shadow p-5 dark:border dark:border-gray-700 rounded">
                             <div className="flex-1 space-y-4 py-1">
