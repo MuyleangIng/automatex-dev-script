@@ -11,14 +11,19 @@ import { TfiReload } from 'react-icons/tfi';
 import { FaSpinner } from 'react-icons/fa';
 import { Button } from 'flowbite-react';
 import { useSelector } from 'react-redux';
-import { selectDeploymentApp } from '@/store/features/deploy-app/deployAppSlice';
+import {selectDeploymentApp, selectIsLoading} from '@/store/features/deploy-app/deployAppSlice';
 import { toast } from 'react-toastify';
 import ToastConfig from '@/components/deploy-app/deploymentLoading/ToastConfig';
 import { Accordion } from 'flowbite-react';
+import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
+import HandleContent from "@/components/deploy-app/HandleContent";
+import {useRouter} from "next/navigation";
 function ActivitiesLogs({ params }) {
     const { uuid } = params;
-    const [buildPublicDeployment, { isLoading, error, data }] = useBuildPublicDeploymentAppMutation();
+    const [buildPublicDeployment, { error, data }] = useBuildPublicDeploymentAppMutation();
     const deployment = useSelector(selectDeploymentApp);
+    const isLoading = useSelector(selectIsLoading)
+
     const [pollingInterval, setPollingInterval] = useState(null);
     const [isPolling, setIsPolling] = useState(false);
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false);
@@ -29,13 +34,17 @@ function ActivitiesLogs({ params }) {
     const dataLogs = useGetConsoleLogsQuery(uuid, { ...pollingInterval });
     const containerRef = useRef();
     const uuidBuild = deployment?.uuid;
+    const router = useRouter();
 
     const handleDeploy = () => {
-        buildPublicDeployment(uuidBuild).unwrap()
+        buildPublicDeployment(uuidBuild)
+            .unwrap()
             .then((data) => {
                 console.log('data', data);
                 setIsPolling(true);
                 setPollingInterval({ pollingInterval: 2000 });
+                // Reload the page after deployment
+                router.reload();
             })
             .catch((error) => {
                 console.error(`Error deploying app with UUID: ${uuidBuild}`, error);
@@ -57,7 +66,7 @@ function ActivitiesLogs({ params }) {
 
     useEffect(() => {
         let logs = dataLogs?.error?.data;
-        if (typeof logs === 'string') { // Check if logs is a string
+        if (typeof logs === 'string') {
             let lines = logs.split('\n');
             let filteredLines = lines.filter(
                 (line) => line.includes('Finished: SUCCESS') || line.includes('Finished: FAILURE')
@@ -86,7 +95,13 @@ function ActivitiesLogs({ params }) {
             );
         }
     }, [hasSuccess, hasFailure]);
+    console.log('dataLogs', dataLogs)
     return (
+        <HandleContent
+            error={error}
+            isLoading={isLoading}
+            customLoadingContent={<ResourceLoadingIndicator/>}
+        >
         <>
             <ToastConfig />
             <div  className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}
@@ -104,7 +119,7 @@ function ActivitiesLogs({ params }) {
                         <Accordion.Title>{deployment?.jobInfo?.displayName}</Accordion.Title>
                         <Accordion.Content>
                             {(deployment?.jobInfo?.color === 'red' || deployment?.jobInfo?.color === 'blue')  ? (
-                                <div className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}>
+                                <div>
                                     <Button
                                         color="gray"
                                         size={'sm'}
@@ -152,25 +167,26 @@ function ActivitiesLogs({ params }) {
                             )}
                         </Accordion.Content>
                     </Accordion.Panel>
-                    <Accordion.Panel>
-                        <Accordion.Title>Is there a Figma file available?</Accordion.Title>
-                        <Accordion.Content>
-                            <p className="mb-2 text-gray-500 dark:text-gray-400">
-                                Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
-                                has a design equivalent in our Figma file.
-                            </p>
-                            <p className="text-gray-500 dark:text-gray-400">
-                                Check out the
-                                <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
-                                    Figma design system
-                                </a>
-                                based on the utility classes from Tailwind CSS and components from Flowbite.
-                            </p>
-                        </Accordion.Content>
-                    </Accordion.Panel>
+                    {/*<Accordion.Panel>*/}
+                    {/*    <Accordion.Title>Is there a Figma file available?</Accordion.Title>*/}
+                    {/*    <Accordion.Content>*/}
+                    {/*        <p className="mb-2 text-gray-500 dark:text-gray-400">*/}
+                    {/*            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library*/}
+                    {/*            has a design equivalent in our Figma file.*/}
+                    {/*        </p>*/}
+                    {/*        <p className="text-gray-500 dark:text-gray-400">*/}
+                    {/*            Check out the*/}
+                    {/*            <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">*/}
+                    {/*                Figma design system*/}
+                    {/*            </a>*/}
+                    {/*            based on the utility classes from Tailwind CSS and components from Flowbite.*/}
+                    {/*        </p>*/}
+                    {/*    </Accordion.Content>*/}
+                    {/*</Accordion.Panel>*/}
                 </Accordion>
             </div>
         </>
+        </HandleContent>
     );
 }
 
