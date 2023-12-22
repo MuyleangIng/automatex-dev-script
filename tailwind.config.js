@@ -75,6 +75,7 @@ module.exports = {
     'whiteSmoke': '#f5f5f5',
   },
   plugins: [
-      require('flowbite/plugin')
+      require('flowbite/plugin'),
+      require('tailwind-scrollbar'),
   ],
 }

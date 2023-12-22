@@ -10,3 +10,6 @@ export const  SourceType= {
     gitlab:'GITLAB',
     github:'GITHUB'
 }
+
+
+export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
