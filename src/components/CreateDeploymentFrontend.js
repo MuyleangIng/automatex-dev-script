@@ -47,7 +47,7 @@ export default function CreateDeploymentFrontendComponent() {
             envs: [ ],
         },
         // validationSchema:validationSchema,
-        onSubmit:( values,{setSubmitting,resetForm}) => {
+        onSubmit:(values, {setSubmitting, resetForm}) => {
             setLoading(true); // Start loading
             console.log('Form submitted with values:', values);
             resetForm();
@@ -58,20 +58,21 @@ export default function CreateDeploymentFrontendComponent() {
                     setSubmitting(false)
                     toast.success("Insert! Successfully")
                     resetForm()
-                    router.push(`/app/deploy-apps/${res.uuid}/resource`); // Navigate to the new route
-                    setLoading(false); // Stop loading
+                    if (formik.values.sourceType === SourceType.public) {
+                        router.push(`/app/deploy-apps/${res.uuid}/activities`);
+                    } else {
+                        router.push(`/app/deploy-apps/${res.uuid}/resource`);
+                    }
+                    setLoading(false);
                 })
                 .catch((err) => {
                     console.error('Error from createDeploymentApp:', err);
-                    toast.error(err.data?.messages)
-                    setLoading(false); // Stop loading
+                    setLoading(false);
                 })
         },
     });
-    // console.log("formik data",)
     return (
         <>
-
             <ToastConfig/>
             {loading && <LoadingLogo />}
             <div className="grid grid-cols-12 gap-4 ">
@@ -102,12 +103,9 @@ export default function CreateDeploymentFrontendComponent() {
                                     label="Project Name"
                                     value={formik.values.name}
                                     required
-                                    // onChange={formik.handleChange}
                                     onChange={(e) => {
                                         const projectNameValue = e.target.value;
-                                        // Remove spaces before updating state
                                         const formattedProjectName = projectNameValue.replace(/\s/g, '');
-                                        // Convert to lowercase before updating state
                                         const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
                                         formik.setFieldValue('name', formattedProjectNameLowercase);
                                     }}
@@ -127,9 +125,7 @@ export default function CreateDeploymentFrontendComponent() {
                                     value={formik.values.name?(formik.values.name+"."+process.env.NEXT_PUBLIC_DOMAIN_NAME):""}
                                     onChange={(e) => {
                                         const projectNameValue = e.target.value;
-                                        // Remove spaces before updating state
                                         const formattedProjectName = projectNameValue.replace(/\s/g, '');
-                                        // Convert to lowercase before updating state
                                         const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
                                         formik.setFieldValue('name', formattedProjectNameLowercase);
                                     }}
@@ -171,9 +167,7 @@ export default function CreateDeploymentFrontendComponent() {
                             </div>
 
                         </fieldset>
-                        {/*choose branch to deploy*/}
                         <DeployMethod formik={formik}/>
-                        {/*choose branch to deploy*/}
                         <div className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-cyan">
                             {(() => {
                                 switch (formik.values.sourceType) {
