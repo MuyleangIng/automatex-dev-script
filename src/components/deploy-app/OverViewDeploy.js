@@ -28,7 +28,6 @@ function OverViewDeploy(params) {
 
     const gitProjects = useSelector(selectAllProjects);
     console.log("gitProjects", gitProjects);
-    console.log("data from overview deploy :", data.jobInfo.color)
     useEffect(() => {
         dispatch(fetchGitProjects());
     }, []);
