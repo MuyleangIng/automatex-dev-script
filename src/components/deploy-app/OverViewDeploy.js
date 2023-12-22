@@ -52,12 +52,12 @@ function OverViewDeploy(params) {
                         <div className="grid grid-cols-1 gap-y-2">
                             <Label htmlFor="organization" className={'text-base-color-light dark:text-base-color-dark'}>Domain:</Label>
                             <Alert color="teal" icon={PiGoogleCardboardLogo}>
-                                {data.jobInfo.color === 'blue' ? (
+                                {data?.jobInfo?.color === 'blue' ? (
                                     <Link className="font-medium" target="_blank" rel="noopener noreferrer" href={`https://${data?.domains[0]?.fullSubdomain}`} passHref>
                                         {data?.domains[0]?.fullSubdomain}
                                     </Link>
                                 ) : (
-                                    data.jobInfo.color === 'red' ? (
+                                    data?.jobInfo?.color === 'red' ? (
                                         <div className="font-medium" style={{cursor: 'not-allowed', color: 'grey'}}>
                                             {data?.domains[0]?.fullSubdomain}
                                         </div>
