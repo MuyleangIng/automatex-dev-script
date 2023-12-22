@@ -59,8 +59,6 @@ function ActivitiesLogs({ params }) {
         let logs = dataLogs?.error?.data;
         if (typeof logs === 'string') { // Check if logs is a string
             let lines = logs.split('\n');
-            lines = lines.filter(line => !line.includes('TASK')); // Filter out lines containing 'TASK ['
-            logs = lines.join('\n');
             let filteredLines = lines.filter(
                 (line) => line.includes('Finished: SUCCESS') || line.includes('Finished: FAILURE')
             );
