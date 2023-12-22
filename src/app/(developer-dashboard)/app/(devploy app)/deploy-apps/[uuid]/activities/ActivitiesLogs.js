@@ -35,7 +35,7 @@ function ActivitiesLogs({ params }) {
     const containerRef = useRef();
     const uuidBuild = deployment?.uuid;
     const router = useRouter();
-
+    console.log('deployment', deployment)
     const handleDeploy = () => {
         buildPublicDeployment(uuidBuild)
             .unwrap()
@@ -117,22 +117,63 @@ function ActivitiesLogs({ params }) {
                     <Accordion.Panel>
                         <Accordion.Title>{deployment?.jobInfo?.displayName}</Accordion.Title>
                         <Accordion.Content>
-                            {(deployment?.jobInfo?.color === 'red' || deployment?.jobInfo?.color === 'blue')  ? (
+                            {/*{(deployment?.jobInfo?.color === 'red' || deployment?.jobInfo?.color === 'blue')  ? (*/}
+                            {/*    <div>*/}
+                            {/*        <Button*/}
+                            {/*            color="gray"*/}
+                            {/*            size={'sm'}*/}
+                            {/*            onClick={() => {*/}
+                            {/*                setIsPolling(!isPolling);*/}
+                            {/*                setPollingInterval(isPolling ? null : { pollingInterval: 2000 });*/}
+                            {/*                setIsLoadingSpinner(isPolling);*/}
+                            {/*            }}*/}
+                            {/*            className={isPolling ? active : ''}*/}
+                            {/*        >*/}
+                            {/*            {isLoadingSpinner ? (*/}
+                            {/*                <FaSpinner className={`mr-3 h-4 w-4 animate-spin`} />*/}
+                            {/*            ) : (*/}
+                            {/*                <TfiReload className={`mr-3 h-4 w-4 ${isPolling ? 'animate-spin' : ''}`} />*/}
+                            {/*            )}*/}
+                            {/*            <p className={'text-xs'}>Polling</p>*/}
+                            {/*        </Button>*/}
+                            {/*        <div*/}
+                            {/*            ref={containerRef}*/}
+                            {/*            className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[100vh] overflow-auto space-y-5 scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-rounded-full">*/}
+                            {/*            <pre>{dataLogs?.error?.data}</pre>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">*/}
+                            {/*            {isLoadingSpinner ? (*/}
+                            {/*                <div className="flex items-center justify-center h-full">*/}
+                            {/*                    <FaSpinner className="h-6 w-6 animate-spin text-gray-500" />*/}
+                            {/*                </div>*/}
+                            {/*            ) : (*/}
+                            {/*                <div className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center">*/}
+                            {/*                    <div className="text-base font-bold text-cool-blue-150 dark:text-gray-300">*/}
+                            {/*                        {hasSuccess ? 'Your App was Successfully Deployed' : 'Deployment Failed'}*/}
+                            {/*                    </div>*/}
+                            {/*                </div>*/}
+                            {/*            )}*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*) : (*/}
+                            {/*    <div>Error: Data logs not available</div>*/}
+                            {/*)}*/}
+                            {deployment?.jobInfo?.color === 'red' || deployment?.jobInfo?.color === 'blue' || deployment?.jobInfo?.color === 'red_anime' || deployment?.jobInfo?.color === 'blue_anime' ? (
                                 <div>
                                     <Button
                                         color="gray"
                                         size={'sm'}
                                         onClick={() => {
                                             setIsPolling(!isPolling);
-                                            setPollingInterval(isPolling ? null : { pollingInterval: 2000 });
+                                            setPollingInterval(isPolling ? null : {pollingInterval: 2000});
                                             setIsLoadingSpinner(isPolling);
                                         }}
                                         className={isPolling ? active : ''}
                                     >
                                         {isLoadingSpinner ? (
-                                            <FaSpinner className={`mr-3 h-4 w-4 animate-spin`} />
+                                            <FaSpinner className={`mr-3 h-4 w-4 animate-spin`}/>
                                         ) : (
-                                            <TfiReload className={`mr-3 h-4 w-4 ${isPolling ? 'animate-spin' : ''}`} />
+                                            <TfiReload className={`mr-3 h-4 w-4 ${isPolling ? 'animate-spin' : ''}`}/>
                                         )}
                                         <p className={'text-xs'}>Polling</p>
                                     </Button>
@@ -141,23 +182,26 @@ function ActivitiesLogs({ params }) {
                                         className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[100vh] overflow-auto space-y-5 scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-rounded-full">
                                         <pre>{dataLogs?.error?.data}</pre>
                                     </div>
-                                    <div className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">
+                                    <div
+                                        className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">
                                         {isLoadingSpinner ? (
                                             <div className="flex items-center justify-center h-full">
-                                                <FaSpinner className="h-6 w-6 animate-spin text-gray-500" />
+                                                <FaSpinner className="h-6 w-6 animate-spin text-gray-500"/>
                                             </div>
                                         ) : (
-                                            <div className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center">
-                                                <div className="text-base font-bold text-cool-blue-150 dark:text-gray-300">
+                                            <div
+                                                className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center">
+                                                <div
+                                                    className="text-base font-bold text-cool-blue-150 dark:text-gray-300">
                                                     {hasSuccess ? 'Your App was Successfully Deployed' : 'Deployment Failed'}
                                                 </div>
                                             </div>
                                         )}
                                     </div>
                                 </div>
-                            ) : (
+                            ) : deployment?.jobInfo?.color === 'notbuilt' ? (
                                 <div>Error: Data logs not available</div>
-                            )}
+                            ) : null}
                         </Accordion.Content>
                     </Accordion.Panel>
                 </Accordion>
