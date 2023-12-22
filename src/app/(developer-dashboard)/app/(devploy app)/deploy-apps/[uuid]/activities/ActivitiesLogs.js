@@ -102,7 +102,6 @@ function ActivitiesLogs({ params }) {
             isLoading={isLoading}
             customLoadingContent={<ResourceLoadingIndicator/>}
         >
-        <>
             <ToastConfig />
             <div  className={'mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800'}
             >
@@ -128,7 +127,6 @@ function ActivitiesLogs({ params }) {
                                             setPollingInterval(isPolling ? null : { pollingInterval: 2000 });
                                             setIsLoadingSpinner(isPolling);
                                         }}
-
                                         className={isPolling ? active : ''}
                                     >
                                         {isLoadingSpinner ? (
@@ -140,21 +138,16 @@ function ActivitiesLogs({ params }) {
                                     </Button>
                                     <div
                                         ref={containerRef}
-                                        className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[100vh] overflow-auto space-y-5 scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-rounded-full"
-                                    >
+                                        className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[100vh] overflow-auto space-y-5 scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-rounded-full">
                                         <pre>{dataLogs?.error?.data}</pre>
                                     </div>
-                                    <div
-                                        className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800"
-                                    >
+                                    <div className="w-11/12 group h-20 p-4 mx-auto border-2 mt-10 border-gray-200 rounded-xl transition duration-300 hover:border-cool-blue-80 focus:bg-yellow-50 focus:dark:bg-blue-950 active:bg-cool-blue-80 active:dark:bg-gray-800">
                                         {isLoadingSpinner ? (
                                             <div className="flex items-center justify-center h-full">
                                                 <FaSpinner className="h-6 w-6 animate-spin text-gray-500" />
                                             </div>
                                         ) : (
-                                            <div
-                                                className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center"
-                                            >
+                                            <div className="flex flex-col leading-4 text-sm py-2 items-center space-x-4 pb-2 text-center">
                                                 <div className="text-base font-bold text-cool-blue-150 dark:text-gray-300">
                                                     {hasSuccess ? 'Your App was Successfully Deployed' : 'Deployment Failed'}
                                                 </div>
@@ -167,25 +160,8 @@ function ActivitiesLogs({ params }) {
                             )}
                         </Accordion.Content>
                     </Accordion.Panel>
-                    {/*<Accordion.Panel>*/}
-                    {/*    <Accordion.Title>Is there a Figma file available?</Accordion.Title>*/}
-                    {/*    <Accordion.Content>*/}
-                    {/*        <p className="mb-2 text-gray-500 dark:text-gray-400">*/}
-                    {/*            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library*/}
-                    {/*            has a design equivalent in our Figma file.*/}
-                    {/*        </p>*/}
-                    {/*        <p className="text-gray-500 dark:text-gray-400">*/}
-                    {/*            Check out the*/}
-                    {/*            <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">*/}
-                    {/*                Figma design system*/}
-                    {/*            </a>*/}
-                    {/*            based on the utility classes from Tailwind CSS and components from Flowbite.*/}
-                    {/*        </p>*/}
-                    {/*    </Accordion.Content>*/}
-                    {/*</Accordion.Panel>*/}
                 </Accordion>
             </div>
-        </>
         </HandleContent>
     );
 }
