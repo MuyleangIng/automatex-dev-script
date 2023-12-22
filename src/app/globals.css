@@ -170,3 +170,7 @@ body{
 .two:hover span {
     width: 50%;
 }
+
+.c-pagination li[aria-current="page"] button{
+    @apply text-white hover:bg-cyan-600 hover:text-white;
+}

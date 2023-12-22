@@ -1,9 +1,11 @@
 import React, {createElement} from 'react';
 import LoadingIndicator from "@/components/LoadingIndicator";
 import ErrorHandling from "@/components/deploy-app/ErrorHandling";
+import {useSession} from "next-auth/react";
 
 function HandleContent({children,isLoading,error,disabledErrorCode,loadingComponent=LoadingIndicator,customLoadingContent,...props}) {
-    if (isLoading){
+    const {status}=useSession()
+    if (isLoading || status === 'loading'){
         if (customLoadingContent) {
             return (
                 <>
