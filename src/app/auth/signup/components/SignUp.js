@@ -17,7 +17,7 @@ import Link from "next/link";
 import {setEmail} from "@/store/features/personalInfo/personalInfoSlice";
 import {useDispatch} from "react-redux";
 import {setUser} from "@/store/features/user/userSlice";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape({
         .required('Password is required')
         .matches(passwordRegex, 'Password must be at least 6 characters, a number, an Uppercase, and a Lowercase'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password must match").required("Required"),
-    captcha: Yup.string().required('Please complete the reCAPTCHA verification.'),
+    // captcha: Yup.string().required('Please complete the reCAPTCHA verification.'),
 });
 
 
@@ -39,10 +39,8 @@ function SignUp(props) {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const router = useRouter();
     const dispatch = useDispatch();
-    const [captcha, setCaptcha]= useState()
-    const onSubmit = () => {
+    // const [captcha, setCaptcha]= useState()
 
-    }
     const togglePasswordVisibility = () => {
         setPasswordVisible((prevState) => !prevState);
     };
@@ -81,7 +79,6 @@ function SignUp(props) {
                             email: '',
                             password: 'Admin123',
                             confirmPassword: 'Admin123',
-                            captcha: '',
                         }}
                         validationSchema={validationSchema}
                         onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -102,7 +99,7 @@ function SignUp(props) {
                                     dispatch(setEmail(values.email));
                                     dispatch(setUser(values));
                                     resetForm({
-                                        values: { username: '', email: '', password: '', confirmPassword: '' ,captcha: '',},
+                                        values: { username: '', email: '', password: '', confirmPassword: ''},
                                     });
                                     router.push("/auth/sign-up-success");
                                 }
@@ -199,19 +196,19 @@ function SignUp(props) {
                                                           className={"text-red-500 text-sm mt-1"}/>
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-1 gap-2">
-                                        <ReCAPTCHA
-                                            size="normal"
-                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                                            onChange={(value) => {
-                                                setFieldValue('captcha', value);
-                                                setCaptcha(value);
-                                            }}
-                                            className="mx-auto"
-                                        />
-                                        <ErrorMessage name="captcha" component="div"
-                                                      className="text-red-500 text-sm mt-1"/>
-                                    </div>
+                                    {/*<div className="grid grid-cols-1 gap-2">*/}
+                                    {/*    <ReCAPTCHA*/}
+                                    {/*        size="normal"*/}
+                                    {/*        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}*/}
+                                    {/*        onChange={(value) => {*/}
+                                    {/*            setFieldValue('captcha', value);*/}
+                                    {/*            setCaptcha(value);*/}
+                                    {/*        }}*/}
+                                    {/*        className="mx-auto"*/}
+                                    {/*    />*/}
+                                    {/*    <ErrorMessage name="captcha" component="div"*/}
+                                    {/*                  className="text-red-500 text-sm mt-1"/>*/}
+                                    {/*</div>*/}
                                 </div>
                                 <Button type="submit" disabled={isSubmitting} className="w-full bg-orange-100">
                                     {isSubmitting ? "Creating..." : " Create an account"}
