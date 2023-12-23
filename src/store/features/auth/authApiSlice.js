@@ -28,8 +28,16 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 },
             }),
         }),
+        update: builder.mutation({
+            query: (userData) => ({
+                url: "/auth/me/update",
+                method: "PUT",
+                body: { ...userData },
+                providesTags: ["User"],
+            }),
+        }),
     }),
 });
 // auto generated hooks for login mutation
-export const { useRegisterMutation, useLoginMutation,useVerifyEmailMutation } = authApiSlice;
+export const { useRegisterMutation, useLoginMutation,useVerifyEmailMutation,useUpdateMutation } = authApiSlice;
 export default authApiSlice;

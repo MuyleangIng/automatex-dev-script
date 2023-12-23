@@ -30,6 +30,12 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 method: "GET",
             }),
         }),
+        getConsoleLogByBuildNumber: builder.query({
+            query: (args) => {
+                const { uuid, number } = args;
+                return `/deploy-apps/console-latest-output/${uuid}/${number}`
+            },
+        }),
         getActivities: builder.query({
             query: (uuid) => ({
                 url: `/deploy-apps/activities/${uuid}`,
@@ -60,7 +66,10 @@ export const {
     useLazyGetAllDeploymentAppsQuery,
     useGetSingleDeploymentQuery,
     useGetConsoleLogsQuery,
+    useLazyGetConsoleLogsQuery,
     useLazyGetSingleDeploymentQuery,
     useGetActivitiesQuery,
     useLazyGetActivitiesQuery,
+    useGetConsoleLogByBuildNumberQuery,
+    useLazyGetConsoleLogByBuildNumberQuery,
 } = deployAppApiSlice;
