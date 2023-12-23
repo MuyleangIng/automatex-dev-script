@@ -37,7 +37,7 @@ function ActivitiesLogs({ params }) {
     useEffect(() => {
         fetchDeployment(uuid)
         dispatch(addDeploymentApp(nData))
-    }, [deployment]);
+    }, [deployment,deploying]);
 
     return (
         <HandleContent
@@ -57,7 +57,7 @@ function ActivitiesLogs({ params }) {
                     </Button>
                 </div>
                 <br/>
-                {deploying && (<BuildingLogItem deployment={deployment} buildNumber={deployment?.jobInfo?.nextBuildNumber} deploying={deploying} setDeploying={setDeploying}/>)}
+                {deploying && (<BuildingLogItem deployment={nData} buildNumber={deployment?.jobInfo?.nextBuildNumber} deploying={deploying} setDeploying={setDeploying}/>)}
                 <Accordion>
                     {deployment?.jobInfo?.builds?.map((item, index) => (<BuildLogItem
                         key={index}
@@ -81,20 +81,16 @@ const BuildingLogItem = ({deployment,deploying,setDeploying,buildNumber}) => {
         if (containerRef.current) {
             containerRef.current.scrollTop = containerRef.current.scrollHeight;
         }
-        // if(error){
-        //     let d = error?.data.split('\n');
-        //     if(d){
-        //         d = d.filter((item) => item.includes("Finished: SUCCESS") || item.includes("Finished: FAILURE"));
-        //         console.log('DD',d)
-        //         // if(d.length > 0){
-        //         //     setInterval(() => {
-        //         //         setDeploying(false)
-        //         //     }, 10000);
-        //         // }
-        //     }
-        // }
+        if(error){
+            if (error?.status === 'PARSING_ERROR'){
+                if (error.data.includes("Finished: SUCCESS") || error.data.includes("Finished: FAILURE")){
+                    setInterval(() => {
+                        setDeploying(false)
+                    },3000)
+                }
+            }
+        }
     }, [isLoading, isFetching]);
-    console.log('DD',error)
 
     if (!deploying) return;
 
@@ -104,14 +100,16 @@ const BuildingLogItem = ({deployment,deploying,setDeploying,buildNumber}) => {
         >
             <Accordion.Title>Build {buildNumber}</Accordion.Title>
             <Accordion.Content>
-                <div
-                    ref={containerRef}
-                    className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[500px] overflow-x-hidden overflow-y-auto space-y-5 scrollbar-thin scrollbar-thumb-cyan-900 scrollbar-track-gray-100"
-                >
-                    <pre>
-                        logging
-                    </pre>
-                </div>
+                {error?.status === 'PARSING_ERROR' && (
+                    <div
+                        ref={containerRef}
+                        className="mx-auto p-2 rounded bg-gray-100 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40 h-[500px] overflow-x-hidden overflow-y-auto space-y-5 scrollbar-thin scrollbar-thumb-cyan-900 scrollbar-track-gray-100"
+                    >
+                        <pre>
+                            {error?.data}
+                        </pre>
+                    </div>
+                )}
                 <div className={"flex items-center gap-2"}>
                     <Spinner aria-label="Large spinner example" size="lg" />
                     <p>Loading...</p>
@@ -122,7 +120,6 @@ const BuildingLogItem = ({deployment,deploying,setDeploying,buildNumber}) => {
 }
 
 const BuildLogItem = ({ item, index,depUuid,onLog,setOnLog }) => {
-    const [pollingInterval, setPollingInterval] = useState(null)
     const [fetchData,{ data, error, isError, isLoading, isFetching}] = useLazyGetConsoleLogByBuildNumberQuery();
     const [open, setOpen] = useState(false)
     const containerRef = useRef();
