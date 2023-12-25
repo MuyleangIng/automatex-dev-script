@@ -149,7 +149,7 @@ function Login() {
                                     </div>
                                     <div
                                         type="submit"
-                                        className="text-sm cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                        className="text-sm cursor-pointer font-medium hover:underline dark:text-primary-500 text-blue-500"
                                         onClick={toggleForgotPasswordVisibility}
                                     >
                                         Forgot password?

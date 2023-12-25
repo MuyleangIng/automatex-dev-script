@@ -29,10 +29,10 @@ function Concardduty(props) {
                                 </svg>
 
                             </div>
-                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-400">
+                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-300">
                                 Performance
                             </h3>
-                            <p>Creating a pathway to success by deploying product that ensures better results and
+                            <p  className="text-base text-gray-500 dark:text-gray-300">Creating a pathway to success by deploying product that ensures better results and
                                 strives for development</p>
                         </a>
                         <a
@@ -52,10 +52,10 @@ function Concardduty(props) {
                                         d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
                                 </svg>
                             </div>
-                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-400">
+                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-300">
                                 Commitment
                             </h3>
-                            <p>Adhere to the best products, services, and other initiatives that benefits both internal
+                            <p  className="text-base text-gray-500 dark:text-gray-300">Adhere to the best products, services, and other initiatives that benefits both internal
                                 and external environments</p>
                         </a>
                         <a
@@ -71,10 +71,10 @@ function Concardduty(props) {
                                         stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
-                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-400">
+                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-300">
                                 Quality
                             </h3>
-                            <p>AutomateX quality is first in everything we do. Giving our best to justify- what we do,
+                            <p className="text-base text-gray-500 dark:text-gray-300">AutomateX quality is first in everything we do. Giving our best to justify- what we do,
                                 we do well</p>
 
                         </a>
@@ -91,10 +91,10 @@ function Concardduty(props) {
                                         stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
-                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-400">
+                            <h3 className="mb-2 text-lg font-semibold tracking-tight text-cool-blue-100 dark:text-gray-300">
                                 Safety
                             </h3>
-                            <p>Ensuring safety on top of all by adopting the measures by deliberating health care </p>
+                            <p  className="text-base text-gray-500 dark:text-gray-300">Ensuring safety on top of all by adopting the measures by deliberating health care </p>
                         </a>
                     </div>
                 </div>

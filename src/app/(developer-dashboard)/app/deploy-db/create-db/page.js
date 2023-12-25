@@ -1,11 +1,12 @@
 'use client'
+import FormDB from '@/components/FormDB';
 import React from 'react';
-import SectionAppDb from "@/components/SectionAppDB";
+
 
 function Page() {
     return (
         <div>
-            <SectionAppDb/>
+            <FormDB/>
         </div>
     );
 }
