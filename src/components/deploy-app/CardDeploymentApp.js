@@ -53,6 +53,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
         dispatch(addDeploymentApp(deployApp))
         router.push(`/app/deploy-apps/${deployApp.uuid}/resource`)
     }
+    console.log(deployApp?.buildNumber);
 
     return (<>
         <Modal show={showConfirmationModal}
@@ -89,7 +90,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                     </div>
                     <h4 onClick={handleDeployApp}
                         className="text-center capitalize truncate font-semibold text-gray-900 dark:text-white hover:cursor-pointer hover:text-cyan-500">
-                        {deployApp?.name.length > 10 ? deployApp?.name.substring(0, 10) + '...' : deployApp?.name}
+                        {deployApp?.name.length > 15 ? deployApp?.name.substring(0, 20) + '...' : deployApp?.name}
                     </h4>
                 </div>
                 <div className={"border-gray-200 dark:border-gray-700"}>

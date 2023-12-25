@@ -4,7 +4,6 @@ import { IoRocketOutline } from "react-icons/io5";
 import React, { useState, useEffect, useRef } from 'react';
 import {
     useBuildPublicDeploymentAppMutation, useGetConsoleLogByBuildNumberQuery,
-    useGetConsoleLogsQuery,
     useLazyGetConsoleLogByBuildNumberQuery, useLazyGetSingleDeploymentQuery,
 } from '@/store/features/deploy-app/deployAppApiSlice';
 import { Button } from 'flowbite-react';
