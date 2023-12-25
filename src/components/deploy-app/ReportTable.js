@@ -5,18 +5,17 @@ import {useGetTrivyReportByBuildNumberQuery} from "@/store/features/deploy-app/d
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import React from "react";
 import HandleContent from "@/components/deploy-app/HandleContent";
+import {useSelector} from "react-redux";
+import {selectDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
 
 export default function ReportTable({params}) {
-    const {uuid, number = 8} = params;
-    const {data: trivyReport, error, isLoading} = useGetTrivyReportByBuildNumberQuery({uuid, number});
-    const trivy = trivyReport?.results[0]?.Vulnerabilities[0]
-    console.log("Report:", trivyReport)
+    const {uuid} = params;
+    const deployment = useSelector(selectDeploymentApp);
+    const number = deployment?.jobInfo?.lastSuccessfulBuild?.number;
+    const {data, error, isLoading} = useGetTrivyReportByBuildNumberQuery({uuid, number});
+    const trivy = data?.results.flatMap(result => result?.Vulnerabilities);
 
-    console.log("tryvy:", trivy)
-
-    //
-    // console.log("tryvy:",trivyReport)
-
+    // console.log("Trivy",trivy)
 
     return (<HandleContent
         error={error}
@@ -25,7 +24,8 @@ export default function ReportTable({params}) {
     >
         <div
             className={'mt-10 w-full rounded-xl border-dashed border-2 border-gray-300 dark:border-gray-700 bg-white pt-4 mb-5 shadow dark:bg-gray-800 overflow-hidden'}>
-            <h1 className="mb-10 text-xl font-bold text-cyan-500 text-center underline dark:text-white">Trivy Report</h1>
+            <h1 className="mb-10 text-xl font-bold text-cyan-500 text-center underline dark:text-cyan-500 ">Trivy Report
+                BuildSuccess {deployment?.jobInfo?.lastSuccessfulBuild?.number}</h1>
             <div className="overflow-x-auto m-5">
                 <Table hoverable className={"font-bold text-sm text-center"}>
                     <Table.Head>
@@ -36,9 +36,8 @@ export default function ReportTable({params}) {
                         <Table.HeadCell>Fixed Version </Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {trivyReport?.results[0]?.Vulnerabilities.map((vulnerability, index) => {
+                        {trivy?.map((vulnerability, index) => {
                             let severityColor;
-                            let rowColor;
                             switch (vulnerability.Severity) {
                                 case 'LOW':
                                     severityColor = '#c3e5b1';
@@ -55,7 +54,7 @@ export default function ReportTable({params}) {
                                 default:
                                     rowColor = 'bg-white';
                             }
-
+                            let rowColor;
                             switch (vulnerability.Severity) {
                                 case 'LOW':
                                     rowColor = '#5fbb31';
@@ -72,8 +71,6 @@ export default function ReportTable({params}) {
                                 default:
                                     rowColor = 'bg-white';
                             }
-
-
                             return (<Table.Row key={index} className="border-amber-400 dark:border-gray-700 ">
                                 <Table.Cell style={{backgroundColor: severityColor}}
                                             className="whitespace-nowrap font-bold text-sm text-black">
@@ -95,7 +92,8 @@ export default function ReportTable({params}) {
                                     <a href={vulnerability.PrimaryURL} target="_blank" rel="noopener noreferrer">
                                         {vulnerability.PrimaryURL}
                                     </a>
-                                </Table.Cell></Table.Row>)
+                                </Table.Cell>
+                            </Table.Row>)
                         })}
                     </Table.Body>
                 </Table>
