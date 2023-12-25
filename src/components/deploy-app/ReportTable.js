@@ -95,6 +95,7 @@ export default function ReportTable({params}) {
                                 </Table.Cell>
                             </Table.Row>)
                         })}
+
                     </Table.Body>
                 </Table>
             </div>
