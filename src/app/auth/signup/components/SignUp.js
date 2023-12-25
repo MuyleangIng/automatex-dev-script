@@ -79,8 +79,8 @@ function SignUp(props) {
                         initialValues={{
                             username: '',
                             email: '',
-                            password: 'Admin123',
-                            confirmPassword: 'Admin123',
+                            password: '',
+                            confirmPassword: '',
                             captcha: '',
                         }}
                         validationSchema={validationSchema}
@@ -122,7 +122,7 @@ function SignUp(props) {
                                                 type="text"
                                                 name="username"
                                                 className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                                placeholder="Enter your username"
+                                                placeholder="Enter your fullname"
                                             />
                                             <ErrorMessage name={"username"} component={"div"}
                                                           className={"text-red-500 text-sm mt-1"}/>
