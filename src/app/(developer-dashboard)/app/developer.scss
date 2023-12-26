@@ -1,0 +1,25 @@
+$background-colors: (
+    low: #c3e5b1,
+    medium: #f7ea9f,
+    high: #ffd29f,
+    critical: #f59f9f
+);
+
+@each $key, $color in $background-colors {
+    .row-#{$key} {
+        background-color: $color;
+    }
+}
+
+$cell-colors: (
+    low: #5fbb31,
+    medium: #e9c600,
+    high: #ff8800,
+    critical: #e40000
+);
+
+@each $key, $color in $cell-colors {
+    .cell-#{$key} {
+        background-color: $color;
+    }
+}
