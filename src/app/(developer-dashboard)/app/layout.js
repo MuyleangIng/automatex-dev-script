@@ -2,6 +2,7 @@
 import React from 'react';
 import DevTabs from "@/components/DevTabs";
 import {usePathname} from "next/navigation";
+import "./developer.scss"
 function Layout({children}) {
     const pathname = usePathname();
     const developerPath = pathname.includes('/deploy-apps/')

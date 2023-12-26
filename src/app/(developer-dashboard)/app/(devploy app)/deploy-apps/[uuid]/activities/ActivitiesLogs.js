@@ -12,6 +12,7 @@ import {addDeploymentApp, selectDeploymentApp, selectIsLoading} from '@/store/fe
 import { Accordion } from 'flowbite-react';
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import HandleContent from "@/components/deploy-app/HandleContent";
+import HandlePagenation from "@/components/deploy-app/deploymentLoading/HandlePagenation";
 function ActivitiesLogs({ params }) {
     const { uuid } = params;
     const dispatch = useDispatch()
@@ -20,7 +21,6 @@ function ActivitiesLogs({ params }) {
     const deployment = useSelector(selectDeploymentApp);
     const isLoading = useSelector(selectIsLoading)
     const [deploying, setDeploying] = useState(false);
-    const [onLog, setOnLog] = useState('item-0');
 
     const handleDeploy = () => {
         buildPublicDeployment(deployment?.uuid)
@@ -33,10 +33,12 @@ function ActivitiesLogs({ params }) {
             });
     }
 
+
     useEffect(() => {
         fetchDeployment(uuid)
         dispatch(addDeploymentApp(nData))
     }, [deployment,deploying]);
+
 
     return (
         <HandleContent
@@ -57,18 +59,43 @@ function ActivitiesLogs({ params }) {
                 </div>
                 <br/>
                 {deploying && (<BuildingLogItem deployment={nData} buildNumber={deployment?.jobInfo?.nextBuildNumber} deploying={deploying} setDeploying={setDeploying}/>)}
-                <Accordion>
-                    {deployment?.jobInfo?.builds?.map((item, index) => (<BuildLogItem
-                        key={index}
-                        depUuid={deployment?.uuid}
-                        index={index}
-                        item={item}
-                        onLog={onLog}
-                        setOnLog={setOnLog} />))}
-                </Accordion>
+                {deployment && (<MainAccordion deployment={deployment}/>) }
+
             </div>
         </HandleContent>
     );
+}
+const MainAccordion = ({deployment}) => {
+    const [onLog, setOnLog] = useState('item-0');
+    const {
+        data,
+        handleResultsNumber,
+        total
+    } = HandlePagenation({ initData: deployment?.jobInfo?.builds });
+    return (
+        <>
+            <Accordion>
+                {data.map((item, index) => (<BuildLogItem
+                    key={index}
+                    depUuid={deployment?.uuid}
+                    index={index}
+                    item={item}
+                    onLog={onLog}
+                    setOnLog={setOnLog} />))}
+            </Accordion>
+            <div className={" flex justify-end gap-2 items-center text-gray-900  dark:bg-gray-800 dark:text-white border-gray-400"}>
+                <select
+                    className={"dark:bg-gray-800 bg-white border-0 text-gray-900 text-sm rounded-lg focus:ring-0 block dark:border-gray-800 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-0"}
+                    onChange={e => handleResultsNumber(e.target.value)}
+                >
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                    <option value={total}>All</option>
+                </select>
+            </div>
+        </>
+        )
 }
 
 export default ActivitiesLogs;
@@ -130,6 +157,7 @@ const BuildLogItem = ({ item, index,depUuid,onLog,setOnLog }) => {
     }, [isLoading, isFetching]);
 
     return (
+        <>
         <Accordion.Panel
             isOpen={open && (onLog === 'item-'+index)}
             setOpen={()=>{
@@ -142,7 +170,7 @@ const BuildLogItem = ({ item, index,depUuid,onLog,setOnLog }) => {
                 }
             }}
         >
-            <Accordion.Title>Build {item?.number}</Accordion.Title>
+            <Accordion.Title>Log {item?.number}</Accordion.Title>
             <Accordion.Content>
                 <div
                     ref={containerRef}
@@ -156,5 +184,7 @@ const BuildLogItem = ({ item, index,depUuid,onLog,setOnLog }) => {
                 </div>
             </Accordion.Content>
         </Accordion.Panel>
+        </>
+
     )
 }
