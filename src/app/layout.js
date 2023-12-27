@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import Script from "next/script";
 import React from "react";
 const satoshi = localFont({
-    src: '../fonts/Satoshi-Regular.ttf',
+    src: '../fonts/Satoshi-Medium.ttf',
     display: 'swap',
 })
 

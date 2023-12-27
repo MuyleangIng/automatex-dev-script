@@ -123,7 +123,7 @@ function Login() {
                                     <div className="grid grid-cols-1 gap-2">
                                         <div className="grid grid-cols-1 gap-2">
                                             <div>
-                                                <Label htmlFor="email" className="dark:text-white">Your email</Label>
+                                                <Label htmlFor="email" className="dark:text-white">Your email or username</Label>
                                                 <Field
                                                     type="text"
                                                     name="email"
@@ -167,7 +167,7 @@ function Login() {
                                     </div>
                                     <div
                                         type="submit"
-                                        className="text-sm cursor-pointer font-medium text-blue-700 hover:underline dark:text-primary-500"
+                                        className="text-sm cursor-pointer font-medium text-orange-150 hover:underline dark:text-orange-150"
                                         onClick={toggleForgotPasswordVisibility}
                                     >
                                         Forgot password?
