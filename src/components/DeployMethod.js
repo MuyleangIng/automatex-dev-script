@@ -47,22 +47,22 @@ function DeployMethod({formik}) {
                 })}
                 {methodTemplate({
                     value:SourceType.public,
-                    title:"Source Git Public Url",
+                    title:"Source Public Url",
                     desc:"drop your public repo",
                     logo:"/giturl.png"
                 })}
                 {methodTemplate({
-                    disabled:true,
+                    // disabled:true,
                     value:SourceType.github,
                     title:"GitHub",
-                    desc:"drop your public repo",
+                    desc:" connect to private repo",
                     logo:"/gitlogo.png"
                 })}
                 {methodTemplate({
                     disabled:true,
                     value:SourceType.gitlab,
-                    title:"Gitlab",
-                    desc:"drop your public repo",
+                    title:"GitLab",
+                    desc:"connect to gitlab repo",
                     logo:"/gitlap.png"
                 })}
 

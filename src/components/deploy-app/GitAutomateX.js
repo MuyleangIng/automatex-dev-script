@@ -60,7 +60,7 @@ function GitAutomateX({params}) {
     };
 
     const style = "mt-[25px] text-[20px] text-des-light dark:text-des-dark flex items-center gap-2 px-2.5 py-1.5 focus:outline focus:outline-1 rounded-md focus:outline-gray-700 dark:focus:outline-white";
-    const commands = ['echo "# new"  >> README.md', 'git init', 'git add README.md', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`, 'git push -u origin main',];
+    const commands = ['git init', 'git add  .', 'git commit -m "first commit"', 'git branch -M main', `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`, 'git push -u origin main',];
     const command2 = [
         `git remote add origin ${data?.repo?.http_url_to_repo || 'default_value'} \n`,
         'git branch -M main\n',
