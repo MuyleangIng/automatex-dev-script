@@ -19,15 +19,13 @@ export const deploymentDbApiSlice = apiSlice.injectEndpoints ({
                 method: 'GET'
             }),
             keepUnusedDataFor: 5,
-            providesTags: ["DeploymentDatabase"],
         }),
         createDeploymentDatabase: builder.mutation ({
             query: (db) => ({
                 url: `/databases`,
                 method: 'POST',
-                body: appData,
+                body: db,
             }),
-            invalidatesTags: ["DeploymentDatabase"],
         }),
         updateDeploymentDatabase: builder.mutation ({
             query: (uuid) => ({
@@ -35,14 +33,12 @@ export const deploymentDbApiSlice = apiSlice.injectEndpoints ({
                 method: 'PUT',
                 body,
             }),
-            invalidatesTags: ["DeploymentDatabase"],
         }),
         deleteDeploymentDatabase: builder.mutation ({
             query: (uuid) => ({
                 url: `/database/${uuid}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ["DeploymentDatabase"],
         }),
     }),
 });
