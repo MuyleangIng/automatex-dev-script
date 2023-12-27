@@ -47,7 +47,7 @@ function DeployMethod({formik}) {
                 })}
                 {methodTemplate({
                     value:SourceType.public,
-                    title:"Source Git Public Url",
+                    title:"Source Git Url",
                     desc:"drop your public repo",
                     logo:"/giturl.png"
                 })}
