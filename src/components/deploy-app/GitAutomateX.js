@@ -1,15 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { CiFileOn } from "react-icons/ci";
-
-import {Card} from "flowbite-react";
+import {Card,Table} from "flowbite-react";
 import Image from "next/image";
 import { FaFolder } from "react-icons/fa6";
 import { FaGitAlt } from "react-icons/fa6";
 import { IoIosGitBranch } from "react-icons/io";
 import { IoMdPricetags } from "react-icons/io";
-
-
-
 import {FaCopy} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -22,7 +18,6 @@ import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/
 import {useSession} from "next-auth/react";
 import {selectProjectById, selectProjectTree} from "@/store/api/apiGitSlice";
 import {fetchGitProjectById, fetchProjectTree} from "@/store/features/gitlab/gitApi";
-import {Table} from "flowbite-react";
 
 function GitAutomateX({params}) {
     const dispatch = useDispatch()
@@ -37,18 +32,13 @@ function GitAutomateX({params}) {
     useEffect(() => {
         dispatch(fetchGitProjectById(data?.repoId));
     }, [data?.repoId]);
-    console.log("gitProjects", gitProjects?.id);
-    console.log("data",data?.repoId)
 
     useEffect(() => {
         dispatch(fetchProjectTree(data?.repoId));
     }, []);
 
-    console.log("projectTree", projectTree);
-
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
-            console.log('Text copied to clipboard');
             setIsTooltipVisible(true);
             // Hide the tooltip after a delay (e.g., 2 seconds)
             setTimeout(() => {
@@ -91,10 +81,10 @@ function GitAutomateX({params}) {
                 </div>
                 {gitProjects?.empty_repo === false ? (
                     <div
-                        className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
+                        className="mt-10 w-full rounded-xl border-dashed border-2 bg-white shadow dark:bg-gray-800">
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                             <div className="sm:col-span-2">
-                                <Card className={"m-5"}>
+                                <Card>
                                     <Table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600 text-2xl">
                                         <Table.Head className="bg-gray-100 dark:bg-gray-700">
                                             <Table.HeadCell >
@@ -133,7 +123,7 @@ function GitAutomateX({params}) {
                     </div>
 
                 ) : (
-                    <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white p-4 shadow dark:bg-gray-800 sm:p-6 xl:p-8">
+                    <div className="mt-10 w-full rounded-xl border-dashed border-2 bg-white shadow dark:bg-gray-800 ">
                         <h3 className="mb-4 text-xl font-bold text-cyan-500 dark:text-white">
                             Quick setup — if you’ve done this kind of thing before
                         </h3>
@@ -205,7 +195,6 @@ function GitAutomateX({params}) {
                     </div>
                 )}
             </>
-
         </HandleContent>);
 }
 

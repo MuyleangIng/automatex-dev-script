@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
 import {FaGithub} from "react-icons/fa";
-import {Alert, Button, Card, Label, Textarea, TextInput} from "flowbite-react";
+import {Alert, Button, Card, Label} from "flowbite-react";
 import {GrDeploy} from "react-icons/gr";
-import {PiGoogleCardboardLogo} from "react-icons/pi";
 import {AiOutlineBranches} from "react-icons/ai";
-import ActivitiesFeedTable from "@/components/deploy-app/ActivitiesFeedTable";
 import {useSession} from "next-auth/react";
 import {useSelector, useDispatch} from "react-redux";
 import {selectDeploymentApp, selectError, selectIsLoading} from "@/store/features/deploy-app/deployAppSlice";
@@ -13,25 +11,20 @@ import HandleContent from "@/components/deploy-app/HandleContent";
 import Link from "next/link";
 import Image from "next/image";
 import {fetchGitProjects, selectAllProjects} from "@/store/api/apiGitSlice";
-import {HiCubeTransparent} from "react-icons/hi";
-import {BsThreeDotsVertical} from "react-icons/bs";
 import {TbWorldPlus} from "react-icons/tb";
 
 
 function OverViewDeploy(params) {
     const dispatch = useDispatch();
-
     const {loading} = useSession()
     const data = useSelector(selectDeploymentApp)
     const isLoading = useSelector(selectIsLoading)
     const error = useSelector(selectError)
-
     const gitProjects = useSelector(selectAllProjects);
-    // console.log("gitProjects", gitProjects);
     useEffect(() => {
         dispatch(fetchGitProjects());
     }, []);
-    console.log('data', data)
+
     return (<HandleContent
         error={error}
         isLoading={isLoading || loading || !data}
@@ -117,10 +110,10 @@ function OverViewDeploy(params) {
                 </div>
             </div>
         </Card>
-        <h3 className="mt-10 text-xl font-bold dark:text-white ">
-            Activities Feed
-        </h3>
-        <ActivitiesFeedTable/>
+        {/*<h3 className="mt-10 text-xl font-bold dark:text-white ">*/}
+        {/*    Activities Feed*/}
+        {/*</h3>*/}
+        {/*<ActivitiesFeedTable/>*/}
     </HandleContent>);
 }
 
