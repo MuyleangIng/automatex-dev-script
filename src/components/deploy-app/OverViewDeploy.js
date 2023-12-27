@@ -96,7 +96,7 @@ function OverViewDeploy(params) {
                                 <p className="mb-6 text-gray-500 dark:text-gray-400 md:text-lg">
                                     SonarQube is a tool that assesses and enhances code quality by offering metrics and indicators .
                                 </p>
-                                <Button href="https://sonarqube.automatex.dev/" target={"_blank"}  className="w-fit [&>span]:items-center bg-cyan-500 hover:bg-cyan-700">
+                                <Button href={`https://sonarqube.automatex.dev/dashboard?id=${data?.name}-automatex`} target={"_blank"}  className="w-fit [&>span]:items-center bg-cyan-500 hover:bg-cyan-700">
                                     SonarQube
                                     <svg
                                         className="-mr-1 ml-2 h-4 w-4"
