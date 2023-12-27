@@ -114,7 +114,7 @@ function SignUp(props) {
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     <div className="grid grid-cols-1 gap-2">
                                         <div>
-                                            <Label htmlFor="username" className="dark:text-white">Full Name</Label>
+                                            <Label htmlFor="username" className="dark:text-white">User Name</Label>
                                             <Field
                                                 type="text"
                                                 name="username"
