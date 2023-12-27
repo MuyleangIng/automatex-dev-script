@@ -17,8 +17,11 @@ import Space from "@/app/utils/assets/cloud.json";
 import Spaces from "@/app/utils/assets/service.json";
 import { gsap } from 'gsap';
 import Service from "@/app/utils/assets/herosec.json";
+import HomeLoading from "@/components/HomeLoading";
+import {useSession} from "next-auth/react";
 
 function HeroSection() {
+    const {status } = useSession()
     // git animation
     const router = useRouter()
     useEffect(() => {
@@ -63,6 +66,9 @@ function HeroSection() {
             }
         ]
     };
+    if (status === "loading") {
+        return <HomeLoading />
+    }
 
 
 
