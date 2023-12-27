@@ -11,7 +11,7 @@ function OurPartner(props) {
                         Our Best Clients
                     </h2>
                 </span>
-                <div className="grid grid-cols-2 gap-1 text-gray-500 dark:text-gray-400 md:grid-cols-3 lg:grid-cols-6">
+                <div className="grid grid-cols-2 gap-3 text-gray-500 dark:text-gray-400 md:grid-cols-3 lg:grid-cols-6">
                     <a data-aos="flip-down"
                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-800 dark:hover:bg-gray-400"
                        href="#"

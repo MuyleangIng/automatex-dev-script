@@ -1,6 +1,7 @@
 export const DeploymentTypes = {
     fe: 'FRONTEND',
     be: 'BACKEND',
+    db: 'DATABASE',
 };
 
 export const  SourceType= {

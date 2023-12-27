@@ -1,11 +1,12 @@
 'use client'
+import ListDB from '@/components/ListDB';
 import React from 'react';
-import SectionAppDb from "@/components/SectionAppDB";
+
 
 function Page() {
     return (
         <div>
-            <SectionAppDb/>
+            <ListDB/>
         </div>
     );
 }

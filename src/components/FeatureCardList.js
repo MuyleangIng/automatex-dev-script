@@ -18,6 +18,20 @@ function FeatureCardList(props) {
 
                 <div
                     className="space-y-8 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+                        <div  data-aos="flip-right"  className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div className="flex items-center justify-center">
+                            <div className="relative">
+                                <div className="w-12 h-12 bg-orange-50 rounded-xl" >
+                                    <svg className="w-6 h-6 absolute top-3 left-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="Rocket"><path d="M32 5.815s-10.073 7.816-10.073 27.016c0 12.314 3.724 20.013 8.573 21.329V41.766a1.5 1.5 0 1 1 3 0V54.16c4.849-1.315 8.573-9.015 8.573-21.329C42.073 13.409 32 5.815 32 5.815zm-.118 14.818c-1.729 0-3.418-.155-4.914-.438 1.465-4.721 3.531-7.901 5.051-9.761 1.516 1.837 3.572 4.989 5.027 9.715-1.554.314-3.334.484-5.164.484zM19.224 41.319c-3.007 0-5.444 2.081-5.444 4.648v12.218l9.862-7.296c-1.463-2.496-2.556-5.737-3.201-9.57h-1.217zm25.552 0H43.56c-.645 3.833-1.738 7.074-3.201 9.57l9.862 7.296V45.967c-.001-2.567-2.438-4.648-5.445-4.648z" fill="#1d8dd7" className="color000000 svgShape"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 className="lg:text-xl mb-5 my-4 text-base font-bold dark:text-white text-center">Auto Deploy</h3>
+                        <p className="text-gray-500 lg:text-lg text-base dark:text-gray-400 text-center">
+                            you can streamline the deployment process while maintaining. Watch the deployment progress
+                            in real-time.
+                        </p>
+                    </div>
                     <div  data-aos="flip-right"  className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                         <div className="flex items-center justify-center">
                             <div className="relative">
@@ -64,20 +78,7 @@ function FeatureCardList(props) {
                             effortlessly.
                         </p>
                     </div>
-                    <div  data-aos="flip-right"  className="rounded-lg border border-gray-200 bg-white p-6  shadow-md hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                        <div className="flex items-center justify-center">
-                            <div className="relative">
-                                <div className="w-12 h-12 bg-orange-50 rounded-xl" >
-                                    <svg className="w-6 h-6 absolute top-3 left-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="Rocket"><path d="M32 5.815s-10.073 7.816-10.073 27.016c0 12.314 3.724 20.013 8.573 21.329V41.766a1.5 1.5 0 1 1 3 0V54.16c4.849-1.315 8.573-9.015 8.573-21.329C42.073 13.409 32 5.815 32 5.815zm-.118 14.818c-1.729 0-3.418-.155-4.914-.438 1.465-4.721 3.531-7.901 5.051-9.761 1.516 1.837 3.572 4.989 5.027 9.715-1.554.314-3.334.484-5.164.484zM19.224 41.319c-3.007 0-5.444 2.081-5.444 4.648v12.218l9.862-7.296c-1.463-2.496-2.556-5.737-3.201-9.57h-1.217zm25.552 0H43.56c-.645 3.833-1.738 7.074-3.201 9.57l9.862 7.296V45.967c-.001-2.567-2.438-4.648-5.445-4.648z" fill="#1d8dd7" className="color000000 svgShape"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 className="lg:text-xl mb-5 my-4 text-base font-bold dark:text-white text-center">Auto Deploy</h3>
-                        <p className="text-gray-500 lg:text-lg text-base dark:text-gray-400 text-center">
-                            you can streamline the deployment process while maintaining. Watch the deployment progress
-                            in real-time.
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
         </section>);

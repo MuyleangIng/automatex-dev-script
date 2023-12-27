@@ -25,7 +25,9 @@ function HandleNavbar() {
         // Display the loading indicator only during authentication requests
         return (
             <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full border-t-4 border-b-4 border-orange-150 h-8 w-8"></div>
+                <div className="animate-spin h-8 w-8">
+                <HandleImage src={"/mainlogo.png"} w={14} h={15}/>
+                </div>
 
             </div>
         );

@@ -4,6 +4,7 @@ import authReducer from "./features/auth/authSlice";
 import deployAppReducer from "./features/deploy-app/deployAppSlice";
 import {userReducer} from "@/store/features/user/userSlice";
 import gitSlice from "@/store/api/apiGitSlice"
+import deployDbSlice from "./features/deploy-db/deployDbSlice";
 
 const store = configureStore({
     reducer: {
@@ -13,7 +14,8 @@ const store = configureStore({
         auth: authReducer,
         deploymentApp: deployAppReducer,
         user: userReducer,
-        git: gitSlice
+        git: gitSlice,
+        deploymentDatabase: deployDbSlice,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(apiSlice.middleware);

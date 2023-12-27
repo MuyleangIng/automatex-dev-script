@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {getSession} from "next-auth/react";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 // create base query with authentication
 const baseQuery = fetchBaseQuery({
@@ -58,6 +57,7 @@ export const apiSlice = createApi({
         "DeploymentApps",
         "GitProject",
         "User",
+        "DeploymentDatabases",
     ],
     endpoints: (builder) => ({}),
 });

@@ -19,7 +19,7 @@ function OurTeam(props) {
 
                             <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Nun Somrithy</h1>
 
-                            <p class="mt-2 text-gray-600 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                            <p class="mt-2 text-gray-600 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
 
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
@@ -31,9 +31,9 @@ function OurTeam(props) {
                             src="/images/our-member/leang.jpg"
                             alt=""/>
 
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Ing MouyLeang</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Ing Muyleang</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
                         <Image
@@ -46,7 +46,7 @@ function OurTeam(props) {
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Neuy Mich</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
 
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
@@ -60,7 +60,7 @@ function OurTeam(props) {
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Sak Visal</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
                         <Image
@@ -73,7 +73,7 @@ function OurTeam(props) {
 
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Pos Panha</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
                         <Image
@@ -84,9 +84,9 @@ function OurTeam(props) {
                             src="/images/our-member/leap.jpg"
                             alt=""/>
 
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Sovathana Somboleab</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Sovattana Samboleap</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
                         <Image
@@ -97,9 +97,9 @@ function OurTeam(props) {
                             src="/images/our-member/lit.jpg"
                             alt=""/>
 
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Thorn Chavalit</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Thon Chhavalit</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                     <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-orange-80 dark:border-orange-200 dark:hover:border-transparent">
                         <Image
@@ -110,9 +110,9 @@ function OurTeam(props) {
                             src="/images/our-member/pav.jpg"
                             alt=""/>
 
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Chhay SeavPav</h1>
+                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Chhay Seavpav</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">DevOps</p>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-50">DevOps</p>
                     </div>
                 </div>
 
