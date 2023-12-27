@@ -22,17 +22,17 @@ function ContactUs(props) {
                 >
                     <div className="grid grid-cols-1 gap-2">
                         <Label htmlFor="first-name" className="dark:text-white">First Name</Label>
-                        <TextInput id="first-name" placeholder="Bonnie" required />
+                        <TextInput id="first-name" placeholder="First Name" required />
                     </div>
                     <div className="grid grid-cols-1 gap-2">
                         <Label htmlFor="last-name" className="dark:text-white">Last Name</Label>
-                        <TextInput id="last-name" placeholder="Green" required />
+                        <TextInput id="last-name" placeholder="Last Name" required />
                     </div>
                     <div className="grid grid-cols-1 gap-2">
                         <Label htmlFor="email" className="dark:text-white">Your Email</Label>
                         <TextInput
                             id="email"
-                            placeholder="name@flowbite.com"
+                            placeholder="Enter your email"
                             required
                             type="email"
                         />
@@ -41,7 +41,7 @@ function ContactUs(props) {
                         <Label htmlFor="phone-number" className="dark:text-white">Phone Number</Label>
                         <TextInput
                             id="phone-number"
-                            placeholder="+12 345 6789"
+                            placeholder="+855 XX XXX XXX"
                             required
                             type="number"
                         />
@@ -50,11 +50,11 @@ function ContactUs(props) {
                         <Label htmlFor="message" className="dark:text-white">Your message</Label>
                         <Textarea
                             id="message"
-                            placeholder="Leave a comment..."
+                            placeholder="Leave your message here"
                             rows={6}
                             className="text-sm"
                         />
-                        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+                        {/* <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
                             By submitting this form you agree to our&nbsp;
                             <a
                                 href="#"
@@ -71,7 +71,7 @@ function ContactUs(props) {
                             </a>
                             &nbsp;which explains how we may collect, use and disclose your
                             personal information including to third parties.
-                        </p>
+                        </p> */}
                     </div>
                     <div>
                         <Button type="submit">Send message</Button>
@@ -99,7 +99,7 @@ function ContactUs(props) {
                             href="mailto:abc@example.com"
                             className="font-semibold text-primary-600 hover:underline dark:text-primary-500"
                         >
-                            hello@flowbite.com
+                            automatex@gmail.com
                         </a>
                     </div>
                     <div>
@@ -119,7 +119,7 @@ function ContactUs(props) {
                             help.
                         </p>
                         <span className="font-semibold text-primary-600 dark:text-primary-500">
-              +1 (646) 786-5060
+              +855 93 398 506
             </span>
                     </div>
                     <div>
