@@ -2,15 +2,11 @@
 import {useCreateDeploymentDatabaseMutation} from '@/store/features/deploy-db/deployDbApiSlice';
 import {useFormik} from 'formik';
 import {useRouter} from 'next/navigation';
-import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
 import ToastConfig from './deploy-app/deploymentLoading/ToastConfig';
-import LoadingLogo from './deploy-app/deploymentLoading/LoadingLogo';
-import {Alert, Button, Label, Select, TextInput} from 'flowbite-react';
+import {Button, Label, Select, TextInput} from 'flowbite-react';
 import * as Yup from "yup";
 import {toast} from "react-toastify";
-import {HiInformationCircle} from "react-icons/hi";
-
 
 export default function FormDB() {
     const [createDeploymentDatabase, {isLoading, error, data}] = useCreateDeploymentDatabaseMutation();
