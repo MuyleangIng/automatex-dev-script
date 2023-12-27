@@ -37,7 +37,7 @@ function DeployMethod({formik}) {
             <h2 className="text-xl py-8 font-bold text-cyan-500 dark:text-white">
                 Deployment Method:
             </h2>
-            <div className="grid grid-cols-2 p-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
+            <div className="grid grid-cols-1 p-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
 
                 {methodTemplate({
                     value:SourceType.default,

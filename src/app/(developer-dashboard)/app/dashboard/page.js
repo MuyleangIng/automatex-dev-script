@@ -37,7 +37,7 @@ function Page() {
             isLoading={isLoading}
             customLoadingContent={<DeploymentAppLoadingIndicator/>}
         >
-            <div className={"m-14 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
+            <div className={"m-4 md:m-8 lg:m-12 xl:m-16 2xl:m-20 p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
                 {data?.total === 0 && filters.name === '' ? <SectionAppDeploy/> : (
                     <>
                         {/* Start Search */}
@@ -83,7 +83,7 @@ function Page() {
                             </div>
                             <div className={"col-span-2 justify-self-end"}>
                                 <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-apps"}>
-                                    <FaPlus className={"m-2"}/> <strong>New Deploy App</strong>
+                                    <FaPlus className={"m-2"}/> <strong>Deploy App</strong>
                                 </Button>
                             </div>
                         </div>

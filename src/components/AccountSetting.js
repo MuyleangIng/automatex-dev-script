@@ -11,6 +11,8 @@ import {useUpdateMutation} from "@/store/features/auth/authApiSlice";
 import {selectCurrentUser} from "@/store/features/auth/authSlice";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
 import HandleContent from "@/components/deploy-app/HandleContent";
+import {useState} from "react";
+import Image from "next/image";
 
 export default function AccountSetting() {
     const validationSchema = Yup.object().shape({
@@ -51,6 +53,23 @@ export default function AccountSetting() {
             }
         },
     });
+
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setSelectedImage(imageUrl);
+        }
+    };
+    const handleButtonClick = () => {
+        // Trigger the click event on the hidden file input
+        document.getElementById('image-upload').click();
+    };
+
+
+
     return (
         <HandleContent
             error={error}
@@ -58,32 +77,42 @@ export default function AccountSetting() {
             customLoadingContent={<ResourceLoadingIndicator/>}
         >
         <section className="bg-white dark:bg-gray-900">
-            <div className="container mx-auto flex items-center justify-between">
-                <div className="w-96 mb-10 mt-0">
+            <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+                <div className="w-96 mb-10 mt-0 sm:w-full">
                     <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
-                        <img
-                            alt=""
-                            src="https://i.pinimg.com/564x/19/ae/ac/19aeac1a4647348a0c24ba48089cda8c.jpg"
-                            className="mb-4 h-28 w-28 rounded-lg sm:mb-0 xl:mb-4 2xl:mb-0"
+
+                        {/* File input for image upload */}
+                        <input
+                            type="file"
+                            id="image-upload"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="hidden"
                         />
+                        <label htmlFor="image-upload">
+                            <Image
+                                alt="Selected Image"
+                                src={selectedImage || "/images/placeholder.jpg"} // Replace with a placeholder image URL
+                                className="mb-4 h-28 w-28 rounded-lg cursor-pointer sm:mb-0 xl:mb-4 2xl:mb-0"
+                                width={100}
+                                height={100}
+                            />
+                        </label>
                         <div>
-                            <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">
-                                {/* User's Name */}
-                            </h3>
-                            <div className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-                                {/* User's Role */}
-                            </div>
-                            <a
-                                href="#"
-                                className="inline-flex items-center rounded-lg bg-orange-100 px-3 py-2 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            >
-                                <HiCloudUpload className="mr-2" />
-                                Change picture
-                            </a>
+                            {/* Label to trigger file input */}
+                            <label htmlFor="image-upload">
+                                <button
+                                    onClick={handleButtonClick}
+                                    className="inline-flex items-center rounded-lg bg-orange-100 px-3 py-2 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                >
+                                    <HiCloudUpload className="mr-2"/>
+                                    Change picture
+                                </button>
+                            </label>
                         </div>
                     </div>
                 </div>
-                <div className="w-2/3">
+                <div className="w-full xl:w-2/3">
 
                     <h3 className="mb-4 text-xl font-bold dark:text-white">
                         General information
