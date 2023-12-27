@@ -33,7 +33,8 @@ function HandleNavbar() {
                 fontFamily: 'inherit', fontWeight: 'bold', color: '#ff6347', fontSize: '30px', letterSpacing: '2px'
             }}>
                 <HandleImage src={"/mainlogo.png"} w={14} h={15}/>
-                <span className="self-center text-xl font-extrabold whitespace-nowrap w-">
+                <span
+                    className="self-center hidden sm:block md:block md:text-base xl:text-xl font-extrabold whitespace-nowrap w-">
         <span className="text-cyan-700 ">Automate</span>
         <span className="text-cool-blue-100">X</span>
     </span>
