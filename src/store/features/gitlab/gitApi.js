@@ -4,15 +4,15 @@ export const fetchGitProjectById = createAsyncThunk(
     'projects/fetchGitProjectById',
     async (id) => {
         const url = `${process.env.NEXT_PUBLIC_GITLAB_URL}/projects/${id}`;
-        console.log('Request URL:', url);
+        // console.log('Request URL:', url);
         try {
             const response = await baseQueryExport(url, { method: 'GET' });
-            console.log('Response:', response);
+            // console.log('Response:', response);
             const projectById = await response.data;
-            console.log('Data Get project by ID :', projectById);
+            // console.log('Data Get project by ID :', projectById);
             return projectById;
         } catch (error) {
-            console.error('Error fetching GitLab project:', error.message);
+            // console.error('Error fetching GitLab project:', error.message);
             throw error;
         }
     }

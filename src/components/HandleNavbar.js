@@ -16,29 +16,21 @@ function HandleNavbar() {
     const pathname = usePathname();
     const {data: session, status, error} = useSession();
     const developerPath = pathname.includes('/app')
-    const { data: res, isLoading } = useGetUserQuery();
+    const {data: res, isLoading} = useGetUserQuery();
     const handleSignOut = async () => {
         await signOut({callbackUrl: '/', redirect: false});
         router.push('/');
     };
     if (status === 'loading' && !error) {
         // Display the loading indicator only during authentication requests
-        return (
-            <div className="flex items-center justify-center">
+        return (<div className="flex items-center justify-center">
                 <div className="animate-spin rounded-full border-t-4 border-b-4 border-orange-150 h-8 w-8"></div>
-
-            </div>
-        );
+            </div>);
     }
 
-    return (
-        <Navbar container="true" rounded className={`cus-navbar sticky top-0 left-0 z-50 lg:px-3 dark:bg-gray-900`}>
+    return (<Navbar container="true" rounded className={`cus-navbar bg-white sticky top-0 left-0 z-50 lg:px-3 dark:bg-gray-900`}>
             <Navbar.Brand as={Link} href={"/"} style={{
-                fontFamily: 'inherit',
-                fontWeight: 'bold',
-                color: '#ff6347',
-                fontSize: '30px',
-                letterSpacing: '2px'
+                fontFamily: 'inherit', fontWeight: 'bold', color: '#ff6347', fontSize: '30px', letterSpacing: '2px'
             }}>
                 <HandleImage src={"/mainlogo.png"} w={14} h={15}/>
                 <span className="self-center text-xl font-extrabold whitespace-nowrap w-">
@@ -47,13 +39,12 @@ function HandleNavbar() {
     </span>
             </Navbar.Brand>
             <div className={'flex items-center gap-2 md:order-2'}>
-                <BtnTheme />
+                <BtnTheme/>
                 {status === 'authenticated' ? (
                     <Dropdown
                         arrowIcon={false}
                         inline
-                        label={
-                            <span>
+                        label={<span>
                                 <span className="sr-only">User menu</span>
                                   <Image
                                       src={session.user.image ? session.user.image : 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png'}
@@ -64,8 +55,7 @@ function HandleNavbar() {
                                   />
 
 
-                            </span>
-                        }
+                            </span>}
                     >
                         <Dropdown.Header>
                             <span className="block text-sm"></span>
@@ -73,46 +63,42 @@ function HandleNavbar() {
                                  {res?.email ? res.email : "automatex@gmail.com"}
                             </span>
                         </Dropdown.Header>
-                        <Dropdown.Item as={Link} href={"/app/dashboard"}>
-                            Dashboard
+                        <Dropdown.Item as={Link} href={"/"}>
+                            Home
                         </Dropdown.Item>
                         <Dropdown.Item as={Link} href={"/app/useraccount"}>Settings</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item
-                            onClick={handleSignOut}
-                            className="bg-red-500 focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
-                        >
-                            Sign out
-                        </Dropdown.Item>
+                        <Dropdown.Divider/>
+                        <div>
+                            <Dropdown.Item
+                                onClick={handleSignOut}
+                                className=" focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
+                            >
+                                Sign out
+                            </Dropdown.Item>
+                        </div>
+
                     </Dropdown>
-                ) : (
-                    <>
-                        <BtnSignUp pathname={pathname} router={router} />
-                        <BtnSignIn pathname={pathname} router={router} />
-                    </>
-                )}
+
+                ) : (<>
+                        <BtnSignUp pathname={pathname} router={router}/>
+                        <BtnSignIn pathname={pathname} router={router}/>
+                    </>)}
+                <Button size={"sm"}
+                        className={`bg-cyan-500 justify-end ${pathname === '/app/dashboard' || status !== 'authenticated' ? 'hidden' : ''}`}
+                        as={Link} href={"/app/dashboard"}>DashBoard</Button>
             </div>
-            <Navbar.Toggle />
+            <Navbar.Toggle/>
             <Navbar.Collapse>
-                {!developerPath && (
-                    <>
+                {!developerPath && (<>
                         <Navbar.Link
                             as={Link}
-                            className={`font-normal text-lg ${
-                                pathname === '/features-services'
-                                    ? 'text-cyan-500 dark:text-cyan-500'
-                                    : 'text-gray-600'
-                            }`}
+                            className={`font-normal text-lg ${pathname === '/features-services' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
                             href="/features-services"
                         >
                             Feature & Service
                         </Navbar.Link>
                         <Navbar.Link
-                            className={`font-normal text-lg ${
-                                pathname === '/document'
-                                    ? 'text-cyan-500 dark:text-cyan-500'
-                                    : 'text-gray-600'
-                            }`}
+                            className={`font-normal text-lg ${pathname === '/document' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
                             as={Link}
                             href="/document"
                         >
@@ -120,31 +106,22 @@ function HandleNavbar() {
                         </Navbar.Link>
                         <Navbar.Link
                             as={Link}
-                            className={`font-normal text-lg ${
-                                pathname === '/startbuilding'
-                                    ? 'text-cyan-500 dark:text-cyan-500'
-                                    : 'text-gray-600'
-                            }`}
+                            className={`font-normal text-lg ${pathname === '/startbuilding' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
                             href="/startbuilding"
                         >
                             Start Building
                         </Navbar.Link>
                         <Navbar.Link
                             as={Link}
-                            className={`font-normal text-lg ${
-                                pathname === '/about-us'
-                                    ? 'text-cyan-500 dark:text-cyan-500'
-                                    : 'text-gray-600'
-                            }`}
+                            className={`font-normal text-lg ${pathname === '/about-us' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
                             href="about-us"
                         >
                             About Us
                         </Navbar.Link>
-                    </>
-                )}
+                    </>)}
             </Navbar.Collapse>
         </Navbar>
-       // </HandleContent>
+        // </HandleContent>
     );
 }
 
@@ -152,8 +129,7 @@ export default HandleNavbar;
 
 
 const BtnSignIn = ({pathname, router}) => {
-    return (
-        <Button
+    return (<Button
             outline
             onClick={() => router.push("/auth/login")}
             className={pathname === '/auth/login' || pathname === '/app/dashboard' ? "hidden" : ""}
@@ -162,13 +138,11 @@ const BtnSignIn = ({pathname, router}) => {
                 <IoLogInOutline className="h-5 w-5"/>
                 <span className={'hidden lg:inline'}>Sign In</span>
             </span>
-        </Button>
-    )
+        </Button>)
 }
 
 const BtnSignUp = ({pathname, router}) => {
-    return (
-        <Button
+    return (<Button
             onClick={() => router.push("/auth/signup")}
             className={pathname === '/auth/signup' || pathname === '/app/dashboard' ? "hidden" : ""}
         >
@@ -176,6 +150,5 @@ const BtnSignUp = ({pathname, router}) => {
                 <FaUserPlus className="h-5 w-5"/>
                 <span className={'hidden lg:inline'}>Sign Up</span>
             </span>
-        </Button>
-    )
+        </Button>)
 }

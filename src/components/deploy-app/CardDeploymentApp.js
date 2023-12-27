@@ -35,6 +35,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteDeploymentApp, {isLoading: isError}] = useDeleteDeploymentAppMutation();
 
+    console.log("log",deployApp)
     //delete function
     const handleDelete = async () => {
         setIsDeleting(true);
@@ -54,6 +55,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
         router.push(`/app/deploy-apps/${deployApp.uuid}/resource`)
     }
     console.log(deployApp?.buildNumber);
+    console.log("domain", deployApp?.domains[0]);
 
     return (<>
         <Modal show={showConfirmationModal}
@@ -139,8 +141,8 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                     <FaLink className=" truncate mr-2 text-sm"/>
                     <span className="truncate">
                         <Link className="font-medium" target="_blank" rel="noopener noreferrer"
-                              href={`https://${deployApp?.domains[0]?.fullSubdomain}`} passHref>
-                            {deployApp?.domains[0]?.fullSubdomain ?? 'Default Subdomain'}
+                              href={`https://${deployApp?.domains[0]?.subdomain}.sen-pai.live`} passHref>
+                            {deployApp?.domains[0]?.subdomain}
                         </Link>
                     </span>
                 </div>

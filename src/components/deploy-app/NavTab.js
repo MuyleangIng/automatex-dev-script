@@ -35,7 +35,7 @@ function NavTab(props) {
         <>
             <div className={"bg-opacity-75 dark:bg-opacity-75 bg-white dark:bg-gray-900 dark:text-white flex justify-center sticky top-[55px] left-0 z-40"}>
                 <div className="border-b border-gray-200 dark:border-gray-700 ">
-                    <ul className="flex lg:justify-center  text-sm font-medium text-center text-gray-500 dark:text-gray-400 overflow-x-auto ">
+                    <ul className="flex lg:justify-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 overflow-x-auto ">
                         <li>
                             <Link href={`/app/deploy-apps/${uuid}/overview`}
                                   className={" inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("overview") ? active : "")}

@@ -46,7 +46,7 @@ function ActivitiesLogs({ params }) {
             isLoading={isLoading}
             customLoadingContent={<ResourceLoadingIndicator/>}
         >
-            <div  className={'mt-10 w-full rounded-xl border-dashed border-2 border-gray-300 dark:border-gray-700 bg-white pt-4 mb-5 shadow dark:bg-gray-800 overflow-hidden'}
+            <div  className={'mt-10 w-full rounded-xl border-dashed border-2 border-gray-300 dark:border-white bg-white pt-4 mb-5 shadow dark:bg-gray-800 overflow-hidden'}
             >
                 <div className="flex items-center justify-end mr-2">
                     <Button

@@ -7,7 +7,7 @@ const baseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_GITLAB_URL,
     prepareHeaders: async (headers) => {
         const session = await getSession();
-        console.log('session', session);
+        // console.log('session', session);
         if (session) {
             const { gitToken } = session;
             if (gitToken) {
@@ -23,13 +23,13 @@ export const fetchGitProjects = createAsyncThunk(
     'projects/fetchGitProjects',
     async () => {
         const url = `${process.env.NEXT_PUBLIC_GITLAB_URL + "/projects"}`;
-        console.log('Request URL:', url);
+        // console.log('Request URL:', url);
         const response = await baseQuery(url, { method: "GET" });
-        console.log('Response:', response);
+        // console.log('Response:', response);
         // const data = response.data;
         // console.log('Data from GitLab API:', data);
         const data = await response.data;
-        console.log('Data from GitLab API:', data);
+        // console.log('Data from GitLab API:', data);
         return data;
     }
 );
@@ -44,17 +44,17 @@ const gitSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(fetchGitProjects.fulfilled, (state, action) => {
-                console.log('Fulfilled action payload:', action.payload);
+                // console.log('Fulfilled action payload:', action.payload);
                 state.status = 'succeeded';
                 state.projects = state.projects.concat(action.payload);
             })
             .addCase(fetchGitProjectById.fulfilled, (state, action) => {
-                console.log('Fulfilled action payload by id:', action.payload);
+                // console.log('Fulfilled action payload by id:', action.payload);
                 state.status = 'succeeded';
                 state.projectById = action.payload;
             })
             .addCase(fetchProjectTree.fulfilled, (state, action) => {
-                console.log('Fulfilled action payload by id:', action.payload);
+                // console.log('Fulfilled action payload by id:', action.payload);
                 state.status = 'succeeded';
                 state.projectTree = action.payload;
             })
