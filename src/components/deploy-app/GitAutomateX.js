@@ -106,11 +106,11 @@ function GitAutomateX({params}) {
                                                         height={40}
                                                         className="rounded-full"
                                                     />
-                                                    <div className={'text-2xl'}>{gitProjects?.owner?.name}</div>
+                                                    <div className={'text-lg font-medium'}>{gitProjects?.owner?.name}</div>
                                                 </div>
                                             </Table.HeadCell>
                                             <Table.HeadCell className={'items-end'}>
-                                                <div className={'text-2xl'}>Branch: {gitProjects?.default_branch}</div>
+                                                <div className={'text-sm font-medium'}>Branch: {gitProjects?.default_branch}</div>
                                             </Table.HeadCell>
                                         </Table.Head>
                                         <Table.Body className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
