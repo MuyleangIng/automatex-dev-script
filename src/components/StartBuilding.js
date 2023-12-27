@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css'; // Import the AOS styles
 
@@ -15,29 +15,30 @@ export default function StartBuildingSection() {
     return (
         <>
             {/*Hero Section with text*/}
-            <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center mt-40">
-                <h1 data-aos="fade-right"  className="mb-8 text-4xl font-extrabold  text-gray-900 md:text-6xl md:tracking-tight">
+            <div className="w-full mx-auto text-center md:w-11/12 xl:w-9/12 md:text-center xl:mt-40">
+                <h1 data-aos="fade-right" className="text-center mb-8 text-4xl font-extrabold  text-gray-900 md:text-6xl md:tracking-tight">
                     <span >Start</span> <span
                     className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Automate X</span>
-                    <span  data-aos="fade-right" className="dark:text-gray-300">Build the better Runtime Product</span>
+                    <span> </span>
+                    <span data-aos="fade-right" className="dark:text-gray-300">Better Runtime Product</span>
                 </h1>
-                <p data-aos="fade-left" className="px-0 text-lg text-gray-500 dark:text-gray-300 md:text-xl lg:px-24 mb-20">
-                    Start gaining the traction you have always wanted with our next-level templates and designs. Crafted
-                    to help you tell your story.
+
+            </div>
+            <div>
+                <p data-aos="fade-left" className=" px-0 text-base text-gray-500 dark:text-gray-300 text-center md:text-xl lg:px-24 mb-10">
+                    Developing a superior runtime product that streamlines automation, enhances performance, and offers intuitive user experience.
                 </p>
             </div>
 
-
             {/*Grid of card list*/}
-            <div className="mx-auto mt-24 mb-20 max-w-6xl text-center p-6">
-                <h2  data-aos="fade-right" className="max-w-lg mb-20 text-3xl  font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
+            <div className="mx-auto mt-20 mb-20 max-w-6xl text-center p-6">
+                <h2 data-aos="fade-right" className="max-w-lg mb-20 text-3xl  font-extrabold text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap">
                     Project KickStarts
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-                    {/* Project 1 */}
-                    <a  data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2  */}lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                    <a data-aos="flip-up"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg
                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4"
@@ -108,31 +109,9 @@ export default function StartBuildingSection() {
                                   d="M64.242 73.542l-.05-.009-.051.008.119-.427-.018.428z" clipRule="evenodd"></path>
                         </svg>
                     </a>
-
-                    {/* Project 2 */}
-                    <a data-aos="flip-down"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg
-                            className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4"
-                            xmlns="http://www.w3.org/2000/svg" width="2500" height="1660"
-                            preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 170" id="mariadb">
-                            <path fill="#002B64"
-                                  d="M250.392.004c-3.95.127-2.701 1.265-11.236 3.365-8.619 2.121-19.147 1.47-28.428 5.363-27.706 11.62-33.265 51.333-58.452 65.559-18.827 10.634-37.822 11.482-54.899 16.834-11.223 3.519-23.5 10.736-33.668 19.499-7.892 6.803-8.098 12.786-16.345 21.32-8.82 9.127-35.057.154-46.948 14.124 3.83 3.873 5.51 4.958 13.058 3.953-1.562 2.962-10.775 5.458-8.972 9.816 1.898 4.585 24.17 7.693 44.417-4.53 9.429-5.693 16.94-13.899 31.624-15.857 19.003-2.533 40.895 1.624 62.894 4.797-3.262 9.726-9.811 16.194-15.057 23.94-1.625 1.75 3.263 1.946 8.839.889 10.03-2.48 17.258-4.478 24.828-8.884 9.3-5.414 10.71-19.293 22.12-22.297 6.357 9.772 23.649 12.08 34.378 4.264-9.415-2.665-12.017-22.705-8.839-31.535 3.01-8.36 5.985-21.73 9.017-32.78 3.255-11.866 4.455-26.823 8.394-32.868 5.927-9.094 12.475-12.217 18.16-17.345 5.686-5.129 10.89-10.12 10.719-21.855-.055-3.78-2.01-5.886-5.604-5.772z"></path>
-                            <path fill="#FFF"
-                                  d="M8.594 159c14.418 2.066 23.186 0 34.764-5.02 9.852-4.273 19.366-13.081 31-16.815 17.085-5.482 35.821.007 54.085 1.102 4.448.267 8.867.27 13.229-.205 6.803-4.182 6.663-19.823 13.285-21.256-.195 21.945-9.192 35.094-18.601 47.826 19.83-3.502 31.697-14.972 39.712-30.291 2.432-4.645 4.508-9.642 6.344-14.88 2.839 2.179 1.23 8.808 2.657 12.4 13.659-7.609 21.48-24.973 26.66-42.535 5.992-20.325 8.445-40.906 12.31-46.92 3.772-5.87 9.642-9.488 15-13.246 6.09-4.273 11.52-8.726 12.458-16.867-6.421-.594-7.906-2.08-8.856-5.316-3.215 1.812-6.171 2.2-9.511 2.3-2.898.088-6.082-.041-9.971.358-32.16 3.303-36.247 38.75-56.86 58.844a48.347 48.347 0 0 1-4.835 4.104c-7.22 5.38-16.076 9.224-24.22 12.337-13.183 5.037-25.716 5.395-38.084 9.743-9.08 3.191-18.306 7.82-25.763 12.924a76.37 76.37 0 0 0-5.238 3.903c-4.376 3.58-7.249 7.553-10.027 11.64-2.866 4.21-5.633 8.543-9.851 12.682-6.834 6.71-32.37 1.957-41.36 8.18-1.002.692-1.798 1.523-2.34 2.521 4.906 2.229 8.182.861 13.825 1.485.74 5.355-11.642 8.537-9.812 11.003zM203.435 120.426c.384 6.143 3.95 18.33 7.098 21.293-6.166 1.5-16.787-.978-19.512-5.327 1.4-6.28 8.686-12.02 12.414-15.966z"></path>
-                            <path fill="#002B64"
-                                  d="M212.468 22.935c4.552 3.952 14.105.78 12.398-7.084-7.074-.586-11.172 1.815-12.398 7.084zM244.207 13.744c-1.21 2.54-3.529 5.815-3.529 12.28-.01 1.11-.843 1.871-.857.16.063-6.32 1.735-9.051 3.512-12.641.826-1.471 1.323-.864.874.201z"></path>
-                            <path fill="#002B64"
-                                  d="M242.988 12.788c-1.429 2.423-4.868 6.844-5.437 13.285-.105 1.104-1.003 1.788-.867.081.62-6.288 3.369-10.224 5.455-13.645.947-1.391 1.392-.743.849.279zM241.876 11.52c-1.627 2.294-6.922 7.603-8.029 13.975-.199 1.09-1.151 1.698-.871.008 1.146-6.215 5.71-11.1 8.076-14.331 1.06-1.31 1.448-.625.824.348zM240.884 10.106c-1.933 2.042-8.245 8.812-10.235 14.964-.352 1.051-1.38 1.52-.864-.114 2.007-5.992 7.535-12.447 10.332-15.312 1.235-1.147 1.522-.415.767.462z"></path>
-                        </svg>
-                    </a>
-
-                    {/* Project 3 */}
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg
                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4"
@@ -154,8 +133,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-down"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              width="2500" height="2021" viewBox="0 0 1478.201 1195.111" id="sql">
@@ -191,8 +170,8 @@ export default function StartBuildingSection() {
 
                     </a>
                     <a data-aos="flip-down"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 128 128" id="mysql">
@@ -206,8 +185,8 @@ export default function StartBuildingSection() {
 
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-12 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -218,8 +197,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 128 128" id="laravel">
@@ -228,8 +207,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 128 128" id="php">
@@ -238,81 +217,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 128 128">
-                            <linearGradient id="python-original-a" gradientUnits="userSpaceOnUse" x1="70.252"
-                                            y1="1237.476" x2="170.659" y2="1151.089"
-                                            gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
-                                <stop offset="0" stopColor="#5A9FD4"/>
-                                <stop offset="1" stopColor="#306998"/>
-                            </linearGradient>
-                            <linearGradient id="python-original-b" gradientUnits="userSpaceOnUse" x1="209.474"
-                                            y1="1098.811" x2="173.62" y2="1149.537"
-                                            gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
-                                <stop offset="0" stopColor="#FFD43B"/>
-                                <stop offset="1" stopColor="#FFE873"/>
-                            </linearGradient>
-                            <path fill="url(#python-original-a)"
-                                  d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"
-                                  transform="translate(0 10.26)"/>
-                            <path fill="url(#python-original-b)"
-                                  d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"
-                                  transform="translate(0 10.26)"/>
-                            <radialGradient id="python-original-c" cx="1825.678" cy="444.45" r="26.743"
-                                            gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)"
-                                            gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stopColor="#B8B8B8" stopOpacity=".498"/>
-                                <stop offset="1" stopColor="#7F7F7F" stopOpacity="0"/>
-                            </radialGradient>
-                            <path opacity=".444" fill="url(#python-original-c)"
-                                  d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z"/>
-                        </svg>
-
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 64 64">
-                            <linearGradient id="dFMIpH0DLBLP_Mye2ctJMa_Fycm8TUhWmFU_gr1" x1="15.25" x2="15.25"
-                                            y1="31.296" y2="15.385" gradientTransform="matrix(1 0 0 -1 0 64)"
-                                            gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stopColor="#8ab4ff"></stop>
-                                <stop offset=".699" stopColor="#e492ff"></stop>
-                            </linearGradient>
-                            <path fill="url(#dFMIpH0DLBLP_Mye2ctJMa_Fycm8TUhWmFU_gr1)"
-                                  d="M19.09,39.37c0,0.01,0.01,0.01,0.01,0.02l-7.7,4.5L19.09,39.37z"></path>
-                            <linearGradient id="dFMIpH0DLBLP_Mye2ctJMb_Fycm8TUhWmFU_gr2" x1="15.25" x2="15.25"
-                                            y1="33.329" y2="20.11" gradientTransform="matrix(1 0 0 -1 0 64)"
-                                            gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stopColor="#8ab4ff"></stop>
-                                <stop offset=".699" stopColor="#e492ff"></stop>
-                            </linearGradient>
-                            <path fill="url(#dFMIpH0DLBLP_Mye2ctJMb_Fycm8TUhWmFU_gr2)"
-                                  d="M19.09,39.37c0,0.01,0.01,0.01,0.01,0.02	l-7.7,4.5L19.09,39.37z"></path>
-                            <linearGradient id="dFMIpH0DLBLP_Mye2ctJMc_Fycm8TUhWmFU_gr3" x1="31.87" x2="31.87" y1="10.7"
-                                            y2="35.152" gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stopColor="#8ab4ff"></stop>
-                                <stop offset="1" stopColor="#e492ff"></stop>
-                            </linearGradient>
-                            <path fill="url(#dFMIpH0DLBLP_Mye2ctJMc_Fycm8TUhWmFU_gr3)"
-                                  d="M32,8.21l-20.6,11.9v23.78l7.69-4.52	c-1.18-2.17-1.85-4.65-1.85-7.3c0-2.88,0.8-5.56,2.18-7.87c2.68-4.46,7.57-7.46,13.15-7.46c5.27,0,10.11,2.67,12.94,7.12l-0.39,0.24	l-6.57,3.87c-1.35-1.99-3.57-3.16-5.98-3.16c-2.62,0-4.91,1.39-6.19,3.47c-0.68,1.11-1.07,2.4-1.07,3.79c0,1.16,0.27,2.25,0.75,3.22	l6.13-3.6h0.01l0.04,0.02l20.1-11.75L32,8.21z"></path>
-                            <linearGradient id="dFMIpH0DLBLP_Mye2ctJMd_Fycm8TUhWmFU_gr4" x1="32" x2="32" y1="8.058"
-                                            y2="57.784" gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stopColor="#1a6dff"></stop>
-                                <stop offset="1" stopColor="#c822ff"></stop>
-                            </linearGradient>
-                            <path fill="url(#dFMIpH0DLBLP_Mye2ctJMd_Fycm8TUhWmFU_gr4)"
-                                  d="M32.24,31.71l-6.17,3.6	c1.19,2.38,3.66,4.02,6.5,4.02c2.382,0,4.553-1.156,5.911-3.063l7.076,3.931C42.76,44.666,37.897,47.4,32.57,47.4	c-5.8,0-10.87-3.24-13.47-8.01l-7.7,4.5L32,55.79l20.6-11.9v-0.22V20.11l-0.26-0.15L32.24,31.71z M51,31h-2v2h2v2h-2v2h-2v-2h-2v2	h-2v-2h-2v-2h2v-2h-2v-2h2v-2h2v2h2v-2h2v2h2V31z M45,31h2v2h-2V31z M55.1,16.93L33.5,4.46c-0.93-0.53-2.07-0.53-3,0L8.9,16.93	c-0.92,0.54-1.5,1.53-1.5,2.6v24.94c0,1.07,0.58,2.06,1.5,2.6l21.6,12.47c0.93,0.53,2.07,0.53,3,0l21.6-12.47	c0.92-0.54,1.5-1.53,1.5-2.6V19.53C56.6,18.46,56.02,17.47,55.1,16.93z M54.6,44.47c0,0.36-0.19,0.69-0.5,0.87L32.5,57.81	c-0.31,0.17-0.69,0.17-1,0L9.9,45.34c-0.31-0.18-0.5-0.51-0.5-0.87V19.53c0-0.36,0.19-0.69,0.5-0.87L31.5,6.19	c0.31-0.17,0.69-0.17,1,0l21.6,12.47c0.31,0.18,0.5,0.51,0.5,0.87V44.47z"></path>
-                        </svg>
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -324,8 +230,8 @@ export default function StartBuildingSection() {
 
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              width="2500" height="2246" preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 230"
@@ -342,8 +248,8 @@ export default function StartBuildingSection() {
 
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -356,8 +262,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -367,8 +273,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -381,8 +287,8 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -398,65 +304,14 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
-                            <path fill="#bdbdbd"
-                                  d="M23.933 2L3 9.285 6.308 36.408 23.955 46 41.693 36.278 45 9.156z"></path>
-                            <path fill="#b71c1c" d="M42.818 10.527L24 4.135 24 43.695 39.832 35.017z"></path>
-                            <path fill="#dd2c00"
-                                  d="M23.941 4.115L5.181 10.644 8.168 35.143 23.951 43.721 24 43.695 24 4.135z"></path>
-                            <path fill="#bdbdbd" d="M24 5.996L24 15.504 32.578 34 36.987 34z"></path>
-                            <path fill="#eee" d="M11.013 34L15.422 34 24 15.504 24 5.996z"></path>
-                            <path fill="#bdbdbd" d="M24 24H30V28H24z"></path>
-                            <path fill="#eee" d="M18 24H24V28H18z"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" id="microsoft-dot-net"><path d="M30.762 77.907h-1.74v-9.963c0-.787.051-1.745.144-2.875h-.039c-.164.661-.313 1.14-.444 1.436l-5.061 11.402h-.848l-5.071-11.319c-.142-.316-.292-.825-.443-1.519h-.038c.054.594.084 1.558.084 2.895v9.943h-1.679v-14.837h2.296l4.552 10.347c.343.779.565 1.372.673 1.776h.071c.298-.811.534-1.42.711-1.82l4.651-10.303h2.179v14.837h.002zM36.118 77.907h-1.692v-10.595h1.692v10.595zm.292-14.394c0 .313-.11.573-.328.787-.213.214-.479.322-.788.322-.303 0-.566-.104-.782-.311-.216-.208-.322-.473-.322-.799 0-.306.106-.567.322-.779.216-.212.479-.314.782-.314.31 0 .575.103.788.314.218.213.328.474.328.78M46.691 77.417c-.812.499-1.781.746-2.902.746-1.52 0-2.742-.504-3.676-1.511-.908-.978-1.364-2.24-1.364-3.786 0-1.736.496-3.141 1.497-4.209.996-1.069 2.334-1.603 4.018-1.603.92 0 1.737.18 2.452.538v1.741c-.791-.555-1.627-.831-2.525-.831-1.079 0-1.957.377-2.637 1.128-.709.77-1.068 1.798-1.068 3.082 0 1.232.328 2.209.979 2.929.653.717 1.523 1.076 2.621 1.076.926 0 1.794-.305 2.606-.911v1.611h-.001zM54.786 69.031c-.299-.23-.729-.341-1.296-.341-.689 0-1.269.308-1.737.93-.532.694-.796 1.656-.796 2.886v5.401h-1.697v-10.596h1.697v2.185h.041c.249-.773.634-1.368 1.148-1.79.48-.385 1.024-.58 1.623-.58.452 0 .787.049 1.016.145v1.759l.001.001zM64.237 72.628c0-1.356-.306-2.393-.918-3.103-.594-.683-1.425-1.024-2.495-1.024-1.054 0-1.9.345-2.533 1.036-.668.739-1.002 1.781-1.002 3.134 0 1.268.317 2.263.96 2.973.638.714 1.497 1.072 2.575 1.072 1.115 0 1.969-.364 2.554-1.085.573-.708.859-1.707.859-3.003m1.739-.059c0 1.688-.477 3.045-1.427 4.061-.954 1.021-2.237 1.531-3.852 1.531-1.59 0-2.856-.51-3.784-1.531-.91-.983-1.366-2.283-1.366-3.898 0-1.844.516-3.264 1.552-4.273.958-.936 2.24-1.407 3.846-1.407 1.58 0 2.814.493 3.704 1.469.882.98 1.327 2.33 1.327 4.048M74.387 75.073c0 .868-.323 1.585-.973 2.159-.709.62-1.683.93-2.908.93-1.002 0-1.881-.21-2.628-.638v-1.824c.83.675 1.748 1.015 2.754 1.015 1.343 0 2.016-.495 2.016-1.48 0-.414-.147-.757-.445-1.023-.298-.271-.878-.594-1.739-.974-.887-.388-1.52-.787-1.893-1.2-.448-.491-.673-1.129-.673-1.915 0-.879.352-1.611 1.046-2.194.697-.585 1.592-.877 2.691-.877.842 0 1.596.164 2.266.497v1.707c-.699-.504-1.498-.755-2.405-.755-.562 0-1.013.14-1.349.412-.34.279-.51.634-.51 1.068 0 .469.142.834.425 1.096.252.241.786.536 1.591.879.904.379 1.558.772 1.956 1.174.517.508.778 1.156.778 1.943M84.753 72.628c0-1.356-.307-2.393-.92-3.103-.594-.683-1.426-1.024-2.494-1.024-1.055 0-1.9.345-2.536 1.036-.667.739-1 1.781-1 3.134 0 1.268.319 2.263.954 2.973.646.714 1.506 1.072 2.582 1.072 1.117 0 1.968-.364 2.554-1.085.572-.708.86-1.707.86-3.003m1.742-.059c0 1.688-.481 3.045-1.433 4.061-.95 1.021-2.233 1.531-3.848 1.531-1.592 0-2.857-.51-3.786-1.531-.909-.983-1.366-2.283-1.366-3.898 0-1.844.521-3.264 1.551-4.273.958-.936 2.241-1.407 3.849-1.407 1.581 0 2.813.493 3.7 1.469.883.98 1.333 2.33 1.333 4.048M93.968 63.711c-.333-.184-.704-.278-1.126-.278-1.188 0-1.777.747-1.777 2.245v1.633h2.483v1.438h-2.483v9.158h-1.698v-9.158h-1.802v-1.438h1.802v-1.717c0-1.166.357-2.081 1.084-2.74.622-.573 1.383-.857 2.289-.857.524 0 .932.063 1.228.184v1.53zM100.662 77.801c-.4.229-.934.343-1.593.343-1.85 0-2.774-1.042-2.774-3.128v-6.266h-1.818v-1.439h1.818v-2.585c.542-.171 1.105-.357 1.7-.55v3.135h2.667v1.439h-2.667v5.979c0 .71.116 1.218.359 1.513.245.305.646.454 1.211.454.423 0 .788-.113 1.097-.342v1.447zM8.978 119.262c0 .831-.295 1.548-.895 2.155-.596.604-1.32.909-2.17.909-.831 0-1.538-.305-2.116-.909-.58-.606-.868-1.324-.868-2.155 0-.854.289-1.575.868-2.171.579-.599 1.286-.896 2.116-.896.85 0 1.574.301 2.17.907.6.607.895 1.327.895 2.16M46.953 121.702h-5.532l-20.079-31.008c-.469-.746-.874-1.557-1.217-2.442h-.165c.144.831.216 2.613.216 5.343v28.107h-4.559v-38.903h5.918l19.478 30.52c.775 1.211 1.306 2.079 1.575 2.601h.108c-.18-1.119-.274-3.027-.274-5.72v-27.4h4.532v38.902h-.001zM76.186 121.702h-20.619v-38.903h19.724v4.123h-15.168v12.941h14.054v4.124h-14.054v13.591h16.063v4.124zM107.46 86.922h-11.206v34.781h-4.558v-34.781h-11.228v-4.125h26.992v4.125z"></path><linearGradient id="a" x1="62.394" x2="62.782" y1="415.348" y2="415.348" gradientTransform="matrix(0 149.735 149.735 0 -62135.543 -9336.014)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0994DC"></stop><stop offset=".35" stop-color="#66CEF5"></stop><stop offset=".35" stop-color="#66CEF5"></stop><stop offset=".846" stop-color="#127BCA"></stop><stop offset=".846" stop-color="#127BCA"></stop><stop offset="1" stop-color="#127BCA"></stop></linearGradient><path fill="url(#a)" d="M45.407 15.604c4.399 13.452 6.064 37.449 18.928 37.449.979 0 1.969-.095 2.962-.285-11.693-2.727-13.079-26.462-20.214-38.754-.56.509-1.115 1.039-1.676 1.59"></path><linearGradient id="b" x1="62.447" x2="62.836" y1="415.34" y2="415.34" gradientTransform="matrix(0 153.551 153.551 0 -63717.234 -9583.969)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0E76BC"></stop><stop offset=".36" stop-color="#36AEE8"></stop><stop offset=".36" stop-color="#36AEE8"></stop><stop offset=".846" stop-color="#00ADEF"></stop><stop offset=".846" stop-color="#00ADEF"></stop><stop offset="1" stop-color="#00ADEF"></stop></linearGradient><path fill="url(#b)" d="M47.083 14.014c7.135 12.292 8.521 36.027 20.214 38.754.918-.168 1.839-.424 2.762-.746-10.496-5.143-13.397-28.192-21.5-39.289-.491.41-.984.837-1.476 1.281"></path><path fill="#14559A" d="M57.364 6.704c-.977 0-1.969.096-2.964.285-2.603.491-5.247 1.611-7.913 3.308.728.719 1.422 1.541 2.073 2.438 2.711-2.249 5.404-3.911 8.087-4.911 1.007-.373 2.011-.653 3.017-.838-.726-.186-1.492-.282-2.3-.282"></path><linearGradient id="c" x1="66.554" x2="66.942" y1="416.985" y2="416.985" gradientTransform="matrix(0 -122.178 -122.178 0 51016.945 8183.043)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1C63B7"></stop><stop offset=".5" stop-color="#33BDF2"></stop><stop offset="1" stop-color="#33BDF2" stop-opacity=".42"></stop></linearGradient><path fill="url(#c)" d="M78.251 47.282c1.074-.854 2.15-1.798 3.228-2.829-4.47-13.389-6.07-37.729-19.023-37.729-.926 0-1.861.086-2.792.259 11.798 2.934 13.309 28.605 18.587 40.299"></path><path fill="#3092C4" d="M59.664 6.984c-.726-.185-1.492-.281-2.301-.281l5.094.019c-.927 0-1.861.086-2.793.262"></path><path fill="#1969BC" d="M78.026 50.126c-.506-.483-.987-1.013-1.46-1.579-2.179 1.543-4.351 2.713-6.507 3.475.767.375 1.572.653 2.426.826.662.136 1.347.205 2.067.205 2.421 0 4.334-.286 5.963-1.068-.897-.485-1.72-1.112-2.489-1.859"></path><linearGradient id="d" x1="62.568" x2="62.957" y1="415.281" y2="415.281" gradientTransform="matrix(0 159.425 159.425 0 -66138.813 -9976.116)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#166AB8"></stop><stop offset=".4" stop-color="#36AEE8"></stop><stop offset=".4" stop-color="#36AEE8"></stop><stop offset=".846" stop-color="#0798DD"></stop><stop offset=".846" stop-color="#0798DD"></stop><stop offset="1" stop-color="#0798DD"></stop></linearGradient><path fill="url(#d)" d="M56.646 7.825c10.569 5.528 11.487 30.56 19.92 40.723.565-.398 1.125-.82 1.684-1.265-5.279-11.695-6.788-37.368-18.585-40.3-1.007.188-2.012.467-3.019.842"></path><linearGradient id="e" x1="62.648" x2="63.037" y1="415.368" y2="415.368" gradientTransform="matrix(0 169.528 169.528 0 -70353.656 -10621.372)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#124379"></stop><stop offset=".39" stop-color="#1487CB"></stop><stop offset=".39" stop-color="#1487CB"></stop><stop offset=".78" stop-color="#165197"></stop><stop offset=".78" stop-color="#165197"></stop><stop offset="1" stop-color="#165197"></stop></linearGradient><path fill="url(#e)" d="M48.559 12.734c8.103 11.097 11.004 34.146 21.5 39.289 2.158-.762 4.328-1.932 6.507-3.475-8.433-10.163-9.352-35.195-19.92-40.723-2.683.998-5.376 2.66-8.087 4.909"></path><linearGradient id="f" x1="1006.493" x2="1008.801" y1="-1588.315" y2="-1588.315" gradientTransform="matrix(4.038 0 0 -4.038 -4028.633 -6394.98)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#33BDF2" stop-opacity=".698"></stop><stop offset="1" stop-color="#1DACD8"></stop></linearGradient><path fill="url(#f)" d="M40.222 15.28c-1.271 2.872-2.568 6.646-4.136 11.574 3.118-4.395 6.228-8.181 9.32-11.25-.427-1.309-.883-2.517-1.376-3.592-1.264.968-2.538 2.057-3.808 3.268"></path><path fill="#2B74B1" d="M45.157 11.184c-.373.267-.749.54-1.125.828.493 1.076.949 2.283 1.375 3.592.562-.549 1.119-1.082 1.677-1.59-.601-1.028-1.237-1.978-1.927-2.83"></path><path fill="#125A9E" d="M46.486 10.296c-.443.281-.884.577-1.331.887.691.852 1.327 1.802 1.928 2.833.493-.446.985-.875 1.476-1.282-.651-.897-1.344-1.719-2.073-2.438"></path><linearGradient id="g" x1="66.607" x2="66.996" y1="417.481" y2="417.481" gradientTransform="matrix(0 -119.018 -119.018 0 49793.875 7977.832)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#136AB4"></stop><stop offset=".6" stop-color="#59CAF5" stop-opacity=".549"></stop><stop offset="1" stop-color="#59CAF5" stop-opacity=".235"></stop></linearGradient><path fill="url(#g)" d="M118.572 5.68c-5.977 23.05-18.461 41.565-28.927 46.232h-.021l-.565.241-.068.027-.161.062-.072.03-.261.092-.108.038-.13.043-.126.044-.112.037-.223.068-.095.025-.151.041-.102.028-.164.042-.201.044c.473.175.966.263 1.497.263 9.924 0 19.932-17.786 36.489-47.363h-6.501l.002.006z"></path><linearGradient id="h" x1="998.304" x2="1006.863" y1="-1591.054" y2="-1591.054" gradientTransform="matrix(4.038 0 0 -4.038 -4028.633 -6394.98)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#05A1E6" stop-opacity=".247"></stop><stop offset="1" stop-color="#05A1E6"></stop></linearGradient><path fill="url(#h)" d="M33.931 7.64l.018-.017.023-.015h.013l.161-.062.032-.016.041-.018.173-.062h.009l.381-.133.056-.015.164-.049.075-.024.164-.049.063-.016.545-.142.075-.017.159-.031.079-.024.16-.03h.037l.332-.062h.066l.153-.026.086-.016.146-.022.082-.015.357-.032c-.344-.032-.697-.054-1.057-.054-11.177 0-26.576 20.738-33.513 47.594h1.337c2.22-3.959 4.214-7.705 6.037-11.22 4.859-19.022 14.754-31.996 23.544-35.433"></path><path fill="#0D82CA" d="M40.222 15.28c1.271-1.211 2.544-2.3 3.808-3.268-.288-.632-.587-1.217-.907-1.753-1.022 1.241-1.956 2.877-2.901 5.021M41.141 7.797c.73.611 1.383 1.454 1.982 2.462.188-.231.379-.444.578-.646-.831-.774-1.728-1.409-2.701-1.889l.119.057.022.016"></path><linearGradient id="i" x1="66.556" x2="66.944" y1="416.357" y2="416.357" gradientTransform="matrix(0 -121.865 -121.865 0 50761.691 8162.488)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#318ED5"></stop><stop offset="1" stop-color="#38A7E4"></stop></linearGradient><path fill="url(#i)" d="M10.388 43.072c10.191-19.64 15.02-32.069 23.544-35.433-8.789 3.439-18.686 16.412-23.544 35.433"></path><path fill="#127BCA" d="M43.7 9.614c-.199.203-.387.415-.578.646.32.536.618 1.119.909 1.753.376-.289.752-.561 1.125-.829-.461-.569-.948-1.097-1.456-1.57"></path><linearGradient id="j" x1="66.632" x2="67.021" y1="416.408" y2="416.408" gradientTransform="matrix(0 -118.46 -118.46 0 49352.684 7945.017)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#05A1E6"></stop><stop offset="1" stop-color="#05A1E6" stop-opacity=".549"></stop></linearGradient><path fill="url(#j)" d="M15.015 54.203l-.185.022h-.035l-.157.016h-.026l-.374.025h-.039c10.314-.289 15.03-5.453 17.37-12.944 1.777-5.678 3.238-10.462 4.518-14.476-4.32 6.081-8.661 13.33-13.024 21.451-2.104 3.914-5.304 5.549-8.048 5.898"></path><linearGradient id="k" x1="67.153" x2="67.542" y1="416.523" y2="416.523" gradientTransform="matrix(0 -100.1 -100.1 0 41721.719 6776.301)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1959A6"></stop><stop offset=".5" stop-color="#05A1E6"></stop><stop offset=".5" stop-color="#05A1E6"></stop><stop offset=".918" stop-color="#7EC5EA"></stop><stop offset="1" stop-color="#7EC5EA"></stop></linearGradient><path fill="url(#k)" d="M15.015 54.199c2.744-.35 5.944-1.983 8.048-5.899 4.363-8.118 8.706-15.369 13.022-21.451 1.571-4.929 2.866-8.701 4.138-11.573-8.604 8.189-17.24 21.806-25.208 38.919"></path><path fill="#05A1E6" d="M10.388 43.072c-1.824 3.515-3.818 7.26-6.039 11.22h3.889c.514-3.932 1.244-7.681 2.149-11.218"></path><linearGradient id="l" x1="66.874" x2="67.262" y1="415.998" y2="415.998" gradientTransform="scale(-110.211 110.211) rotate(-80 -214.299 248.239)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#165096"></stop><stop offset="1" stop-color="#0D82CA"></stop></linearGradient><path fill="url(#l)" d="M37.225 6.791l-.083.016-.146.021-.085.015-.153.027-.066.016-.332.058h-.037l-.162.032-.081.021-.157.031-.074.018-.546.142-.063.019-.165.049-.075.019-.163.048-.06.016-.379.133-.172.06-.072.03-.16.06-.053.026c-8.523 3.364-13.352 15.793-23.543 35.432-.905 3.538-1.638 7.287-2.15 11.218h.546l3.739-.016h1.714l.374-.025h.024l.157-.016h.038l.185-.022c7.967-17.112 16.604-30.729 25.208-38.918.945-2.144 1.878-3.781 2.898-5.02-.597-1.008-1.25-1.853-1.98-2.465l-.021-.016-.122-.059-.12-.061-.117-.057-.138-.058-.108-.047-.226-.094-.096-.037-.168-.067-.091-.03-.234-.08h-.019l-.271-.077-.061-.019-.228-.064-.053-.015c-.185-.05-.375-.089-.567-.124l-.059-.016-.246-.04-.048-.015-.291-.038h-.051l-.224-.025-.357.033"></path><linearGradient id="m" x1="68.837" x2="69.226" y1="418.884" y2="418.884" gradientTransform="matrix(0 -56.721 -56.721 0 23857.477 3932.282)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#05A1E6"></stop><stop offset=".874" stop-color="#0495D6"></stop><stop offset="1" stop-color="#0495D6"></stop></linearGradient><path fill="url(#m)" d="M95.226 18.441c-1.961 6.281-3.549 11.463-4.931 15.727 5.381-7.404 10.68-16.718 15.728-27.467-5.889 1.849-9.029 6.081-10.797 11.74"></path><linearGradient id="n" x1="62.48" x2="62.868" y1="414.361" y2="414.361" gradientTransform="scale(-132.813 132.813) rotate(80 277.722 169.477)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#38A7E4" stop-opacity=".329"></stop><stop offset=".962" stop-color="#0E88D3"></stop><stop offset=".962" stop-color="#0E88D3"></stop><stop offset="1" stop-color="#0E88D3"></stop></linearGradient><path fill="url(#n)" d="M90.465 51.52c-.274.14-.55.272-.82.393 10.466-4.668 22.951-23.183 28.927-46.233h-1.211c-13.733 24.53-18.149 40.952-26.896 45.84"></path><path fill="#079AE1" d="M83.631 49.459c2.277-2.779 4.132-7.504 6.665-15.292-2.921 4.012-5.861 7.462-8.804 10.274l-.015.025c.642 1.923 1.346 3.622 2.149 4.992"></path><path fill="#1969BC" d="M83.631 49.459c-.775.946-1.596 1.666-2.509 2.2-.2.117-.402.227-.608.326.964.52 2.016.868 3.193 1.007l.522.046h.031l.251.016h.8520000000000001l.096-.016.188-.016h.09100000000000001l.205-.022h.015l.063-.015.218-.034h.064l.245-.041h.039l.489-.104c-1.351-.493-2.481-1.66-3.455-3.32"></path><path fill="#1E5CB3" d="M64.335 53.053c.979 0 1.968-.096 2.961-.287.919-.167 1.84-.422 2.762-.744.767.375 1.573.653 2.425.827.662.135 1.348.204 2.069.204h-10.217zM74.552 53.053c2.419 0 4.334-.287 5.962-1.068.964.521 2.016.868 3.193 1.007l.522.045h.031l.251.016h.301-10.26z"></path><path fill="#1D60B5" d="M84.812 53.053h.5589999999999999l.096-.016.19-.016h.093l.203-.022h.017l.062-.015.218-.033.066-.015.246-.04h.039l.489-.104c.473.174.966.263 1.498.263l-3.773.016-.003-.018z"></path><path fill="#175FAB" d="M81.482 44.467v-.016c-1.078 1.031-2.153 1.976-3.228 2.83-.561.445-1.12.867-1.686 1.265.473.565.954 1.096 1.461 1.579.77.746 1.591 1.374 2.488 1.859.205-.1.408-.21.607-.326.915-.534 1.734-1.254 2.51-2.2-.803-1.37-1.507-3.069-2.148-4.992"></path><linearGradient id="o" x1="62.071" x2="62.459" y1="414.653" y2="414.653" gradientTransform="matrix(0 123.742 123.742 0 -51209.754 -7675.189)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#168CD4"></stop><stop offset=".5" stop-color="#1C87CC"></stop><stop offset="1" stop-color="#154B8D"></stop></linearGradient><path fill="url(#o)" d="M113.525 5.68h-6.096l-.966.047-.45.962c-5.046 10.749-10.346 20.063-15.727 27.468-2.53 7.786-4.387 12.511-6.664 15.291.973 1.661 2.106 2.829 3.452 3.324l.106-.023h.022l.074-.017.169-.042.1-.029.151-.04.094-.026.224-.068.112-.037.126-.046.129-.041.105-.04.263-.092.073-.027.161-.063.069-.025.565-.241h.019c.271-.12.546-.253.819-.393 8.75-4.888 13.166-21.31 26.898-45.84h-3.835l.007-.002z"></path><path fill="#7DCBEC" d="M37.583 6.758l.063.016.159.017h.054l.29.037.05.016.245.041.061.015.566.125.051.016.227.064.063.019.269.077.02.016.236.081.09.029.169.069.096.034.224.094.11.047.135.059.12.056.119.062c.974.479 1.871 1.117 2.702 1.89.305-.322.625-.61.958-.87-1.815-1.288-3.874-2.022-6.246-2.022-.275 0-.549.016-.829.037"></path><path fill="#5EC5ED" d="M43.7 9.614c.508.473.995 1.001 1.456 1.57.445-.31.887-.608 1.331-.887-.581-.582-1.193-1.104-1.831-1.553-.332.257-.651.548-.956.87"></path><g transform="matrix(5.048 0 0 -5.048 -9064.26 2270.61)"><linearGradient id="p" x1="1807.241" x2="1807.63" y1="366.152" y2="366.152" gradientTransform="scale(30.857 -30.857) rotate(22.527 1888.666 -4214.769)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#97D6EE"></stop><stop offset=".703" stop-color="#55C1EA"></stop><stop offset="1" stop-color="#55C1EA"></stop></linearGradient><path fill="url(#p)" d="M1803.007 448.452l.164.007c.47 0 .878-.145 1.237-.4.38.299.838.404 1.476.404h-3.086l.209-.011"></path></g><g transform="matrix(5.048 0 0 -5.048 -9064.26 2270.61)"><linearGradient id="q" x1="1808.472" x2="1808.861" y1="365.322" y2="365.322" gradientTransform="scale(24.717 -24.717) rotate(-24.385 53.536 4189.483)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7ACCEC"></stop><stop offset="1" stop-color="#3FB7ED"></stop></linearGradient><path fill="url(#q)" d="M1805.884 448.463c-.637 0-1.096-.105-1.476-.404.126-.089.247-.192.362-.307.528.336 1.052.558 1.568.656.197.037.393.056.587.056h-1.041v-.001z"></path></g><linearGradient id="r" x1="61.991" x2="62.38" y1="414.706" y2="414.706" gradientTransform="matrix(0 121.032 121.032 0 -50098.906 -7494.747)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1DA7E7"></stop><stop offset="1" stop-color="#37ABE7" stop-opacity="0"></stop></linearGradient><path fill="url(#r)" d="M90.295 34.172c1.384-4.267 2.968-9.447 4.933-15.73 1.771-5.661 4.905-9.894 10.792-11.741l.454-.962c-9.597.575-14.082 5.457-16.339 12.687-3.947 12.622-6.339 20.803-8.641 26.017 2.94-2.812 5.88-6.263 8.801-10.271"></path></svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
-                            <path fill="#EF0F14"
-                                  d="M2.861,21.998h2.917c1.05,0,2.261,0.896,2.261,2s-1.21,2-2.261,2H2.861c-1.05,0-1.861-0.895-1.861-2C1,22.893,1.811,21.998,2.861,21.998z M43.021,20.998c-1.401,0-2.521,1.343-2.521,3s1.13,3,2.521,3h4.019l0.96-1h-5c-0.898-0.047-1.289-0.638-1.5-1.5h5.54l0.96-1h-6.5c0.213-0.861,0.592-1.495,1.5-1.5h4.04l0.96-1H43.021z M34,20.998v5.426c0,0.148,0.095,0.292,0.201,0.402s0.249,0.172,0.405,0.172L38.54,27l1-1L35,25.998V21L34,20.998z M27.842,20.998c-1.591,0-2.851,1.346-2.851,3.003s1.26,2.997,2.851,2.997l3.649-0.012l1.149-0.988h-4.819c-1.05,0-1.84-0.894-1.84-1.999s0.79-2.001,1.84-2.001l3.689,0.016l1.13-1.016H27.842z M21,20.998c-0.258,0-0.522,0.215-0.67,0.483l-2.83,5.517h1l2.5-5l1.691,3H20.04l0.941,0.98l2.181-0.006l0.658,1.025l1.081-0.009l-3.277-5.507C21.394,21.112,21.25,20.998,21,20.998z M10,20.998v6h1v-5h3c0.515,0,1,0.464,1,1s-0.485,1-1,1h-2.5l3.481,3H16.5l-2.5-2l0.337-0.009C15.077,24.99,16,24.119,16,22.998c0-1.121-0.687-1.986-1.553-2H10z M2.882,20.998c-1.591,0-2.882,1.344-2.882,3s1.291,3,2.882,3H5.76c1.591,0,3.24-1.343,3.24-3s-1.649-3-3.24-3H2.882z"></path>
-                        </svg>
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
-                            <path fill="#b71c1c"
-                                  d="M45,29.316c0-0.637-1.686-1.153-3.769-1.153c-1.812,0-3.32,0.391-3.683,0.911	c-3.586-1.694-7.173-3.388-10.759-5.083c-1.248-0.59-2.673-0.584-3.918,0.014c-3.818,1.837-7.636,3.674-11.454,5.511	c-0.864-0.126-1.907-0.201-3.032-0.201C5.408,29.316,3,29.832,3,30.469v3.46c0,0.033,0.033,0.064,0.045,0.096	c-0.146,0.555,0.07,1.205,0.649,1.478c5.641,2.665,11.281,5.329,16.922,7.994c1.432,0.677,3.068,0.671,4.496-0.016	c6.442-3.1,12.884-6.199,19.327-9.299c0.484-0.233,0.651-0.786,0.509-1.247C44.971,32.882,45,32.83,45,32.775V29.316z"></path>
-                            <path fill="#e53935"
-                                  d="M20.616,39.158c-5.641-2.522-11.281-5.044-16.922-7.566c-0.922-0.412-0.926-1.727-0.007-2.146	c6.395-2.912,12.789-5.824,19.184-8.736c1.244-0.567,2.67-0.572,3.918-0.014c5.881,2.63,11.763,5.259,17.644,7.889	c0.754,0.337,0.758,1.414,0.006,1.756c-6.442,2.934-12.884,5.868-19.327,8.801C23.684,39.792,22.048,39.798,20.616,39.158z"></path>
-                            <path fill="#b71c1c"
-                                  d="M45,21.675c0-0.637-1.686-1.153-3.769-1.153c-1.812,0-3.32,0.391-3.683,0.911	c-3.586-1.694-7.173-3.388-10.759-5.083c-1.248-0.59-2.673-0.584-3.918,0.014c-3.818,1.837-7.636,3.674-11.454,5.511	c-0.864-0.126-1.907-0.201-3.032-0.201C5.408,21.675,3,22.192,3,22.829v3.46c0,0.033,0.033,0.064,0.045,0.096	c-0.146,0.555,0.07,1.205,0.649,1.478c5.641,2.665,11.281,5.329,16.922,7.994c1.432,0.677,3.068,0.671,4.496-0.016	c6.442-3.1,12.884-6.199,19.327-9.299c0.484-0.233,0.651-0.786,0.509-1.247C44.971,25.242,45,25.19,45,25.135V21.675z"></path>
-                            <path fill="#e53935"
-                                  d="M20.616,31.517c-5.641-2.522-11.281-5.044-16.922-7.566c-0.922-0.412-0.926-1.727-0.007-2.146	c6.395-2.912,12.789-5.824,19.184-8.736c1.244-0.567,2.67-0.572,3.918-0.014c5.881,2.63,11.763,5.259,17.644,7.889	c0.754,0.337,0.758,1.414,0.006,1.756c-6.442,2.934-12.884,5.868-19.327,8.801C23.684,32.152,22.048,32.158,20.616,31.517z"></path>
-                            <path fill="#b71c1c"
-                                  d="M45,14.035c0-0.637-1.686-1.153-3.769-1.153c-1.812,0-3.32,0.391-3.683,0.911	c-3.586-1.694-7.173-3.388-10.759-5.083c-1.248-0.59-2.673-0.584-3.918,0.014c-3.818,1.837-7.636,3.674-11.454,5.511	c-0.864-0.126-1.907-0.201-3.032-0.201C5.408,14.035,3,14.551,3,15.188v3.46c0,0.033,0.033,0.064,0.045,0.096	c-0.146,0.555,0.07,1.205,0.649,1.478c5.641,2.665,11.281,5.329,16.922,7.994c1.432,0.677,3.068,0.671,4.496-0.016	c6.442-3.1,12.884-6.199,19.327-9.299c0.484-0.233,0.651-0.786,0.509-1.247C44.971,17.601,45,17.549,45,17.494V14.035z"></path>
-                            <path fill="#e53935"
-                                  d="M20.616,23.877c-5.641-2.522-11.281-5.044-16.922-7.566c-0.922-0.412-0.926-1.727-0.007-2.146	c6.395-2.912,12.789-5.824,19.184-8.736c1.244-0.567,2.67-0.572,3.918-0.014c5.881,2.63,11.763,5.259,17.644,7.889	c0.754,0.337,0.758,1.414,0.006,1.756c-6.442,2.934-12.884,5.868-19.327,8.801C23.684,24.512,22.048,24.517,20.616,23.877z"></path>
-                            <path fill="#fff"
-                                  d="M18.748,14.741c-0.002,1.042-2.762,2.057-5.093,2.086c-2.419,0.03-5.273-0.993-5.282-2.051	c-0.009-1.061,2.842-2.161,5.311-2.135C16.017,12.665,18.751,13.703,18.748,14.741z"></path>
-                            <path fill="#fff"
-                                  d="M17.038,18.471c2.393,1.022,4.785,2.045,7.178,3.067c1.054-1.56,2.108-3.12,3.162-4.68	C23.931,17.396,20.485,17.934,17.038,18.471z"></path>
-                            <path fill="#fff"
-                                  d="M21.86,9.775c-1.101,0.401-2.203,0.801-3.304,1.202c1.507,0.132,3.015,0.264,4.522,0.395	c0.48,0.796,0.959,1.592,1.439,2.387c0.295-0.722,0.59-1.444,0.885-2.166c1.286-0.1,2.572-0.2,3.858-0.3	c-0.997-0.419-1.994-0.839-2.991-1.259c0.254-0.608,0.508-1.216,0.762-1.825c-0.97,0.29-1.939,0.58-2.909,0.87	c-1.07-0.422-2.14-0.843-3.21-1.265C21.228,8.468,21.544,9.122,21.86,9.775z"></path>
-                            <path fill="#b71c1c"
-                                  d="M27.267,14.619c2.271-0.906,4.543-1.813,6.814-2.719c1.962,0.834,3.924,1.668,5.886,2.502	c-2.202,0.876-4.403,1.752-6.605,2.629C31.331,16.226,29.299,15.423,27.267,14.619z"></path>
-                            <path fill="#a01c1c"
-                                  d="M34.082,11.963c-0.005,1.596-0.01,3.191-0.015,4.787c1.967-0.783,3.934-1.565,5.901-2.348	C38.006,13.589,36.044,12.776,34.082,11.963z"></path>
-                        </svg>
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                              className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
@@ -467,65 +322,31 @@ export default function StartBuildingSection() {
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" viewBox="0 0 48 48">
-                            <path fill="#21a366"
-                                  d="M24.007,45.419c-0.574,0-1.143-0.15-1.646-0.44l-5.24-3.103c-0.783-0.438-0.401-0.593-0.143-0.682	c1.044-0.365,1.255-0.448,2.369-1.081c0.117-0.067,0.27-0.043,0.39,0.028l4.026,2.389c0.145,0.079,0.352,0.079,0.486,0l15.697-9.061	c0.145-0.083,0.24-0.251,0.24-0.424V14.932c0-0.181-0.094-0.342-0.243-0.432L24.253,5.446c-0.145-0.086-0.338-0.086-0.483,0	L8.082,14.499c-0.152,0.086-0.249,0.255-0.249,0.428v18.114c0,0.173,0.094,0.338,0.244,0.42l4.299,2.483	c2.334,1.167,3.76-0.208,3.76-1.591V16.476c0-0.255,0.2-0.452,0.456-0.452h1.988c0.248,0,0.452,0.196,0.452,0.452v17.886	c0,3.112-1.697,4.9-4.648,4.9c-0.908,0-1.623,0-3.619-0.982l-4.118-2.373C5.629,35.317,5,34.216,5,33.042V14.928	c0-1.179,0.629-2.279,1.646-2.861L22.36,3.002c0.994-0.562,2.314-0.562,3.301,0l15.694,9.069C42.367,12.656,43,13.753,43,14.932	v18.114c0,1.175-0.633,2.271-1.646,2.861L25.66,44.971c-0.503,0.291-1.073,0.44-1.654,0.44"></path>
-                            <path fill="#21a366"
-                                  d="M28.856,32.937c-6.868,0-8.308-3.153-8.308-5.797c0-0.251,0.203-0.452,0.455-0.452h2.028	c0.224,0,0.413,0.163,0.448,0.384c0.306,2.066,1.218,3.108,5.371,3.108c3.308,0,4.715-0.747,4.715-2.502	c0-1.01-0.401-1.76-5.54-2.263c-4.299-0.424-6.955-1.371-6.955-4.809c0-3.167,2.672-5.053,7.147-5.053	c5.026,0,7.517,1.745,7.831,5.493c0.012,0.13-0.035,0.255-0.122,0.35c-0.086,0.09-0.208,0.145-0.334,0.145h-2.039	c-0.212,0-0.397-0.149-0.44-0.354c-0.491-2.173-1.678-2.868-4.904-2.868c-3.611,0-4.031,1.257-4.031,2.2	c0,1.143,0.495,1.477,5.367,2.122c4.825,0.64,7.116,1.544,7.116,4.935c0,3.418-2.853,5.379-7.827,5.379"></path>
-                        </svg>
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 128 128">
                             <path
-                                d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"/>
+                                d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z" />
                         </svg>
                     </a>
                     <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
-                    >
-                        <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 128 128">
-                            <g fill="#3FB6D3">
-                                <path
-                                    d="M12.3 64.2L76.3 0h39.4L32.1 83.6zM76.3 128h39.4L81.6 93.9l34.1-34.8H76.3L42.2 93.5z"/>
-                            </g>
-                            <path fill="#27AACD" d="M81.6 93.9l-20-20-19.4 19.6 19.4 19.6z"/>
-                            <path fill="#19599A" d="M115.7 128L81.6 93.9l-20 19.2L76.3 128z"/>
-                            <linearGradient id="flutter-original-a" gradientUnits="userSpaceOnUse" x1="59.365"
-                                            y1="116.36" x2="86.825" y2="99.399">
-                                <stop offset="0" stopColor="#1b4e94"/>
-                                <stop offset=".63" stopColor="#1a5497"/>
-                                <stop offset="1" stopColor="#195a9b"/>
-                            </linearGradient>
-                            <path fill="url(#flutter-original-a)" d="M61.6 113.1l30.8-8.4-10.8-10.8z"/>
-                        </svg>
-
-                    </a>
-                    <a data-aos="flip-up"
-                        className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
-                        href="#"
+                       className="flex flex-col items-center justify-center rounded-xl border border-black border-opacity-10 p-6 text-black duration-200 hover:border-opacity-0 hover:no-underline hover:shadow-lg dark:text-white dark:bg-gray-300 dark:hover:bg-white"
+                       href="#"
                     >
                         <svg className="mx-auto w-20 h-32 sm:w-32 sm:h-32 mb-4" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 128 128">
                             <path fill="#0074BD"
-                                  d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/>
+                                  d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z" />
                             <path fill="#EA2D2E"
-                                  d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/>
+                                  d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z" />
                             <path fill="#0074BD"
-                                  d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z"/>
+                                  d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z" />
                             <path fill="#EA2D2E"
-                                  d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/>
+                                  d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z" />
                             <path fill="#0074BD"
-                                  d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z"/>
+                                  d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z" />
                         </svg>
 
 
@@ -539,9 +360,9 @@ export default function StartBuildingSection() {
             </svg>
             <div className="bg-orange-100">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10">
-                    <p data-aos="flip-left" className="px-0 mb-5 text-lg text-center text-gray-600 dark:text-white md:text-lg lg:px-24 mt-4">
+                    {/* <p data-aos="flip-left" className="px-0 mb-5 text-lg text-center text-gray-600 dark:text-white md:text-lg lg:px-24 mt-4">
                         How about Technology
-                    </p>
+                    </p> */}
                     <h1 data-aos="flip-right" className="text-md font-bold text-center text-gray-800 lg:text-4xl dark:text-white">Our Backend
                         Process Technology </h1>
                     <p data-aos="flip-left" className="px-0 text-lg text-center text-gray-600 dark:text-white md:text-lg lg:px-24 mb-2 mt-5">
@@ -549,18 +370,17 @@ export default function StartBuildingSection() {
                     </p>
                     <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-4">
                         <div data-aos="flip-left"
-                            className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
-                         <svg className="h-10 w-10 text-orange-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                        </svg>
+                                <svg className="h-10 w-10 text-orange-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
 
 
                             </span>
 
-                            <h1 className="text-xl font-semibold text-blue-900 dark:text-white">Programming
-                                languages</h1>
+                            <h1 className="text-xl font-semibold text-blue-900 dark:text-white">Languages</h1>
 
                             <p className="text-gray-500 dark:text-gray-300">
                                 We use a variety of programming languages to develop our backend systems, including Java, shellscript and JavaScript.
@@ -568,11 +388,11 @@ export default function StartBuildingSection() {
                         </div>
 
                         <div data-aos="flip-left"
-                            className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
-                               <svg className="h-10 w-10 text-orange-80" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path
-                                   d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                <svg className="h-10 w-10 text-orange-80" viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
 
                             </span>
 
@@ -586,17 +406,17 @@ export default function StartBuildingSection() {
 
 
                         <div data-aos="flip-left"
-                            className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
-                           <svg className="h-10 w-10 text-orange-80" width="24" height="24" viewBox="0 0 24 24"
-                                strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"
-                                strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="3" y1="4"
-                                                                                                        x2="21" y2="4"/>  <path
-                               d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10"/>  <line x1="12" y1="16" x2="12"
-                                                                                        y2="20"/>  <line x1="9" y1="20"
-                                                                                                         x2="15"
-                                                                                                         y2="20"/>  <path
-                               d="M8 12l3 -3l2 2l3 -3"/></svg>
+                                <svg className="h-10 w-10 text-orange-80" width="24" height="24" viewBox="0 0 24 24"
+                                     strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"
+                                     strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <line x1="3" y1="4"
+                                                                                                              x2="21" y2="4" />  <path
+                                    d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10" />  <line x1="12" y1="16" x2="12"
+                                                                                              y2="20" />  <line x1="9" y1="20"
+                                                                                                                x2="15"
+                                                                                                                y2="20" />  <path
+                                    d="M8 12l3 -3l2 2l3 -3" /></svg>
 
                             </span>
 
@@ -608,18 +428,18 @@ export default function StartBuildingSection() {
                         </div>
 
                         <div data-aos="flip-left"
-                            className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
+                             className="flex flex-col items-center p-6 space-y-3 text-center bg-white rounded-xl dark:bg-gray-800">
                             <span className="inline-block p-3 text-blue-500 rounded-full dark:text-white">
-                           <svg className="w-10 h-10" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
-                            <g fill="#fcc419" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style={{"mix-blend-mode":"normal"}}><g transform="scale(5.12,5.12)"><path d="M25,2.27734c-0.52278,0.00018 -1.04502,0.11648 -1.52734,0.34961l-15.46094,7.46484c-0.96175,0.4641 -1.66107,1.34315 -1.89844,2.38476l-3.82031,16.7832c-0.23608,1.03931 0.01271,2.13203 0.67578,2.9668l10.70313,13.45703c0.66619,0.83798 1.68026,1.32617 2.75,1.32617h17.15625c1.06974,0 2.08381,-0.4882 2.75,-1.32617l10.70313,-13.45508v-0.00195c0.66293,-0.83408 0.91347,-1.92565 0.67773,-2.96484c0,-0.00065 0,-0.0013 0,-0.00195l-3.82227,-16.7832c0,-0.00065 0,-0.0013 0,-0.00195c-0.23731,-1.03996 -0.93626,-1.91778 -1.89844,-2.38281l-15.45898,-7.46484c-0.00065,-0.00065 -0.0013,-0.0013 -0.00195,-0.00195c-0.48236,-0.23212 -1.00456,-0.34784 -1.52734,-0.34766zM25,4.27734c0.22465,0.00007 0.44878,0.04996 0.6582,0.15039l15.46094,7.46484c0.41582,0.20097 0.71567,0.57731 0.81836,1.02734l3.82031,16.7832c0.10213,0.45022 -0.0048,0.91956 -0.29102,1.2793l-10.70312,13.45703c-0.28781,0.36202 -0.72329,0.57031 -1.18555,0.57031h-17.15625c-0.46226,0 -0.89578,-0.20829 -1.18359,-0.57031l-10.70312,-13.45703c-0.28693,-0.36123 -0.39489,-0.83061 -0.29297,-1.2793l3.82227,-16.78125c0.10264,-0.45039 0.40215,-0.82744 0.81641,-1.02734c0,-0.00065 0,-0.0013 0,-0.00195l15.46094,-7.46484c0.20837,-0.10072 0.43355,-0.15046 0.6582,-0.15039zM24.99219,8.48438c-0.14109,0.00031 -0.28438,0.02844 -0.42188,0.08594c-0.55,0.24 -0.81031,0.87969 -0.57031,1.42969c0.23,0.54 0.30914,1.07914 0.36914,1.61914c0.02,0.28 0.03148,0.55031 0.02148,0.82031c0.03,0.27 -0.11055,0.54055 -0.31055,0.81055c-0.21,0.27 -0.22977,0.54055 -0.25977,0.81055c-2.74422,0.26936 -5.21469,1.47196 -7.10352,3.2793l-0.01758,-0.00977c-0.23,-0.15 -0.44883,-0.30055 -0.79883,-0.31055c-0.33,-0.02 -0.63031,-0.0793 -0.82031,-0.2793c-0.21,-0.16 -0.41938,-0.3393 -0.60937,-0.5293c-0.39,-0.38 -0.76125,-0.79055 -1.03125,-1.31055c-0.13,-0.25 -0.37016,-0.45102 -0.66016,-0.54102c-0.58,-0.16 -1.17961,0.17 -1.34961,0.75c-0.17,0.57 0.17,1.17984 0.75,1.33984c0.56,0.17 1.03023,0.45 1.49023,0.75c0.22,0.15 0.43063,0.31023 0.64063,0.49023c0.23,0.15 0.34945,0.43 0.43945,0.75c0.06599,0.32053 0.24992,0.50596 0.42969,0.68555c-1.36881,1.94927 -2.17969,4.31816 -2.17969,6.875c0,0.42296 0.02347,0.84014 0.06641,1.25195c-0.22433,0.07852 -0.44637,0.16371 -0.63672,0.38867c-0.22,0.25 -0.46047,0.44875 -0.73047,0.46875c-0.26,0.07 -0.52883,0.12039 -0.79883,0.15039c-0.54,0.07 -1.09016,0.11023 -1.66016,-0.00977c-0.28,-0.05 -0.58984,0.00945 -0.83984,0.18945c-0.49,0.34 -0.59977,1.01977 -0.25977,1.50977c0.35,0.49 1.02953,0.61172 1.51953,0.26172c0.48,-0.34 0.98977,-0.53117 1.50977,-0.70117c0.26,-0.08 0.52102,-0.14922 0.79102,-0.19922c0.26,-0.09 0.54937,-0.01086 0.85937,0.11914c0.25758,0.13295 0.48564,0.12236 0.71094,0.09961c0.88023,2.85379 2.80491,5.24463 5.31836,6.75391c-0.08588,0.24028 -0.16644,0.49068 -0.08984,0.80664c0.06,0.33 0.06969,0.64109 -0.07031,0.87109c-0.11,0.25 -0.22938,0.48851 -0.35937,0.72852c-0.28,0.46 -0.57953,0.92031 -1.01953,1.32031c-0.21,0.19 -0.35133,0.45953 -0.36133,0.76953c-0.02,0.6 0.45078,1.10109 1.05078,1.12109c0.6,0.02 1.11086,-0.45078 1.13086,-1.05078c0.01,-0.59 0.16961,-1.10891 0.34961,-1.62891c0.09,-0.25 0.20031,-0.50023 0.32031,-0.74023c0.09,-0.26 0.32914,-0.45133 0.61914,-0.61133c0.28887,-0.1491 0.41882,-0.35992 0.54883,-0.58203c1.26224,0.45245 2.61555,0.71289 4.03125,0.71289c1.43987,0 2.8153,-0.26902 4.0957,-0.73633c0.13543,0.23114 0.27462,0.45089 0.56445,0.60547c0.29,0.17 0.52914,0.35133 0.61914,0.61133c0.12,0.25 0.22055,0.5 0.31055,0.75c0.18,0.52 0.32961,1.03891 0.34961,1.62891c0,0.29 0.11961,0.57125 0.34961,0.78125c0.45,0.4 1.13102,0.36969 1.54102,-0.07031c0.4,-0.45 0.36969,-1.13101 -0.07031,-1.54102c-0.44,-0.39 -0.73977,-0.86008 -1.00977,-1.33008c-0.13,-0.23 -0.24938,-0.47875 -0.35937,-0.71875c-0.14,-0.24 -0.13055,-0.54109 -0.06055,-0.87109c0.08,-0.34 -0.00984,-0.58961 -0.08984,-0.84961l-0.00781,-0.02539c2.49344,-1.52432 4.39283,-3.92245 5.25391,-6.77539l0.0332,0.00195c0.28,0.02 0.54961,0.04891 0.84961,-0.12109c0.3,-0.14 0.60133,-0.22062 0.86133,-0.14062c0.26,0.04 0.52906,0.09992 0.78906,0.16992c0.52,0.15 1.04125,0.33016 1.53125,0.66016c0.24,0.15 0.53984,0.22039 0.83984,0.15039c0.59,-0.13 0.96008,-0.70906 0.83008,-1.28906c-0.13,-0.59 -0.71078,-0.96008 -1.30078,-0.83008c-0.58,0.13 -1.11992,0.10859 -1.66992,0.05859c-0.27,-0.03 -0.53078,-0.06891 -0.80078,-0.12891c-0.27,-0.02 -0.50828,-0.19945 -0.73828,-0.43945c-0.23,-0.27 -0.49,-0.33992 -0.75,-0.41992l-0.01758,-0.00586c0.03471,-0.37092 0.05664,-0.74517 0.05664,-1.125c0,-2.47929 -0.75692,-4.78632 -2.05078,-6.70117c0.18966,-0.19961 0.3813,-0.38912 0.45117,-0.72852c0.09,-0.32 0.20945,-0.6 0.43945,-0.75c0.2,-0.18 0.42063,-0.34 0.64063,-0.5c0.45,-0.3 0.92047,-0.59 1.48047,-0.75c0.28,-0.08 0.5182,-0.27078 0.6582,-0.55078c0.28,-0.53 0.07125,-1.18898 -0.46875,-1.45898c-0.53,-0.28 -1.19094,-0.07125 -1.46094,0.46875c-0.27,0.52 -0.63953,0.93055 -1.01953,1.31055c-0.2,0.19 -0.39937,0.37101 -0.60937,0.54102c-0.19,0.2 -0.49031,0.2593 -0.82031,0.2793c-0.35,0.01 -0.57078,0.17031 -0.80078,0.32031c-1.90689,-1.88913 -4.44194,-3.14334 -7.25977,-3.41992c-0.03,-0.27 -0.04977,-0.54055 -0.25977,-0.81055c-0.2,-0.27 -0.34055,-0.54055 -0.31055,-0.81055c-0.01,-0.27 0.00148,-0.54031 0.02148,-0.82031c0.06,-0.54 0.13914,-1.07914 0.36914,-1.61914c0.11,-0.26 0.12,-0.56938 0,-0.85937c-0.18,-0.4125 -0.58453,-0.65719 -1.00781,-0.65625zM23.55859,16.11523l-0.04883,0.38477c-0.14,1.08 -0.23984,2.17 -0.33984,3.25c-0.06,0.57 -0.11039,1.1507 -0.15039,1.7207c-0.49,-0.35 -0.98,-0.72078 -1.5,-1.05078c-0.9,-0.61 -1.80047,-1.22078 -2.73047,-1.80078l-0.31445,-0.19531c1.40648,-1.21189 3.15444,-2.03079 5.08398,-2.30859zM26.44141,16.11523c2.00854,0.28918 3.81738,1.16877 5.25195,2.46289l-0.33398,0.21094c-0.92,0.59 -1.80898,1.20055 -2.70898,1.81055c-0.36,0.24 -0.71078,0.49023 -1.05078,0.74023c-0.27,0.19 -0.64016,0.01945 -0.66016,-0.31055c-0.03,-0.43 -0.06938,-0.8493 -0.10937,-1.2793c-0.1,-1.08 -0.19984,-2.17 -0.33984,-3.25zM16.58203,20.60742l0.31836,0.33203c0.76,0.79 1.53055,1.55031 2.31055,2.32031c0.33,0.33 0.66,0.64117 1,0.95117c0.24,0.22 0.14984,0.60922 -0.16016,0.69922c-0.49,0.15 -0.9807,0.28922 -1.4707,0.44922c-1.03,0.34 -2.06961,0.66125 -3.09961,1.03125l-0.45312,0.1582c-0.0099,-0.18297 -0.02734,-0.36332 -0.02734,-0.54883c0,-1.99029 0.58509,-3.83678 1.58203,-5.39258zM33.53711,20.80469c0.92185,1.51449 1.46289,3.28771 1.46289,5.19531c0,0.16703 -0.01735,0.32915 -0.02539,0.49414l-0.35547,-0.11328c-1.04,-0.34 -2.07891,-0.63164 -3.12891,-0.93164c-0.68,-0.2 -1.36102,-0.37883 -2.04102,-0.54883c0.51,-0.49 1.04125,-0.9707 1.53125,-1.4707c0.77,-0.77 1.53906,-1.53984 2.28906,-2.33984zM24.38086,24h1.21875c0.19,0 0.3707,0.09047 0.4707,0.23047l0.7793,0.98047c0.11,0.13 0.15109,0.31828 0.12109,0.48828l-0.28125,1.21094c-0.03,0.19 -0.16031,0.33969 -0.32031,0.42969l-1.11914,0.51953c-0.16,0.09 -0.35953,0.09 -0.51953,0l-1.12109,-0.51953c-0.16,-0.09 -0.30031,-0.23969 -0.32031,-0.42969l-0.2793,-1.21094c-0.03,-0.17 0.01109,-0.35828 0.12109,-0.48828l0.7793,-0.98047c0.1,-0.14 0.2807,-0.23047 0.4707,-0.23047zM20.76953,28.76953c0.31,-0.05 0.56141,0.26078 0.44141,0.55078c-0.19,0.5 -0.37102,0.99023 -0.54102,1.49023c-0.37,1.03 -0.73031,2.04984 -1.07031,3.08984l-0.13672,0.42969c-1.7798,-1.18343 -3.14677,-2.92482 -3.875,-4.97461l0.53125,-0.04492c1.09,-0.1 2.16,-0.23133 3.25,-0.36133c0.47,-0.05 0.93039,-0.11969 1.40039,-0.17969zM29.41016,28.91016c0.47,0.05 0.93039,0.10063 1.40039,0.14063c1.09,0.1 2.16976,0.19953 3.25977,0.26953l0.34766,0.01953c-0.71511,2.02365 -2.05204,3.74859 -3.79492,4.93359l-0.11328,-0.36328c-0.33,-1.04 -0.68906,-2.06984 -1.03906,-3.08984c-0.16,-0.46 -0.32023,-0.90937 -0.49023,-1.35937c-0.11,-0.29 0.12969,-0.59078 0.42969,-0.55078zM25.07422,30.88281c0.1425,0 0.28523,0.0718 0.36523,0.2168c0.22,0.42 0.45141,0.83023 0.69141,1.24023c0.54,0.94 1.0782,1.89055 1.6582,2.81055l0.23633,0.38281c-0.95414,0.30123 -1.96992,0.4668 -3.02539,0.4668c-1.02369,0 -2.01042,-0.15543 -2.93945,-0.43945l0.25,-0.40039c0.58,-0.92 1.12969,-1.86078 1.67969,-2.80078c0.25,-0.41 0.4907,-0.82977 0.7207,-1.25977c0.08,-0.145 0.22078,-0.2168 0.36328,-0.2168z"></path></g></g>
-                            </svg>
+                                <svg className="w-10 h-10" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+                                    <g fill="#fcc419" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style={{ "mix-blend-mode": "normal" }}><g transform="scale(5.12,5.12)"><path d="M25,2.27734c-0.52278,0.00018 -1.04502,0.11648 -1.52734,0.34961l-15.46094,7.46484c-0.96175,0.4641 -1.66107,1.34315 -1.89844,2.38476l-3.82031,16.7832c-0.23608,1.03931 0.01271,2.13203 0.67578,2.9668l10.70313,13.45703c0.66619,0.83798 1.68026,1.32617 2.75,1.32617h17.15625c1.06974,0 2.08381,-0.4882 2.75,-1.32617l10.70313,-13.45508v-0.00195c0.66293,-0.83408 0.91347,-1.92565 0.67773,-2.96484c0,-0.00065 0,-0.0013 0,-0.00195l-3.82227,-16.7832c0,-0.00065 0,-0.0013 0,-0.00195c-0.23731,-1.03996 -0.93626,-1.91778 -1.89844,-2.38281l-15.45898,-7.46484c-0.00065,-0.00065 -0.0013,-0.0013 -0.00195,-0.00195c-0.48236,-0.23212 -1.00456,-0.34784 -1.52734,-0.34766zM25,4.27734c0.22465,0.00007 0.44878,0.04996 0.6582,0.15039l15.46094,7.46484c0.41582,0.20097 0.71567,0.57731 0.81836,1.02734l3.82031,16.7832c0.10213,0.45022 -0.0048,0.91956 -0.29102,1.2793l-10.70312,13.45703c-0.28781,0.36202 -0.72329,0.57031 -1.18555,0.57031h-17.15625c-0.46226,0 -0.89578,-0.20829 -1.18359,-0.57031l-10.70312,-13.45703c-0.28693,-0.36123 -0.39489,-0.83061 -0.29297,-1.2793l3.82227,-16.78125c0.10264,-0.45039 0.40215,-0.82744 0.81641,-1.02734c0,-0.00065 0,-0.0013 0,-0.00195l15.46094,-7.46484c0.20837,-0.10072 0.43355,-0.15046 0.6582,-0.15039zM24.99219,8.48438c-0.14109,0.00031 -0.28438,0.02844 -0.42188,0.08594c-0.55,0.24 -0.81031,0.87969 -0.57031,1.42969c0.23,0.54 0.30914,1.07914 0.36914,1.61914c0.02,0.28 0.03148,0.55031 0.02148,0.82031c0.03,0.27 -0.11055,0.54055 -0.31055,0.81055c-0.21,0.27 -0.22977,0.54055 -0.25977,0.81055c-2.74422,0.26936 -5.21469,1.47196 -7.10352,3.2793l-0.01758,-0.00977c-0.23,-0.15 -0.44883,-0.30055 -0.79883,-0.31055c-0.33,-0.02 -0.63031,-0.0793 -0.82031,-0.2793c-0.21,-0.16 -0.41938,-0.3393 -0.60937,-0.5293c-0.39,-0.38 -0.76125,-0.79055 -1.03125,-1.31055c-0.13,-0.25 -0.37016,-0.45102 -0.66016,-0.54102c-0.58,-0.16 -1.17961,0.17 -1.34961,0.75c-0.17,0.57 0.17,1.17984 0.75,1.33984c0.56,0.17 1.03023,0.45 1.49023,0.75c0.22,0.15 0.43063,0.31023 0.64063,0.49023c0.23,0.15 0.34945,0.43 0.43945,0.75c0.06599,0.32053 0.24992,0.50596 0.42969,0.68555c-1.36881,1.94927 -2.17969,4.31816 -2.17969,6.875c0,0.42296 0.02347,0.84014 0.06641,1.25195c-0.22433,0.07852 -0.44637,0.16371 -0.63672,0.38867c-0.22,0.25 -0.46047,0.44875 -0.73047,0.46875c-0.26,0.07 -0.52883,0.12039 -0.79883,0.15039c-0.54,0.07 -1.09016,0.11023 -1.66016,-0.00977c-0.28,-0.05 -0.58984,0.00945 -0.83984,0.18945c-0.49,0.34 -0.59977,1.01977 -0.25977,1.50977c0.35,0.49 1.02953,0.61172 1.51953,0.26172c0.48,-0.34 0.98977,-0.53117 1.50977,-0.70117c0.26,-0.08 0.52102,-0.14922 0.79102,-0.19922c0.26,-0.09 0.54937,-0.01086 0.85937,0.11914c0.25758,0.13295 0.48564,0.12236 0.71094,0.09961c0.88023,2.85379 2.80491,5.24463 5.31836,6.75391c-0.08588,0.24028 -0.16644,0.49068 -0.08984,0.80664c0.06,0.33 0.06969,0.64109 -0.07031,0.87109c-0.11,0.25 -0.22938,0.48851 -0.35937,0.72852c-0.28,0.46 -0.57953,0.92031 -1.01953,1.32031c-0.21,0.19 -0.35133,0.45953 -0.36133,0.76953c-0.02,0.6 0.45078,1.10109 1.05078,1.12109c0.6,0.02 1.11086,-0.45078 1.13086,-1.05078c0.01,-0.59 0.16961,-1.10891 0.34961,-1.62891c0.09,-0.25 0.20031,-0.50023 0.32031,-0.74023c0.09,-0.26 0.32914,-0.45133 0.61914,-0.61133c0.28887,-0.1491 0.41882,-0.35992 0.54883,-0.58203c1.26224,0.45245 2.61555,0.71289 4.03125,0.71289c1.43987,0 2.8153,-0.26902 4.0957,-0.73633c0.13543,0.23114 0.27462,0.45089 0.56445,0.60547c0.29,0.17 0.52914,0.35133 0.61914,0.61133c0.12,0.25 0.22055,0.5 0.31055,0.75c0.18,0.52 0.32961,1.03891 0.34961,1.62891c0,0.29 0.11961,0.57125 0.34961,0.78125c0.45,0.4 1.13102,0.36969 1.54102,-0.07031c0.4,-0.45 0.36969,-1.13101 -0.07031,-1.54102c-0.44,-0.39 -0.73977,-0.86008 -1.00977,-1.33008c-0.13,-0.23 -0.24938,-0.47875 -0.35937,-0.71875c-0.14,-0.24 -0.13055,-0.54109 -0.06055,-0.87109c0.08,-0.34 -0.00984,-0.58961 -0.08984,-0.84961l-0.00781,-0.02539c2.49344,-1.52432 4.39283,-3.92245 5.25391,-6.77539l0.0332,0.00195c0.28,0.02 0.54961,0.04891 0.84961,-0.12109c0.3,-0.14 0.60133,-0.22062 0.86133,-0.14062c0.26,0.04 0.52906,0.09992 0.78906,0.16992c0.52,0.15 1.04125,0.33016 1.53125,0.66016c0.24,0.15 0.53984,0.22039 0.83984,0.15039c0.59,-0.13 0.96008,-0.70906 0.83008,-1.28906c-0.13,-0.59 -0.71078,-0.96008 -1.30078,-0.83008c-0.58,0.13 -1.11992,0.10859 -1.66992,0.05859c-0.27,-0.03 -0.53078,-0.06891 -0.80078,-0.12891c-0.27,-0.02 -0.50828,-0.19945 -0.73828,-0.43945c-0.23,-0.27 -0.49,-0.33992 -0.75,-0.41992l-0.01758,-0.00586c0.03471,-0.37092 0.05664,-0.74517 0.05664,-1.125c0,-2.47929 -0.75692,-4.78632 -2.05078,-6.70117c0.18966,-0.19961 0.3813,-0.38912 0.45117,-0.72852c0.09,-0.32 0.20945,-0.6 0.43945,-0.75c0.2,-0.18 0.42063,-0.34 0.64063,-0.5c0.45,-0.3 0.92047,-0.59 1.48047,-0.75c0.28,-0.08 0.5182,-0.27078 0.6582,-0.55078c0.28,-0.53 0.07125,-1.18898 -0.46875,-1.45898c-0.53,-0.28 -1.19094,-0.07125 -1.46094,0.46875c-0.27,0.52 -0.63953,0.93055 -1.01953,1.31055c-0.2,0.19 -0.39937,0.37101 -0.60937,0.54102c-0.19,0.2 -0.49031,0.2593 -0.82031,0.2793c-0.35,0.01 -0.57078,0.17031 -0.80078,0.32031c-1.90689,-1.88913 -4.44194,-3.14334 -7.25977,-3.41992c-0.03,-0.27 -0.04977,-0.54055 -0.25977,-0.81055c-0.2,-0.27 -0.34055,-0.54055 -0.31055,-0.81055c-0.01,-0.27 0.00148,-0.54031 0.02148,-0.82031c0.06,-0.54 0.13914,-1.07914 0.36914,-1.61914c0.11,-0.26 0.12,-0.56938 0,-0.85937c-0.18,-0.4125 -0.58453,-0.65719 -1.00781,-0.65625zM23.55859,16.11523l-0.04883,0.38477c-0.14,1.08 -0.23984,2.17 -0.33984,3.25c-0.06,0.57 -0.11039,1.1507 -0.15039,1.7207c-0.49,-0.35 -0.98,-0.72078 -1.5,-1.05078c-0.9,-0.61 -1.80047,-1.22078 -2.73047,-1.80078l-0.31445,-0.19531c1.40648,-1.21189 3.15444,-2.03079 5.08398,-2.30859zM26.44141,16.11523c2.00854,0.28918 3.81738,1.16877 5.25195,2.46289l-0.33398,0.21094c-0.92,0.59 -1.80898,1.20055 -2.70898,1.81055c-0.36,0.24 -0.71078,0.49023 -1.05078,0.74023c-0.27,0.19 -0.64016,0.01945 -0.66016,-0.31055c-0.03,-0.43 -0.06938,-0.8493 -0.10937,-1.2793c-0.1,-1.08 -0.19984,-2.17 -0.33984,-3.25zM16.58203,20.60742l0.31836,0.33203c0.76,0.79 1.53055,1.55031 2.31055,2.32031c0.33,0.33 0.66,0.64117 1,0.95117c0.24,0.22 0.14984,0.60922 -0.16016,0.69922c-0.49,0.15 -0.9807,0.28922 -1.4707,0.44922c-1.03,0.34 -2.06961,0.66125 -3.09961,1.03125l-0.45312,0.1582c-0.0099,-0.18297 -0.02734,-0.36332 -0.02734,-0.54883c0,-1.99029 0.58509,-3.83678 1.58203,-5.39258zM33.53711,20.80469c0.92185,1.51449 1.46289,3.28771 1.46289,5.19531c0,0.16703 -0.01735,0.32915 -0.02539,0.49414l-0.35547,-0.11328c-1.04,-0.34 -2.07891,-0.63164 -3.12891,-0.93164c-0.68,-0.2 -1.36102,-0.37883 -2.04102,-0.54883c0.51,-0.49 1.04125,-0.9707 1.53125,-1.4707c0.77,-0.77 1.53906,-1.53984 2.28906,-2.33984zM24.38086,24h1.21875c0.19,0 0.3707,0.09047 0.4707,0.23047l0.7793,0.98047c0.11,0.13 0.15109,0.31828 0.12109,0.48828l-0.28125,1.21094c-0.03,0.19 -0.16031,0.33969 -0.32031,0.42969l-1.11914,0.51953c-0.16,0.09 -0.35953,0.09 -0.51953,0l-1.12109,-0.51953c-0.16,-0.09 -0.30031,-0.23969 -0.32031,-0.42969l-0.2793,-1.21094c-0.03,-0.17 0.01109,-0.35828 0.12109,-0.48828l0.7793,-0.98047c0.1,-0.14 0.2807,-0.23047 0.4707,-0.23047zM20.76953,28.76953c0.31,-0.05 0.56141,0.26078 0.44141,0.55078c-0.19,0.5 -0.37102,0.99023 -0.54102,1.49023c-0.37,1.03 -0.73031,2.04984 -1.07031,3.08984l-0.13672,0.42969c-1.7798,-1.18343 -3.14677,-2.92482 -3.875,-4.97461l0.53125,-0.04492c1.09,-0.1 2.16,-0.23133 3.25,-0.36133c0.47,-0.05 0.93039,-0.11969 1.40039,-0.17969zM29.41016,28.91016c0.47,0.05 0.93039,0.10063 1.40039,0.14063c1.09,0.1 2.16976,0.19953 3.25977,0.26953l0.34766,0.01953c-0.71511,2.02365 -2.05204,3.74859 -3.79492,4.93359l-0.11328,-0.36328c-0.33,-1.04 -0.68906,-2.06984 -1.03906,-3.08984c-0.16,-0.46 -0.32023,-0.90937 -0.49023,-1.35937c-0.11,-0.29 0.12969,-0.59078 0.42969,-0.55078zM25.07422,30.88281c0.1425,0 0.28523,0.0718 0.36523,0.2168c0.22,0.42 0.45141,0.83023 0.69141,1.24023c0.54,0.94 1.0782,1.89055 1.6582,2.81055l0.23633,0.38281c-0.95414,0.30123 -1.96992,0.4668 -3.02539,0.4668c-1.02369,0 -2.01042,-0.15543 -2.93945,-0.43945l0.25,-0.40039c0.58,-0.92 1.12969,-1.86078 1.67969,-2.80078c0.25,-0.41 0.4907,-0.82977 0.7207,-1.25977c0.08,-0.145 0.22078,-0.2168 0.36328,-0.2168z"></path></g></g>
+                                </svg>
 
                             </span>
 
                             <h1 className="text-xl font-semibold text-blue-900 dark:text-white">Orchestration</h1>
 
                             <p className="text-gray-500 dark:text-gray-300">
-                                We use a variety of programming languages to develop our backend systems, including Java, shellscript and JavaScript.
+                                Orchestration is accomplish to streamlines operations, enhances efficiency, and promotes seamless collaboration in complex systems.
                             </p>
                         </div>
                     </div>
@@ -638,30 +458,30 @@ export default function StartBuildingSection() {
                          data-aos-duration="1500">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                              className="w-o h-0 xl:w-16 xl:h-16 absolute right-56 ">
-                            <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
+                            <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2" />
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                              className="w-0 h-0 xl:w-32 xl:h-32 absolute left-12">
-                            <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
+                            <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2" />
                         </svg>
                     </div>
 
                     <div className="w-full  h-full  flex flex-col justify-center items-center gap-[30px] inline-flex ">
                         <div data-aos="zoom-out-down"
-                            className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
+                             className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                             <div className="w-8 h-[244px] relative">
-                                <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
-                                <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full"/>
-                                <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full"/>
+                                <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
+                                <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full" />
+                                <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full" />
                             </div>
                             <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
-                                  <span
-                                      className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
+                                <span
+                                    className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
                                     <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" width="28"
                                          height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"
                                          fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none"
-                                                                                                          d="M0 0h24v24H0z"/>  <line
-                                        x1="12" y1="5" x2="12" y2="19"/>  <line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                                                                                          d="M0 0h24v24H0z" />  <line
+                                        x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg>
                                 </span>
                                 <div
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">01
@@ -671,34 +491,33 @@ export default function StartBuildingSection() {
                                 </div>
                                 <div
                                     className="w-full wra dark:text-gray-300  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
-                                    We will conduct a thorough analysis of your operations, market,
-                                    and <br/> competition to identify the best solutions for you.
+                                    Gathering information and conducting research to gain a comprehensive understanding<br/> of project objectives and requirements.
                                 </div>
                             </div>
                         </div>
                         <div data-aos="zoom-out-down"
-                            className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
+                             className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                  className="w-0 h-0 xl:w-96 xl:h-96 absolute right-20">
-                                <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
+                                <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2" />
                             </svg>
                             <div className="w-8 h-[244px] relative">
-                                <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
-                                <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full"/>
-                                <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full"/>
+                                <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
+                                <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full" />
+                                <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full" />
                             </div>
                             <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
-                                  <span
-                                      className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
+                                <span
+                                    className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
                                     <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                                          strokeLinejoin="round">  <path
-                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>  <polyline
-                                        points="14 2 14 8 20 8"/>  <line x1="16" y1="13" x2="8" y2="13"/>  <line x1="16"
-                                                                                                                 y1="17"
-                                                                                                                 x2="8"
-                                                                                                                 y2="17"/>  <polyline
-                                        points="10 9 9 9 8 9"/></svg>                                </span>
+                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />  <polyline
+                                        points="14 2 14 8 20 8" />  <line x1="16" y1="13" x2="8" y2="13" />  <line x1="16"
+                                                                                                                   y1="17"
+                                                                                                                   x2="8"
+                                                                                                                   y2="17" />  <polyline
+                                        points="10 9 9 9 8 9" /></svg>                                </span>
                                 <div
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">02
                                 </div>
@@ -707,8 +526,7 @@ export default function StartBuildingSection() {
                                 </div>
                                 <div
                                     className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
-                                    We will conduct a thorough analysis of your operations, market,
-                                    and <br/> competition to identify the best solutions for you.
+                                    Laying the foundation for successful software development includes defining project requirements, scope,<br/> and creating a clear implementation roadmap.
                                 </div>
                             </div>
                         </div>
@@ -717,24 +535,24 @@ export default function StartBuildingSection() {
                 <div data-aos="zoom-out-down" className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                          className="w-0 h-0 xl:w-40 xl:h-40 absolute right-56 ">
-                        <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
+                        <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2" />
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                          className="w-0 h-0 xl:w-96 xl:h-96 absolute -left-32">
-                        <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2"/>
+                        <circle cx="12" cy="12" r="10" fill="#FFAD0A" stroke="#fff" strokeWidth="2" />
                     </svg>
                     <div className="w-8 h-[244px] relative">
-                        <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
-                        <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full"/>
-                        <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full"/>
+                        <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
+                        <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full" />
+                        <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full" />
                     </div>
                     <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
-                                  <span
-                                      className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
+                        <span
+                            className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
                             <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                 strokeLinejoin="round">  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>  <line
-                                x1="8" y1="21" x2="16" y2="21"/>  <line x1="12" y1="17" x2="12" y2="21"/></svg>                                </span>
+                                 strokeLinejoin="round">  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />  <line
+                                x1="8" y1="21" x2="16" y2="21" />  <line x1="12" y1="17" x2="12" y2="21" /></svg>                                </span>
                         <div
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">03
                         </div>
@@ -743,28 +561,27 @@ export default function StartBuildingSection() {
                         </div>
                         <div
                             className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
-                            We will conduct a thorough analysis of your operations, market, and <br/> competition to
-                            identify the best solutions for you.
+                            The actual creation and construction of the project takes place here<br/> through coding, building, and integration.
                         </div>
                     </div>
                 </div>
                 <div data-aos="zoom-out-down" className="w-full h-[735px] flex flex-col justify-center items-center gap-[60px] inline-flex">
                     <div className="w-8 h-[244px] relative">
-                        <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400"/>
-                        <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full"/>
-                        <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full"/>
+                        <div className="w-1 h-[214px] left-[14px] top-[15px] absolute bg-amber-400" />
+                        <div className="w-8 h-8 left-0 top-0 absolute bg-amber-400 rounded-full" />
+                        <div className="w-8 h-8 left-0 top-[212px] absolute bg-amber-400 rounded-full" />
                     </div>
                     <div className="w-full  flex flex-col justify-center items-center gap-[18px] inline-flex">
-                                  <span
-                                      className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
-                                <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" width="24" height="24"
-                                     viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
-                                     strokeLinecap="round" strokeLinejoin="round">  <path stroke="none"
-                                                                                          d="M0 0h24v24H0z"/>  <path
-                                    d="M14 3v4a1 1 0 0 0 1 1h4"/>  <path
-                                    d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/>  <path
-                                    d="M9 15l2 2l4 -4"/></svg>
-                                  </span>
+                        <span
+                            className="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl dark:text-white dark:bg-blue-500">
+                            <svg className="h-10 w-10 text-cool-blue-300 dark:text-gray-800" width="24" height="24"
+                                 viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
+                                 strokeLinecap="round" strokeLinejoin="round">  <path stroke="none"
+                                                                                      d="M0 0h24v24H0z" />  <path
+                                d="M14 3v4a1 1 0 0 0 1 1h4" />  <path
+                                d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />  <path
+                                d="M9 15l2 2l4 -4" /></svg>
+                        </span>
                         <div
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">04
                         </div>
@@ -773,8 +590,7 @@ export default function StartBuildingSection() {
                         </div>
                         <div
                             className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
-                            We will conduct a thorough analysis of your operations, market, and <br/> competition to
-                            identify the best solutions for you.
+                            Putting the planned strategies into action, executing tasks,<br/> and deploying the project according to the defined specifications.
                         </div>
                     </div>
                 </div>
