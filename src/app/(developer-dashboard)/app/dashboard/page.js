@@ -83,7 +83,7 @@ function Page() {
                             </div>
                             <div className={"col-span-2 justify-self-end"}>
                                 <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-apps"}>
-                                    <FaPlus className={"m-2"}/> <strong>Deploy App</strong>
+                                    <FaPlus className={"m-2"}/> <strong>New Deploy </strong>
                                 </Button>
                             </div>
                         </div>
