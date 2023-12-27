@@ -1,17 +1,15 @@
 'use client'
-import Link from 'next/link';
 import React from 'react';
 import HandleContent from './deploy-app/HandleContent';
-import { useGetAllDeploymentAppsQuery } from '@/store/features/deploy-app/deployAppApiSlice';
 import DeploymentAppLoadingIndicator from './deploy-app/deploymentLoading/DeploymentAppLoadingIndicator';
 import HandlePagination from './deploy-app/HandlePagination';
 import SectionAppDeploy from './SectionAppDeploy';
-import AfterCreateFrontendDeployment from './deploy-app/AfterCreateFrontendDeployment';
 import AfterCreateDbDeployment from './deploy-app/AfterCreateDbDeployment';
+import {useGetAllDeploymentDatabasesQuery} from "@/store/features/deploy-db/deployDbApiSlice";
 
 
 function ListDB() {
-  const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentAppsQuery({page: 1, limit: 12});
+  const {data, isLoading, isFetching, error, refetch } = useGetAllDeploymentDatabasesQuery({page: 1, limit: 12});
   // console.log("data from :", data)
   const onPageChange = ({page, perPage}) => {
       refetch({page: page, limit: perPage || 12});
