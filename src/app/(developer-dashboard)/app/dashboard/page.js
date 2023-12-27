@@ -77,6 +77,7 @@ function Page() {
                                             <option value={""}>All AppType</option>
                                             <option value={DeploymentTypes.fe}>{DeploymentTypes.fe}</option>
                                             <option value={DeploymentTypes.be}>{DeploymentTypes.be}</option>
+                                            <option value={DeploymentTypes.db}>{DeploymentTypes.db}</option>
                                         </Select>
                                     </div>
                                 </div>

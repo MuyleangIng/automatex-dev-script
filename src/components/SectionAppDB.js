@@ -142,7 +142,7 @@ function SectionAppDb(props) {
             </div>
         </>
     )
-        ;
+        
 }
 
 export default SectionAppDb;
