@@ -1,10 +1,10 @@
 import ReportTable from "@/components/deploy-app/ReportTable";
 
+export default function Report({params}){
 
-export default function Report(){
     return(
         <div>
-            <ReportTable/>
+            <ReportTable params={params}/>
         </div>
     )
 }

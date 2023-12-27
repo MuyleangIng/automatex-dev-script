@@ -14,10 +14,13 @@ import Bot from "@/app/utils/assets/botai.json";
 import {useCreateRequestSendMailMutation} from "@/store/features/user/userApiSlice";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 function Login() {
     const router = useRouter();
     const [resErr, setResErr] = useState(null);
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
     const [showForgotPassword, setShowForgotPassword] = useState(false);
     const validationSchema = Yup.object().shape({
         email: Yup.string()
@@ -37,7 +40,9 @@ function Login() {
     const handleCloseForgotPasswordModal = () => {
         setShowForgotPassword(false);
     };
-
+    const togglePasswordVisibility = () => {
+        setPasswordVisible((prevState) => !prevState);
+    };
     // for mail request
     const initialValuesMail = {
         email: "",
@@ -133,12 +138,25 @@ function Login() {
                                     <div className="grid grid-cols-1 gap-2">
                                         <div>
                                             <Label htmlFor="password" className="dark:text-white">Password</Label>
-                                            <Field
-                                                name="password"
-                                                placeholder="••••••••"
-                                                className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
-                                                type="password"
-                                            />
+                                            <div className={"relative"}>
+                                                <Field
+                                                    name="password"
+                                                    placeholder="••••••••"
+                                                    className="my-2 form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-100 focus:border-orange-100 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-100 dark:focus:border-orange-100"
+                                                    type={passwordVisible ?"password":"text"}
+                                                />
+                                                {passwordVisible ? (
+                                                    <FaEyeSlash
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                ) : (
+                                                    <FaEye
+                                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+                                                        onClick={togglePasswordVisibility}
+                                                    />
+                                                )}
+                                            </div>
                                             <ErrorMessage name={"password"} component={"div"}
                                                           className={"invalid-feedback text-red-600"}/>
                                         </div>
@@ -149,7 +167,7 @@ function Login() {
                                     </div>
                                     <div
                                         type="submit"
-                                        className="text-sm cursor-pointer font-medium hover:underline dark:text-primary-500 text-blue-500"
+                                        className="text-sm cursor-pointer font-medium text-blue-700 hover:underline dark:text-primary-500"
                                         onClick={toggleForgotPasswordVisibility}
                                     >
                                         Forgot password?

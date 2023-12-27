@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Card, Dropdown, Modal} from "flowbite-react";
+import {Button, Card, Dropdown, Modal, Tooltip} from "flowbite-react";
 import {ImConnection} from "react-icons/im";
 import {
     HiArchive,
@@ -53,6 +53,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
         dispatch(addDeploymentApp(deployApp))
         router.push(`/app/deploy-apps/${deployApp.uuid}/resource`)
     }
+    console.log(deployApp?.buildNumber);
 
     return (<>
         <Modal show={showConfirmationModal}
@@ -87,10 +88,12 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                         <ImConnection className={"mb-2 text-3xl text-cyan-100"}/>
                         {/*<AiOutlineDisconnect className={"mb-2 text-3xl text-red-600"}/>*/}
                     </div>
+                    <Tooltip content={deployApp?.name}>
                     <h4 onClick={handleDeployApp}
                         className="text-center capitalize truncate font-semibold text-gray-900 dark:text-white hover:cursor-pointer hover:text-cyan-500">
-                        {deployApp?.name.length > 10 ? deployApp?.name.substring(0, 10) + '...' : deployApp?.name}
+                        {deployApp?.name.length > 15 ? deployApp?.name.substring(0, 20) + '...' : deployApp?.name}
                     </h4>
+                    </Tooltip>
                 </div>
                 <div className={"border-gray-200 dark:border-gray-700"}>
                     <DropdownMenu deployApp={deployApp} setShowConfirmationModal={setShowConfirmationModal}/>

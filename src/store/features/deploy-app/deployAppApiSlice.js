@@ -36,6 +36,13 @@ export const deployAppApiSlice = apiSlice.injectEndpoints({
                 return `/deploy-apps/console-latest-output/${uuid}/${number}`
             },
         }),
+        getTrivyReportByBuildNumber: builder.query({
+            query(arg) {
+                const { uuid, number } = arg;
+                return `/deploy-apps/trivy-report/${uuid}/${number}`
+            }
+
+        }),
         getActivities: builder.query({
             query: (uuid) => ({
                 url: `/deploy-apps/activities/${uuid}`,
@@ -70,6 +77,7 @@ export const {
     useLazyGetSingleDeploymentQuery,
     useGetActivitiesQuery,
     useLazyGetActivitiesQuery,
+    useGetTrivyReportByBuildNumberQuery,
     useGetConsoleLogByBuildNumberQuery,
     useLazyGetConsoleLogByBuildNumberQuery,
 } = deployAppApiSlice;
