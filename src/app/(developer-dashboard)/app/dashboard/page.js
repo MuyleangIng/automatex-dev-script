@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import SectionAppDeploy from "@/components/SectionAppDeploy";
 import AfterCreateFrontendDeployment from "@/components/deploy-app/AfterCreateFrontendDeployment";
 import {useLazyGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
@@ -10,21 +10,44 @@ import {Button, Select} from "flowbite-react";
 import {DeploymentTypes} from "@/lib/enumTypes";
 import Link from "next/link";
 import {FaPlus} from "react-icons/fa";
+import AfterCreateDbDeployment from '@/components/deploy-app/AfterCreateDbDeployment';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 
 function Page() {
     const [fetchAllDeployment,{ data, error, isError, isLoading, isFetching}] = useLazyGetAllDeploymentAppsQuery({ preferCacheValue: true});
     const [search, setSearch] = useState("")
     const [filters, setFilters] = useState({page: 1, limit: 12, name: search})
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    const createQueryString = useCallback(
+        (name, value) => {
+          const params = new URLSearchParams(searchParams)
+          params.set(name, value)
+     
+          return params.toString()
+        },
+        [searchParams]
+      )
+      useEffect(()=>{
+        if(searchParams.has("appType")){
+            setFilters({...filters,appType: searchParams.get("appType")})
+            
+        }
+    },[searchParams])
 
     useEffect(()=>{
-        console.log("filter",filters)
         fetchAllDeployment({filters})
     },[fetchAllDeployment, filters])
+    
     const onPageChange = ({page, perPage}) => {
         setFilters({...filters, page, limit: perPage})
     }
 
     const appTypeSearch = (e) => {
+        router.push(pathname + '?' + createQueryString('appType', e.target.value))
         setFilters({...filters,page: 1, appType: e.target.value})
     }
     const onSearchChange = (e) => {
@@ -38,7 +61,7 @@ function Page() {
             customLoadingContent={<DeploymentAppLoadingIndicator/>}
         >
             <div className={"m-14 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
-                {data?.total === 0 && filters.name === '' ? <SectionAppDeploy/> : (
+                {data?.total === 0 && filters.name === '' ?( filters.appType == DeploymentTypes.db ? (<AfterCreateDbDeployment/>) :<SectionAppDeploy/> ): (
                     <>
                         {/* Start Search */}
                         <div className="grid grid-cols-6 gap-2">

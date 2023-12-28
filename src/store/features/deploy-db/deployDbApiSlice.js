@@ -45,6 +45,7 @@ export const deploymentDbApiSlice = apiSlice.injectEndpoints ({
 
 export const {
     useGetAllDeploymentDatabasesQuery,
+    useLazyGetAllDeploymentDatabasesQuery,
     useGetDeploymentDatabaseByUuidQuery,
     useCreateDeploymentDatabaseMutation,
     useUpdateDeploymentDatabaseMutation,

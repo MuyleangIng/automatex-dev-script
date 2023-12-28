@@ -1,72 +1,123 @@
-import React from 'react';
-import {Badge, Button, Card, Dropdown} from "flowbite-react";
-import {
-    HiArchive,
-    HiCog,
-    HiCurrencyDollar,
-    HiDotsVertical,
-    HiHeart,
-    HiInbox,
-    HiLogout,
-    HiOutlineDotsHorizontal,
-    HiOutlineTicket,
-    HiShoppingBag,
-    HiUserCircle,
-    HiUsers,
-    HiViewGrid
-} from "react-icons/hi";
+import React, { useCallback, useEffect, useState } from 'react';
+import { Alert, Button, Select } from "flowbite-react";
+import {HiInformationCircle,} from "react-icons/hi";
 import Link from "next/link";
-import {useGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/deployAppApiSlice";
-import Image from "next/image";
-import {FaGithubAlt, FaLink, FaPlus} from "react-icons/fa";
-import {MdComment} from "react-icons/md";
-import {IoGitBranchOutline, IoRocketOutline} from "react-icons/io5";
-import {ImConnection} from "react-icons/im";
-import {AiOutlineDisconnect} from "react-icons/ai";
-import CardDeploymentApp from "@/components/deploy-app/CardDeploymentApp";
+import { FaPlus } from "react-icons/fa";
 import CardDeploymentDb from './CardDeploymentDb';
+import { DeploymentTypes } from '@/lib/enumTypes';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useLazyGetAllDeploymentDatabasesQuery } from '@/store/features/deploy-db/deployDbApiSlice';
+import DeploymentAppLoadingIndicator from './deploymentLoading/DeploymentAppLoadingIndicator';
 
-function AfterCreateDbDeployment({data }) {
-    const { refetch } = useGetAllDeploymentAppsQuery(); // Destructure refetch from the hook result
+function AfterCreateDbDeployment() {
+    const [fetchDb, { data,error, isLoading, isFetching}] = useLazyGetAllDeploymentDatabasesQuery({ skip: true })
+
+    const [search, setSearch] = useState("")
+    const [filters, setFilters] = useState({ page: 1, limit: 12, name: search })
+    
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    const createQueryString = useCallback(
+        (name, value) => {
+            const params = new URLSearchParams(searchParams)
+            params.set(name, value)
+
+            return params.toString()
+        },
+        [searchParams]
+    )
+    useEffect(()=>{
+        fetchDb({filters})
+    },[fetchDb, filters])
+
+    useEffect(() => {
+        if (searchParams.has("appType")) {
+            setFilters({ ...filters, appType: searchParams.get("appType") })
+            if (searchParams.get("appType") === DeploymentTypes.db) {
+                fetchDb({ skip: true })
+            }
+        }
+    }, [searchParams])
+
+    const onSearchChange = (e) => {
+        setSearch(e.target.value.trim())
+        setFilters({ ...filters, page: 1, name: e.target.value.trim() })
+    }
+    const onPageChange = ({ page, perPage }) => {
+        setFilters({ ...filters, page, limit: perPage })
+    }
+
+    const appTypeSearch = (e) => {
+        router.push(pathname + '?' + createQueryString('appType', e.target.value))
+        setFilters({ ...filters, page: 1, appType: e.target.value })
+    }
     return (<>
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">
-            <div className={"col-span-5"}>
-                <div
-                    className="relative text-gray-600 focus-within:text-gray-400 w-full sm:w-auto sm:col-span-4 lg:col-span-3">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                                     strokeWidth="2"
-                                     viewBox="0 0 24 24" className="w-6 h-6">
-                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                        </span>
-                    <input
-                        id="searchInput"
-                        type="text"
-                        autoComplete="off"
-                        className="py-2 text-sm text-white dark:text-gray-100 dark:bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 w-full"
-                        placeholder="Search..."
-                    />
+            <div className={"col-span-4"}>
+                <div className={"grid grid-cols-4 gap-2"}>
+                    <div class="col-span-3">
+                        <div
+                            className="relative text-gray-600 focus-within:text-gray-400 w-full sm:w-auto sm:col-span-4 lg:col-span-3">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                                <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24" className="w-6 h-6">
+                                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </button>
+                            </span>
+                            <input
+                                id="searchInput"
+                                type="text"
+                                autoComplete="off"
+                                value={search}
+                                className="py-2 w-full text-sm text-white dark:text-gray-100 dark:bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 "
+                                placeholder="Search 3 chars..."
+                                onChange={onSearchChange}
+                            />
+                        </div>
+                    </div>
+                    <div class="col-span-1">
+                        <Select
+                            id="appType"
+                            name="appType"
+                            value={filters?.appType}
+                            onChange={appTypeSearch}
+                        >
+                            <option value={""}>All AppType</option>
+                            <option value={DeploymentTypes.fe}>{DeploymentTypes.fe}</option>
+                            <option value={DeploymentTypes.be}>{DeploymentTypes.be}</option>
+                            <option value={DeploymentTypes.db}>{DeploymentTypes.db}</option>
+                        </Select>
+                    </div>
                 </div>
             </div>
-            <div className={"col-span-1"}>
-                <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-apps"}>
-                    <FaPlus className={"m-2"}/> <strong>New Deploy App</strong>
+            <div className={"col-span-2 justify-self-end"}>
+                <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-db"}>
+                    <FaPlus className={"m-2"} /> <strong>New Deploy App</strong>
                 </Button>
             </div>
         </div>
-        {/* End Search */}
 
-        {/*loop the card component*/}
-        <div className=" container grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-14">
-
-            {data?.list.map((item, index) => (
-                <CardDeploymentDb key={index} deployApp={item} refetch={refetch}/>
-            ))}
+        
+        {/* <CardDeploymentDb/> */}
+        {isLoading || isFetching ? <DeploymentAppLoadingIndicator/> : (
+            <div className=" container grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-14">
+                {data?.total === 0 && (
+                    <div className="col-span-1 sm:col-span-2 lg:col-span-4 ">
+                    <Alert color="failure" icon={HiInformationCircle}>
+                        <span className="font-medium">No Database with such name.</span> 
+                        </Alert>
+                    </div>
+                )}
+                
+            {data?.list?.map((item, index) => (<CardDeploymentDb key={index} deployDb={item}/>))}
         </div>
+        )}
     </>);
 }
 
