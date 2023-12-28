@@ -36,8 +36,14 @@ export const deploymentDbApiSlice = apiSlice.injectEndpoints ({
         }),
         deleteDeploymentDatabase: builder.mutation ({
             query: (uuid) => ({
-                url: `/database/${uuid}`,
+                url: `/databases/${uuid}`,
                 method: 'DELETE',
+            }),
+        }),
+        buildDeploymentDatabase: builder.mutation ({
+            query: (uuid) => ({
+                url: `/databases/${uuid}/build`,
+                method: 'POST',
             }),
         }),
     }),
@@ -45,8 +51,10 @@ export const deploymentDbApiSlice = apiSlice.injectEndpoints ({
 
 export const {
     useGetAllDeploymentDatabasesQuery,
+    useLazyGetAllDeploymentDatabasesQuery,
     useGetDeploymentDatabaseByUuidQuery,
     useCreateDeploymentDatabaseMutation,
     useUpdateDeploymentDatabaseMutation,
-    useDeleteDeploymentDatabaseMutation
+    useDeleteDeploymentDatabaseMutation,
+    useBuildDeploymentDatabaseMutation,
 } = deploymentDbApiSlice;
