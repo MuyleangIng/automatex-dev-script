@@ -2,7 +2,7 @@ import React, { createElement } from 'react';
 import { Card, Tooltip } from "flowbite-react";
 import { FaLink, FaLock, FaRegUser } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { BsFillDatabaseFill } from 'react-icons/bs';
+import {BsEthernet, BsFillDatabaseFill} from 'react-icons/bs';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { GrProjects } from 'react-icons/gr';
 import { IoIosOptions } from 'react-icons/io';
@@ -38,6 +38,7 @@ function CardDeploymentDb({ deployDb, index}) {
                 <DbInfo data={deployDb.dbUsername} icon={FaRegUser} />
                 <DbInfo data={deployDb.dbPassword} icon={FaLock} hidden={true} />
                 <DbInfo data={deployDb.dbName} icon={BsFillDatabaseFill} />
+                <DbInfo data={deployDb.dbPort} icon={BsEthernet} />
                 <DbInfo data={deployDb.dbType} icon={IoIosOptions} />
                 <DbInfo data={deployDb?.domain.fullSubdomain} icon={FaLink}/>
             </div>

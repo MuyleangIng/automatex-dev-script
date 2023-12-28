@@ -1,5 +1,8 @@
 'use client'
-import {useCreateDeploymentDatabaseMutation} from '@/store/features/deploy-db/deployDbApiSlice';
+import {
+    useBuildDeploymentDatabaseMutation,
+    useCreateDeploymentDatabaseMutation
+} from '@/store/features/deploy-db/deployDbApiSlice';
 import {useFormik} from 'formik';
 import {useRouter} from 'next/navigation';
 import React from 'react';
@@ -10,7 +13,9 @@ import {toast} from "react-toastify";
 
 export default function FormDB() {
     const [createDeploymentDatabase, {isLoading, error, data}] = useCreateDeploymentDatabaseMutation();
+    const [buildDeploymentDatabase, {isLoading: bIsLoading, error: bError, data: bData}] = useBuildDeploymentDatabaseMutation();
     const router = useRouter();
+
 
     const validationSchema = Yup.object().shape({
       name: Yup.string().required('name is required')
@@ -48,6 +53,7 @@ export default function FormDB() {
                 .then((res) => {
                     console.log(res)
                     setSubmitting(false)
+                    buildDeploymentDatabase(res.uuid).unwrap();
                     toast.success("Insert! Successfully")
                     // resetForm()
                 })
