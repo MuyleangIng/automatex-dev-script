@@ -58,6 +58,7 @@ export const apiSlice = createApi({
         "GitProject",
         "User",
         "DeploymentDatabases",
+        "UploadFiles",
     ],
     endpoints: (builder) => ({}),
 });

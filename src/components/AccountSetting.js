@@ -13,6 +13,7 @@ import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/
 import HandleContent from "@/components/deploy-app/HandleContent";
 import {useState} from "react";
 import Image from "next/image";
+import {useUploadFileMutation} from "@/store/features/fileupload/fileApiSlice";
 
 export default function AccountSetting() {
     const validationSchema = Yup.object().shape({
@@ -23,9 +24,11 @@ export default function AccountSetting() {
         username: Yup.string().required('Username is Required'),
     });
     const dispatch = useDispatch();
-    const [updateUser,{data,error}]  = useUpdateMutation();
-    const { data: userData, isLoading } = useGetUserQuery();
-    console.log('userData:', userData);
+    const [updateUser, { data: updateData, error: updateError }] = useUpdateMutation();
+    const { data: userData, isLoading: userIsLoading } = useGetUserQuery();
+    const [uploadFile, { isLoading: upIsLoading, error: upError, data: upData }] = useUploadFileMutation();
+    console.log("user", userData);
+
 
     const formik = useFormik({
         initialValues: {
@@ -38,19 +41,24 @@ export default function AccountSetting() {
             password: '',
         },
         validationSchema: validationSchema,
-        onSubmit: async (values, { setSubmitting, resetForm }) => {
-            console.log('Form Values:', values);
-            try {
-                const data = await updateUser(values);
-                console.log('Update User:', data);
-                toast.success('Profile updated successfully');
-                resetForm();
-            } catch (error) {
-                console.error('Error updating profile:', error);
-                toast.error('Error updating profile');
-            } finally {
-                setSubmitting(false);
-            }
+        onSubmit: (values, { setSubmitting }) => {
+            console.log(values);
+            updateUser(values)
+                .unwrap()
+                .then((res) => {
+                    console.log(res);
+                    if (selectedImage) {
+                        uploadFile(selectedImage).unwrap();
+                    }
+                    toast.success("Upgrade user's profile successful!");
+                })
+                .catch((err) => {
+                    const errors = err.data.errors.reduce((obj, item) => Object.assign(obj, { [item.name]: item.message }), {});
+                    formik.setErrors(errors);
+                })
+                .finally(() => {
+                    setSubmitting(false);
+                });
         },
     });
 
@@ -58,23 +66,28 @@ export default function AccountSetting() {
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
+        setSelectedImage(file);
         if (file) {
-            const imageUrl = URL.createObjectURL(file);
-            setSelectedImage(imageUrl);
+            const reader = new FileReader();
+            reader.onload = () => {
+                setSelectedImage(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
     const handleButtonClick = () => {
         // Trigger the click event on the hidden file input
-        document.getElementById('image-upload').click();
+        const fileInput = document.getElementById("image-upload");
+        fileInput.click();
     };
 
 
 
     return (
         <HandleContent
-            error={error}
-            isLoading={isLoading }
-            customLoadingContent={<ResourceLoadingIndicator/>}
+            error={updateError}
+            isLoading={userIsLoading || upIsLoading}
+            customLoadingContent={<ResourceLoadingIndicator />}
         >
         <section className="bg-white dark:bg-gray-900">
             <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between">
@@ -103,10 +116,10 @@ export default function AccountSetting() {
                             <label htmlFor="image-upload">
                                 <button
                                     onClick={handleButtonClick}
-                                    className="inline-flex items-center rounded-lg bg-orange-100 px-3 py-2 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                    className="inline-flex items-center rounded-lg bg-orange-100 px-3 py-2 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring4 focus:ring-primary-500"
                                 >
-                                    <HiCloudUpload className="mr-2"/>
-                                    Change picture
+                                    <HiCloudUpload className="mr-2" />
+                                    Change Profile
                                 </button>
                             </label>
                         </div>
@@ -219,9 +232,10 @@ export default function AccountSetting() {
                         {/* Add other form fields here */}
                         <div className="col-span-6">
                             <Button
+                                type="submit"
                                 color="primary"
                                 className="bg-orange-100 text-white "
-                                onClick={formik.handleSubmit}
+                                // onClick={formik.handleSubmit}
                                 isProcessing={formik.isSubmitting}
                                 disabled={formik.isSubmitting}
                             >

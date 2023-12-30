@@ -107,10 +107,9 @@ function HeroSection() {
                 <div
                     className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
                 <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="zoom-in-up" className=" max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
-                        <span
-                            className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
+                        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-[30rem] rounded"></span>
                     </h2>
                     <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-300 md:text-lg mb-14 mt-14f">
                         Unique and Powerful suit of software to run and entire,<br/> brought to you by a company with the
@@ -258,7 +257,7 @@ function HeroSection() {
                             <div className="max-w-xl mb-6">
                                 <h2 data-aos="flip-right"
                                     className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
-                                    Personal Cloude Storage
+                                    Personal Cloud Storage
                                 </h2>
                                 <p data-aos="fade-down-left"
                                    className="text-base md:text-lg text-gray-800 dark:text-gray-300">

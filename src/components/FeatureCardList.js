@@ -8,7 +8,7 @@ function FeatureCardList(props) {
                     <h2 data-aos="fade-down-right" className="max-w-lg text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Our Feature
                         <span
-                            className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-3/12 rounded"></span>
+                            className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-48 rounded"></span>
                     </h2>
                     <p data-aos="fade-up-right" className="text-gray-500 mb-6 lg:text-lg lg:mt-6 dark:text-gray-300 sm:text-lg  mt-5">
                         Welcome to AutomateX, your all-in-one solution for seamless automation and
@@ -71,7 +71,7 @@ function FeatureCardList(props) {
                             </div>
                         </div>
                         <h3 className="lg:text-xl mb-5 my-4 text-base font-bold dark:text-white text-center">
-                            Cloude Storage
+                            Cloud Storage
                         </h3>
                         <p className="text-gray-500 lg:text-lg text-base dark:text-gray-400 text-center">
                             Offers you a secure and convenient space to store your backups and upload files
