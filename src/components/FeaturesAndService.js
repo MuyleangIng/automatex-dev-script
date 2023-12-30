@@ -112,7 +112,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Build Deploy Backend App</a>
+                                    <Link href="#">Build Deploy Backend App</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Choose a programming language such as popular backend programming languages include Java, PHP and C#(.NET).
@@ -127,9 +127,9 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">
-                                    <a href="#">
+                                    <Link href="#">
                                         Manage source with git server
-                                    </a>
+                                    </Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Set up a Git server is no difference than git such as github, gitlab ...etc. AutomateX got a git just for you.
@@ -146,7 +146,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Build Deploy Frontend App</a>
+                                    <Link href="#">Build Deploy Frontend App</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Support popular front-end frameworks include React, Angular, Vue.js, Nextjs, Nuxtjs and static website.
@@ -164,7 +164,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg  font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Database hosting</a>
+                                    <Link href="#">Database hosting</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Benefits of using a managed database hosting service such as Scalability, Reliability, Security, and Backup to cloud.

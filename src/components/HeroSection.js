@@ -131,9 +131,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Integrated platform
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 This integration enables seamless communication and interaction between different
@@ -158,9 +158,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Personal Dashboard
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 User dashboards ensuring that individuals only see information and features relevant to
@@ -181,9 +181,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Scanning Technology
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 Double scanning protocol to entails subjecting your application scanning processes to
