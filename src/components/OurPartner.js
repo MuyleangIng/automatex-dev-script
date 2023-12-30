@@ -9,6 +9,9 @@ function OurPartner(props) {
               <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Our Best Clients
+                        <span
+                            className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-64 rounded">
+                        </span>
                     </h2>
                 </span>
                 <div className="grid grid-cols-2 gap-3 text-gray-500 dark:text-gray-400 md:grid-cols-3 lg:grid-cols-6">
