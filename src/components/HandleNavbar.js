@@ -142,7 +142,8 @@ function HandleNavbar() {
                         <Navbar.Link
                             className={`font-normal text-lg ${pathname === '/document' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
                             as={Link}
-                            href="/document"
+                            href={`https://docs.automatex.dev/`}
+                            target={"_blank"}
                         >
                             Document
                         </Navbar.Link>

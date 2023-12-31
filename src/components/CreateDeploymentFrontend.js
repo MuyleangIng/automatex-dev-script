@@ -80,7 +80,7 @@ export default function CreateDeploymentFrontendComponent() {
                 className="col-span-12 mx-4 mb-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800 sm:p-6 md:mx-6 lg:my-6 xl:p-8 2xl:col-span-10 2xl:col-start-2">
                 <section className="flex items-center flex-1 w-full mb-24">
                     <div className="flex flex-col w-full ">
-                        <h1 className="text-5xl font-extrabold text-center lg:text-2xl xl:text-4xl">
+                        <h1 className="text-3xl font-extrabold text-center lg:text-2xl xl:text-4xl">
                             <span
                                 className="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500 animate-gradient">
                                 Create Your Deployment

@@ -37,7 +37,7 @@ function DeployMethod({formik}) {
             <h2 className="text-xl py-8 font-bold text-cyan-500 dark:text-white">
                 Deployment Method:
             </h2>
-            <div className="grid grid-cols-2 p-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
+            <div className="grid grid-cols-1 p-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
 
                 {methodTemplate({
                     value:SourceType.default,
@@ -47,22 +47,22 @@ function DeployMethod({formik}) {
                 })}
                 {methodTemplate({
                     value:SourceType.public,
-                    title:"Source Public Url",
+                    title:"Source Git Url",
                     desc:"drop your public repo",
                     logo:"/giturl.png"
                 })}
                 {methodTemplate({
-                    // disabled:true,
+                    disabled:true,
                     value:SourceType.github,
                     title:"GitHub",
-                    desc:" connect to private repo",
+                    desc:"drop your public repo",
                     logo:"/gitlogo.png"
                 })}
                 {methodTemplate({
                     disabled:true,
                     value:SourceType.gitlab,
-                    title:"GitLab",
-                    desc:"connect to gitlab repo",
+                    title:"Gitlab",
+                    desc:"drop your public repo",
                     logo:"/gitlap.png"
                 })}
 

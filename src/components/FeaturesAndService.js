@@ -112,7 +112,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Build Deploy Backend App</a>
+                                    <Link href="#">Build Deploy Backend App</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Choose a programming language such as popular backend programming languages include Java, PHP and C#(.NET).
@@ -127,9 +127,9 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">
-                                    <a href="#">
+                                    <Link href="#">
                                         Manage source with git server
-                                    </a>
+                                    </Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Set up a Git server is no difference than git such as github, gitlab ...etc. AutomateX got a git just for you.
@@ -146,7 +146,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Build Deploy Frontend App</a>
+                                    <Link href="#">Build Deploy Frontend App</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Support popular front-end frameworks include React, Angular, Vue.js, Nextjs, Nuxtjs and static website.
@@ -164,7 +164,7 @@ function FeaturesAndServices() {
                                     </div>
                                 </div>
                                 <h2 className="mt-5 mb-2 text-lg  font-bold tracking-tight text-gray-900 dark:text-white">
-                                    <a href="#">Database hosting</a>
+                                    <Link href="#">Database hosting</Link>
                                 </h2>
                                 <p className="mb-4 text-gray-500 font-normal dark:text-gray-300">
                                     Benefits of using a managed database hosting service such as Scalability, Reliability, Security, and Backup to cloud.
@@ -214,9 +214,6 @@ function FeaturesAndServices() {
                                         Your can register acccount with Google, github, and Gitlab.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-72 absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
                             <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
@@ -240,9 +237,7 @@ function FeaturesAndServices() {
                                         Upload your source with two option within git url or a zip file.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[670px] absolute"} unoptimized="true" src="images/arrow.png" />
+
                             </div>
 
 
@@ -267,9 +262,6 @@ function FeaturesAndServices() {
                                         Just one click your project will automatically build, test and deploy.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[1050px] absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
                             <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">

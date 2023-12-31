@@ -107,10 +107,9 @@ function HeroSection() {
                 <div
                     className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ${theme === 'dark' ? 'dark:bg-gray-900' : 'dark:bg-gray-900'}">
                 <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                    <h2 data-aos="zoom-in-up" className="max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
+                    <h2 data-aos="zoom-in-up" className=" max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
-                        <span
-                            className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-40 mx-3 rounded"></span>
+                        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-[30rem] rounded"></span>
                     </h2>
                     <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-300 md:text-lg mb-14 mt-14f">
                         Unique and Powerful suit of software to run and entire,<br/> brought to you by a company with the
@@ -131,9 +130,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Integrated platform
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 This integration enables seamless communication and interaction between different
@@ -158,9 +157,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Personal Dashboard
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 User dashboards ensuring that individuals only see information and features relevant to
@@ -181,9 +180,9 @@ function HeroSection() {
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white ">
-                                <a href="#">
+                                <Link href="#">
                                     Scanning Technology
-                                </a>
+                                </Link>
                             </h2>
                             <p className="mb-4 text-lg text-gray-500 font-normal dark:text-gray-300">
                                 Double scanning protocol to entails subjecting your application scanning processes to
@@ -258,7 +257,7 @@ function HeroSection() {
                             <div className="max-w-xl mb-6">
                                 <h2 data-aos="flip-right"
                                     className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
-                                    Personal Cloude Storage
+                                    Personal Cloud Storage
                                 </h2>
                                 <p data-aos="fade-down-left"
                                    className="text-base md:text-lg text-gray-800 dark:text-gray-300">
@@ -331,18 +330,17 @@ function HeroSection() {
                                 Support Languages
                             </h2>
                             <Slider {...settings} >
-                                <Link href="#" className="flex items-center justify-center">
+                                <Link href="#" className="flex items-center justify-center ">
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                         className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                         className="w-48 h-16 hover:text-gray-900 dark:hover:text-white mx-auto"
                                          viewBox="0 0 48 48" width="48px" height="48px">
                                         <path fill="#212121"
                                               d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z"/>
                                     </svg>
-
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                         preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 230" id="react">
                                         <path fill="#FFF"
@@ -354,11 +352,10 @@ function HeroSection() {
                                         <path fill="#53C1DE"
                                               d="M128.221 94.665c11.144 0 20.177 9.034 20.177 20.177 0 11.144-9.033 20.178-20.177 20.178-11.143 0-20.177-9.034-20.177-20.178 0-11.143 9.034-20.177 20.177-20.177"></path>
                                     </svg>
-
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="107.828" height="56.13" id="php">
                                         <ellipse cx="53.914" cy="28.065" fill="#8993be" data-name="Ellipse 31"
                                                  rx="53.914" ry="28.065"></ellipse>
@@ -369,7 +366,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="2424" height="2500"
                                         preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 264" id="postgresql">
                                         <path
@@ -384,7 +381,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none"
                                         viewBox="0 0 25 24" id="laravel">
                                         <rect width="24" height="24" x=".463" fill="url(#paint0_linear_302_4984)"
@@ -403,7 +400,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                         preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 221" id="vue">
                                         <path fill="#41B883"
@@ -416,7 +413,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                         preserveAspectRatio="xMidYMid" viewBox="0 0 256 272" id="angular">
                                         <path fill="#E23237"
@@ -429,7 +426,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                         enableBackground="new 0 0 24 24" viewBox="0 0 24 24" id="html">
                                         <polygon fill="#E44D26"
@@ -451,7 +448,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                         viewBox="0 0 16 16"
                                         id="css">
@@ -462,7 +459,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
                                         viewBox="0 0 48 48">
                                         <path fill="#8bc34a"
@@ -473,7 +470,7 @@ function HeroSection() {
                                 </Link>
                                 <Link href="#" className="flex items-center justify-center">
                                     <svg
-                                        className="w-48 h-16 hover:text-gray-900 dark:hover:text-white"
+                                        className="w-48 h-16  hover:text-gray-900 dark:hover:text-white mx-auto"
                                         xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
                                         viewBox="0 0 48 48">
                                         <polygon fill="none" points="26.055,24.519 18.71,37 33.401,37"></polygon>

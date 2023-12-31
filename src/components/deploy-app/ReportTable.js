@@ -3,12 +3,11 @@
 import {Table} from 'flowbite-react';
 import {useGetTrivyReportByBuildNumberQuery} from "@/store/features/deploy-app/deployAppApiSlice";
 import ResourceLoadingIndicator from "@/components/deploy-app/deploymentLoading/resourceLoadingIndicator";
-import React, {useState} from "react";
+import React from "react";
 import HandleContent from "@/components/deploy-app/HandleContent";
 import {useSelector} from "react-redux";
 import {selectDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
-import HandlePagenation from "@/components/deploy-app/deploymentLoading/HandlePagenation";
-
+import Link from "next/link";
 export default function ReportTable({params}) {
     const deployment = useSelector(selectDeploymentApp);
     const {uuid} = params;
@@ -64,9 +63,9 @@ const MainTableBody = ({trivy}) => {
                             className={"text-black font-medium"}>{vulnerability?.InstalledVersion}</Table.Cell>
                         <Table.Cell
                             className={"text-blue-500 font-medium"}>
-                            <a href={vulnerability?.PrimaryURL} target="_blank" rel="noopener noreferrer">
+                            <Link href={vulnerability?.PrimaryURL} target="_blank" rel="noopener noreferrer">
                                 {vulnerability?.PrimaryURL}
-                            </a>
+                            </Link>
                         </Table.Cell>
                     </Table.Row>)
                 })}

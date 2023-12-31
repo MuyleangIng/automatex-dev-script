@@ -1,4 +1,4 @@
-import { apiSlice } from "@/store/api/apiSlice";
+import { apiSlice } from "@/store/api/apiSlide";
 
 
 export const fileApiSlice = apiSlice.injectEndpoints({
@@ -11,7 +11,7 @@ export const fileApiSlice = apiSlice.injectEndpoints({
                 let formData =  new FormData();
                 formData.append("file", file)
                 return {
-                    url: "/files",
+                    url: "/files/upload",
                     method: "POST",
                     body: formData,
                     prepareHeaders: (headers) => {
@@ -25,6 +25,5 @@ export const fileApiSlice = apiSlice.injectEndpoints({
 });
 
 export const { useUploadFileMutation } = fileApiSlice;
-export default fileApiSlice;
 
 

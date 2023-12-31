@@ -68,7 +68,7 @@ const AddEnvItem = (formik) => {
         })
     }
     return(
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 gap-6">
             <div className="col-span-1 grid grid-cols-1 gap-y-2">
                 <Label htmlFor="key">Key</Label>
                 <TextInput
