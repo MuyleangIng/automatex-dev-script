@@ -214,9 +214,6 @@ function FeaturesAndServices() {
                                         Your can register acccount with Google, github, and Gitlab.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-72 absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
                             <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">
@@ -240,9 +237,7 @@ function FeaturesAndServices() {
                                         Upload your source with two option within git url or a zip file.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[670px] absolute"} unoptimized="true" src="images/arrow.png" />
+
                             </div>
 
 
@@ -267,9 +262,6 @@ function FeaturesAndServices() {
                                         Just one click your project will automatically build, test and deploy.
                                     </p>
                                 </a>
-                                <Image data-aos="fade-right"
-                                       data-aos-offset="300"
-                                       data-aos-easing="ease-in-sine" width={100} height={100} className={"xl:w-44 w-0 xl:left-[1050px] absolute"} unoptimized="true" src="images/Arrows.png" />
                             </div>
 
                             <div className="flex flex-col items-center p-6 space-y-3 text-center rounded-xl dark:bg-gray-800">

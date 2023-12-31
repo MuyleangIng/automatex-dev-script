@@ -19,7 +19,7 @@ import {FaEye, FaEyeSlash} from "react-icons/fa";
 function Login() {
     const router = useRouter();
     const [resErr, setResErr] = useState(null);
-    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [passwordVisible, setPasswordVisible] = useState(true);
 
     const [showForgotPassword, setShowForgotPassword] = useState(false);
     const validationSchema = Yup.object().shape({
