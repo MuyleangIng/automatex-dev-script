@@ -35,6 +35,7 @@ const MainTableBody = ({trivy}) => {
     // } = HandlePagenation({initData: trivy?.results.flatMap(result => result?.Vulnerabilities)});
     const Vulnerabilities = trivy?.results.flatMap(result => result?.Vulnerabilities);
     return (<>
+
         <Table hoverable className={"w-full font-bold text-sm text-center"}>
             <Table.Head>
                 <Table.HeadCell>Package</Table.HeadCell>
