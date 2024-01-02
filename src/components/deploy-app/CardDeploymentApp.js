@@ -143,7 +143,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                         <span className="truncate">
                         <Link className="font-medium" target="_blank" rel="noopener noreferrer"
                               href={`https://${deployApp?.domains[0]?.subdomain}.automatex.dev`} passHref>
-                            {deployApp?.domains[0]?.subdomain}
+                            {deployApp?.domains[0]?.subdomain}.automatex.dev
                         </Link>
                     </span>
                     </div>

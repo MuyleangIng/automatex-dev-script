@@ -52,14 +52,14 @@ function DeployMethod({formik}) {
                     logo:"/giturl.png"
                 })}
                 {methodTemplate({
-                    // disabled:true,
+                    disabled:true,
                     value:SourceType.github,
                     title:"GitHub",
                     desc:"connect to github",
                     logo:"/gitlogo.png"
                 })}
                 {methodTemplate({
-                    // disabled:true,
+                    disabled:true,
                     value:SourceType.file,
                     title:"Source File",
                     desc:"drop your zip file",
