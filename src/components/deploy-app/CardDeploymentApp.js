@@ -141,7 +141,7 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                     <FaLink className=" truncate mr-2 text-sm"/>
                     <span className="truncate">
                         <Link className="font-medium" target="_blank" rel="noopener noreferrer"
-                              href={`https://${deployApp?.domains[0]?.subdomain}.sen-pai.live`} passHref>
+                              href={`https://${deployApp?.domains[0]?.subdomain}.automatex.dev`} passHref>
                             {deployApp?.domains[0]?.subdomain}
                         </Link>
                     </span>
