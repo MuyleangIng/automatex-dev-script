@@ -74,8 +74,8 @@ to create your own project .
 ---
 - You can create a new App by clicking on the button "New Depoy App" and can choose the method of creating the app :
   * `using gitlab`
-  * `using github``
-  * `using AutomateX cli
+  * `using github`
+  * `using AutomateX cli`
   * `using zip file`
 
 - **After you create the app you will see the Card of the app in the dashboard and you can click on it to see the details :**
