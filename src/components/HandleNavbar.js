@@ -128,8 +128,9 @@ function HandleNavbar() {
                 <Button size={"sm"}
                         className={`bg-cyan-500 justify-end ${pathname === '/app/dashboard' || status !== 'authenticated' ? 'hidden' : ''}`}
                         as={Link} href={"/app/dashboard"}>Dashboard</Button>
+                <Navbar.Toggle/>
             </div>
-            <Navbar.Toggle/>
+
             <Navbar.Collapse>
                 {!developerPath && (<>
                         <Navbar.Link

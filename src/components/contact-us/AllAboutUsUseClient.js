@@ -69,7 +69,7 @@ function AllAboutUsUseClient(props) {
                                 outline
                                 className={"bg-cyan-300 "}
                             >
-                                Get Start
+                                Get Started
                                 <FaArrowRight className="w-3.5 h-3.5 ml-2"/>
                             </Button>
                         </div>

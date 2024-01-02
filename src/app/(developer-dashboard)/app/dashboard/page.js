@@ -60,11 +60,11 @@ function Page() {
             isLoading={isLoading}
             customLoadingContent={<DeploymentAppLoadingIndicator/>}
         >
-            <div className={"m-14 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
+            <div className={"m-4 md:m-8 lg:m-12 xl:m-16 2xl:m-20 p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"}>
                 {data?.total === 0 && filters.name === '' ?( filters.appType == DeploymentTypes.db ? (<AfterCreateDbDeployment/>) :<SectionAppDeploy/> ): (
                     <>
                         {/* Start Search */}
-                        <div className="grid grid-cols-6 gap-2">
+                        <div className="grid grid-cols-2 xl:grid-cols-6 gap-2">
                             <div className={"col-span-4"}>
                                 <div className={"grid grid-cols-4 gap-2"}>
                                     <div class="col-span-3">
