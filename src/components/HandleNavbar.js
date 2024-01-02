@@ -113,7 +113,7 @@ function HandleNavbar() {
                         <div>
                             <Dropdown.Item
                                 onClick={handleSignOut}
-                                className=" focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
+                                className=" focus:text-white focus:bg-red-500 dark:focus:bg-red-500  lg:inline"
                             >
                                 Sign out
                             </Dropdown.Item>
