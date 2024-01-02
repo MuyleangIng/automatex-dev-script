@@ -1,13 +1,49 @@
-import { withAuth } from "next-auth/middleware"
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
 
-export default withAuth(
-    function middleware(req) {
-        // const { pathname } = req.nextUrl
-        // console.log('pathname', pathname)
+const middleware = async (req) => {
+  if (req.nextUrl.pathname.startsWith("/admin")) {
+    const session = await getToken({ req });
+    const url = req.nextUrl.clone();
+    url.pathname = "/";
+    if (session) {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`, {
+        headers: {
+          Authorization: `Bearer ${session.email}`,
+        },
+      });
+      if (res.status === 200) {
+        const user = await res.json();
+        if (user.currentRoles[0] !== "ADMIN") {
+          return NextResponse.redirect(url);
+        }
+      } else if (res.status === 401) {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/refresh-token`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ refreshToken: session.user.name }),
+          }
+        );
+        if (res.status === 200) {
+          const user = await res.json();
+          if (user.currentRoles[0] !== "ADMIN") {
+            return NextResponse.redirect(url);
+          }
+        } else if (res.status === 401) {
+          return NextResponse.redirect(url);
+        }
+      }
+    } else {
+      return NextResponse.redirect(url);
     }
-)
+  }
+};
 
-// See "Matching Paths" below to learn more
+export default withAuth(middleware);
+
 export const config = {
-    matcher: ['/admin','/app/:path*'],
-}
+  matcher: ["/admin/:path*", "/app/:path*"],
+};
