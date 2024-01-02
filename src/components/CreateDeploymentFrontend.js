@@ -1,10 +1,9 @@
 "use client"
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
-import {Button, Label, Radio, TextInput} from "flowbite-react";
+import {Button, Label, TextInput} from "flowbite-react";
 import {HiArrowCircleRight} from "react-icons/hi";
 import {useCreateDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
-import * as Yup from "yup";
 import {useFormik} from "formik";
 import {DeploymentTypes, SourceType} from "@/lib/enumTypes";
 import DeployMethod from "@/components/DeployMethod";
@@ -12,12 +11,12 @@ import ConnectToGit from "@/components/deploy-app/deploymethod/ConnectToGit";
 import AutomateXCli from "@/components/deploy-app/deploymethod/AutomateXCli";
 import {useDispatch} from "react-redux";
 import {addDeploymentApp} from "@/store/features/deploy-app/deployAppSlice";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
 import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
 import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
 import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
-import ZipFIle from "@/components/deploy-app/deploymethod/ZipFIle";
+import ZipFile from "@/components/deploy-app/deploymethod/ZipFile";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
@@ -179,7 +178,7 @@ export default function CreateDeploymentFrontendComponent() {
                                     case SourceType.github:
                                         return (<ConnectToGit formik={formik} />)
                                     case SourceType.file:
-                                        return (<ZipFIle formik={formik} />)
+                                        return (<ZipFile formik={formik} />)
                                 }
                             })()}
                         </div>
