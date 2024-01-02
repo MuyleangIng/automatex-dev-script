@@ -17,6 +17,7 @@ import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
 import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
 import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
+import ZipFIle from "@/components/deploy-app/deploymethod/ZipFIle";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
@@ -177,8 +178,8 @@ export default function CreateDeploymentFrontendComponent() {
                                         return (<PublicGitUrl formik={formik} />)
                                     case SourceType.github:
                                         return (<ConnectToGit formik={formik} />)
-                                    case SourceType.gitlab:
-                                        return ("null");
+                                    case SourceType.file:
+                                        return (<ZipFIle formik={formik} />)
                                 }
                             })()}
                         </div>

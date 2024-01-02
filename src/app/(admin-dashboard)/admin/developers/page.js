@@ -1,5 +1,5 @@
 import React from "react";
-import UserTable from "../../components/UserTable";
+import UserTable from "@/app/(admin-dashboard)/components/UserTable";
 
 export const metadata = {
   title: "Users",

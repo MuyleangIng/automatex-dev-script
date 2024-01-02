@@ -1,5 +1,5 @@
 import React from "react";
-import DbTable from "./../../components/DbTable";
+import DbTable from "@/app/(admin-dashboard)/components/DbTable";
 
 export const metadata = {
   title: "Database Services",

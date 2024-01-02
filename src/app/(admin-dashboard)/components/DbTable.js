@@ -9,7 +9,7 @@ import ViewBtn from "./ViewBtn";
 import styles from "./../css/styles.module.css";
 import DbTableSkeleton from "./DbTableSkeleton";
 
-export default function AppTable() {
+export default function DbTable() {
   const { data, isLoading, error } =
     useFindDatabasesQuery("?page=1&limit=1000");
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,5 +1,5 @@
 import React from "react";
-import AppTable from "../../components/AppTable";
+import AppTable from "@/app/(admin-dashboard)/components/AppTable";
 
 export const metadata = {
   title: "Frontend Services",

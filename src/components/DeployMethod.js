@@ -52,17 +52,17 @@ function DeployMethod({formik}) {
                     logo:"/giturl.png"
                 })}
                 {methodTemplate({
-                    disabled:true,
+                    // disabled:true,
                     value:SourceType.github,
                     title:"GitHub",
-                    desc:"drop your public repo",
+                    desc:"connect to github",
                     logo:"/gitlogo.png"
                 })}
                 {methodTemplate({
-                    disabled:true,
-                    value:SourceType.gitlab,
-                    title:"Gitlab",
-                    desc:"drop your public repo",
+                    // disabled:true,
+                    value:SourceType.file,
+                    title:"Source File",
+                    desc:"drop your zip file",
                     logo:"/gitlap.png"
                 })}
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Overview from "../components/overview";
+import Overview from "@/app/(admin-dashboard)/components/Overview";
 
 export const metadata = {
   title: "Admin Dashborad",
