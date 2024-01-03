@@ -17,6 +17,7 @@ import PublicGitUrl from "@/components/deploy-app/deploymethod/PublicGitUrl";
 import EnvironmentDeploy from "@/components/deploy-app/EnvironmentDeploy";
 import LoadingLogo from "@/components/deploy-app/deploymentLoading/LoadingLogo";
 import ZipFile from "@/components/deploy-app/deploymethod/ZipFile";
+import * as Yup from "yup";
 
 export default function CreateDeploymentFrontendComponent() {
     const [createDeploymentApp, {isLoading, error, data}] = useCreateDeploymentAppMutation();
@@ -24,17 +25,16 @@ export default function CreateDeploymentFrontendComponent() {
     const router = useRouter();
     const dispatch = useDispatch(); // Get the dispatch function
 
-    // const validationSchema = Yup.object().shape({
-    //     // name: Yup.string()
-    //     //     .required('Required')
-    //     //     .matches(/^[a-z0-9]*$/, 'Project name can only contain lowercase letters and numbers')
-    //     //     .matches(/^\S*$/, 'Project name cannot contain spaces'),
-    //     // domainName: Yup.string().required('Required'),
-    //     // appType: Yup.string().required('Required'),
-    //     // sourceType: Yup.string().required('Required'),
-    //     // defaultBranch: Yup.string().required('Required'),
-    //     // deployType: Yup.string().required('Required'),
-    // });
+    const validationSchema = Yup.object().shape({
+        name: Yup.string()
+            .required('The field name is required')
+            .matches(/^[a-z0-9]+(?:(?:-|_)+[a-z0-9]+)*$/, 'Project name can only contain lowercase letters and numbers')
+            .matches(/^\S*$/, 'Project name cannot contain spaces'),
+        appType: Yup.string().required('The field appType is required'),
+        sourceType: Yup.string().required('The field sourceType is required'),
+        defaultBranch: Yup.string().required('The field defaultBranch is required'),
+        autoDeploy: Yup.string().required('The field deployType is required'),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -46,14 +46,10 @@ export default function CreateDeploymentFrontendComponent() {
             autoDeploy: 'true' ,
             envs: [ ],
         },
-        // validationSchema:validationSchema,
+        validationSchema:validationSchema,
         onSubmit:(values, {setSubmitting, resetForm}) => {
-            setLoading(true); // Start loading
-            console.log('Form submitted with values:', values);
-            resetForm();
             createDeploymentApp(values).unwrap()
                 .then((res) => {
-                    console.log('Response from createDeploymentApp:', res.uuid);
                     dispatch(addDeploymentApp(res.uuid))
                     setSubmitting(false)
                     toast.success("Insert! Successfully")
@@ -63,22 +59,27 @@ export default function CreateDeploymentFrontendComponent() {
                     } else {
                         router.push(`/app/deploy-apps/${res.uuid}/resource`);
                     }
-                    setLoading(false);
                 })
                 .catch((err) => {
-                    console.error('Error from createDeploymentApp:', err);
-                    setLoading(false);
+                    if (err.status===400){
+                        const errors = err.data.errors.reduce(
+                            (obj, item) => Object.assign(obj, { [item.name]: item.message }), {});
+                        formik.setErrors(errors)
+                    }else{
+                        console.error('Error from createDeploymentApp:', err);
+                    }
                 })
+            setSubmitting(false)
         },
     });
     return (
         <>
             <ToastConfig/>
-            {loading && <LoadingLogo />}
+            {/*{loading && <LoadingLogo />}*/}
             <div className="grid grid-cols-12 gap-4 ">
             <div
                 className="col-span-12 mx-4 mb-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800 sm:p-6 md:mx-6 lg:my-6 xl:p-8 2xl:col-span-10 2xl:col-start-2">
-                <section className="flex items-center flex-1 w-full mb-24">
+                <section className="flex items-center flex-1 w-full mb-20">
                     <div className="flex flex-col w-full ">
                         <h1 className="text-3xl font-extrabold text-center lg:text-2xl xl:text-4xl">
                             <span
@@ -102,13 +103,14 @@ export default function CreateDeploymentFrontendComponent() {
                                     name="name"
                                     label="Project Name"
                                     value={formik.values.name}
-                                    required
                                     onChange={(e) => {
                                         const projectNameValue = e.target.value;
                                         const formattedProjectName = projectNameValue.replace(/\s/g, '');
                                         const formattedProjectNameLowercase = formattedProjectName.toLowerCase();
                                         formik.setFieldValue('name', formattedProjectNameLowercase);
                                     }}
+                                    color={formik.errors.name && formik.touched.name ? "failure" : "gray"}
+                                    helperText={formik.errors.name && formik.touched.name ? formik.errors.name : null}
                                 />
                             </div>
                             <div className="relative z-0 w-full mb-6 group">
@@ -168,7 +170,7 @@ export default function CreateDeploymentFrontendComponent() {
 
                         </fieldset>
                         <DeployMethod formik={formik}/>
-                        <div className="bg-white dark:bg-gray-900 m-2 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-cyan">
+                        <div className="bg-white dark:bg-gray-900 py-5 border-2 border-gray-300 border-dashed rounded-lg dark:border-cyan">
                             {(() => {
                                 switch (formik.values.sourceType) {
                                     case SourceType.default:
@@ -184,7 +186,11 @@ export default function CreateDeploymentFrontendComponent() {
                         </div>
                          <EnvironmentDeploy formik={formik}/>
 
-                        <Button type="submit"  className="m-11 bg-orange-100">
+                        <Button type="submit"
+                                color={ Object.keys(formik.errors).length > 0 ? "failure" : "success"}
+                                disabled={formik.isSubmitting || isLoading}
+                                isProcessing={formik.isSubmitting || isLoading}
+                                className="my-11 bg-orange-100">
                             <HiArrowCircleRight className="mr-3 h-4 w-full text-xl text-white "/>
                             Submit
                         </Button>

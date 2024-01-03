@@ -40,7 +40,7 @@ const EnvironmentDeploy = ({formik}) => {
     }
 
     return (
-        <Card className={"bg-white dark:bg-gray-900 m-2 mt-5 py-5 border-2 border-gray-300 border-dashed  rounded-lg dark:border-cyan"}>
+        <Card className={"bg-white dark:bg-gray-900 mt-5 py-5 border-2 border-gray-300 border-dashed  rounded-lg dark:border-cyan"}>
             <h3 className="mb-4 text-xl font-bold  text-cyan-500 dark:text-cool-blue-150">
                 Environment Variables :
             </h3>
