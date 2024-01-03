@@ -20,18 +20,32 @@ export default function Navbar() {
 
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const ref = useRef(null);
+  const hamburgerRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const profileRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-          setProfileOpen(false);
-          setSidebarOpen(false);
+    console.log(isProfileOpen);
+    const handleClickOutsideOfSidebar = (event) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        setSidebarOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
+    const handleClickOutsideOfProfile = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutsideOfSidebar);
+    document.addEventListener("mousedown", handleClickOutsideOfProfile);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutsideOfSidebar);
+      document.removeEventListener("mousedown", handleClickOutsideOfProfile);
     };
   }, []);
 
@@ -46,6 +60,7 @@ export default function Navbar() {
   if (error) {
     handleSignOut();
   }
+
   if (!isLoading) {
     if (!user) {
       handleSignOut();
@@ -68,7 +83,10 @@ export default function Navbar() {
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center justify-start rtl:justify-end">
+            <div
+              className="flex items-center justify-start rtl:justify-end"
+              ref={hamburgerRef}
+            >
               <button
                 data-drawer-target="logo-sidebar"
                 data-drawer-toggle="logo-sidebar"
@@ -108,7 +126,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center">
               <BtnTheme />
-              <div className="flex items-center ms-3" ref={ref}>
+              <div className="flex items-center ms-3" ref={profileRef}>
                 <div>
                   <button
                     type="button"
@@ -177,12 +195,13 @@ export default function Navbar() {
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
-        ref={ref}
+        ref={sidebarRef}
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin"
                 className={`${
                   pathname === "/admin"
@@ -196,6 +215,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin/frontend-services"
                 className={`${
                   pathname === "/admin/frontend-services"
@@ -211,6 +231,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin/backend-services"
                 className={`${
                   pathname === "/admin/backend-services"
@@ -226,6 +247,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin/database-services"
                 className={`${
                   pathname === "/admin/database-services"
@@ -241,6 +263,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin/developers"
                 className={`${
                   pathname === "/admin/developers"
@@ -256,6 +279,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                onClick={() => setSidebarOpen(false)}
                 href="/admin/admins"
                 className={`${
                   pathname === "/admin/admins"

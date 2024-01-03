@@ -51,7 +51,7 @@ export default function AppTable() {
     setSearchTerm(searchTerm);
     setApps(
       data.list.filter((app) =>
-        app.name.toLowerCase().includes(searchTerm.toLowerCase())
+        app.name.toLowerCase().startsWith(searchTerm.toLowerCase())
       )
     );
   };

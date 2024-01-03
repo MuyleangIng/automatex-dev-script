@@ -24,17 +24,32 @@ const middleware = async (req) => {
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ refreshToken: session.user.name }),
+            body: JSON.stringify({ refreshToken: session.name }),
           }
         );
         if (res.status === 200) {
           const user = await res.json();
-          if (user.currentRoles[0] !== "ADMIN") {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.accessToken}`,
+              },
+            }
+          );
+          if (response.status === 200) {
+            const user = await response.json();
+            if (user.currentRoles[0] !== "ADMIN") {
+              return NextResponse.redirect(url);
+            }
+          } else {
             return NextResponse.redirect(url);
           }
-        } else if (res.status === 401) {
+        } else {
           return NextResponse.redirect(url);
         }
+      } else {
+        return NextResponse.redirect(url);
       }
     } else {
       return NextResponse.redirect(url);
