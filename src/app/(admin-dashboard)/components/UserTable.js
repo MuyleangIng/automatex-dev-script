@@ -55,7 +55,7 @@ export default function UserTable({ role }) {
       data.filter(
         (user) =>
           user.currentRoles[0] === role &&
-          user.username.toLowerCase().includes(searchTerm.toLowerCase())
+          user.username.toLowerCase().startsWith(searchTerm.toLowerCase())
       )
     );
   };
