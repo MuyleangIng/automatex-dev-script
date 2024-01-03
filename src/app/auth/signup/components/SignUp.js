@@ -77,8 +77,8 @@ function SignUp(props) {
                         initialValues={{
                             username: '',
                             email: '',
-                            password: 'Admin123',
-                            confirmPassword: 'Admin123',
+                            password: '',
+                            confirmPassword: '',
                         }}
                         validationSchema={validationSchema}
                         onSubmit={async (values, { setSubmitting, resetForm }) => {
