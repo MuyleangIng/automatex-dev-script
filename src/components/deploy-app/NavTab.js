@@ -60,13 +60,13 @@ function NavTab(props) {
 
                             </Link>
                         </li>
-                        <li>
-                            <Link href={`/app/deploy-apps/${uuid}/access`}
-                                  className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("access") ? active : "")}>
-                                <TbLockAccess  className="w-5 h-5 mr-2"/>
-                                <span className={"hidden md:inline"}>Access</span>
-                            </Link>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <Link href={`/app/deploy-apps/${uuid}/access`}*/}
+                        {/*          className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("access") ? active : "")}>*/}
+                        {/*        <TbLockAccess  className="w-5 h-5 mr-2"/>*/}
+                        {/*        <span className={"hidden md:inline"}>Access</span>*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
                         <li>
                             <Link href={`/app/deploy-apps/${uuid}/report`}
                                   className={"inline-flex p-4 rounded-t-lg group text-base " + (paths.includes("report") ? active : "")}>

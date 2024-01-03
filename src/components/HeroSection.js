@@ -60,8 +60,8 @@ function HeroSection() {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 }
             }
         ]
@@ -96,7 +96,7 @@ function HeroSection() {
                         <div className="relative lg:w-1/2">
                             <Lottie
                                 animationData={Service}
-                                className="mx-auto w-44 md:w-48 lg:w-52 xl:w-7/12 md:flex"
+                                className="mx-auto w-48 md:w-52 lg:w-52 xl:w-7/12 md:flex"
                                 data-aos="fade-right"
                             />
                         </div>
@@ -109,7 +109,7 @@ function HeroSection() {
                 <span className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <h2 data-aos="zoom-in-up" className=" max-w-lg mb-6 text-lg xl:text-3xl font-extrabold text-cool-blue-100 dark:text-orange-100 sm:text-4xl md:mx-auto block whitespace-nowrap relative">
                         Explore The Benefit of The Features
-                        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 w-[30rem] rounded"></span>
+                        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 bg-cyan-300 h-1 xl:w-[30rem] rounded"></span>
                     </h2>
                     <p data-aos="zoom-in-left" className=" text-base text-gray-800 dark:text-gray-300 md:text-lg mb-14 mt-14f">
                         Unique and Powerful suit of software to run and entire,<br/> brought to you by a company with the
@@ -211,7 +211,7 @@ function HeroSection() {
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
                                 <h2 data-aos="flip-right"
-                                    className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                    className="max-w-lg text-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Full Service Deployment
                                 </h2>
                                 <p data-aos="fade-down-left"
@@ -256,7 +256,7 @@ function HeroSection() {
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
                                 <h2 data-aos="flip-right"
-                                    className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                    className="max-w-lg text-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Personal Cloud Storage
                                 </h2>
                                 <p data-aos="fade-down-left"
@@ -285,7 +285,7 @@ function HeroSection() {
                         <div
                             className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left text-black dark:text-gray-200">
                             <div className="max-w-xl mb-6">
-                                <h2 data-aos="flip-right" className="max-w-lg mb-6 sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
+                                <h2 data-aos="flip-right" className="max-w-lg mb-6 text-lg sm:text-2xl font-bold lg:text-xl text-cyan-500 sm:leading-none">
                                     Private Git Server
                                 </h2>
                                 <p data-aos="fade-down-left" className="text-base md:text-lg text-gray-800 dark:text-gray-300">

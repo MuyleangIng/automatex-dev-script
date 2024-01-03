@@ -540,7 +540,7 @@ function FeaturesAndServices() {
 
 
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 mt-0">
-                    <h2 className="max-w-lg mb-6 text-4xl font-bold text-gray-900 dark:text-white sm:text-4xl md:mx-auto block text-center whitespace-nowrap">
+                    <h2 className="max-w-lg mb-6 text-2xl xl:text-4xl font-bold text-gray-900 dark:text-white md:mx-auto block text-center whitespace-nowrap">
                         Our Deployment approach
                     </h2>
                     <h2 className="max-w-lg mb-6 text-4xl font-bold text-blue-900 sm:text-4xl md:mx-auto block whitespace-nowrap">
@@ -559,13 +559,13 @@ function FeaturesAndServices() {
 
                             <div >
 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" ><path d="M12,2a10.032,10.032,0,0,1,7.122,3H16a1,1,0,0,0-1,1h0a1,1,0,0,0,1,1h4.143A1.858,1.858,0,0,0,22,5.143V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V3.078A11.981,11.981,0,0,0,.05,10.9a1.007,1.007,0,0,0,1,1.1h0a.982.982,0,0,0,.989-.878A10.014,10.014,0,0,1,12,2Z" /><path d="M22.951,12a.982.982,0,0,0-.989.878A9.986,9.986,0,0,1,4.878,19H8a1,1,0,0,0,1-1H9a1,1,0,0,0-1-1H3.857A1.856,1.856,0,0,0,2,18.857V23a1,1,0,0,0,1,1H3a1,1,0,0,0,1-1V20.922A11.981,11.981,0,0,0,23.95,13.1a1.007,1.007,0,0,0-1-1.1Z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-cool-blue-300" ><path d="M12,2a10.032,10.032,0,0,1,7.122,3H16a1,1,0,0,0-1,1h0a1,1,0,0,0,1,1h4.143A1.858,1.858,0,0,0,22,5.143V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V3.078A11.981,11.981,0,0,0,.05,10.9a1.007,1.007,0,0,0,1,1.1h0a.982.982,0,0,0,.989-.878A10.014,10.014,0,0,1,12,2Z" /><path d="M22.951,12a.982.982,0,0,0-.989.878A9.986,9.986,0,0,1,4.878,19H8a1,1,0,0,0,1-1H9a1,1,0,0,0-1-1H3.857A1.856,1.856,0,0,0,2,18.857V23a1,1,0,0,0,1,1H3a1,1,0,0,0,1-1V20.922A11.981,11.981,0,0,0,23.95,13.1a1.007,1.007,0,0,0-1-1.1Z" /></svg>
 
                             </div>
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Automate your deployment process
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white font-normal">
                                         CI/CD pipeline is a set of automated steps that build, test, and deploy your product code.
                                     </p>
                                 </h6>
@@ -582,13 +582,13 @@ function FeaturesAndServices() {
 
                             <div >
 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" ><path d="M24,11V4.5c0-1.379-1.122-2.5-2.5-2.5h-3.293l-2-2h-3.707c-1.378,0-2.5,1.121-2.5,2.5v2.5H1V0H0V16.5c0,1.379,1.122,2.5,2.5,2.5h7.5v5h14v-6.5c0-1.379-1.122-2.5-2.5-2.5h-3.293l-2-2h-3.707c-1.378,0-2.5,1.121-2.5,2.5v2.5H2.5c-.827,0-1.5-.673-1.5-1.5V6H10v5h14ZM11,2.5c0-.827,.673-1.5,1.5-1.5h3.293l2,2h3.707c.827,0,1.5,.673,1.5,1.5v5.5H11V2.5Zm0,13c0-.827,.673-1.5,1.5-1.5h3.293l2,2h3.707c.827,0,1.5,.673,1.5,1.5v5.5H11v-7.5Z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-orange-100" ><path d="M24,11V4.5c0-1.379-1.122-2.5-2.5-2.5h-3.293l-2-2h-3.707c-1.378,0-2.5,1.121-2.5,2.5v2.5H1V0H0V16.5c0,1.379,1.122,2.5,2.5,2.5h7.5v5h14v-6.5c0-1.379-1.122-2.5-2.5-2.5h-3.293l-2-2h-3.707c-1.378,0-2.5,1.121-2.5,2.5v2.5H2.5c-.827,0-1.5-.673-1.5-1.5V6H10v5h14ZM11,2.5c0-.827,.673-1.5,1.5-1.5h3.293l2,2h3.707c.827,0,1.5,.673,1.5,1.5v5.5H11V2.5Zm0,13c0-.827,.673-1.5,1.5-1.5h3.293l2,2h3.707c.827,0,1.5,.673,1.5,1.5v5.5H11v-7.5Z" /></svg>
 
                             </div>
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Infrastructure as code (IaC)
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white font-normal">
                                         We use IaC to provision and manage all of our infrastructure. This allows us to automate the deployment and configuration of our infrastructure in a repeatable and consistent way.
                                     </p>
                                 </h6>
@@ -605,14 +605,14 @@ function FeaturesAndServices() {
 
                             <div >
                                 {/* <?xml version="1.0" encoding="UTF-8"?> */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" ><path d="m22,6h-8c-1.103,0-2,.897-2,2v16h12V8c0-1.103-.897-2-2-2Zm1,17h-10v-15c0-.551.448-1,1-1h8c.552,0,1,.449,1,1v15Zm-5-8c-1.654,0-3,1.346-3,3s1.346,3,3,3,3-1.346,3-3-1.346-3-3-3Zm0,5c-1.103,0-2-.897-2-2s.897-2,2-2,2,.897,2,2-.897,2-2,2Zm-1.5-8.5c0-.828.672-1.5,1.5-1.5s1.5.672,1.5,1.5-.672,1.5-1.5,1.5-1.5-.672-1.5-1.5ZM1,16h9v5h-5v-1h4v-3H0V2.5C0,1.122,1.121,0,2.5,0h16c1.379,0,2.5,1.122,2.5,2.5v1.5h-1v-1.5c0-.827-.673-1.5-1.5-1.5H2.5c-.827,0-1.5.673-1.5,1.5v13.5Z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-orange-100" ><path d="m22,6h-8c-1.103,0-2,.897-2,2v16h12V8c0-1.103-.897-2-2-2Zm1,17h-10v-15c0-.551.448-1,1-1h8c.552,0,1,.449,1,1v15Zm-5-8c-1.654,0-3,1.346-3,3s1.346,3,3,3,3-1.346,3-3-1.346-3-3-3Zm0,5c-1.103,0-2-.897-2-2s.897-2,2-2,2,.897,2,2-.897,2-2,2Zm-1.5-8.5c0-.828.672-1.5,1.5-1.5s1.5.672,1.5,1.5-.672,1.5-1.5,1.5-1.5-.672-1.5-1.5ZM1,16h9v5h-5v-1h4v-3H0V2.5C0,1.122,1.121,0,2.5,0h16c1.379,0,2.5,1.122,2.5,2.5v1.5h-1v-1.5c0-.827-.673-1.5-1.5-1.5H2.5c-.827,0-1.5.673-1.5,1.5v13.5Z" /></svg>
 
 
                             </div>
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Monitoring your deployment
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white  font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white  font-normal">
                                         It is important to monitor your deployments to ensure that they are successful and that your product is running as expected. You should monitor your application metrics, logs, and errors.
                                     </p>
                                 </h6>
@@ -629,7 +629,7 @@ function FeaturesAndServices() {
 
                             <div >
                                 {/* <?xml version="1.0" encoding="UTF-8"?> */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-orange-100" >
                                     <path d="m24,4v-1H0v1h1v16H0v1h24v-1h-1V4h1Zm-2,16H2V4h20v16Zm-8-2h-1V6h1v12Zm3,0h-1V6h1v12Zm3,0h-1V6h1v12Zm-9,0h-1V6h1v12Zm-3,0h-1V6h1v12Zm-4,0V6h1v12h-1Z" />
                                 </svg>
 
@@ -638,7 +638,7 @@ function FeaturesAndServices() {
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Containerization
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white  font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white  font-normal">
                                         This allows us to isolate our applications from each other and from the underlying infrastructure, making them more portable and scalable.
                                     </p>
                                 </h6>
@@ -654,14 +654,14 @@ function FeaturesAndServices() {
 
                             <div >
 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" ><path d="m20.5,0H3.5C1.57,0,0,1.57,0,3.5v13c0,1.93,1.57,3.5,3.5,3.5h3.605l3.898,3.284c.285.253.645.379,1.001.379.352,0,.702-.123.978-.368l3.985-3.295h3.532c1.93,0,3.5-1.57,3.5-3.5V3.5c0-1.93-1.57-3.5-3.5-3.5Zm2.5,16.5c0,1.378-1.121,2.5-2.5,2.5h-3.712c-.116,0-.229.041-.318.115l-4.138,3.421c-.189.168-.474.169-.674-.008l-4.048-3.41c-.09-.076-.204-.118-.322-.118h-3.788c-1.379,0-2.5-1.122-2.5-2.5V3.5c0-1.378,1.121-2.5,2.5-2.5h17c1.379,0,2.5,1.122,2.5,2.5v13ZM13.732,4.732l-6.707,6.707c-.651.651-1.025,1.554-1.025,2.475v1.586c0,.276.224.5.5.5h1.586c.936,0,1.814-.364,2.475-1.025l6.707-6.707c.473-.472.732-1.1.732-1.768s-.26-1.296-.732-1.768c-.975-.975-2.561-.975-3.535,0Zm2.828,2.828l-6.707,6.707c-.472.472-1.1.732-1.768.732h-1.086v-1.086c0-.658.267-1.302.732-1.768l6.707-6.707c.584-.585,1.537-.585,2.121,0,.283.283.439.66.439,1.061s-.156.777-.439,1.061Z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-orange-100" ><path d="m20.5,0H3.5C1.57,0,0,1.57,0,3.5v13c0,1.93,1.57,3.5,3.5,3.5h3.605l3.898,3.284c.285.253.645.379,1.001.379.352,0,.702-.123.978-.368l3.985-3.295h3.532c1.93,0,3.5-1.57,3.5-3.5V3.5c0-1.93-1.57-3.5-3.5-3.5Zm2.5,16.5c0,1.378-1.121,2.5-2.5,2.5h-3.712c-.116,0-.229.041-.318.115l-4.138,3.421c-.189.168-.474.169-.674-.008l-4.048-3.41c-.09-.076-.204-.118-.322-.118h-3.788c-1.379,0-2.5-1.122-2.5-2.5V3.5c0-1.378,1.121-2.5,2.5-2.5h17c1.379,0,2.5,1.122,2.5,2.5v13ZM13.732,4.732l-6.707,6.707c-.651.651-1.025,1.554-1.025,2.475v1.586c0,.276.224.5.5.5h1.586c.936,0,1.814-.364,2.475-1.025l6.707-6.707c.473-.472.732-1.1.732-1.768s-.26-1.296-.732-1.768c-.975-.975-2.561-.975-3.535,0Zm2.828,2.828l-6.707,6.707c-.472.472-1.1.732-1.768.732h-1.086v-1.086c0-.658.267-1.302.732-1.768l6.707-6.707c.584-.585,1.537-.585,2.121,0,.283.283.439.66.439,1.061s-.156.777-.439,1.061Z" /></svg>
 
 
                             </div>
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Code Reviews
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white  font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white  font-normal">
                                         Code reviews are a process in which software developers review each other is code. This is done to identify and fix bugs, improve code quality, and share knowledge.
                                     </p>
                                 </h6>
@@ -677,13 +677,13 @@ function FeaturesAndServices() {
                         <div className="flex items-center space-x-4 space-y-9">
 
                             <div >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="orange" className="w-12 h-12 text-orange-100" ><path d="M5,19h3v1h-3v-1Zm0,5H14v-1H5v1ZM14,15H5v1H14v-1Zm3.003-9.978C15.87,2.004,12.999,0,9.75,0,5.477,0,2,3.477,2,7.75c0,.763,.116,1.523,.345,2.267-1.476,1.032-2.345,2.681-2.345,4.483,0,2.132,1.222,3.98,3,4.893v-1.154c-1.205-.808-2-2.182-2-3.738,0-1.582,.822-3.021,2.199-3.847l.354-.212-.141-.388c-.273-.752-.412-1.527-.412-2.304,0-3.722,3.028-6.75,6.75-6.75,2.931,0,5.51,1.873,6.417,4.661l.11,.339,.355,.007c3.511,.071,6.367,2.984,6.367,6.493,0,1.826-.788,3.528-2,4.732v1.315c1.787-1.386,3-3.623,3-6.047,0-3.933-3.107-7.216-6.997-7.478Zm-1.003,10.978h3v-1h-3v1Zm-6,4h9v-1H10v1Zm6,4h3v-1h-3v1Z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" strokeWidth="0.5" stroke="#0197f6" className="w-12 h-12 text-orange-100" ><path d="M5,19h3v1h-3v-1Zm0,5H14v-1H5v1ZM14,15H5v1H14v-1Zm3.003-9.978C15.87,2.004,12.999,0,9.75,0,5.477,0,2,3.477,2,7.75c0,.763,.116,1.523,.345,2.267-1.476,1.032-2.345,2.681-2.345,4.483,0,2.132,1.222,3.98,3,4.893v-1.154c-1.205-.808-2-2.182-2-3.738,0-1.582,.822-3.021,2.199-3.847l.354-.212-.141-.388c-.273-.752-.412-1.527-.412-2.304,0-3.722,3.028-6.75,6.75-6.75,2.931,0,5.51,1.873,6.417,4.661l.11,.339,.355,.007c3.511,.071,6.367,2.984,6.367,6.493,0,1.826-.788,3.528-2,4.732v1.315c1.787-1.386,3-3.623,3-6.047,0-3.933-3.107-7.216-6.997-7.478Zm-1.003,10.978h3v-1h-3v1Zm-6,4h9v-1H10v1Zm6,4h3v-1h-3v1Z" /></svg>
 
                             </div>
 
                             <div>
                                 <h6 className="font-bold text-lg text-gray-900 dark:text-white">Use a cloud platform
-                                    <p className="mt-5 text-sm text-gray-900 dark:text-white font-normal">
+                                    <p className="mt-5 text-sm xl:text-lg text-gray-900 dark:text-white font-normal">
                                         Cloud platforms offer a number of benefits for product deployment, including scalability, elasticity, and reliability.
                                     </p>
                                 </h6>

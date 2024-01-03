@@ -113,7 +113,7 @@ function HandleNavbar() {
                         <div>
                             <Dropdown.Item
                                 onClick={handleSignOut}
-                                className=" focus:text-white focus:bg-red-500 dark:focus:bg-red-500 hidden lg:inline"
+                                className=" focus:text-white focus:bg-red-500 dark:focus:bg-red-500  lg:inline"
                             >
                                 Sign out
                             </Dropdown.Item>
@@ -128,8 +128,9 @@ function HandleNavbar() {
                 <Button size={"sm"}
                         className={`bg-cyan-500 justify-end ${pathname === '/app/dashboard' || status !== 'authenticated' ? 'hidden' : ''}`}
                         as={Link} href={"/app/dashboard"}>Dashboard</Button>
+                <Navbar.Toggle/>
             </div>
-            <Navbar.Toggle/>
+
             <Navbar.Collapse>
                 {!developerPath && (<>
                         <Navbar.Link

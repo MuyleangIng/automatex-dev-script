@@ -25,7 +25,7 @@ export default function StartBuildingSection() {
 
             </div>
             <div>
-                <p data-aos="fade-left" className=" px-0 text-base text-gray-500 dark:text-gray-300 text-center md:text-xl lg:px-24 mb-10">
+                <p data-aos="fade-left" className=" px-0 text-sm text-gray-500 dark:text-gray-300 text-center md:text-xl lg:px-24 mb-10">
                     Developing a superior runtime product that streamlines automation, enhances performance, and offers intuitive user experience.
                 </p>
             </div>
@@ -445,7 +445,7 @@ export default function StartBuildingSection() {
                     </div>
                 </div>
             </div>
-            <div className="bg-white dark:bg-gray-700">
+            <div className="bg-white dark:bg-gray-800">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path fill="#e09600" fillOpacity="1"
                           d="M0,224L48,240C96,256,192,288,288,277.3C384,267,480,213,576,176C672,139,768,117,864,128C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
@@ -490,7 +490,7 @@ export default function StartBuildingSection() {
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Discovery
                                 </div>
                                 <div
-                                    className="w-full wra dark:text-gray-300  opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                    className="w-full wra dark:text-gray-300  opacity-75 text-center text-violet-950 xl:text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     Gathering information and conducting research to gain a comprehensive understanding<br/> of project objectives and requirements.
                                 </div>
                             </div>
@@ -525,7 +525,7 @@ export default function StartBuildingSection() {
                                     className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Planning
                                 </div>
                                 <div
-                                    className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                                    className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 xl:text-lg font-bold font-['Satoshi'] leading-[30px]">
                                     Laying the foundation for successful software development includes defining project requirements, scope,<br/> and creating a clear implementation roadmap.
                                 </div>
                             </div>
@@ -560,7 +560,7 @@ export default function StartBuildingSection() {
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Development
                         </div>
                         <div
-                            className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                            className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 xl:text-lg font-bold font-['Satoshi'] leading-[30px]">
                             The actual creation and construction of the project takes place here<br/> through coding, building, and integration.
                         </div>
                     </div>
@@ -589,7 +589,7 @@ export default function StartBuildingSection() {
                             className="text-center text-amber-400 text-[40px] font-bold font-['Satoshi'] leading-[50px]">Implementation
                         </div>
                         <div
-                            className="w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 text-lg font-bold font-['Satoshi'] leading-[30px]">
+                            className="xl:w-full wra dark:text-gray-300   opacity-75 text-center text-violet-950 xl:text-lg font-bold font-['Satoshi'] leading-[30px]">
                             Putting the planned strategies into action, executing tasks,<br/> and deploying the project according to the defined specifications.
                         </div>
                     </div>
