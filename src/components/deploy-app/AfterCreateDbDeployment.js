@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Alert, Button, Select } from "flowbite-react";
+import {Alert, Button, Dropdown, Select} from "flowbite-react";
 import {HiInformationCircle,} from "react-icons/hi";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
@@ -97,9 +97,11 @@ function AfterCreateDbDeployment() {
                 </div>
             </div>
             <div className={"col-span-2 justify-self-end"}>
-                <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-db"}>
-                    <FaPlus className={"m-2"} /> <strong>New Deploy App</strong>
-                </Button>
+                <Dropdown className="hover-icon" label={<><FaPlus className="mr-2"/> New App</>}>
+                    <Dropdown.Item as={Link} href={"/app/deploy-apps"}>Frontend</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={"/app/deploy-apps"}>Backend</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={"/app/deploy-db/create-db"}>Database</Dropdown.Item>
+                </Dropdown>
             </div>
         </div>
 
@@ -114,7 +116,6 @@ function AfterCreateDbDeployment() {
                         </Alert>
                     </div>
                 )}
-                
             {data?.list?.map((item, index) => (<CardDeploymentDb key={index} deployDb={item}/>))}
         </div>
         )}

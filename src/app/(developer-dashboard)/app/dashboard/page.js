@@ -6,10 +6,10 @@ import {useLazyGetAllDeploymentAppsQuery} from "@/store/features/deploy-app/depl
 import HandleContent from "@/components/deploy-app/HandleContent";
 import DeploymentAppLoadingIndicator from "@/components/deploy-app/deploymentLoading/DeploymentAppLoadingIndicator";
 import HandlePagination from "@/components/deploy-app/HandlePagination";
-import {Button, Select} from "flowbite-react";
+import {Button, Dropdown, Select} from "flowbite-react";
 import {DeploymentTypes} from "@/lib/enumTypes";
 import Link from "next/link";
-import {FaPlus} from "react-icons/fa";
+import {FaPlus, FaUser} from "react-icons/fa";
 import AfterCreateDbDeployment from '@/components/deploy-app/AfterCreateDbDeployment';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
@@ -18,6 +18,7 @@ function Page() {
     const [fetchAllDeployment,{ data, error, isError, isLoading, isFetching}] = useLazyGetAllDeploymentAppsQuery({ preferCacheValue: true});
     const [search, setSearch] = useState("")
     const [filters, setFilters] = useState({page: 1, limit: 12, name: search})
+    const [isOpen, setIsOpen] = useState(false);
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -106,13 +107,16 @@ function Page() {
                                 </div>
                             </div>
                             <div className={"col-span-2 justify-self-end"}>
-                                <Button size={"xs"} type={"button"} as={Link} href={"/app/deploy-apps"}>
-                                    <FaPlus className={"m-2"}/> <strong>New Deploy App</strong>
-                                </Button>
+                                <Dropdown className="hover-icon" label={<><FaPlus className="mr-2"/> New App</>}>
+                                    <Dropdown.Item as={Link} href={"/app/deploy-apps"}>Frontend</Dropdown.Item>
+                                    <Dropdown.Item as={Link} href={"/app/deploy-apps"}>Backend</Dropdown.Item>
+                                    <Dropdown.Item as={Link} href={"/app/deploy-db/create-db"}>Database</Dropdown.Item>
+                                </Dropdown>
                             </div>
+
                         </div>
                         {/* End Search */}
-                        {isLoading || isFetching ? <DeploymentAppLoadingIndicator/> : <AfterCreateFrontendDeployment data={data}/>}
+                        {isLoading || isFetching ? <DeploymentAppLoadingIndicator/> : <AfterCreateFrontendDeployment data={data} isLoading={isLoading} isFetching={isFetching}/>}
                     </>
                     )}
             </div>

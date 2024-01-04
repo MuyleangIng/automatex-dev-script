@@ -56,9 +56,11 @@ export default function FormDB() {
                     buildDeploymentDatabase(res.uuid).unwrap();
                     toast.success("Insert! Successfully")
                     // resetForm()
+                    router.push(`/app/dashboard?appType=DATABASE`)
+
                 })
                 .catch((err) => {
-                    const errors = err.data.errors.reduce(
+                    const errors = err.data?.errors.reduce(
                         (obj, item) => Object.assign(obj, { [item.name]: item.message }), {});
                     formik.setErrors(errors)
                     setSubmitting(false)
