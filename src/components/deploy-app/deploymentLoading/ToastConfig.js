@@ -10,6 +10,7 @@ function ToastConfig(props) {
     return (
         <>
             <ToastContainer
+                position="bottom-right" // Set the position here
                 theme={theme.mode}
                 {...props}
             />

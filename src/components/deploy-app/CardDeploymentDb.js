@@ -1,5 +1,5 @@
 import React, { createElement, useState } from 'react';
-import { Button, Card, Dropdown, Modal, Tooltip } from "flowbite-react";
+import {Button, Card, Dropdown, Modal, Spinner, Tooltip} from "flowbite-react";
 import { FaLink, FaLock, FaRegUser } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { BsEthernet, BsFillDatabaseFill, BsThreeDots } from 'react-icons/bs';
@@ -14,10 +14,11 @@ import { RiDeleteBin3Fill } from 'react-icons/ri';
 import { TbSettingsBolt } from 'react-icons/tb';
 import {toast} from "react-toastify";
 import { GoProjectRoadmap } from 'react-icons/go';
+import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 
 
 
-function CardDeploymentDb({ deployDb, index, refetch }) {
+function CardDeploymentDb({ deployDb, index, fetchDb }) {
 
     const dispatch = useDispatch();
     const router = useRouter()
@@ -35,9 +36,8 @@ function CardDeploymentDb({ deployDb, index, refetch }) {
         setIsDeleting(true);
         try {
             await deleteDb(deployDb.uuid); // Pass the id of the deployment app to delete
-            console.log("Deleted Successfully"); // Show success message
-            router.replace(router.asPath); // Refresh the page
-            // refetch({ page: page, limit: perPage || 12 });// Fetch the latest data after deletion
+            fetchDb({ filters: { page: 1, limit: 12 }});
+            toast.success("Deleted Successfully")
         } catch (error) {
             toast.error("An error occurred while deleting the deployment app"); // Show error message
         }
@@ -46,7 +46,6 @@ function CardDeploymentDb({ deployDb, index, refetch }) {
     };
 
     return (<>
-
         <Modal show={showConfirmationModal}
             size="sm"
             popup
@@ -62,7 +61,12 @@ function CardDeploymentDb({ deployDb, index, refetch }) {
                     <p className="mb-5 text-gray-600">Are you sure you want to delete this app?</p>
                     <div className="flex justify-center gap-4">
                         <Button color="failure" onClick={handleDelete} disabled={isDeleting}>
-                            {isDeleting ? 'Deleting...' : 'Yes'}
+                            {isDeleting ?
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <Spinner color="warning" aria-label="Info Spinner" />
+                                    <span style={{ marginLeft: '10px' }}>Deleting</span>
+                                </div>
+                                : 'Yes'}
                         </Button>
                         <Button color="gray" onClick={() => setShowConfirmationModal(false)}>
                             Cancel

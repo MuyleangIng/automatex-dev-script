@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Card, Dropdown, Modal, Tooltip} from "flowbite-react";
+import {Button, Card, Dropdown, Modal, Spinner, Tooltip} from "flowbite-react";
 import {ImConnection} from "react-icons/im";
 import {
     HiArchive,
@@ -27,22 +27,21 @@ import {RiDeleteBin3Fill} from "react-icons/ri";
 import {useDeleteDeploymentAppMutation} from "@/store/features/deploy-app/deployAppApiSlice";
 import {toast} from "react-toastify";
 import {TbLockAccess, TbReport, TbSettingsBolt} from "react-icons/tb";
+import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 
-function CardDeploymentApp({deployApp, index, refetch}) {
+function CardDeploymentApp({deployApp, index}) {
     const dispatch = useDispatch();
     const router = useRouter()
     const [isDeleting, setIsDeleting] = useState(false);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteDeploymentApp, {isLoading: isError}] = useDeleteDeploymentAppMutation();
 
-    console.log("log",deployApp)
     //delete function
     const handleDelete = async () => {
         setIsDeleting(true);
         try {
-            await deleteDeploymentApp(deployApp.uuid); // Pass the id of the deployment app to delete
-            console.log("Deleted Successfully"); // Show success message
-            refetch({page: page, limit: perPage || 12});// Fetch the latest data after deletion
+            await deleteDeploymentApp(deployApp.uuid);
+            toast.success("Insert! Successfully")
         } catch (error) {
             toast.error("An error occurred while deleting the deployment app"); // Show error message
         }
@@ -54,10 +53,11 @@ function CardDeploymentApp({deployApp, index, refetch}) {
         dispatch(addDeploymentApp(deployApp))
         router.push(`/app/deploy-apps/${deployApp.uuid}/resource`)
     }
-    console.log(deployApp?.buildNumber);
-    console.log("domain", deployApp?.domains[0]);
+    // console.log(deployApp?.buildNumber);
+    // console.log("domain", deployApp?.domains[0]);
 
     return (<>
+
         <Modal show={showConfirmationModal}
                size="sm"
                popup
@@ -73,7 +73,12 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                     <p className="mb-5 text-gray-600">Are you sure you want to delete this app?</p>
                     <div className="flex justify-center gap-4">
                         <Button color="failure" onClick={handleDelete} disabled={isDeleting}>
-                            {isDeleting ? 'Deleting...' : 'Yes'}
+                            {isDeleting ?
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <Spinner color="warning" aria-label="Info Spinner" />
+                                    <span style={{ marginLeft: '10px' }}>Deleting</span>
+                                </div>
+                                : 'Yes'}
                         </Button>
                         <Button color="gray" onClick={() => setShowConfirmationModal(false)}>
                             Cancel
@@ -82,7 +87,6 @@ function CardDeploymentApp({deployApp, index, refetch}) {
                 </div>
             </Modal.Body>
         </Modal>
-
         <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-4">
             <div className="p-4 space-y-4">
                 <div className="flex justify-between items-center space-x-4">

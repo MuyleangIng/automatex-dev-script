@@ -12,6 +12,7 @@ import Link from "next/link";
 import {FaPlus, FaUser} from "react-icons/fa";
 import AfterCreateDbDeployment from '@/components/deploy-app/AfterCreateDbDeployment';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import ToastConfig from "@/components/deploy-app/deploymentLoading/ToastConfig";
 
 
 function Page() {
@@ -61,6 +62,8 @@ function Page() {
             isLoading={isLoading}
             customLoadingContent={<DeploymentAppLoadingIndicator/>}
         >
+            <ToastConfig/>
+
             <div className={"m-4 md:m-8 lg:m-12 xl:m-16 2xl:m-20 p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 border-2 border-gray-300 border-dashed rounded-lg dark:border-gray-700"}>
                 {data?.total === 0 && filters.name === '' ?( filters.appType == DeploymentTypes.db ? (<AfterCreateDbDeployment/>) :<SectionAppDeploy/> ): (
                     <>
