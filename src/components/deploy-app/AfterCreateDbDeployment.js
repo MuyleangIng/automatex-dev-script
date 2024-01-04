@@ -124,7 +124,7 @@ function AfterCreateDbDeployment() {
                     </div>
                 )}
                 
-            {data?.list?.map((item, index) => (<CardDeploymentDb key={index} deployDb={item} fetchDb={fetchDb} refet/>))}
+            {data?.list?.map((item, index) => (<CardDeploymentDb key={index} deployDb={item} fetchDb={fetchDb} />))}
         </div>
         )}
 
