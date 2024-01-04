@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import * as Yup from 'yup';
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Alert, Button, Card, Label} from "flowbite-react";
+import {Alert, Button, Card, Label, Spinner} from "flowbite-react";
 import HandleImage from "@/components/HandleImage";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
@@ -174,7 +174,10 @@ function Login() {
                                     </div>
                                 </div>
                                 <Button type="submit" disabled={isSubmitting}  className="w-full bg-orange-100">
-                                    {isSubmitting ? 'Signing In...' : 'Sign In'}
+                                    {isSubmitting ?  <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Spinner color="warning" aria-label="Info Spinner" />
+                                        <span style={{ marginLeft: '10px' }}>Sign In</span>
+                                    </div> : 'Sign In'}
                                 </Button>
                                 <div className="flex items-center">
                                     <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700"></div>

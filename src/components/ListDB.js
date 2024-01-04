@@ -24,8 +24,6 @@ function ListDB() {
                         Read and Write directly to your database and store from your project
                     </p>
                 </div>
-
-                
             </div>
 
             <HandleContent
