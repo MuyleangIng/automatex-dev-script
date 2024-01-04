@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {Alert, Button, Dropdown, Select} from "flowbite-react";
+import { Alert, Button, Dropdown, Select } from "flowbite-react";
 import {HiInformationCircle,} from "react-icons/hi";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
@@ -8,6 +8,9 @@ import { DeploymentTypes } from '@/lib/enumTypes';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useLazyGetAllDeploymentDatabasesQuery } from '@/store/features/deploy-db/deployDbApiSlice';
 import DeploymentAppLoadingIndicator from './deploymentLoading/DeploymentAppLoadingIndicator';
+import HandlePagination from './HandlePagination';
+import HandleContent from './HandleContent';
+import SectionAppDeploy from '../SectionAppDeploy';
 
 function AfterCreateDbDeployment() {
     const [fetchDb, { data,error, isLoading, isFetching}] = useLazyGetAllDeploymentDatabasesQuery({ skip: true })
@@ -53,7 +56,12 @@ function AfterCreateDbDeployment() {
         router.push(pathname + '?' + createQueryString('appType', e.target.value))
         setFilters({ ...filters, page: 1, appType: e.target.value })
     }
-    return (<>
+    return (
+    
+        <HandleContent 
+            error={error}
+            isLoading={isLoading}
+            customLoadingContent={<DeploymentAppLoadingIndicator/>}> 
         {/* Start Search */}
         <div className="grid grid-cols-6 gap-2">
             <div className={"col-span-4"}>
@@ -105,21 +113,34 @@ function AfterCreateDbDeployment() {
             </div>
         </div>
 
-        
         {/* <CardDeploymentDb/> */}
         {isLoading || isFetching ? <DeploymentAppLoadingIndicator/> : (
             <div className=" container grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-14">
                 {data?.total === 0 && (
                     <div className="col-span-1 sm:col-span-2 lg:col-span-4 ">
-                    <Alert color="failure" icon={HiInformationCircle}>
-                        <span className="font-medium">No Database with such name.</span> 
+                    <Alert color="gray" icon={HiInformationCircle}>
+                        <span className="font-medium">No Database.</span> 
                         </Alert>
                     </div>
                 )}
+                
             {data?.list?.map((item, index) => (<CardDeploymentDb key={index} deployDb={item}/>))}
         </div>
         )}
-    </>);
+
+        {/* <div className="my-5">
+                <HandlePagination
+                    data={data}
+                    isLoading={isLoading}
+                    onPageChange={onPageChange}
+                    defaultPerPage={12}
+                    selectBg={"dark:bg-gray-900"}
+                />
+            </div> */}
+        </HandleContent>
+    
+    );
+    
 }
 
 export default AfterCreateDbDeployment;
