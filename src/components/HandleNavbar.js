@@ -158,7 +158,7 @@ function HandleNavbar() {
                         <Navbar.Link
                             as={Link}
                             className={`font-normal text-lg ${pathname === '/about-us' ? 'text-cyan-500 dark:text-cyan-500' : 'text-gray-600'}`}
-                            href="about-us"
+                            href="/about-us"
                         >
                             About Us
                         </Navbar.Link>
