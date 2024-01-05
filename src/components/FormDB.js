@@ -47,7 +47,6 @@ export default function FormDB() {
         },
         validationSchema: validationSchema,
         onSubmit: (values, {setSubmitting, resetForm}) => {
-            // Handle form submission here
             console.log(values)
             createDeploymentDatabase(values).unwrap()
                 .then((res) => {
