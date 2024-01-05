@@ -7,7 +7,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
             keepUnusedDataFor: 5,
             providesTags: ["User"],
             onSuccess: (data) => {
-                console.log('getUser query succeeded:', data);
+                // console.log('getUser query succeeded:', data);
             },
         }),
         getRequestUserGoogleByEmail: builder.query({

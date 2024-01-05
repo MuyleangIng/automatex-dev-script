@@ -25,7 +25,7 @@ export default function Navbar() {
   const profileRef = useRef(null);
 
   useEffect(() => {
-    console.log(isProfileOpen);
+    // console.log(isProfileOpen);
     const handleClickOutsideOfSidebar = (event) => {
       if (
         sidebarRef.current &&

@@ -27,7 +27,7 @@ export default function AccountSetting() {
     const [updateUser, { data: updateData, error: updateError }] = useUpdateMutation();
     const { data: userData, isLoading: userIsLoading } = useGetUserQuery();
     const [uploadFile, { isLoading: upIsLoading, error: upError, data: upData }] = useUploadFileMutation();
-    console.log("user", userData);
+    // console.log("user", userData);
 
 
     const formik = useFormik({
@@ -42,11 +42,11 @@ export default function AccountSetting() {
         },
         validationSchema: validationSchema,
         onSubmit: (values, { setSubmitting }) => {
-            console.log(values);
+            // console.log(values);
             updateUser(values)
                 .unwrap()
                 .then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (selectedImage) {
                         uploadFile(selectedImage).unwrap();
                     }
@@ -141,7 +141,7 @@ export default function AccountSetting() {
                                 value={formik.values.lastName}
                                 onChange={(e) => {
                                     formik.handleChange(e);
-                                    console.log('Custom onChange for Last Name:', e.target.value);
+                                    // console.log('Custom onChange for Last Name:', e.target.value);
                                 }}
                                 onBlur={formik.handleBlur}
                                 // error={formik.touched.lastName && formik.errors.lastName}
@@ -157,7 +157,7 @@ export default function AccountSetting() {
                                 value={formik.values.firstName}
                                 onChange={(e) => {
                                     formik.handleChange(e);
-                                    console.log('Custom onChange for First Name:', e.target.value);
+                                    // console.log('Custom onChange for First Name:', e.target.value);
                                 }}
                                 onBlur={formik.handleBlur}
                                 error={formik.touched.firstName && formik.errors.firstName}
@@ -190,7 +190,7 @@ export default function AccountSetting() {
                                 value={formik.values.phone}
                                 onChange={(e) => {
                                     formik.handleChange(e);
-                                    console.log('Custom onChange for Phone Number:', e.target.value);
+                                    // console.log('Custom onChange for Phone Number:', e.target.value);
                                 }}
                                 onBlur={formik.handleBlur}
                                 error={formik.touched.phone && formik.errors.phone}
@@ -207,7 +207,7 @@ export default function AccountSetting() {
                                 value={formik.values.email}
                                 onChange={(e) => {
                                     formik.handleChange(e);
-                                    console.log('Custom onChange for Email:', e.target.value);
+                                    // console.log('Custom onChange for Email:', e.target.value);
                                 }}
                                 onBlur={formik.handleBlur}
                                 error={formik.touched.email && formik.errors.email}
@@ -223,7 +223,7 @@ export default function AccountSetting() {
                                 value={formik.values.username}
                                 onChange={(e) => {
                                     formik.handleChange(e);
-                                    console.log('Custom onChange for Username:', e.target.value);
+                                    // console.log('Custom onChange for Username:', e.target.value);
                                 }}
                                 onBlur={formik.handleBlur}
                                 error={formik.touched.username && formik.errors.username}

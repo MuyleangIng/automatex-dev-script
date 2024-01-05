@@ -27,7 +27,7 @@ function GitAutomateX({params}) {
     const error = useSelector(selectError)
     const gitProjects = useSelector(selectProjectById);
     const projectTree = useSelector(selectProjectTree);
-    console.log('gitProjects', gitProjects)
+    // console.log('gitProjects', gitProjects)
     useEffect(() => {
         dispatch(fetchGitProjectById(data?.repoId));
     }, [data?.repoId]);

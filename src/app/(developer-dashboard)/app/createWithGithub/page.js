@@ -40,7 +40,7 @@ export default function CreateWithGithubSection() {
         })
         .then(data => {
             // Handle the data (e.g., store it in state or perform other actions)
-            console.log('Received data:', data);
+            // console.log('Received data:', data);
         })
         .catch(error => {
             // Handle errors
@@ -52,12 +52,12 @@ export default function CreateWithGithubSection() {
 
     const fetchGitHubRepositories = async (code) => {
         try {
-            console.log('Code:', code);
+            // console.log('Code:', code);
 
             // Step 1: Get Access Token
             const authResponse = await axios.post('http://localhost:3002/api/github/token', { code });
             const newAccessToken = authResponse.data.access_token;
-            console.log('Access Token:', newAccessToken);
+            // console.log('Access Token:', newAccessToken);
 
             // Set the access token in state
             setAccessToken(newAccessToken);
@@ -70,7 +70,7 @@ export default function CreateWithGithubSection() {
             });
 
             // Log the Repo Response
-            console.log('Repo Response:', repoResponse.data);
+            // console.log('Repo Response:', repoResponse.data);
 
             // Set Repositories in your state or perform other actions with the data
             setRepositories(repoResponse.data);
@@ -112,7 +112,7 @@ export default function CreateWithGithubSection() {
                 const contents = response.data;
 
                 // Log all file names for debugging
-                console.log('File Names:', contents.map(file => file.name));
+                // console.log('File Names:', contents.map(file => file.name));
 
                 // Find the first JavaScript file, you can modify this based on your needs
                 const sourceFile = contents.find((file) => file.type === 'file' && file.name.endsWith('.js'));
@@ -157,7 +157,7 @@ export default function CreateWithGithubSection() {
 
     const handleImportClick = () => {
         if (selectedRepo) {
-            console.log(`Importing repository: ${selectedRepo.full_name}`);
+            // console.log(`Importing repository: ${selectedRepo.full_name}`);
         }
     };
 

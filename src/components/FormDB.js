@@ -47,10 +47,10 @@ export default function FormDB() {
         },
         validationSchema: validationSchema,
         onSubmit: (values, {setSubmitting, resetForm}) => {
-            console.log(values)
+            // console.log(values)
             createDeploymentDatabase(values).unwrap()
                 .then((res) => {
-                    console.log(res)
+                    // console.log(res)
                     setSubmitting(false)
                     buildDeploymentDatabase(res.uuid).unwrap();
                     toast.success("Insert! Successfully")
