@@ -1,7 +1,6 @@
 import './globals.css'
 import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
-import Script from "next/script";
 import React from "react";
 const satoshi = localFont({
     src: '../fonts/Satoshi-Medium.ttf',
@@ -19,7 +18,7 @@ export const metadata = {
         siteName: 'AUTOMATEX',
         images: [
             {
-                url: "/mainlogo.png",
+                url: "/public/mainlogo.png" ,
                 width: 800,
                 height: 600,
             },
