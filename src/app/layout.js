@@ -2,7 +2,6 @@ import './globals.css'
 import MainLayout from "@/components/MainLayout";
 import localFont from 'next/font/local'
 import React from "react";
-import Thumbnail from "/public/mainlogo.png";
 const satoshi = localFont({
     src: '../fonts/Satoshi-Medium.ttf',
     display: 'swap',
@@ -19,7 +18,7 @@ export const metadata = {
         siteName: 'AUTOMATEX',
         images: [
             {
-                url: {Thumbnail},
+                url: "/public/mainlogo.png" ,
                 width: 800,
                 height: 600,
             },
