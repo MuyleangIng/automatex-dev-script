@@ -1,21 +1,20 @@
 import HeroSection from "@/components/HeroSection";
 
-const desc = "Deploy your application with AutomateX.";
 export const metadata = {
-    title: 'Home - AUTOMATEX ',
-    description: desc,
-    locale: 'en-US',
-    category: 'AUTOMATEX',
-    type: 'website',
-    siteName: 'AUTOMATEX',
-    openGraph:{
+    // Assuming process.env.NEXT_PUBLIC_APP_URL is set to your full base URL, e.g., 'https://www.automatex.com'
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL),
+    manifest: process.env.NEXT_PUBLIC_APP_URL + "/icons/manifest.json",
+    title: {
+        template: '%s - AUTOMATEX'
+    },
+    openGraph: {
         title: 'Home - AUTOMATEX',
-        description: desc,
-        url: '/',
+        description: 'Deploy your application with AutomateX.',
+        url: process.env.NEXT_PUBLIC_APP_URL,
         siteName: 'AUTOMATEX',
         images: [
             {
-                url: "/mainlogo.png",
+                url: process.env.NEXT_PUBLIC_APP_URL + "/public/mainlogo.png",
                 width: 800,
                 height: 600,
             },
@@ -24,12 +23,12 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: {
-            template: 'Home - AUTOMATEX'
+            template: '%s - AUTOMATEX'
         },
-        description: desc,
-        creator: 'AUTOMATEX Team ',
+        description: 'Collect better data and make better decisions.',
+        creator: 'AUTOMATEX Team',
         images: [
-            "/mainlogo.png"
+            process.env.NEXT_PUBLIC_APP_URL + "/public/mainlogo.png" // Absolute URL
         ],
     }
 }
