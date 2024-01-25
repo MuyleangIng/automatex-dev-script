@@ -68,13 +68,12 @@ const AddEnvItem = (formik) => {
         })
     }
     return(
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-3 gap-5">
             <div className="col-span-1 grid grid-cols-1 gap-y-2">
                 <Label htmlFor="key">Key</Label>
                 <TextInput
                     id="key"
                     name="key"
-                    // placeholder="NEXT_PUBLIC_API_URL"
                     type="text"
                     onChange={(e) => setEnv({...env, key: e.target.value})}
                     value={env.key}
@@ -90,7 +89,7 @@ const AddEnvItem = (formik) => {
                     value={env.value}
                 />
             </div>
-            <div className="col-span-1 flex flex-row gap-6">
+            <div className="col-span-1 gap-6">
                 <Button disabled={env.value==='' || env.key===''} onClick={handleAddEnv}  type="button" color="gray" className="h-10 mt-8 ">
                     <FaRegSquarePlus className="h-4 w-4"/>
                 </Button>
