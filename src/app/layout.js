@@ -32,7 +32,7 @@ export const metadata = {
         description: 'Collect better data and make better decisions.',
         creator: 'AUTOMATEX Team ',
         images: [
-            "/mainlogo.png"
+            "/public/mainlogo.png"
         ],
     }
 }
