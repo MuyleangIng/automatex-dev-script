@@ -8,6 +8,8 @@ const satoshi = localFont({
 })
 
 export const metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL),
+    manifest: process.env.NEXT_PUBLIC_APP_URL+"/icons/manifest.json",
     title: {
         template: '%s - AUTOMATEX'
     },
